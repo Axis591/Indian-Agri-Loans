@@ -1,9 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { Script } from 'node:vm';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const readJSON = (name) => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
+const readText = (name) => fs.readFileSync(path.join(root, name), 'utf8');
+const readJSON = (name) => JSON.parse(readText(name));
 const errors = [];
 const checks = [];
 const check = (condition, message) => {
@@ -99,6 +101,22 @@ for (const state of stateNames) {
   }
 }
 check(errors.length === 0, errors.join('; ') || 'State, portal, RRB and coverage registers reconcile.');
+
+
+// Browser-app syntax and page-navigation contract.
+let appSyntaxValid = true;
+try { new Script(readText('app.js'), { filename: 'app.js' }); }
+catch (error) { appSyntaxValid = false; errors.push(`app.js syntax error: ${error.message}`); }
+check(appSyntaxValid, 'app.js parses successfully under Node.js.');
+const html = readText('index.html');
+const navViews = [...html.matchAll(/data-view="([^"]+)"/g)].map((m) => m[1]);
+const pageViews = [...html.matchAll(/<section id="view-([^"]+)"/g)].map((m) => m[1]);
+const htmlIds = [...html.matchAll(/\\sid="([^"]+)"/g)].map((m) => m[1]);
+check(unique(navViews) && unique(pageViews) && navViews.length === pageViews.length && navViews.every((view) => pageViews.includes(view)), 'Every navigation item maps to exactly one page section.');
+check(unique(htmlIds), 'HTML IDs are unique.');
+check(['view-assistant','view-directory','view-ngo','view-market','view-coverage'].every((id) => html.includes(`id="${id}"`)), 'All V2.5 pages are present in the public interface.');
+check(html.includes('id="directory-type"') && html.includes('value="pension"'), 'Directory includes the pension/social-security support filter.');
+check(html.includes('https://indian-agri-loans.pages.dev/'), 'Public canonical host remains the Cloudflare Pages URL.');
 
 const extensionRecords = schemes.filter((x) => x.programmeStatus === 'extension_not_verified');
 check(extensionRecords.length === 2 && extensionRecords.every((x) => x.matchRules.excludeFromAssistant === true), 'Legacy extension-unverified records must remain excluded from eligibility matching.');
