@@ -2,7 +2,7 @@
 
 A static, GitHub Pages-ready directory for discovering farmer grants, subsidies, crop insurance, cooperative loans, private-bank finance and market-access resources across India.
 
-> **Repository slug:** `Indian-Agri-Market-and-Loans` (GitHub repository names cannot contain spaces). The product title shown in the interface remains **Indian Agri Market and Loans**.
+> **Repository slug:** `Indian-Agri-Loans` (GitHub repository names cannot contain spaces). The product title shown in the interface remains **Indian Agri Market and Loans**.
 
 ## Current release status
 
@@ -38,31 +38,19 @@ Open `http://localhost:8000` from this folder.
 
 ## Publish to GitHub Pages
 
-1. Create a new repository under your GitHub account. Use the repository name `Indian-Agri-Market-and-Loans`; GitHub does not allow spaces in repository slugs. The application title remains **Indian Agri Market and Loans**.
-2. From this folder, use the GitHub CLI (replace `Axis591` if publishing under a different account). The command asks you to choose the repository visibility if your CLI is not configured with a default:
+The repository is already created and the static-site workflow is included at `.github/workflows/pages.yml`.
 
-```bash
-gh auth login
-git init
-git add .
-git commit -m "Initial Indian Agri Market and Loans dashboard"
-git branch -M main
-gh repo create Axis591/Indian-Agri-Market-and-Loans --source=. --remote=origin --push
-```
+1. Open this repository on GitHub: https://github.com/Axis591/Indian-Agri-Loans
+2. Go to **Settings → Pages**.
+3. Under **Build and deployment**, choose **GitHub Actions** as the source.
+4. Open the **Actions** tab and select **Deploy to GitHub Pages**. If the workflow has not started automatically, choose **Run workflow**.
+5. Wait for the workflow to finish with a green check. Then return to **Settings → Pages**; GitHub displays the live website URL there.
 
-Alternatively, create the empty repository at https://github.com/new, then push with:
-
-```bash
-git remote add origin https://github.com/YOUR-USERNAME/Indian-Agri-Market-and-Loans.git
-git push -u origin main
-```
-
-3. In GitHub, open **Settings → Pages** and choose **GitHub Actions** as the build and deployment source. The included `.github/workflows/pages.yml` deploys the static site after a push to `main`.
-4. After the first successful workflow, GitHub Pages displays the public website URL in Settings → Pages.
+Every push to `main` will trigger a new deployment.
 
 ## Data model
 
-Each record in `data/schemes.json` contains:
+Each record in `schemes.json` contains:
 
 - `id`, `name`, `type`, `category`, `providerKinds`
 - `scope`: `national`, `state`, `district` or `local`
@@ -75,7 +63,7 @@ A record should not be added as `verified` without a direct official source, the
 
 ## District directory
 
-The district selector attempts to load `CodingMation/indian-states-districts` JSON at runtime. This is a community dataset and must be checked against the Government of India's Local Government Directory (LGD) before district boundary changes or newly created districts are considered authoritative. If the remote list cannot be reached, the app falls back to the 36-State/UT list and the West Bengal district set.
+The district selector attempts to load `CodingMation/indian-states-districts` JSON at runtime. A complete local fallback is also bundled in `geography-fallback.json` (36 States/UTs and 779 district entries in the bundled snapshot). This is a community dataset, not an official government source; verify administrative changes against the Government of India's Local Government Directory (LGD).
 
 Official LGD catalogue: https://data.gov.in/catalog/local-government-directory-lgd
 
