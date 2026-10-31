@@ -36,10 +36,10 @@ export async function onRequestGet({ request, env }) {
   upstream.searchParams.set("format", "json");
   upstream.searchParams.set("limit", String(limit));
   upstream.searchParams.set("offset", "0");
-  upstream.searchParams.set("fields", "state,district,market,commodity,variety,grade,arrival_date,min_price,max_price,modal_price");
-  if (state) upstream.searchParams.set("filters[state]", state);
-  if (district) upstream.searchParams.set("filters[district]", district);
-  if (commodity) upstream.searchParams.set("filters[commodity]", commodity);
+  upstream.searchParams.set("fields", "State,District,Market,Commodity,Variety,Grade,Arrival_Date,Min_Price,Max_Price,Modal_Price");
+  if (state) upstream.searchParams.set("filters[State]", state);
+  if (district) upstream.searchParams.set("filters[District]", district);
+  if (commodity) upstream.searchParams.set("filters[Commodity]", commodity);
 
   try {
     const response = await fetch(upstream.toString(), {
