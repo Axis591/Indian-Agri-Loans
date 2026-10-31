@@ -49,7 +49,44 @@
       "tenant farmer",
       "sharecropper",
       "farm credit"
-    ]
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied",
+        "fpo"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "machinery",
+        "irrigation",
+        "storage",
+        "processing",
+        "allied",
+        "agri-enterprise"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "This bank catalogue includes several products; choose the one matching your activity",
+        "Branch serviceability, borrower type, current APR, fees and security are assessed by the bank"
+      ]
+    }
   },
   {
     "id": "bob-kcc",
@@ -99,7 +136,44 @@
       "bkcc",
       "kcc",
       "public bank"
-    ]
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied",
+        "fpo"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "machinery",
+        "irrigation",
+        "storage",
+        "processing",
+        "allied",
+        "agri-enterprise"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "This bank catalogue includes several products; choose the one matching your activity",
+        "Branch serviceability, borrower type, current APR, fees and security are assessed by the bank"
+      ]
+    }
   },
   {
     "id": "canara-agri",
@@ -156,7 +230,44 @@
       "machinery",
       "cold storage",
       "dairy"
-    ]
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied",
+        "fpo"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "machinery",
+        "irrigation",
+        "storage",
+        "processing",
+        "allied",
+        "agri-enterprise"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "This bank catalogue includes several products; choose the one matching your activity",
+        "Branch serviceability, borrower type, current APR, fees and security are assessed by the bank"
+      ]
+    }
   },
   {
     "id": "pnb-agri",
@@ -208,7 +319,44 @@
       "horticulture",
       "kcc",
       "fpo"
-    ]
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied",
+        "fpo"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "machinery",
+        "irrigation",
+        "storage",
+        "processing",
+        "allied",
+        "agri-enterprise"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "This bank catalogue includes several products; choose the one matching your activity",
+        "Branch serviceability, borrower type, current APR, fees and security are assessed by the bank"
+      ]
+    }
   },
   {
     "id": "boi-agri",
@@ -261,7 +409,44 @@
       "tractor",
       "fpo",
       "warehouse"
-    ]
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied",
+        "fpo"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "machinery",
+        "irrigation",
+        "storage",
+        "processing",
+        "allied",
+        "agri-enterprise"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "This bank catalogue includes several products; choose the one matching your activity",
+        "Branch serviceability, borrower type, current APR, fees and security are assessed by the bank"
+      ]
+    }
   },
   {
     "id": "bom-agri",
@@ -322,7 +507,44 @@
       "gold loan",
       "irrigation",
       "horticulture"
-    ]
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied",
+        "fpo"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "machinery",
+        "irrigation",
+        "storage",
+        "processing",
+        "allied",
+        "agri-enterprise"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "This bank catalogue includes several products; choose the one matching your activity",
+        "Branch serviceability, borrower type, current APR, fees and security are assessed by the bank"
+      ]
+    }
   },
   {
     "id": "indian-bank-kcc",
@@ -377,7 +599,44 @@
       "digital",
       "tenant",
       "sharecropper"
-    ]
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied",
+        "fpo"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "machinery",
+        "irrigation",
+        "storage",
+        "processing",
+        "allied",
+        "agri-enterprise"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "This bank catalogue includes several products; choose the one matching your activity",
+        "Branch serviceability, borrower type, current APR, fees and security are assessed by the bank"
+      ]
+    }
   },
   {
     "id": "uco-agri",
@@ -431,7 +690,44 @@
       "kcc",
       "kisan tatkal",
       "emergency farm loan"
-    ]
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied",
+        "fpo"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "machinery",
+        "irrigation",
+        "storage",
+        "processing",
+        "allied",
+        "agri-enterprise"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "This bank catalogue includes several products; choose the one matching your activity",
+        "Branch serviceability, borrower type, current APR, fees and security are assessed by the bank"
+      ]
+    }
   },
   {
     "id": "hdfc-rural",
@@ -483,7 +779,36 @@
       "horticulture",
       "gold-backed agri loan",
       "private bank"
-    ]
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "allied",
+        "entrepreneur"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "poultry",
+        "fisheries",
+        "horticulture",
+        "machinery",
+        "irrigation",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Choose the exact HDFC product (tractor, horticulture or gold-backed agri finance)",
+        "Branch serviceability, current APR, fees, security and margin must be confirmed"
+      ]
+    }
   },
   {
     "id": "icici-farmer",
@@ -536,7 +861,33 @@
       "overdraft",
       "cattle",
       "irrigation"
-    ]
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "machinery",
+        "irrigation",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Choose the exact Farmer Finance / KCC / overdraft / term product",
+        "Branch serviceability and current APR/fees/security must be confirmed"
+      ]
+    }
   },
   {
     "id": "axis-farmer",
@@ -587,7 +938,30 @@
       "dairy loan",
       "pm kusum",
       "farm development"
-    ]
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "allied",
+        "entrepreneur"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant"
+      ],
+      "activities": [
+        "dairy",
+        "irrigation",
+        "agri-enterprise"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Dairy, farm-development and PM-KUSUM products have different eligibility and project rules",
+        "Check current scheme linkage, district coverage, APR, fees and sanction conditions"
+      ]
+    }
   },
   {
     "id": "ujjivan-kpc",
@@ -638,7 +1012,33 @@
       "kisan pragati card",
       "crop loan",
       "poultry"
-    ]
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "poultry",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Confirm Ujjivan's current operating branch/serviceability in the selected district",
+        "Get a product-level sanction quote and Key Fact Statement"
+      ]
+    }
   },
   {
     "id": "esaf-fig",
@@ -690,7 +1090,35 @@
       "tenant farmer",
       "sharecropper",
       "small finance bank"
-    ]
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "poultry",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "FIG/group conditions, family-member restrictions and activity proof apply",
+        "Confirm current rate, fees, tenure and local operating presence"
+      ]
+    }
   },
   {
     "id": "mahindra-tractor",
@@ -740,7 +1168,28 @@
       "nbfc",
       "tractor loan",
       "farm machinery"
-    ]
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "entrepreneur"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant"
+      ],
+      "activities": [
+        "machinery"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Tractor purchase only; not a general crop working-capital loan",
+        "Check lender/dealer serviceability in the selected district and written APR/fees"
+      ]
+    }
   },
   {
     "id": "samunnati-fpo",
@@ -798,7 +1247,29 @@
       "agri enterprise",
       "working capital",
       "farmer collective"
-    ]
+    ],
+    "matchRules": {
+      "profiles": [
+        "fpo",
+        "entrepreneur"
+      ],
+      "landStatus": [
+        "group",
+        "owner"
+      ],
+      "activities": [
+        "storage",
+        "processing",
+        "agri-enterprise"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Applicant must be an eligible FPO/FPC, collective or agri-enterprise, not an individual crop-loan applicant",
+        "Project, cash flow, legal-entity and lender underwriting requirements apply"
+      ]
+    }
   },
   {
     "id": "rrb-andhra-pradesh",
@@ -866,7 +1337,38 @@
       "andhra pradesh",
       "union bank of india"
     ],
-    "sponsorBank": "Union Bank of India"
+    "sponsorBank": "Union Bank of India",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Check the RRB's branch/service area in the selected district",
+        "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
+      ]
+    }
   },
   {
     "id": "rrb-arunachal-pradesh",
@@ -934,7 +1436,38 @@
       "arunachal pradesh",
       "state bank of india"
     ],
-    "sponsorBank": "State Bank of India"
+    "sponsorBank": "State Bank of India",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Check the RRB's branch/service area in the selected district",
+        "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
+      ]
+    }
   },
   {
     "id": "rrb-assam",
@@ -1002,7 +1535,38 @@
       "assam",
       "punjab national bank"
     ],
-    "sponsorBank": "Punjab National Bank"
+    "sponsorBank": "Punjab National Bank",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Check the RRB's branch/service area in the selected district",
+        "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
+      ]
+    }
   },
   {
     "id": "rrb-bihar",
@@ -1070,7 +1634,38 @@
       "bihar",
       "punjab national bank"
     ],
-    "sponsorBank": "Punjab National Bank"
+    "sponsorBank": "Punjab National Bank",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Check the RRB's branch/service area in the selected district",
+        "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
+      ]
+    }
   },
   {
     "id": "rrb-chhattisgarh",
@@ -1138,7 +1733,38 @@
       "chhattisgarh",
       "state bank of india"
     ],
-    "sponsorBank": "State Bank of India"
+    "sponsorBank": "State Bank of India",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Check the RRB's branch/service area in the selected district",
+        "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
+      ]
+    }
   },
   {
     "id": "rrb-gujarat",
@@ -1206,7 +1832,38 @@
       "gujarat",
       "bank of baroda"
     ],
-    "sponsorBank": "Bank of Baroda"
+    "sponsorBank": "Bank of Baroda",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Check the RRB's branch/service area in the selected district",
+        "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
+      ]
+    }
   },
   {
     "id": "rrb-haryana",
@@ -1274,7 +1931,38 @@
       "haryana",
       "punjab national bank"
     ],
-    "sponsorBank": "Punjab National Bank"
+    "sponsorBank": "Punjab National Bank",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Check the RRB's branch/service area in the selected district",
+        "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
+      ]
+    }
   },
   {
     "id": "rrb-himachal-pradesh",
@@ -1342,7 +2030,38 @@
       "himachal pradesh",
       "punjab national bank"
     ],
-    "sponsorBank": "Punjab National Bank"
+    "sponsorBank": "Punjab National Bank",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Check the RRB's branch/service area in the selected district",
+        "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
+      ]
+    }
   },
   {
     "id": "rrb-jammu-and-kashmir",
@@ -1410,7 +2129,38 @@
       "jammu and kashmir",
       "jammu & kashmir bank"
     ],
-    "sponsorBank": "Jammu & Kashmir Bank"
+    "sponsorBank": "Jammu & Kashmir Bank",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Check the RRB's branch/service area in the selected district",
+        "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
+      ]
+    }
   },
   {
     "id": "rrb-jharkhand",
@@ -1478,7 +2228,38 @@
       "jharkhand",
       "state bank of india"
     ],
-    "sponsorBank": "State Bank of India"
+    "sponsorBank": "State Bank of India",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Check the RRB's branch/service area in the selected district",
+        "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
+      ]
+    }
   },
   {
     "id": "rrb-karnataka",
@@ -1546,7 +2327,38 @@
       "karnataka",
       "canara bank"
     ],
-    "sponsorBank": "Canara Bank"
+    "sponsorBank": "Canara Bank",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Check the RRB's branch/service area in the selected district",
+        "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
+      ]
+    }
   },
   {
     "id": "rrb-kerala",
@@ -1614,7 +2426,38 @@
       "kerala",
       "canara bank"
     ],
-    "sponsorBank": "Canara Bank"
+    "sponsorBank": "Canara Bank",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Check the RRB's branch/service area in the selected district",
+        "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
+      ]
+    }
   },
   {
     "id": "rrb-madhya-pradesh",
@@ -1682,7 +2525,38 @@
       "madhya pradesh",
       "bank of india"
     ],
-    "sponsorBank": "Bank of India"
+    "sponsorBank": "Bank of India",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Check the RRB's branch/service area in the selected district",
+        "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
+      ]
+    }
   },
   {
     "id": "rrb-maharashtra",
@@ -1750,7 +2624,38 @@
       "maharashtra",
       "bank of maharashtra"
     ],
-    "sponsorBank": "Bank of Maharashtra"
+    "sponsorBank": "Bank of Maharashtra",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Check the RRB's branch/service area in the selected district",
+        "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
+      ]
+    }
   },
   {
     "id": "rrb-manipur",
@@ -1818,7 +2723,38 @@
       "manipur",
       "punjab national bank"
     ],
-    "sponsorBank": "Punjab National Bank"
+    "sponsorBank": "Punjab National Bank",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Check the RRB's branch/service area in the selected district",
+        "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
+      ]
+    }
   },
   {
     "id": "rrb-meghalaya",
@@ -1886,7 +2822,38 @@
       "meghalaya",
       "state bank of india"
     ],
-    "sponsorBank": "State Bank of India"
+    "sponsorBank": "State Bank of India",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Check the RRB's branch/service area in the selected district",
+        "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
+      ]
+    }
   },
   {
     "id": "rrb-mizoram",
@@ -1954,7 +2921,38 @@
       "mizoram",
       "state bank of india"
     ],
-    "sponsorBank": "State Bank of India"
+    "sponsorBank": "State Bank of India",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Check the RRB's branch/service area in the selected district",
+        "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
+      ]
+    }
   },
   {
     "id": "rrb-nagaland",
@@ -2022,7 +3020,38 @@
       "nagaland",
       "state bank of india"
     ],
-    "sponsorBank": "State Bank of India"
+    "sponsorBank": "State Bank of India",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Check the RRB's branch/service area in the selected district",
+        "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
+      ]
+    }
   },
   {
     "id": "rrb-odisha",
@@ -2090,7 +3119,38 @@
       "odisha",
       "indian overseas bank"
     ],
-    "sponsorBank": "Indian Overseas Bank"
+    "sponsorBank": "Indian Overseas Bank",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Check the RRB's branch/service area in the selected district",
+        "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
+      ]
+    }
   },
   {
     "id": "rrb-puducherry",
@@ -2158,7 +3218,38 @@
       "puducherry",
       "indian bank"
     ],
-    "sponsorBank": "Indian Bank"
+    "sponsorBank": "Indian Bank",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Check the RRB's branch/service area in the selected district",
+        "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
+      ]
+    }
   },
   {
     "id": "rrb-punjab",
@@ -2226,7 +3317,38 @@
       "punjab",
       "punjab national bank"
     ],
-    "sponsorBank": "Punjab National Bank"
+    "sponsorBank": "Punjab National Bank",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Check the RRB's branch/service area in the selected district",
+        "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
+      ]
+    }
   },
   {
     "id": "rrb-rajasthan",
@@ -2294,7 +3416,38 @@
       "rajasthan",
       "state bank of india"
     ],
-    "sponsorBank": "State Bank of India"
+    "sponsorBank": "State Bank of India",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Check the RRB's branch/service area in the selected district",
+        "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
+      ]
+    }
   },
   {
     "id": "rrb-tamil-nadu",
@@ -2362,7 +3515,38 @@
       "tamil nadu",
       "indian bank"
     ],
-    "sponsorBank": "Indian Bank"
+    "sponsorBank": "Indian Bank",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Check the RRB's branch/service area in the selected district",
+        "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
+      ]
+    }
   },
   {
     "id": "rrb-telangana",
@@ -2430,7 +3614,38 @@
       "telangana",
       "state bank of india"
     ],
-    "sponsorBank": "State Bank of India"
+    "sponsorBank": "State Bank of India",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Check the RRB's branch/service area in the selected district",
+        "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
+      ]
+    }
   },
   {
     "id": "rrb-tripura",
@@ -2498,7 +3713,38 @@
       "tripura",
       "punjab national bank"
     ],
-    "sponsorBank": "Punjab National Bank"
+    "sponsorBank": "Punjab National Bank",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Check the RRB's branch/service area in the selected district",
+        "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
+      ]
+    }
   },
   {
     "id": "rrb-uttar-pradesh",
@@ -2566,7 +3812,38 @@
       "uttar pradesh",
       "bank of baroda"
     ],
-    "sponsorBank": "Bank of Baroda"
+    "sponsorBank": "Bank of Baroda",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Check the RRB's branch/service area in the selected district",
+        "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
+      ]
+    }
   },
   {
     "id": "rrb-uttarakhand",
@@ -2634,7 +3911,38 @@
       "uttarakhand",
       "state bank of india"
     ],
-    "sponsorBank": "State Bank of India"
+    "sponsorBank": "State Bank of India",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Check the RRB's branch/service area in the selected district",
+        "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
+      ]
+    }
   },
   {
     "id": "rrb-west-bengal",
@@ -2706,7 +4014,38 @@
       "west bengal",
       "punjab national bank"
     ],
-    "sponsorBank": "Punjab National Bank"
+    "sponsorBank": "Punjab National Bank",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Check the RRB's branch/service area in the selected district",
+        "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
+      ]
+    }
   },
   {
     "id": "cooperative-kcc-national",
@@ -2768,7 +4107,39 @@
       "kcc",
       "crop loan",
       "stccs"
-    ]
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "fpo",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Confirm the actual PACS/DCCB and membership/service area",
+        "Get the current Scale of Finance, fees, interest and repayment dates in writing"
+      ]
+    }
   },
   {
     "id": "wb-cooperative-kcc",
@@ -2832,7 +4203,39 @@
       "dccb",
       "kcc",
       "crop loan"
-    ]
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "fpo",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Confirm the actual PACS/DCCB and membership/service area",
+        "Get the current Scale of Finance, fees, interest and repayment dates in writing"
+      ]
+    }
   },
   {
     "id": "satin-igloan",
@@ -2894,6 +4297,34 @@
       "agriculture",
       "jlg",
       "women borrower"
-    ]
+    ],
+    "matchRules": {
+      "profiles": [
+        "women_shg",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "poultry",
+        "fisheries",
+        "allied",
+        "agri-enterprise"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Product is JLG microcredit for eligible women borrowers; check the current group/household criteria",
+        "Compare the published pricing with KCC/cooperative credit and obtain borrower-level KFS"
+      ]
+    }
   }
 ]
