@@ -169,7 +169,7 @@ function lenderCard(l){
   const amount=escapeHtml(l.amount||'Not published — confirm with lender');
   const price=escapeHtml(l.rate||'Rate not published on linked page');
   const cats=(l.providerKinds||[]).map(x=>providerLabel([x])).join(' · ');
-  return '<article class="lender-card"><div class="card-category"><span class="pill">'+cats+'</span><span class="pill">'+escapeHtml(l.scopeLabel||'PAN INDIA')+'</span></div><h4>'+escapeHtml(l.name)+'</h4><div class="lender-product">'+escapeHtml(l.product||'Agriculture finance')+'</div>'+(l.sponsorBank?'<div class="lender-sponsor">Sponsor bank: '+escapeHtml(l.sponsorBank)+'</div>':'')+'<p>'+escapeHtml(l.summary)+'</p><div class="lender-facts"><div class="lender-fact"><small>AMOUNT / LIMIT</small><b>'+amount+'</b></div><div class="lender-fact"><small>INTEREST / PRICING</small><b>'+price+'</b></div><div class="lender-fact"><small>ELIGIBLE BORROWER</small><b>'+escapeHtml(l.borrower||'Subject to product criteria')+'</b></div><div class="lender-fact"><small>AVAILABILITY</small><b>'+escapeHtml(l.availability||'Branch and appraisal dependent')+'</b></div></div><div class="lender-footer"><small>'+escapeHtml(l.reviewNote||'Check the product page for current terms.')+'</small><div class="lender-buttons"><button class="details-btn" data-lender-details="'+escapeHtml(l.id)+'">Process & documents</button><a class="apply-btn" href="'+escapeHtml(l.applyUrl||l.sourceUrl)+'" target="_blank" rel="noopener noreferrer">'+escapeHtml(l.applyLabel||'Apply / enquire')+' ↗</a></div></div></article>';
+  return '<article class="lender-card"><div class="card-category"><span class="pill">'+cats+'</span><span class="pill">'+escapeHtml(l.scopeLabel||'PAN INDIA')+'</span></div><h4>'+escapeHtml(l.name)+'</h4><div class="lender-product">'+escapeHtml(l.product||'Agriculture finance')+'</div>'+(l.sponsorBank?'<div class="lender-sponsor">Sponsor bank: '+escapeHtml(l.sponsorBank)+'</div>':'')+'<p>'+escapeHtml(l.summary)+'</p>'+(l.matchRules?.mustVerify?.length?'<div class="lender-match-note">Check: '+escapeHtml(l.matchRules.mustVerify[0])+'</div>':'')+'<div class="lender-facts"><div class="lender-fact"><small>AMOUNT / LIMIT</small><b>'+amount+'</b></div><div class="lender-fact"><small>INTEREST / PRICING</small><b>'+price+'</b></div><div class="lender-fact"><small>ELIGIBLE BORROWER</small><b>'+escapeHtml(l.borrower||'Subject to product criteria')+'</b></div><div class="lender-fact"><small>AVAILABILITY</small><b>'+escapeHtml(l.availability||'Branch and appraisal dependent')+'</b></div></div><div class="lender-footer"><small>'+escapeHtml(l.reviewNote||'Check the product page for current terms.')+'</small><div class="lender-buttons"><button class="details-btn" data-lender-details="'+escapeHtml(l.id)+'">Process & documents</button><a class="apply-btn" href="'+escapeHtml(l.applyUrl||l.sourceUrl)+'" target="_blank" rel="noopener noreferrer">'+escapeHtml(l.applyLabel||'Apply / enquire')+' ↗</a></div></div></article>';
 }
 function renderDirectory(){
   if(!$('#directory-schemes')) return;
@@ -252,6 +252,17 @@ function renderEligibilityCard(r){
   const sourceDate=r.verification?.lastChecked||'Review required';
   return '<article class="eligibility-card"><div class="eligibility-card-top"><span class="pill '+typeClass(r.type)+'">'+typeLabel(r.type)+'</span><span class="match-status">'+status+'</span></div><h3>'+escapeHtml(r.name)+'</h3><p>'+escapeHtml(r.summary)+'</p><div class="eligibility-amount"><small>FINANCIAL SUPPORT</small><b>'+escapeHtml(r.amount)+'</b><span>'+escapeHtml(r.amountNote||'Final value depends on current scheme rules or lender assessment.')+'</span></div><div class="eligibility-two-col"><div><h4>Match note</h4><p>'+escapeHtml(r.matchRules?.status||'Applicant profile and selected location appear in the catalogue coverage.')+'</p></div><div><h4>Verify before applying</h4><ul>'+checks+'</ul></div></div><details class="checklist-details"><summary>View document checklist ('+(r.documents||[]).length+')</summary><ul>'+docs+'</ul></details><div class="eligibility-card-foot"><small>Source review: '+escapeHtml(sourceDate)+'</small><div><button class="details-btn" data-assistant-details="'+escapeHtml(r.id)+'">Full process</button><a class="apply-btn" href="'+escapeHtml(r.application)+'" target="_blank" rel="noopener noreferrer">Official application ↗</a></div></div></article>';
 }
+function potentialLenders(profile,land,activity,need){
+  if(need!=='all'&&need!=='loan') return [];
+  return lenders.filter(l=>{
+    if(!matchesLenderState(l)) return false;
+    const rules=l.matchRules||{};
+    if(!Array.isArray(rules.profiles)||!rules.profiles.includes(profile)) return false;
+    if(Array.isArray(rules.landStatus)&&!rules.landStatus.includes(land)) return false;
+    if(activity!=='any'&&Array.isArray(rules.activities)&&!rules.activities.includes(activity)) return false;
+    return true;
+  });
+}
 function runEligibility(event){
   if(event) event.preventDefault();
   const profile=$('#elig-profile').value;
@@ -259,9 +270,21 @@ function runEligibility(event){
   const activity=$('#elig-activity').value;
   const need=$('#elig-need').value;
   const matches=potentialMatches(profile,land,activity,need);
+  const lenderMatches=potentialLenders(profile,land,activity,need);
   const output=$('#eligibility-output');
-  output.innerHTML='<div class="eligibility-results-head"><div><div class="section-kicker">POTENTIAL MATCHES · '+escapeHtml(stateSelect.value.toUpperCase())+'</div><h3>'+matches.length+' possible support routes</h3><p>For '+escapeHtml(districtSelect.value)+'. These are catalogue matches, not approval or an official eligibility determination.</p></div><button type="button" class="secondary-action" id="elig-back-directory">Browse full directory</button></div>'+(matches.length?'<div class="eligibility-results-grid">'+matches.map(renderEligibilityCard).join('')+'</div>':'<div class="eligibility-empty"><b>No catalogue matches for this combination yet.</b><span>Try “Show all potential support”, or check the full State/District portal list. An empty result does not prove that no scheme exists.</span></div>');
+  let content='<div class="eligibility-results-head"><div><div class="section-kicker">POTENTIAL MATCHES · '+escapeHtml(stateSelect.value.toUpperCase())+'</div><h3>'+(matches.length+lenderMatches.length)+' possible support routes</h3><p>For '+escapeHtml(districtSelect.value)+'. These are catalogue matches, not approval or an official eligibility determination.</p></div><button type="button" class="secondary-action" id="elig-back-directory">Browse full directory</button></div>';
+  if(matches.length){
+    content+='<div class="eligibility-subhead"><div class="section-kicker">GOVERNMENT & INSTITUTIONAL SCHEME RECORDS</div></div><div class="eligibility-results-grid">'+matches.map(renderEligibilityCard).join('')+'</div>';
+  }
+  if(lenderMatches.length){
+    content+='<div class="eligibility-subhead"><div class="section-kicker">BANK, RRB, COOPERATIVE, SFB & NBFC CREDIT ROUTES</div><p>These products are lender leads only. Verify branch availability, the exact product, rates, fees and your accepted borrower documents.</p></div><div class="lender-grid">'+lenderMatches.map(lenderCard).join('')+'</div>';
+  }
+  if(!matches.length&&!lenderMatches.length){
+    content+='<div class="eligibility-empty"><b>No catalogue matches for this combination yet.</b><span>Try “Show all potential support”, or check the full State/District portal list. An empty result does not prove that no scheme or lender exists.</span></div>';
+  }
+  output.innerHTML=content;
   output.querySelectorAll('[data-assistant-details]').forEach(btn=>btn.addEventListener('click',()=>showDetails(btn.dataset.assistantDetails)));
+  output.querySelectorAll('[data-lender-details]').forEach(btn=>btn.addEventListener('click',()=>showLenderDetails(btn.dataset.lenderDetails)));
   $('#elig-back-directory')?.addEventListener('click',()=>{switchView('directory');renderDirectory();});
 }
 function resetEligibility(){
