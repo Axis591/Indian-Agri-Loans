@@ -67,7 +67,15 @@
       "status": "official_portal_checked",
       "lastChecked": "2026-10-31",
       "note": "The official portal states eKYC is mandatory and directs suspected exclusion / land-validation cases to Know Your Status. Check the current scheme definition and exclusion categories."
-    }
+    },
+    "programmeStatus": "ongoing_national_programme",
+    "programmeStatusLabel": "Ongoing national programme · beneficiary checks apply",
+    "programmeStatusNote": "National benefit programme; eKYC, land seeding, bank validation and exclusion checks remain mandatory.",
+    "recordVersion": "2.5",
+    "recordClass": "scheme_or_support",
+    "amountDisclosureStatus": "published",
+    "sourceVerificationStatus": "official_portal_checked",
+    "lastReviewed": "2026-10-31"
   },
   {
     "id": "kcc",
@@ -176,7 +184,15 @@
         "label": "Union Budget 2025–26 — KCC interest-subvention ceiling announcement",
         "url": "https://financialservices.gov.in/beta/sites/default/files/2025-02/budget.pdf"
       }
-    ]
+    ],
+    "programmeStatus": "bank_credit_guidance",
+    "programmeStatusLabel": "Bank / KCC application · lender assessment",
+    "programmeStatusNote": "KCC is a credit product. The amount, rate, eligible interest support and security are subject to operative instructions and lender sanction.",
+    "recordVersion": "2.5",
+    "recordClass": "scheme_or_support",
+    "amountDisclosureStatus": "assessment",
+    "sourceVerificationStatus": "official_source_checked_budget_implementation_caveat",
+    "lastReviewed": "2026-10-31"
   },
   {
     "id": "aif",
@@ -265,7 +281,15 @@
       "status": "official_source_linked_review_required",
       "lastChecked": null,
       "note": "Primary source is linked, but this record has not been independently revalidated against the latest notification for every district and application window. Confirm locally before applying."
-    }
+    },
+    "programmeStatus": "project_credit_linked",
+    "programmeStatusLabel": "Project and lender appraisal required",
+    "programmeStatusNote": "Project eligibility, financial institution appraisal, borrower contribution and scheme claim conditions apply.",
+    "recordVersion": "2.5",
+    "recordClass": "scheme_or_support",
+    "amountDisclosureStatus": "published",
+    "sourceVerificationStatus": "official_source_linked_review_required",
+    "lastReviewed": null
   },
   {
     "id": "pmfby",
@@ -344,7 +368,15 @@
       "lastChecked": "2026-10-31",
       "note": "Official FAQ states farmer premium caps of 2% for Kharif foodgrain/oilseeds, 1.5% for Rabi foodgrain/oilseeds and 5% for annual commercial/horticulture crops (or actuarial rate if lower). Only notified crops and insurance units can be enrolled."
     },
-    "rate": "Farmer premium cap: 2% Kharif foodgrain/oilseeds; 1.5% Rabi foodgrain/oilseeds; 5% annual commercial/horticultural crops (or actuarial rate if lower). Confirm the notified crop and season."
+    "rate": "Farmer premium cap: 2% Kharif foodgrain/oilseeds; 1.5% Rabi foodgrain/oilseeds; 5% annual commercial/horticultural crops (or actuarial rate if lower). Confirm the notified crop and season.",
+    "programmeStatus": "seasonal_notification_required",
+    "programmeStatusLabel": "Season / crop notification required",
+    "programmeStatusNote": "Only notified crops, insurance units, areas and application windows are available.",
+    "recordVersion": "2.5",
+    "recordClass": "scheme_or_support",
+    "amountDisclosureStatus": "variable",
+    "sourceVerificationStatus": "official_faq_checked_seasonal_notice_required",
+    "lastReviewed": "2026-10-31"
   },
   {
     "id": "mudra",
@@ -434,7 +466,15 @@
       "status": "official_source_linked_review_required",
       "lastChecked": null,
       "note": "Primary source is linked, but this record has not been independently revalidated against the latest notification for every district and application window. Confirm locally before applying."
-    }
+    },
+    "programmeStatus": "lender_appraisal_required",
+    "programmeStatusLabel": "Eligible enterprise · lender appraisal",
+    "programmeStatusNote": "MUDRA is credit for eligible income-generating micro-enterprises, not a general crop cultivation grant.",
+    "recordVersion": "2.5",
+    "recordClass": "scheme_or_support",
+    "amountDisclosureStatus": "published",
+    "sourceVerificationStatus": "official_source_linked_review_required",
+    "lastReviewed": null
   },
   {
     "id": "wb-krishak-bandhu",
@@ -511,7 +551,15 @@
       "status": "official_source_linked_review_required",
       "lastChecked": null,
       "note": "Primary source is linked, but this record has not been independently revalidated against the latest notification for every district and application window. Confirm locally before applying."
-    }
+    },
+    "programmeStatus": "state_validation_required",
+    "programmeStatusLabel": "State registration / validation required",
+    "programmeStatusNote": "West Bengal application, land/sharecropper validation and current state process apply.",
+    "recordVersion": "2.5",
+    "recordClass": "scheme_or_support",
+    "amountDisclosureStatus": "published",
+    "sourceVerificationStatus": "official_source_linked_review_required",
+    "lastReviewed": null
   },
   {
     "id": "wb-death-benefit",
@@ -587,7 +635,15 @@
       "status": "official_source_linked_review_required",
       "lastChecked": null,
       "note": "Primary source is linked, but this record has not been independently revalidated against the latest notification for every district and application window. Confirm locally before applying."
-    }
+    },
+    "programmeStatus": "family_claim_only",
+    "programmeStatusLabel": "Family claim only · not a living farmer grant",
+    "programmeStatusNote": "The benefit is a claim by an eligible family following the death of a registered farmer/sharecropper.",
+    "recordVersion": "2.5",
+    "recordClass": "scheme_or_support",
+    "amountDisclosureStatus": "published",
+    "sourceVerificationStatus": "official_source_linked_review_required",
+    "lastReviewed": null
   },
   {
     "id": "wb-diversification",
@@ -675,7 +731,15 @@
       "status": "official_source_linked_review_required",
       "lastChecked": null,
       "note": "Primary source is linked, but this record has not been independently revalidated against the latest notification for every district and application window. Confirm locally before applying."
-    }
+    },
+    "programmeStatus": "district_block_target_required",
+    "programmeStatusLabel": "Named district / block target required",
+    "programmeStatusNote": "Coverage is limited to the named rainfed districts; current block/village target and season must be confirmed.",
+    "recordVersion": "2.5",
+    "recordClass": "scheme_or_support",
+    "amountDisclosureStatus": "not_published",
+    "sourceVerificationStatus": "official_source_linked_review_required",
+    "lastReviewed": null
   },
   {
     "id": "wb-shg-credit",
@@ -760,7 +824,15 @@
       "status": "official_source_linked_review_required",
       "lastChecked": null,
       "note": "Primary source is linked, but this record has not been independently revalidated against the latest notification for every district and application window. Confirm locally before applying."
-    }
+    },
+    "programmeStatus": "shg_bank_linkage_required",
+    "programmeStatusLabel": "Eligible SHG · bank linkage and repayment required",
+    "programmeStatusNote": "Group registration, bank linkage, district category and prompt-repayment conditions apply.",
+    "recordVersion": "2.5",
+    "recordClass": "scheme_or_support",
+    "amountDisclosureStatus": "rate_support",
+    "sourceVerificationStatus": "official_source_linked_review_required",
+    "lastReviewed": null
   },
   {
     "id": "wb-coop-credit",
@@ -858,7 +930,15 @@
       "status": "official_source_linked_review_required",
       "lastChecked": null,
       "note": "Primary source is linked, but this record has not been independently revalidated against the latest notification for every district and application window. Confirm locally before applying."
-    }
+    },
+    "programmeStatus": "local_pacs_membership_required",
+    "programmeStatusLabel": "Local PACS / DCCB confirmation required",
+    "programmeStatusNote": "Membership, actual serving PACS/DCCB, district crop Scale of Finance and local lending window must be confirmed.",
+    "recordVersion": "2.5",
+    "recordClass": "scheme_or_support",
+    "amountDisclosureStatus": "assessment",
+    "sourceVerificationStatus": "official_source_linked_review_required",
+    "lastReviewed": null
   },
   {
     "id": "wb-farm-mech",
@@ -945,7 +1025,15 @@
       "status": "official_source_linked_review_required",
       "lastChecked": null,
       "note": "Primary source is linked, but this record has not been independently revalidated against the latest notification for every district and application window. Confirm locally before applying."
-    }
+    },
+    "programmeStatus": "state_window_required",
+    "programmeStatusLabel": "State machinery window required",
+    "programmeStatusNote": "Current approved machinery list, beneficiary category and pre-purchase approval must be checked.",
+    "recordVersion": "2.5",
+    "recordClass": "scheme_or_support",
+    "amountDisclosureStatus": "not_published",
+    "sourceVerificationStatus": "official_source_linked_review_required",
+    "lastReviewed": null
   },
   {
     "id": "wb-amar-fasal",
@@ -1020,7 +1108,15 @@
       "status": "official_source_linked_review_required",
       "lastChecked": null,
       "note": "Primary source is linked, but this record has not been independently revalidated against the latest notification for every district and application window. Confirm locally before applying."
-    }
+    },
+    "programmeStatus": "state_window_required",
+    "programmeStatusLabel": "State scheme window / sanction required",
+    "programmeStatusNote": "Confirm current scheme operation, block availability, approved structure and written sanction before construction.",
+    "recordVersion": "2.5",
+    "recordClass": "scheme_or_support",
+    "amountDisclosureStatus": "published",
+    "sourceVerificationStatus": "official_source_linked_review_required",
+    "lastReviewed": null
   },
   {
     "id": "private-hdfc",
@@ -1112,7 +1208,15 @@
       "status": "official_source_linked_review_required",
       "lastChecked": null,
       "note": "Primary source is linked, but this record has not been independently revalidated against the latest notification for every district and application window. Confirm locally before applying."
-    }
+    },
+    "programmeStatus": "lender_product_confirmation",
+    "programmeStatusLabel": "Lender product / branch confirmation required",
+    "programmeStatusNote": "Select the exact bank product and confirm local branch serviceability, current APR, charges and collateral.",
+    "recordVersion": "2.5",
+    "recordClass": "lender_reference",
+    "amountDisclosureStatus": "assessment",
+    "sourceVerificationStatus": "official_source_linked_review_required",
+    "lastReviewed": null
   },
   {
     "id": "private-icici",
@@ -1197,7 +1301,15 @@
       "status": "official_source_linked_review_required",
       "lastChecked": null,
       "note": "Primary source is linked, but this record has not been independently revalidated against the latest notification for every district and application window. Confirm locally before applying."
-    }
+    },
+    "programmeStatus": "lender_product_confirmation",
+    "programmeStatusLabel": "Lender product / branch confirmation required",
+    "programmeStatusNote": "Select the exact Farmer Finance/KCC/OD/term-loan product and confirm current APR, fees and branch serviceability.",
+    "recordVersion": "2.5",
+    "recordClass": "lender_reference",
+    "amountDisclosureStatus": "assessment",
+    "sourceVerificationStatus": "official_source_linked_review_required",
+    "lastReviewed": null
   },
   {
     "id": "informal-credit",
@@ -1280,7 +1392,15 @@
       "status": "official_source_linked_review_required",
       "lastChecked": null,
       "note": "Primary source is linked, but this record has not been independently revalidated against the latest notification for every district and application window. Confirm locally before applying."
-    }
+    },
+    "programmeStatus": "risk_information_only",
+    "programmeStatusLabel": "Risk information only · not a finance recommendation",
+    "programmeStatusNote": "Not an endorsed product. Prefer a regulated institution; verify any lender's legal authority and written all-in cost.",
+    "recordVersion": "2.5",
+    "recordClass": "risk_information",
+    "amountDisclosureStatus": "unknown",
+    "sourceVerificationStatus": "official_source_linked_review_required",
+    "lastReviewed": null
   },
   {
     "id": "panchayat-access",
@@ -1391,7 +1511,15 @@
       "status": "official_source_linked_review_required",
       "lastChecked": null,
       "note": "Primary source is linked, but this record has not been independently revalidated against the latest notification for every district and application window. Confirm locally before applying."
-    }
+    },
+    "programmeStatus": "local_notification_required",
+    "programmeStatusLabel": "Local government access · scheme notice required",
+    "programmeStatusNote": "Panchayat/BDO is a facilitation or implementation contact, not a universal source of loans or grants.",
+    "recordVersion": "2.5",
+    "recordClass": "public_service_or_access",
+    "amountDisclosureStatus": "not_published",
+    "sourceVerificationStatus": "official_source_linked_review_required",
+    "lastReviewed": null
   },
   {
     "id": "formal-lender-channels",
@@ -1507,7 +1635,15 @@
       "status": "official_source_linked_review_required",
       "lastChecked": null,
       "note": "Primary source is linked, but this record has not been independently revalidated against the latest notification for every district and application window. Confirm locally before applying."
-    }
+    },
+    "programmeStatus": "lender_product_confirmation",
+    "programmeStatusLabel": "Formal lender discovery · verify exact product",
+    "programmeStatusNote": "Confirm lender regulation, local branch/PACS, product eligibility, Scale of Finance, written rate, fees and Key Fact Statement.",
+    "recordVersion": "2.5",
+    "recordClass": "public_service_or_access",
+    "amountDisclosureStatus": "assessment",
+    "sourceVerificationStatus": "official_source_linked_review_required",
+    "lastReviewed": null
   },
   {
     "scope": "national",
@@ -1614,7 +1750,12 @@
       "status": "Central scheme with State/UT implementation; current target/window must be checked before applying."
     },
     "programmeStatus": "state_window_required",
-    "programmeStatusLabel": "State window / target required"
+    "programmeStatusLabel": "State window / target required",
+    "recordVersion": "2.5",
+    "recordClass": "scheme_or_support",
+    "amountDisclosureStatus": "published",
+    "sourceVerificationStatus": "official_source_checked",
+    "lastReviewed": "2026-10-31"
   },
   {
     "scope": "national",
@@ -1717,7 +1858,12 @@
       "status": "National assistance pattern published; apply only through the active State/UT window."
     },
     "programmeStatus": "state_window_required",
-    "programmeStatusLabel": "State application window required"
+    "programmeStatusLabel": "State application window required",
+    "recordVersion": "2.5",
+    "recordClass": "scheme_or_support",
+    "amountDisclosureStatus": "published",
+    "sourceVerificationStatus": "official_source_checked",
+    "lastReviewed": "2026-10-31"
   },
   {
     "scope": "national",
@@ -1815,7 +1961,12 @@
       "status": "National scheme portal is live; applications are State/component/tender dependent."
     },
     "programmeStatus": "state_window_required",
-    "programmeStatusLabel": "State component / tender required"
+    "programmeStatusLabel": "State component / tender required",
+    "recordVersion": "2.5",
+    "recordClass": "scheme_or_support",
+    "amountDisclosureStatus": "published",
+    "sourceVerificationStatus": "official_source_checked",
+    "lastReviewed": "2026-10-31"
   },
   {
     "scope": "national",
@@ -1928,7 +2079,12 @@
       "status": "National horticulture framework; component-specific rates and State targets apply."
     },
     "programmeStatus": "state_plan_required",
-    "programmeStatusLabel": "State component / target required"
+    "programmeStatusLabel": "State component / target required",
+    "recordVersion": "2.5",
+    "recordClass": "scheme_or_support",
+    "amountDisclosureStatus": "assessment",
+    "sourceVerificationStatus": "official_source_checked",
+    "lastReviewed": "2026-10-31"
   },
   {
     "scope": "national",
@@ -2041,7 +2197,12 @@
       "status": "Credit-linked infrastructure subsidy; project and financing-institution approval required."
     },
     "programmeStatus": "project_credit_linked",
-    "programmeStatusLabel": "Credit-linked project route"
+    "programmeStatusLabel": "Credit-linked project route",
+    "recordVersion": "2.5",
+    "recordClass": "scheme_or_support",
+    "amountDisclosureStatus": "published",
+    "sourceVerificationStatus": "official_source_checked",
+    "lastReviewed": "2026-10-31"
   },
   {
     "scope": "national",
@@ -2149,7 +2310,12 @@
       "status": "Ongoing FPO programme; access is through designated IA/CBBO and scheme allocation."
     },
     "programmeStatus": "entity_and_ia_route",
-    "programmeStatusLabel": "FPO / Implementing Agency route"
+    "programmeStatusLabel": "FPO / Implementing Agency route",
+    "recordVersion": "2.5",
+    "recordClass": "scheme_or_support",
+    "amountDisclosureStatus": "published",
+    "sourceVerificationStatus": "official_source_checked",
+    "lastReviewed": "2026-10-31"
   },
   {
     "scope": "national",
@@ -2268,7 +2434,12 @@
       "status": "2026 NLM-EDP route published; component and State screening required."
     },
     "programmeStatus": "online_project_application",
-    "programmeStatusLabel": "Online project application"
+    "programmeStatusLabel": "Online project application",
+    "recordVersion": "2.5",
+    "recordClass": "scheme_or_support",
+    "amountDisclosureStatus": "published",
+    "sourceVerificationStatus": "official_source_checked",
+    "lastReviewed": "2026-10-31"
   },
   {
     "scope": "national",
@@ -2380,7 +2551,12 @@
       "status": "Scheme period includes FY 2026–27; apply through NFDP under the relevant component."
     },
     "programmeStatus": "active_component_based",
-    "programmeStatusLabel": "Component-specific · NFDP"
+    "programmeStatusLabel": "Component-specific · NFDP",
+    "recordVersion": "2.5",
+    "recordClass": "scheme_or_support",
+    "amountDisclosureStatus": "not_published",
+    "sourceVerificationStatus": "official_source_checked",
+    "lastReviewed": "2026-10-31"
   },
   {
     "scope": "national",
@@ -2489,7 +2665,12 @@
       "status": "Concessional project-finance route; verify current window with Department/State and NLE."
     },
     "programmeStatus": "project_finance_window_check",
-    "programmeStatusLabel": "Project window / NLE check"
+    "programmeStatusLabel": "Project window / NLE check",
+    "recordVersion": "2.5",
+    "recordClass": "scheme_or_support",
+    "amountDisclosureStatus": "assessment",
+    "sourceVerificationStatus": "official_source_checked",
+    "lastReviewed": "2026-10-31"
   },
   {
     "scope": "national",
@@ -2594,7 +2775,12 @@
       "status": "National price-support framework; only applies when procurement is notified/activated."
     },
     "programmeStatus": "procurement_notification_required",
-    "programmeStatusLabel": "Season / procurement notice required"
+    "programmeStatusLabel": "Season / procurement notice required",
+    "recordVersion": "2.5",
+    "recordClass": "public_service_or_access",
+    "amountDisclosureStatus": "not_published",
+    "sourceVerificationStatus": "official_source_checked",
+    "lastReviewed": "2026-10-31"
   },
   {
     "scope": "national",
@@ -2681,7 +2867,12 @@
       "status": "Voluntary contributory pension; not an immediate farmer grant."
     },
     "programmeStatus": "enrolment_route_check",
-    "programmeStatusLabel": "Check enrolment eligibility"
+    "programmeStatusLabel": "Check enrolment eligibility",
+    "recordVersion": "2.5",
+    "recordClass": "scheme_or_support",
+    "amountDisclosureStatus": "published",
+    "sourceVerificationStatus": "official_source_checked",
+    "lastReviewed": "2026-10-31"
   },
   {
     "scope": "national",
@@ -2779,7 +2970,12 @@
       "status": "National digital service with State/block laboratory delivery."
     },
     "programmeStatus": "service_available_through_state",
-    "programmeStatusLabel": "Public service · local testing"
+    "programmeStatusLabel": "Public service · local testing",
+    "recordVersion": "2.5",
+    "recordClass": "public_service_or_access",
+    "amountDisclosureStatus": "not_published",
+    "sourceVerificationStatus": "official_source_checked",
+    "lastReviewed": "2026-10-31"
   },
   {
     "scope": "national",
@@ -2880,7 +3076,12 @@
       "excludeFromAssistant": true
     },
     "programmeStatus": "extension_not_verified",
-    "programmeStatusLabel": "Extension not verified · do not assume open"
+    "programmeStatusLabel": "Extension not verified · do not assume open",
+    "recordVersion": "2.5",
+    "recordClass": "scheme_or_support",
+    "amountDisclosureStatus": "published",
+    "sourceVerificationStatus": "official_source_checked",
+    "lastReviewed": "2026-10-31"
   },
   {
     "scope": "national",
@@ -2982,6 +3183,11 @@
       "excludeFromAssistant": true
     },
     "programmeStatus": "extension_not_verified",
-    "programmeStatusLabel": "Extension not verified · do not assume open"
+    "programmeStatusLabel": "Extension not verified · do not assume open",
+    "recordVersion": "2.5",
+    "recordClass": "scheme_or_support",
+    "amountDisclosureStatus": "not_published",
+    "sourceVerificationStatus": "official_source_checked",
+    "lastReviewed": "2026-10-31"
   }
 ]
