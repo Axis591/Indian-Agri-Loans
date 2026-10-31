@@ -187,3 +187,27 @@ Microfinance pricing can be materially higher than KCC. The product is therefore
 - `scripts/validate-v25.mjs`: repeatable automated data-quality validation.
 - Geography fallback is a community-maintained 36-State/UT and 779-district snapshot. Official administrative reconciliation target: https://lgdirectory.gov.in/ and https://data.gov.in/catalog/local-government-directory-lgd.
 - Current daily mandi price data catalogue: https://data.gov.in/catalog/current-daily-price-various-commodities-various-markets-mandi (the page reports an update on 22 Oct 2026). Use the linked Agmarknet source date, market and unit when displaying price data.
+
+## V3 State-specific programme sources — checked 31 October 2026
+
+| State / programme | Official source | What it supports / important limit |
+|---|---|---|
+| Odisha — CM-KISAN | https://cmkisan.odisha.gov.in/pdf/CM-KISAN-Guideline.pdf | Guideline: ₹2,000 per crop season (₹4,000/year) for eligible rural small/marginal farmer families; separate one-time ₹12,500 livelihood component for eligible rural landless agricultural households in three instalments. These are distinct components and not a combined benefit for every applicant. |
+| Andhra Pradesh — Annadatha Sukhibhava | https://tirupati.ap.gov.in/agriculture/ | District Agriculture Department describes ₹20,000/year as the combined State + PM-KISAN support for eligible farmer families; do not add the Central ₹6,000 on top of the combined figure. Separate landless cultivator component and current rules require confirmation. |
+| Telangana — Rythu Bharosa | https://www.telangana.gov.in/news/press-releases/2026/06/honble-chief-minister-sri-a-revanth-reddy-releases-rythu-bharosa-addresses-farmers-at-shilpakala-vedika-hyderabad/ | Government release dated 30 June 2026 confirms continuation/disbursement. District Agriculture information describes ₹6,000 per acre per crop season (₹12,000/year per eligible cultivated acre); land/tenant status and active cultivated acreage must be verified. |
+| Rajasthan — CM Kisan Samman Nidhi | https://finance.rajasthan.gov.in/docs/budget/statebudget/2026-2027/Economicreviewe.pdf | Economic Review 2025–26 reports State annual assistance enhanced to ₹3,000. Current operational order, PM-KISAN linkage and beneficiary status must be confirmed. |
+| Maharashtra — Mahila Shetkari recognition | https://mahakrushi.maharashtra.gov.in/mahila-shetkari-service/ | Department of Agriculture women's farmer recognition/certificate service and current portal eligibility/resources. Recognition is not an automatic cash grant or automatic eligibility for unrelated schemes. |
+| Assam — Mukhya Mantri Krishi Sa Sajuli | https://diragri.assam.gov.in/schemes/detail/mukhya-mantri-krishi-sa-sajuli-yojana-mmkssy | Directorate of Agriculture summary describes small/marginal resident farmer and cultivation-history conditions and tenant/sharecropper consideration; current-year amount and application window are not stated in the retrieved public summary, so the record is excluded from automated matching. |
+
+## V3 live data and infrastructure sources
+
+| Dataset / platform | Official source | Implementation note |
+|---|---|---|
+| Daily mandi prices | https://data.gov.in/resource/current-daily-price-various-commodities-various-markets-mandi | Daily wholesale min/max/modal market prices from Directorate of Marketing & Inspection / AGMARKNET. The portal showed its resource updated 28 Oct 2026. A data.gov.in API key is required for the server-side proxy. |
+| LGD district dataset | https://data.gov.in/resource/local-government-directory-lgd-districts | Ministry of Panchayati Raj resource with LGD district codes, monthly granularity; OGD page reported update 27 Oct 2026. The API path is optional and depends on the resource's enabled API. |
+| LGD Local Bodies dataset | https://data.gov.in/resource/local-government-directory-lgd-local-bodies | Monthly Local Body codes. The resource page notes that an API does not exist for this resource and describes partial village-to-Gram-Panchayat mapping; use official downloads/import rather than inventing district parents. |
+| Cloudflare Pages Functions routing | https://developers.cloudflare.com/pages/functions/routing/ | `/functions` root file paths map to API routes. `_routes.json` restricts invocations to `/api/*`. |
+| Cloudflare Pages D1 bindings | https://developers.cloudflare.com/pages/functions/bindings/ | Add D1 binding named `NGO_DB` in Pages Settings → Bindings and redeploy. |
+| Cloudflare Access JWT validation | https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/authorization-cookie/validating-json/ | API verifies `Cf-Access-Jwt-Assertion`, signature, issuer and Access Application AUD tag. |
+| Cloudflare D1 migrations | https://developers.cloudflare.com/d1/reference/migrations/ and https://developers.cloudflare.com/d1/wrangler-commands/ | Run checked-in `migrations/0001_ngo_secure.sql` against the remote D1 database before enabling NGO users. |
+| DPDP Act commencement Gazette | https://www.meity.gov.in/static/uploads/2025/11/c56ceae6c383460ca69577428d36828b.pdf | Gazette notification dated 13 Nov 2025 specifies phased commencement; key provisions are scheduled 18 months after publication. The public NGO V3 schema intentionally avoids personal farmer identity fields. |
