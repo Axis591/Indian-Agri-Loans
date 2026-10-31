@@ -471,11 +471,26 @@ function showDetails(id){
   $('#detail-dialog').showModal();
 }
 
+function renderStateWorkstreams(stateName){
+  const node=$('#state-workstream-register');if(!node)return;
+  if(!stateProgrammeData){node.innerHTML='<p>State programme research register is loading or unavailable.</p>';return;}
+  const row=stateProgrammeData.states.find(x=>normalizedName(x.stateUT)===normalizedName(stateName));
+  if(!row){node.innerHTML='<p>No State research record is available in the register.</p>';return;}
+  $('#state-workstream-title').textContent=row.stateUT+' · nine workstreams';
+  const linked=(row.workstreams||[]).filter(x=>x.status==='partial_source_linked').length;
+  $('#state-workstream-count').textContent=linked+' / '+(row.workstreams||[]).length+' workstreams source-linked';
+  node.innerHTML='<div class="state-workstream-summary"><b>'+row.namedSchemeRecordCount+' named State-specific records</b><span>'+escapeHtml(row.notes)+'</span></div><div class="state-workstream-grid">'+(row.workstreams||[]).map(w=>{
+    const isLinked=w.status==='partial_source_linked';
+    const ids=(w.recordIds||[]).map(id=>{const rec=records.find(r=>r.id===id);return rec?'<a href="#" data-workstream-record="'+escapeHtml(id)+'">'+escapeHtml(rec.name)+'</a>':'';}).filter(Boolean).join(', ');
+    const evidence=w.evidenceUrl?'<a class="workstream-source" href="'+escapeHtml(w.evidenceUrl)+'" target="_blank" rel="noopener">Official source ↗</a>':'';
+    return '<article class="state-workstream-card"><div class="state-workstream-card-head"><b>'+escapeHtml(w.label)+'</b><span class="state-workstream-status '+(isLinked?'linked':'pending')+'">'+(isLinked?'PARTIAL · SOURCED':'RESEARCH PENDING')+'</span></div>'+(ids?'<div class="state-workstream-records">'+ids+'</div>':'<p>No named State-specific programme record in this release.</p>')+'<small>'+escapeHtml(w.nextAction)+'</small>'+evidence+'</article>';
+  }).join('')+'</div>';
+  node.querySelectorAll('[data-workstream-record]').forEach(link=>link.addEventListener('click',e=>{e.preventDefault();showDetails(link.dataset.workstreamRecord);}));
+}
 function renderCoverageDetails(stateName){
-  if(!coverageData) return;
+  if(!coverageData)return;
   const row=coverageData.states.find(x=>normalizedName(x.stateUT)===normalizedName(stateName));
-  if(!row) return;
-  const selectedDistrict=districtSelect.value;
+  if(!row)return;
   $('#coverage-selected-state').textContent=row.stateUT;
   $('#coverage-district-count').textContent=row.communityDistrictSnapshotCount+' district snapshot entries';
   $('#coverage-selected-detail').innerHTML='<div class="coverage-selected-grid">'+
@@ -484,28 +499,25 @@ function renderCoverageDetails(stateName){
     '<div><small>DIRECT DISTRICT WEBSITE LINKS</small><b>'+row.directDistrictWebsitesMapped+' / '+row.communityDistrictSnapshotCount+'</b></div>'+
     '<div><small>REGIONAL RURAL BANK</small><b>'+(row.rrb?escapeHtml(row.rrb.name):'No separate RRB listed in current DFS list')+'</b></div>'+
     '<div><small>LENDER CATALOGUE ENTRIES</small><b>'+row.lenderCatalogueEnquiryEntries+' · branch presence not verified</b></div>'+
-    '<div><small>BLOCK / PANCHAYAT INVENTORY</small><b>Official LGD mapping pending</b></div></div>'+
-    '<p class="coverage-detail-note">'+escapeHtml(row.recordsStatusNote)+' The district list below uses a bundled community snapshot, not an LGD-certified list.</p>';
+    '<div><small>BLOCK / PANCHAYAT INVENTORY</small><b>Official LGD mapping pending or incomplete</b></div></div>'+
+    '<p class="coverage-detail-note">'+escapeHtml(row.recordsStatusNote)+' The district list below uses the current geography source label: '+escapeHtml(geographySourceLabel)+'.</p>';
   $('#coverage-district-list').innerHTML=(row.districts||[]).map(d=>{
     const hasDirect=Boolean(d.directDistrictWebsite),hasScheme=(d.districtProgrammeRecordIds||[]).length>0;
     return '<div class="coverage-district-row"><div><b>'+escapeHtml(d.name)+'</b><small>'+(hasScheme?'District programme: '+escapeHtml(d.districtProgrammeRecordIds.join(', ')):'No district-specific programme record catalogued')+'</small></div><span class="coverage-district-status '+(hasScheme?'mapped':'pending')+'">'+(hasScheme?'PROGRAMME RECORD':'RESEARCH PENDING')+'</span><a href="'+escapeHtml(d.districtWebsiteDiscoveryUrl)+'" target="_blank" rel="noopener">'+(hasDirect?'District site ↗':'Official directory ↗')+'</a><button type="button" class="coverage-inspect-district" data-coverage-district="'+escapeHtml(d.name)+'">Use location</button></div>';
   }).join('');
   $('#coverage-district-list').querySelectorAll('[data-coverage-district]').forEach(btn=>btn.addEventListener('click',()=>{
-    stateSelect.value=row.stateUT;
-    populateDistricts(btn.dataset.coverageDistrict);
-    switchView('finance');
+    stateSelect.value=row.stateUT;populateDistricts(btn.dataset.coverageDistrict);switchView('finance');
   }));
+  renderStateWorkstreams(row.stateUT);
 }
 function updateCoverageList(){
-  if(!coverageData) return;
-  const rows=coverageData.states||[];
-  const query=normalizedName($('#coverage-search')?.value||'');
-  const found=rows.filter(x=>normalizedName(x.stateUT).includes(query));
+  if(!coverageData)return;
+  const rows=coverageData.states||[],query=normalizedName($('#coverage-search')?.value||''),found=rows.filter(x=>normalizedName(x.stateUT).includes(query));
   $('#state-count').textContent=rows.length+' States & UTs';
   $('#coverage-scheme-count').textContent=coverageData.nationalCatalogue.schemeRecordCount;
   $('#coverage-lender-count').textContent=coverageData.nationalCatalogue.lenderProductRecordCount;
   $('#coverage-state-record-count').textContent=coverageData.stateInventory.statesWithAtLeastOneStateSpecificScheme;
-  $('#coverage-v25-stats').innerHTML='<article><small>STATES & UNION TERRITORIES</small><strong>'+coverageData.geography.stateAndUTCount+'</strong><span>State/UT portal register</span></article><article><small>DISTRICT SNAPSHOT ENTRIES</small><strong>'+coverageData.geography.districtEntryCount+'</strong><span>Community snapshot · official LGD reconciliation pending</span></article><article><small>SCHEME / BENEFIT RECORDS</small><strong>'+coverageData.nationalCatalogue.schemeRecordCount+'</strong><span>National + limited State records</span></article><article><small>LENDER / FINANCE ENTRIES</small><strong>'+coverageData.nationalCatalogue.lenderProductRecordCount+'</strong><span>Product catalogue · branch checks pending</span></article>';
+  $('#coverage-v25-stats').innerHTML='<article><small>STATES & UNION TERRITORIES</small><strong>'+coverageData.geography.stateAndUTCount+'</strong><span>State/UT portal register</span></article><article><small>DISTRICT ENTRIES</small><strong>'+coverageData.geography.districtEntryCount+'</strong><span>'+escapeHtml(geographySourceLabel)+'</span></article><article><small>SCHEME / BENEFIT RECORDS</small><strong>'+coverageData.nationalCatalogue.schemeRecordCount+'</strong><span>Central + State-specific records</span></article><article><small>LENDER / FINANCE ENTRIES</small><strong>'+coverageData.nationalCatalogue.lenderProductRecordCount+'</strong><span>Product catalogue · branch checks pending</span></article>';
   $('#state-coverage-list').innerHTML=found.map(x=>{
     const stateStatus=x.stateSchemeRecordCount?'PARTIAL · SOURCED':'PORTAL LINKED · RESEARCH PENDING';
     const cls=x.stateSchemeRecordCount?'wb':'pending';
@@ -513,9 +525,8 @@ function updateCoverageList(){
   }).join('');
   $('#state-coverage-list').querySelectorAll('[data-coverage-state]').forEach(btn=>btn.addEventListener('click',()=>renderCoverageDetails(btn.dataset.coverageState)));
   const selected=rows.find(x=>normalizedName(x.stateUT)===normalizedName(stateSelect.value))||rows[0];
-  renderCoverageDetails(selected.stateUT);
+  if(selected)renderCoverageDetails(selected.stateUT);
 }
-
 function switchView(view){
   selectedView=view;
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
