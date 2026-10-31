@@ -86,7 +86,13 @@
         "This bank catalogue includes several products; choose the one matching your activity",
         "Branch serviceability, borrower type, current APR, fees and security are assessed by the bank"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "official_product_page_linked",
+    "verificationNote": "Official product/portfolio page is linked. Live rate, APR, fees, collateral, current product eligibility and branch serviceability require lender confirmation."
   },
   {
     "id": "bob-kcc",
@@ -173,7 +179,13 @@
         "This bank catalogue includes several products; choose the one matching your activity",
         "Branch serviceability, borrower type, current APR, fees and security are assessed by the bank"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "official_product_page_linked",
+    "verificationNote": "Official product/portfolio page is linked. Live rate, APR, fees, collateral, current product eligibility and branch serviceability require lender confirmation."
   },
   {
     "id": "canara-agri",
@@ -267,7 +279,13 @@
         "This bank catalogue includes several products; choose the one matching your activity",
         "Branch serviceability, borrower type, current APR, fees and security are assessed by the bank"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "official_product_page_linked",
+    "verificationNote": "Official product/portfolio page is linked. Live rate, APR, fees, collateral, current product eligibility and branch serviceability require lender confirmation."
   },
   {
     "id": "pnb-agri",
@@ -356,7 +374,13 @@
         "This bank catalogue includes several products; choose the one matching your activity",
         "Branch serviceability, borrower type, current APR, fees and security are assessed by the bank"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "official_product_page_linked",
+    "verificationNote": "Official product/portfolio page is linked. Live rate, APR, fees, collateral, current product eligibility and branch serviceability require lender confirmation."
   },
   {
     "id": "boi-agri",
@@ -446,7 +470,13 @@
         "This bank catalogue includes several products; choose the one matching your activity",
         "Branch serviceability, borrower type, current APR, fees and security are assessed by the bank"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "official_product_page_linked",
+    "verificationNote": "Official product/portfolio page is linked. Live rate, APR, fees, collateral, current product eligibility and branch serviceability require lender confirmation."
   },
   {
     "id": "bom-agri",
@@ -544,7 +574,13 @@
         "This bank catalogue includes several products; choose the one matching your activity",
         "Branch serviceability, borrower type, current APR, fees and security are assessed by the bank"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "official_product_page_linked",
+    "verificationNote": "Official product/portfolio page is linked. Live rate, APR, fees, collateral, current product eligibility and branch serviceability require lender confirmation."
   },
   {
     "id": "indian-bank-kcc",
@@ -636,7 +672,13 @@
         "This bank catalogue includes several products; choose the one matching your activity",
         "Branch serviceability, borrower type, current APR, fees and security are assessed by the bank"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "official_product_page_linked",
+    "verificationNote": "Official product/portfolio page is linked. Live rate, APR, fees, collateral, current product eligibility and branch serviceability require lender confirmation."
   },
   {
     "id": "uco-agri",
@@ -727,7 +769,13 @@
         "This bank catalogue includes several products; choose the one matching your activity",
         "Branch serviceability, borrower type, current APR, fees and security are assessed by the bank"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "official_product_page_linked",
+    "verificationNote": "Official product/portfolio page is linked. Live rate, APR, fees, collateral, current product eligibility and branch serviceability require lender confirmation."
   },
   {
     "id": "hdfc-rural",
@@ -808,7 +856,13 @@
         "Choose the exact HDFC product (tractor, horticulture or gold-backed agri finance)",
         "Branch serviceability, current APR, fees, security and margin must be confirmed"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "official_product_page_linked",
+    "verificationNote": "Official product/portfolio page is linked. Live rate, APR, fees, collateral, current product eligibility and branch serviceability require lender confirmation."
   },
   {
     "id": "icici-farmer",
@@ -887,7 +941,13 @@
         "Choose the exact Farmer Finance / KCC / overdraft / term product",
         "Branch serviceability and current APR/fees/security must be confirmed"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "official_product_page_linked",
+    "verificationNote": "Official product/portfolio page is linked. Live rate, APR, fees, collateral, current product eligibility and branch serviceability require lender confirmation."
   },
   {
     "id": "axis-farmer",
@@ -961,7 +1021,13 @@
         "Dairy, farm-development and PM-KUSUM products have different eligibility and project rules",
         "Check current scheme linkage, district coverage, APR, fees and sanction conditions"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "official_product_page_linked",
+    "verificationNote": "Official product/portfolio page is linked. Live rate, APR, fees, collateral, current product eligibility and branch serviceability require lender confirmation."
   },
   {
     "id": "ujjivan-kpc",
@@ -1038,7 +1104,13 @@
         "Confirm Ujjivan's current operating branch/serviceability in the selected district",
         "Get a product-level sanction quote and Key Fact Statement"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "official_product_page_linked",
+    "verificationNote": "Official product/portfolio page is linked. Live rate, APR, fees, collateral, current product eligibility and branch serviceability require lender confirmation."
   },
   {
     "id": "esaf-fig",
@@ -1119,7 +1191,13 @@
         "FIG/group conditions, family-member restrictions and activity proof apply",
         "Confirm current rate, fees, tenure and local operating presence"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "official_product_page_linked",
+    "verificationNote": "Official product/portfolio page is linked. Live rate, APR, fees, collateral, current product eligibility and branch serviceability require lender confirmation."
   },
   {
     "id": "mahindra-tractor",
@@ -1190,7 +1268,13 @@
         "Tractor purchase only; not a general crop working-capital loan",
         "Check lender/dealer serviceability in the selected district and written APR/fees"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "official_product_page_linked",
+    "verificationNote": "Official product/portfolio page is linked. Live rate, APR, fees, collateral, current product eligibility and branch serviceability require lender confirmation."
   },
   {
     "id": "samunnati-fpo",
@@ -1270,7 +1354,13 @@
         "Applicant must be an eligible FPO/FPC, collective or agri-enterprise, not an individual crop-loan applicant",
         "Project, cash flow, legal-entity and lender underwriting requirements apply"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "official_product_page_linked",
+    "verificationNote": "Official product/portfolio page is linked. Live rate, APR, fees, collateral, current product eligibility and branch serviceability require lender confirmation."
   },
   {
     "id": "rrb-andhra-pradesh",
@@ -1369,7 +1459,13 @@
         "Check the RRB's branch/service area in the selected district",
         "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "government_rrb_registry_listed",
+    "verificationNote": "RRB identity and official website are mapped from the Department of Financial Services list. Product terms, branch service area, current interest, security and application windows must be confirmed with the RRB. A State RRB does not guarantee a branch in every district."
   },
   {
     "id": "rrb-arunachal-pradesh",
@@ -1468,7 +1564,13 @@
         "Check the RRB's branch/service area in the selected district",
         "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "government_rrb_registry_listed",
+    "verificationNote": "RRB identity and official website are mapped from the Department of Financial Services list. Product terms, branch service area, current interest, security and application windows must be confirmed with the RRB. A State RRB does not guarantee a branch in every district."
   },
   {
     "id": "rrb-assam",
@@ -1567,7 +1669,13 @@
         "Check the RRB's branch/service area in the selected district",
         "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "government_rrb_registry_listed",
+    "verificationNote": "RRB identity and official website are mapped from the Department of Financial Services list. Product terms, branch service area, current interest, security and application windows must be confirmed with the RRB. A State RRB does not guarantee a branch in every district."
   },
   {
     "id": "rrb-bihar",
@@ -1666,7 +1774,13 @@
         "Check the RRB's branch/service area in the selected district",
         "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "government_rrb_registry_listed",
+    "verificationNote": "RRB identity and official website are mapped from the Department of Financial Services list. Product terms, branch service area, current interest, security and application windows must be confirmed with the RRB. A State RRB does not guarantee a branch in every district."
   },
   {
     "id": "rrb-chhattisgarh",
@@ -1765,7 +1879,13 @@
         "Check the RRB's branch/service area in the selected district",
         "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "government_rrb_registry_listed",
+    "verificationNote": "RRB identity and official website are mapped from the Department of Financial Services list. Product terms, branch service area, current interest, security and application windows must be confirmed with the RRB. A State RRB does not guarantee a branch in every district."
   },
   {
     "id": "rrb-gujarat",
@@ -1864,7 +1984,13 @@
         "Check the RRB's branch/service area in the selected district",
         "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "government_rrb_registry_listed",
+    "verificationNote": "RRB identity and official website are mapped from the Department of Financial Services list. Product terms, branch service area, current interest, security and application windows must be confirmed with the RRB. A State RRB does not guarantee a branch in every district."
   },
   {
     "id": "rrb-haryana",
@@ -1963,7 +2089,13 @@
         "Check the RRB's branch/service area in the selected district",
         "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "government_rrb_registry_listed",
+    "verificationNote": "RRB identity and official website are mapped from the Department of Financial Services list. Product terms, branch service area, current interest, security and application windows must be confirmed with the RRB. A State RRB does not guarantee a branch in every district."
   },
   {
     "id": "rrb-himachal-pradesh",
@@ -2062,7 +2194,13 @@
         "Check the RRB's branch/service area in the selected district",
         "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "government_rrb_registry_listed",
+    "verificationNote": "RRB identity and official website are mapped from the Department of Financial Services list. Product terms, branch service area, current interest, security and application windows must be confirmed with the RRB. A State RRB does not guarantee a branch in every district."
   },
   {
     "id": "rrb-jammu-and-kashmir",
@@ -2161,7 +2299,13 @@
         "Check the RRB's branch/service area in the selected district",
         "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "government_rrb_registry_listed",
+    "verificationNote": "RRB identity and official website are mapped from the Department of Financial Services list. Product terms, branch service area, current interest, security and application windows must be confirmed with the RRB. A State RRB does not guarantee a branch in every district."
   },
   {
     "id": "rrb-jharkhand",
@@ -2260,7 +2404,13 @@
         "Check the RRB's branch/service area in the selected district",
         "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "government_rrb_registry_listed",
+    "verificationNote": "RRB identity and official website are mapped from the Department of Financial Services list. Product terms, branch service area, current interest, security and application windows must be confirmed with the RRB. A State RRB does not guarantee a branch in every district."
   },
   {
     "id": "rrb-karnataka",
@@ -2359,7 +2509,13 @@
         "Check the RRB's branch/service area in the selected district",
         "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "government_rrb_registry_listed",
+    "verificationNote": "RRB identity and official website are mapped from the Department of Financial Services list. Product terms, branch service area, current interest, security and application windows must be confirmed with the RRB. A State RRB does not guarantee a branch in every district."
   },
   {
     "id": "rrb-kerala",
@@ -2458,7 +2614,13 @@
         "Check the RRB's branch/service area in the selected district",
         "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "government_rrb_registry_listed",
+    "verificationNote": "RRB identity and official website are mapped from the Department of Financial Services list. Product terms, branch service area, current interest, security and application windows must be confirmed with the RRB. A State RRB does not guarantee a branch in every district."
   },
   {
     "id": "rrb-madhya-pradesh",
@@ -2557,7 +2719,13 @@
         "Check the RRB's branch/service area in the selected district",
         "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "government_rrb_registry_listed",
+    "verificationNote": "RRB identity and official website are mapped from the Department of Financial Services list. Product terms, branch service area, current interest, security and application windows must be confirmed with the RRB. A State RRB does not guarantee a branch in every district."
   },
   {
     "id": "rrb-maharashtra",
@@ -2656,7 +2824,13 @@
         "Check the RRB's branch/service area in the selected district",
         "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "government_rrb_registry_listed",
+    "verificationNote": "RRB identity and official website are mapped from the Department of Financial Services list. Product terms, branch service area, current interest, security and application windows must be confirmed with the RRB. A State RRB does not guarantee a branch in every district."
   },
   {
     "id": "rrb-manipur",
@@ -2755,7 +2929,13 @@
         "Check the RRB's branch/service area in the selected district",
         "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "government_rrb_registry_listed",
+    "verificationNote": "RRB identity and official website are mapped from the Department of Financial Services list. Product terms, branch service area, current interest, security and application windows must be confirmed with the RRB. A State RRB does not guarantee a branch in every district."
   },
   {
     "id": "rrb-meghalaya",
@@ -2854,7 +3034,13 @@
         "Check the RRB's branch/service area in the selected district",
         "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "government_rrb_registry_listed",
+    "verificationNote": "RRB identity and official website are mapped from the Department of Financial Services list. Product terms, branch service area, current interest, security and application windows must be confirmed with the RRB. A State RRB does not guarantee a branch in every district."
   },
   {
     "id": "rrb-mizoram",
@@ -2953,7 +3139,13 @@
         "Check the RRB's branch/service area in the selected district",
         "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "government_rrb_registry_listed",
+    "verificationNote": "RRB identity and official website are mapped from the Department of Financial Services list. Product terms, branch service area, current interest, security and application windows must be confirmed with the RRB. A State RRB does not guarantee a branch in every district."
   },
   {
     "id": "rrb-nagaland",
@@ -3052,7 +3244,13 @@
         "Check the RRB's branch/service area in the selected district",
         "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "government_rrb_registry_listed",
+    "verificationNote": "RRB identity and official website are mapped from the Department of Financial Services list. Product terms, branch service area, current interest, security and application windows must be confirmed with the RRB. A State RRB does not guarantee a branch in every district."
   },
   {
     "id": "rrb-odisha",
@@ -3151,7 +3349,13 @@
         "Check the RRB's branch/service area in the selected district",
         "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "government_rrb_registry_listed",
+    "verificationNote": "RRB identity and official website are mapped from the Department of Financial Services list. Product terms, branch service area, current interest, security and application windows must be confirmed with the RRB. A State RRB does not guarantee a branch in every district."
   },
   {
     "id": "rrb-puducherry",
@@ -3250,7 +3454,13 @@
         "Check the RRB's branch/service area in the selected district",
         "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "government_rrb_registry_listed",
+    "verificationNote": "RRB identity and official website are mapped from the Department of Financial Services list. Product terms, branch service area, current interest, security and application windows must be confirmed with the RRB. A State RRB does not guarantee a branch in every district."
   },
   {
     "id": "rrb-punjab",
@@ -3349,7 +3559,13 @@
         "Check the RRB's branch/service area in the selected district",
         "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "government_rrb_registry_listed",
+    "verificationNote": "RRB identity and official website are mapped from the Department of Financial Services list. Product terms, branch service area, current interest, security and application windows must be confirmed with the RRB. A State RRB does not guarantee a branch in every district."
   },
   {
     "id": "rrb-rajasthan",
@@ -3448,7 +3664,13 @@
         "Check the RRB's branch/service area in the selected district",
         "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "government_rrb_registry_listed",
+    "verificationNote": "RRB identity and official website are mapped from the Department of Financial Services list. Product terms, branch service area, current interest, security and application windows must be confirmed with the RRB. A State RRB does not guarantee a branch in every district."
   },
   {
     "id": "rrb-tamil-nadu",
@@ -3547,7 +3769,13 @@
         "Check the RRB's branch/service area in the selected district",
         "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "government_rrb_registry_listed",
+    "verificationNote": "RRB identity and official website are mapped from the Department of Financial Services list. Product terms, branch service area, current interest, security and application windows must be confirmed with the RRB. A State RRB does not guarantee a branch in every district."
   },
   {
     "id": "rrb-telangana",
@@ -3646,7 +3874,13 @@
         "Check the RRB's branch/service area in the selected district",
         "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "government_rrb_registry_listed",
+    "verificationNote": "RRB identity and official website are mapped from the Department of Financial Services list. Product terms, branch service area, current interest, security and application windows must be confirmed with the RRB. A State RRB does not guarantee a branch in every district."
   },
   {
     "id": "rrb-tripura",
@@ -3745,7 +3979,13 @@
         "Check the RRB's branch/service area in the selected district",
         "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "government_rrb_registry_listed",
+    "verificationNote": "RRB identity and official website are mapped from the Department of Financial Services list. Product terms, branch service area, current interest, security and application windows must be confirmed with the RRB. A State RRB does not guarantee a branch in every district."
   },
   {
     "id": "rrb-uttar-pradesh",
@@ -3844,7 +4084,13 @@
         "Check the RRB's branch/service area in the selected district",
         "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "government_rrb_registry_listed",
+    "verificationNote": "RRB identity and official website are mapped from the Department of Financial Services list. Product terms, branch service area, current interest, security and application windows must be confirmed with the RRB. A State RRB does not guarantee a branch in every district."
   },
   {
     "id": "rrb-uttarakhand",
@@ -3943,7 +4189,13 @@
         "Check the RRB's branch/service area in the selected district",
         "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "government_rrb_registry_listed",
+    "verificationNote": "RRB identity and official website are mapped from the Department of Financial Services list. Product terms, branch service area, current interest, security and application windows must be confirmed with the RRB. A State RRB does not guarantee a branch in every district."
   },
   {
     "id": "rrb-west-bengal",
@@ -4046,7 +4298,13 @@
         "Check the RRB's branch/service area in the selected district",
         "Get district crop Scale of Finance, current rate, collateral and KCC terms from the branch"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "government_rrb_registry_listed",
+    "verificationNote": "RRB identity and official website are mapped from the Department of Financial Services list. Product terms, branch service area, current interest, security and application windows must be confirmed with the RRB. A State RRB does not guarantee a branch in every district."
   },
   {
     "id": "cooperative-kcc-national",
@@ -4140,7 +4398,13 @@
         "Confirm the actual PACS/DCCB and membership/service area",
         "Get the current Scale of Finance, fees, interest and repayment dates in writing"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "institutional_structure_source_linked",
+    "verificationNote": "Cooperative credit route is identified through official institutional sources. Exact PACS/DCCB, membership, service area and current lending terms are not district-verified in this release."
   },
   {
     "id": "wb-cooperative-kcc",
@@ -4236,7 +4500,13 @@
         "Confirm the actual PACS/DCCB and membership/service area",
         "Get the current Scale of Finance, fees, interest and repayment dates in writing"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "institutional_structure_source_linked",
+    "verificationNote": "Cooperative credit route is identified through official institutional sources. Exact PACS/DCCB, membership, service area and current lending terms are not district-verified in this release."
   },
   {
     "id": "satin-igloan",
@@ -4327,6 +4597,12 @@
         "Product is JLG microcredit for eligible women borrowers; check the current group/household criteria",
         "Compare the published pricing with KCC/cooperative credit and obtain borrower-level KFS"
       ]
-    }
+    },
+    "recordVersion": "2.5",
+    "lastReviewed": "2026-10-31",
+    "pricingStatus": "reconfirm_with_lender_before_application",
+    "branchCoverageStatus": "district_branch_not_verified",
+    "verificationStatus": "official_product_page_linked",
+    "verificationNote": "Official product/portfolio page is linked. Live rate, APR, fees, collateral, current product eligibility and branch serviceability require lender confirmation."
   }
 ]
