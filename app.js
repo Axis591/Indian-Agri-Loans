@@ -234,7 +234,7 @@ function updateAssistantLocation(){
 }
 function potentialMatches(profile,land,activity,need){
   return records.filter(r=>{
-    if(!applicable(r,stateSelect.value,districtSelect.value) || r.type==='informal') return false;
+    if(!applicable(r,stateSelect.value,districtSelect.value) || r.type==='informal' || r.matchRules?.excludeFromAssistant) return false;
     const rules=r.matchRules||{};
     const allowed=rules.profiles||r.profiles||[];
     if(!allowed.includes(profile)) return false;
@@ -250,7 +250,7 @@ function renderEligibilityCard(r){
   const verified=['official_portal_checked','official_dfs_guidance_checked','official_faq_checked_seasonal_notice_required'].includes(r.verification?.status);
   const status=verified?'Official source checked':'Source linked · recheck current rules';
   const sourceDate=r.verification?.lastChecked||'Review required';
-  return '<article class="eligibility-card"><div class="eligibility-card-top"><span class="pill '+typeClass(r.type)+'">'+typeLabel(r.type)+'</span><span class="match-status">'+status+'</span></div><h3>'+escapeHtml(r.name)+'</h3><p>'+escapeHtml(r.summary)+'</p><div class="eligibility-amount"><small>FINANCIAL SUPPORT</small><b>'+escapeHtml(r.amount)+'</b><span>'+escapeHtml(r.amountNote||'Final value depends on current scheme rules or lender assessment.')+'</span></div><div class="eligibility-two-col"><div><h4>Why it appears</h4><p>'+escapeHtml(r.matchRules?.status||'Applicant profile and selected location appear in the catalogue coverage.')+'</p></div><div><h4>Verify before applying</h4><ul>'+checks+'</ul></div></div><details class="checklist-details"><summary>View document checklist ('+(r.documents||[]).length+')</summary><ul>'+docs+'</ul></details><div class="eligibility-card-foot"><small>Source review: '+escapeHtml(sourceDate)+'</small><div><button class="details-btn" data-assistant-details="'+escapeHtml(r.id)+'">Full process</button><a class="apply-btn" href="'+escapeHtml(r.application)+'" target="_blank" rel="noopener noreferrer">Official application ↗</a></div></div></article>';
+  return '<article class="eligibility-card"><div class="eligibility-card-top"><span class="pill '+typeClass(r.type)+'">'+typeLabel(r.type)+'</span><span class="match-status">'+status+'</span></div><h3>'+escapeHtml(r.name)+'</h3><p>'+escapeHtml(r.summary)+'</p><div class="eligibility-amount"><small>FINANCIAL SUPPORT</small><b>'+escapeHtml(r.amount)+'</b><span>'+escapeHtml(r.amountNote||'Final value depends on current scheme rules or lender assessment.')+'</span></div><div class="eligibility-two-col"><div><h4>Match note</h4><p>'+escapeHtml(r.matchRules?.status||'Applicant profile and selected location appear in the catalogue coverage.')+'</p></div><div><h4>Verify before applying</h4><ul>'+checks+'</ul></div></div><details class="checklist-details"><summary>View document checklist ('+(r.documents||[]).length+')</summary><ul>'+docs+'</ul></details><div class="eligibility-card-foot"><small>Source review: '+escapeHtml(sourceDate)+'</small><div><button class="details-btn" data-assistant-details="'+escapeHtml(r.id)+'">Full process</button><a class="apply-btn" href="'+escapeHtml(r.application)+'" target="_blank" rel="noopener noreferrer">Official application ↗</a></div></div></article>';
 }
 function runEligibility(event){
   if(event) event.preventDefault();
