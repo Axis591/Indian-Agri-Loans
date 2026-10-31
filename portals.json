@@ -70,7 +70,14 @@
         "url": "http://market.ap.nic.in/"
       }
     ],
-    "districts": {}
+    "districts": {},
+    "rrb": {
+      "name": "Andhra Pradesh Grameena Bank",
+      "url": "https://apgb.bank.in/",
+      "sponsor": "Union Bank of India",
+      "description": "Andhra Pradesh Grameena Bank is the Government-listed Regional Rural Bank for Andhra Pradesh. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
   },
   "Arunachal Pradesh": {
     "state": "Arunachal Pradesh",
@@ -102,7 +109,14 @@
     },
     "facilitation": null,
     "extra": [],
-    "districts": {}
+    "districts": {},
+    "rrb": {
+      "name": "Arunachal Pradesh Rural Bank",
+      "url": "https://aprb.bank.in/",
+      "sponsor": "State Bank of India",
+      "description": "Arunachal Pradesh Rural Bank is the Government-listed Regional Rural Bank for Arunachal Pradesh. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
   },
   "Assam": {
     "state": "Assam",
@@ -134,7 +148,14 @@
     },
     "facilitation": null,
     "extra": [],
-    "districts": {}
+    "districts": {},
+    "rrb": {
+      "name": "Assam Gramin Bank",
+      "url": "https://www.agvb.bank.in/",
+      "sponsor": "Punjab National Bank",
+      "description": "Assam Gramin Bank is the Government-listed Regional Rural Bank for Assam. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
   },
   "Bihar": {
     "state": "Bihar",
@@ -166,7 +187,14 @@
     },
     "facilitation": null,
     "extra": [],
-    "districts": {}
+    "districts": {},
+    "rrb": {
+      "name": "Bihar Gramin Bank",
+      "url": "https://bgb.bank.in/",
+      "sponsor": "Punjab National Bank",
+      "description": "Bihar Gramin Bank is the Government-listed Regional Rural Bank for Bihar. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
   },
   "Chandigarh": {
     "state": "Chandigarh",
@@ -235,7 +263,14 @@
     },
     "facilitation": null,
     "extra": [],
-    "districts": {}
+    "districts": {},
+    "rrb": {
+      "name": "Chhattisgarh Gramin Bank",
+      "url": "https://www.crgb.bank.in/",
+      "sponsor": "State Bank of India",
+      "description": "Chhattisgarh Gramin Bank is the Government-listed Regional Rural Bank for Chhattisgarh. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
   },
   "Dadra and Nagar Haveli and Daman and Diu": {
     "state": "Dadra and Nagar Haveli and Daman and Diu",
@@ -363,7 +398,14 @@
     },
     "facilitation": null,
     "extra": [],
-    "districts": {}
+    "districts": {},
+    "rrb": {
+      "name": "Gujarat Gramin Bank",
+      "url": "https://www.ggb.bank.in/",
+      "sponsor": "Bank of Baroda",
+      "description": "Gujarat Gramin Bank is the Government-listed Regional Rural Bank for Gujarat. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
   },
   "Haryana": {
     "state": "Haryana",
@@ -395,7 +437,14 @@
     },
     "facilitation": null,
     "extra": [],
-    "districts": {}
+    "districts": {},
+    "rrb": {
+      "name": "Haryana Gramin Bank",
+      "url": "https://shgb.bank.in/",
+      "sponsor": "Punjab National Bank",
+      "description": "Haryana Gramin Bank is the Government-listed Regional Rural Bank for Haryana. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
   },
   "Himachal Pradesh": {
     "state": "Himachal Pradesh",
@@ -427,7 +476,14 @@
     },
     "facilitation": null,
     "extra": [],
-    "districts": {}
+    "districts": {},
+    "rrb": {
+      "name": "Himachal Pradesh Gramin Bank",
+      "url": "https://www.hpgb.bank.in/",
+      "sponsor": "Punjab National Bank",
+      "description": "Himachal Pradesh Gramin Bank is the Government-listed Regional Rural Bank for Himachal Pradesh. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
   },
   "Jammu and Kashmir": {
     "state": "Jammu and Kashmir",
@@ -459,7 +515,14 @@
     },
     "facilitation": null,
     "extra": [],
-    "districts": {}
+    "districts": {},
+    "rrb": {
+      "name": "Jammu and Kashmir Grameen Bank",
+      "url": "https://www.jkgrameen.bank.in/",
+      "sponsor": "Jammu & Kashmir Bank",
+      "description": "Jammu and Kashmir Grameen Bank is the Government-listed Regional Rural Bank for Jammu and Kashmir. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
   },
   "Jharkhand": {
     "state": "Jharkhand",
@@ -491,7 +554,14 @@
     },
     "facilitation": null,
     "extra": [],
-    "districts": {}
+    "districts": {},
+    "rrb": {
+      "name": "Jharkhand Gramin Bank",
+      "url": "https://www.jrgbank.bank.in/",
+      "sponsor": "State Bank of India",
+      "description": "Jharkhand Gramin Bank is the Government-listed Regional Rural Bank for Jharkhand. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
   },
   "Karnataka": {
     "state": "Karnataka",
@@ -528,7 +598,14 @@
         "url": "https://www.karnataka.gov.in/horticulture/Pages/home.aspx"
       }
     ],
-    "districts": {}
+    "districts": {},
+    "rrb": {
+      "name": "Karnataka Grameena Bank",
+      "url": "https://karnatakagb.bank.in/",
+      "sponsor": "Canara Bank",
+      "description": "Karnataka Grameena Bank is the Government-listed Regional Rural Bank for Karnataka. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
   },
   "Kerala": {
     "state": "Kerala",
@@ -565,7 +642,14 @@
         "url": "http://www.keralaagriculture.gov.in/"
       }
     ],
-    "districts": {}
+    "districts": {},
+    "rrb": {
+      "name": "Kerala Grameena Bank",
+      "url": "https://kgb.bank.in/",
+      "sponsor": "Canara Bank",
+      "description": "Kerala Grameena Bank is the Government-listed Regional Rural Bank for Kerala. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
   },
   "Ladakh": {
     "state": "Ladakh",
@@ -661,7 +745,14 @@
     },
     "facilitation": null,
     "extra": [],
-    "districts": {}
+    "districts": {},
+    "rrb": {
+      "name": "Madhya Pradesh Gramin Bank",
+      "url": "https://mpgb.bank.in/",
+      "sponsor": "Bank of India",
+      "description": "Madhya Pradesh Gramin Bank is the Government-listed Regional Rural Bank for Madhya Pradesh. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
   },
   "Maharashtra": {
     "state": "Maharashtra",
@@ -698,7 +789,14 @@
         "url": "https://www.msamb.com/"
       }
     ],
-    "districts": {}
+    "districts": {},
+    "rrb": {
+      "name": "Maharashtra Gramin Bank",
+      "url": "https://www.mahagramin.bank.in/",
+      "sponsor": "Bank of Maharashtra",
+      "description": "Maharashtra Gramin Bank is the Government-listed Regional Rural Bank for Maharashtra. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
   },
   "Manipur": {
     "state": "Manipur",
@@ -730,7 +828,14 @@
     },
     "facilitation": null,
     "extra": [],
-    "districts": {}
+    "districts": {},
+    "rrb": {
+      "name": "Manipur Rural Bank",
+      "url": "https://manipurrural.bank.in/",
+      "sponsor": "Punjab National Bank",
+      "description": "Manipur Rural Bank is the Government-listed Regional Rural Bank for Manipur. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
   },
   "Meghalaya": {
     "state": "Meghalaya",
@@ -762,7 +867,14 @@
     },
     "facilitation": null,
     "extra": [],
-    "districts": {}
+    "districts": {},
+    "rrb": {
+      "name": "Meghalaya Rural Bank",
+      "url": "https://meghalayaruralbank.bank.in/",
+      "sponsor": "State Bank of India",
+      "description": "Meghalaya Rural Bank is the Government-listed Regional Rural Bank for Meghalaya. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
   },
   "Mizoram": {
     "state": "Mizoram",
@@ -794,7 +906,14 @@
     },
     "facilitation": null,
     "extra": [],
-    "districts": {}
+    "districts": {},
+    "rrb": {
+      "name": "Mizoram Rural Bank",
+      "url": "https://mrb.bank.in/",
+      "sponsor": "State Bank of India",
+      "description": "Mizoram Rural Bank is the Government-listed Regional Rural Bank for Mizoram. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
   },
   "Nagaland": {
     "state": "Nagaland",
@@ -826,7 +945,14 @@
     },
     "facilitation": null,
     "extra": [],
-    "districts": {}
+    "districts": {},
+    "rrb": {
+      "name": "Nagaland Rural Bank",
+      "url": "https://www.nrb.bank.in/",
+      "sponsor": "State Bank of India",
+      "description": "Nagaland Rural Bank is the Government-listed Regional Rural Bank for Nagaland. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
   },
   "Odisha": {
     "state": "Odisha",
@@ -863,7 +989,14 @@
         "url": "https://agri.odisha.gov.in/"
       }
     ],
-    "districts": {}
+    "districts": {},
+    "rrb": {
+      "name": "Odisha Grameen Bank",
+      "url": "https://odishabank.in/",
+      "sponsor": "Indian Overseas Bank",
+      "description": "Odisha Grameen Bank is the Government-listed Regional Rural Bank for Odisha. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
   },
   "Puducherry": {
     "state": "Puducherry",
@@ -895,7 +1028,14 @@
     },
     "facilitation": null,
     "extra": [],
-    "districts": {}
+    "districts": {},
+    "rrb": {
+      "name": "Puducherry Grama Bank",
+      "url": "https://pygb.bank.in/",
+      "sponsor": "Indian Bank",
+      "description": "Puducherry Grama Bank is the Government-listed Regional Rural Bank for Puducherry. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
   },
   "Punjab": {
     "state": "Punjab",
@@ -932,7 +1072,14 @@
         "url": "https://punjabhorticulture.com/"
       }
     ],
-    "districts": {}
+    "districts": {},
+    "rrb": {
+      "name": "Punjab Gramin Bank",
+      "url": "https://pgb.bank.in/",
+      "sponsor": "Punjab National Bank",
+      "description": "Punjab Gramin Bank is the Government-listed Regional Rural Bank for Punjab. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
   },
   "Rajasthan": {
     "state": "Rajasthan",
@@ -964,7 +1111,14 @@
     },
     "facilitation": null,
     "extra": [],
-    "districts": {}
+    "districts": {},
+    "rrb": {
+      "name": "Rajasthan Gramin Bank",
+      "url": "https://rgb.bank.in/",
+      "sponsor": "State Bank of India",
+      "description": "Rajasthan Gramin Bank is the Government-listed Regional Rural Bank for Rajasthan. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
   },
   "Sikkim": {
     "state": "Sikkim",
@@ -1033,7 +1187,14 @@
         "url": "http://tnhorticulture.tn.gov.in/"
       }
     ],
-    "districts": {}
+    "districts": {},
+    "rrb": {
+      "name": "Tamil Nadu Grama Bank",
+      "url": "https://tngb.bank.in/",
+      "sponsor": "Indian Bank",
+      "description": "Tamil Nadu Grama Bank is the Government-listed Regional Rural Bank for Tamil Nadu. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
   },
   "Telangana": {
     "state": "Telangana",
@@ -1065,7 +1226,14 @@
     },
     "facilitation": null,
     "extra": [],
-    "districts": {}
+    "districts": {},
+    "rrb": {
+      "name": "Telangana Grameena Bank",
+      "url": "https://tgbhyd.in/",
+      "sponsor": "State Bank of India",
+      "description": "Telangana Grameena Bank is the Government-listed Regional Rural Bank for Telangana. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
   },
   "Tripura": {
     "state": "Tripura",
@@ -1097,7 +1265,14 @@
     },
     "facilitation": null,
     "extra": [],
-    "districts": {}
+    "districts": {},
+    "rrb": {
+      "name": "Tripura Gramin Bank",
+      "url": "https://tripuragramin.bank.in/",
+      "sponsor": "Punjab National Bank",
+      "description": "Tripura Gramin Bank is the Government-listed Regional Rural Bank for Tripura. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
   },
   "Uttar Pradesh": {
     "state": "Uttar Pradesh",
@@ -1129,7 +1304,14 @@
     },
     "facilitation": null,
     "extra": [],
-    "districts": {}
+    "districts": {},
+    "rrb": {
+      "name": "Uttar Pradesh Gramin Bank",
+      "url": "https://upgb.bank.in/",
+      "sponsor": "Bank of Baroda",
+      "description": "Uttar Pradesh Gramin Bank is the Government-listed Regional Rural Bank for Uttar Pradesh. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
   },
   "Uttarakhand": {
     "state": "Uttarakhand",
@@ -1161,7 +1343,14 @@
     },
     "facilitation": null,
     "extra": [],
-    "districts": {}
+    "districts": {},
+    "rrb": {
+      "name": "Uttarakhand Gramin Bank",
+      "url": "https://www.ukgb.bank.in/",
+      "sponsor": "State Bank of India",
+      "description": "Uttarakhand Gramin Bank is the Government-listed Regional Rural Bank for Uttarakhand. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
   },
   "West Bengal": {
     "state": "West Bengal",
@@ -1220,6 +1409,13 @@
       "Purulia": "https://purulia.gov.in/",
       "South 24 Parganas": "https://s24pgs.gov.in/",
       "Uttar Dinajpur": "https://uttardinajpur.gov.in/"
+    },
+    "rrb": {
+      "name": "West Bengal Gramin Bank",
+      "url": "https://www.wbgb.bank.in/",
+      "sponsor": "Punjab National Bank",
+      "description": "West Bengal Gramin Bank is the Government-listed Regional Rural Bank for West Bengal. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
     }
   }
 }
