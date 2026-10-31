@@ -130,3 +130,5 @@
 .ngo-next-phase{margin-top:14px}
 @media(max-width:1000px){.assistant-layout,.ngo-layout{grid-template-columns:1fr}.eligibility-results-grid{grid-template-columns:1fr}.ngo-overview{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.assistant-form,.assistant-side-card,.ngo-card{padding:14px}.eligibility-results-head{align-items:flex-start;flex-direction:column}.eligibility-two-col{grid-template-columns:1fr}.eligibility-card-foot{align-items:flex-start;flex-direction:column}.ngo-overview{grid-template-columns:1fr 1fr}.ngo-metric-grid{grid-template-columns:1fr}.ngo-two-fields{grid-template-columns:1fr}}
+
+.eligibility-subhead{margin:24px 0 11px}.eligibility-subhead p{font-size:9px;color:#7c897f;margin:5px 0 0}.lender-match-note{background:#f7f9f5;border-left:2px solid #d7ad59;color:#6e7e72;font-size:8px;line-height:1.45;padding:7px 9px;margin:0 0 10px}
