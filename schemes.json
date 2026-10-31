@@ -1,0 +1,720 @@
+[
+  {
+    "id": "pm-kisan",
+    "name": "PM-KISAN Samman Nidhi",
+    "type": "grant",
+    "category": "Direct income support",
+    "scope": "national",
+    "states": "all",
+    "districts": "all",
+    "profiles": [
+      "owner"
+    ],
+    "amount": "₹6,000 per year",
+    "amountNote": "Paid in 3 equal instalments of ₹2,000 to an eligible farmer family.",
+    "summary": "Central income support for eligible landholding farmer families. This is a grant/DBT benefit, not a loan.",
+    "eligibility": "Eligible landholding farmer families, subject to the scheme's exclusion categories (including institutional landholders, specified constitutional/public office holders, certain government employees and income-tax payers). Aadhaar, land record and bank-account validation apply.",
+    "process": [
+      "Open the official PM-KISAN portal and choose Farmers Corner → New Farmer Registration.",
+      "Complete Aadhaar and mobile verification; enter landholding, bank and contact details.",
+      "Submit the application and retain the registration number.",
+      "Track status and resolve e-KYC, land-seeding or bank validation issues through the portal or local agriculture office."
+    ],
+    "application": "https://pmkisan.gov.in/",
+    "source": "https://pmkisan.gov.in/",
+    "sourceLabel": "PM-KISAN official portal",
+    "sourceDate": "Checked 31 Oct 2026",
+    "amountStatus": "published",
+    "caution": "Tenant farmers without qualifying land records may not qualify under PM-KISAN. Check the current exclusions and state land-record status before applying.",
+    "keywords": [
+      "income support",
+      "DBT",
+      "farmer family"
+    ],
+    "providerKinds": [
+      "central-government"
+    ]
+  },
+  {
+    "id": "kcc",
+    "name": "Kisan Credit Card (KCC)",
+    "type": "loan",
+    "category": "Crop & allied working capital",
+    "scope": "national",
+    "states": "all",
+    "districts": "all",
+    "profiles": [
+      "owner",
+      "tenant",
+      "women_shg",
+      "fpo",
+      "allied"
+    ],
+    "amount": "Need-based — bank assessed",
+    "amountNote": "The bank calculates the limit using crop, acreage, district Scale of Finance, allied activity and repayment capacity. Do not assume a fixed amount for every farmer.",
+    "summary": "Revolving credit for cultivation, post-harvest expenses, farm working capital and eligible allied activities. Tenant farmers, oral lessees, sharecroppers and eligible SHG/JLG groups are included in official eligibility descriptions.",
+    "eligibility": "Owner cultivators; tenant farmers; oral lessees; sharecroppers; and eligible SHGs/JLGs of farmers. Dairy, fisheries and animal-husbandry working capital can also be covered through KCC variants.",
+    "process": [
+      "Approach a participating public/private bank, Regional Rural Bank, cooperative bank or eligible PACS.",
+      "Ask for a KCC application and the district's latest Scale of Finance for the crop and season.",
+      "Submit KYC, bank details, land record or acceptable cultivation/tenancy proof, crop details and allied-activity documents where applicable.",
+      "The bank assesses the limit and security requirement; obtain the sanctioned limit, interest rate, renewal date and repayment schedule in writing."
+    ],
+    "application": "https://fasalrin.gov.in/",
+    "source": "https://financialservices.gov.in/agriculture-credit",
+    "sourceLabel": "Department of Financial Services — Agriculture Credit",
+    "sourceDate": "Checked 31 Oct 2026",
+    "amountStatus": "assessment",
+    "rate": "MISS concessional pricing is subject to the prevailing circular and eligible limit; the DFS FAQ records 7% lending and an extra 3% prompt-repayment incentive (effective 4%) for the earlier ₹3 lakh cap. Budget 2025-26 announced an enhanced ₹5 lakh ceiling; confirm the operative bank circular before relying on the higher ceiling.",
+    "caution": "The Department of Financial Services page describes the longstanding KCC facility up to ₹3 lakh; a later Budget 2025-26 announcement raised the MISS ceiling to ₹5 lakh. A budget announcement and a bank's current operational sanction are not the same thing. Confirm the live circular and applicable loan limit with the bank.",
+    "keywords": [
+      "KCC",
+      "crop loan",
+      "tenant farmer",
+      "sharecropper",
+      "PACS"
+    ],
+    "providerKinds": [
+      "central-government",
+      "public-bank",
+      "private-bank",
+      "rrb",
+      "cooperative"
+    ]
+  },
+  {
+    "id": "aif",
+    "name": "Agriculture Infrastructure Fund (AIF)",
+    "type": "subsidy",
+    "category": "Infrastructure / investment credit",
+    "scope": "national",
+    "states": "all",
+    "districts": "all",
+    "profiles": [
+      "owner",
+      "fpo",
+      "entrepreneur"
+    ],
+    "amount": "Eligible loans up to ₹2 crore",
+    "amountNote": "3% per annum interest subvention and credit-guarantee support up to ₹2 crore for eligible project loans. Not a ₹2 crore cash grant.",
+    "summary": "Financing facility for eligible post-harvest management infrastructure and community farming assets such as storage, grading, pack houses and related infrastructure.",
+    "eligibility": "Eligible beneficiaries can include farmers, FPOs, PACS, cooperatives, agri-entrepreneurs and other eligible project entities under current scheme guidelines. The lender appraises project viability and borrower contribution.",
+    "process": [
+      "Prepare a project report, quotations, land/lease or site documents and projected cash flows.",
+      "Check whether the activity and applicant entity qualify under the current AIF guidelines.",
+      "Apply through the AIF portal and a participating lending institution.",
+      "The lender appraises and sanctions the loan; eligible interest-subvention and credit-guarantee claims are processed under scheme rules."
+    ],
+    "application": "https://agriinfra.dac.gov.in/",
+    "source": "https://agriinfra.dac.gov.in/Documents/Circular/BB3379A9D79A4DF09414E3F1DAE59AFD.pdf",
+    "sourceLabel": "Agriculture Infrastructure Fund — official SOP",
+    "sourceDate": "Checked 31 Oct 2026",
+    "amountStatus": "published",
+    "caution": "AIF is project finance routed through a lender. The 3% support is interest subvention, not an upfront grant to the farmer. Confirm eligible activity, loan tenure and current portal window.",
+    "keywords": [
+      "warehouse",
+      "cold storage",
+      "pack house",
+      "FPO",
+      "PACS",
+      "post-harvest"
+    ],
+    "providerKinds": [
+      "central-government",
+      "public-bank",
+      "private-bank",
+      "rrb",
+      "cooperative"
+    ]
+  },
+  {
+    "id": "pmfby",
+    "name": "Pradhan Mantri Fasal Bima Yojana (PMFBY)",
+    "type": "insurance",
+    "category": "Crop risk cover",
+    "scope": "national",
+    "states": "all",
+    "districts": "all",
+    "profiles": [
+      "owner",
+      "tenant"
+    ],
+    "amount": "Crop sum insured varies by notified crop",
+    "amountNote": "Farmer premium share is capped at 2% for Kharif foodgrain/oilseed crops, 1.5% for Rabi foodgrain/oilseed crops and 5% for annual commercial/horticultural crops, or actuarial rate if lower.",
+    "summary": "Crop insurance against notified risks. This is insurance protection, not a loan or unconditional grant. Crop, district, season and deadline notifications determine availability.",
+    "eligibility": "Farmers with insurable interest cultivating notified crops in notified areas; tenant and sharecropper farmers can qualify subject to prescribed documents and state notification.",
+    "process": [
+      "Check the current season's state, district, crop and insurance-unit notification on the PMFBY portal.",
+      "Apply through an authorised bank, PACS, CSC or the farmer portal before the notified cut-off date.",
+      "Provide Aadhaar, bank details and land/cultivation proof.",
+      "For crop loss, report within the applicable time limit and preserve the acknowledgement and evidence."
+    ],
+    "application": "https://pmfby.gov.in/",
+    "source": "https://pmfby.gov.in/faq",
+    "sourceLabel": "PMFBY official FAQ",
+    "sourceDate": "Checked 31 Oct 2026",
+    "amountStatus": "variable",
+    "caution": "West Bengal's Agriculture Department says PMFBY implementation in the state begins from Kharif 2026. This does not mean every crop in every district is automatically covered: check the season-specific notification.",
+    "keywords": [
+      "crop insurance",
+      "Kharif",
+      "Rabi",
+      "crop damage"
+    ],
+    "providerKinds": [
+      "central-government",
+      "state-government"
+    ]
+  },
+  {
+    "id": "mudra",
+    "name": "Pradhan Mantri MUDRA Yojana (PMMY)",
+    "type": "loan",
+    "category": "Allied micro-enterprise credit",
+    "scope": "national",
+    "states": "all",
+    "districts": "all",
+    "profiles": [
+      "allied",
+      "entrepreneur"
+    ],
+    "amount": "₹50,000 to ₹20 lakh",
+    "amountNote": "Shishu: up to ₹50,000; Kishore: above ₹50,000 to ₹5 lakh; Tarun: above ₹5 lakh to ₹10 lakh; Tarun Plus: above ₹10 lakh to ₹20 lakh only for entrepreneurs who have successfully repaid a previous Tarun loan.",
+    "summary": "Institutional credit for eligible micro-enterprises, including specified agriculture-allied activities such as dairy, poultry and beekeeping. It is not intended as a crop cultivation loan.",
+    "eligibility": "Eligible non-corporate micro-enterprises engaged in income-generating activities. Allied agriculture activities can qualify; the lender assesses the business, cash flow and repayment capacity.",
+    "process": [
+      "Identify a qualifying allied micro-enterprise activity and estimate the investment/working-capital requirement.",
+      "Approach a participating bank, RRB, Small Finance Bank, NBFC or MFI.",
+      "Submit KYC, business/project details, quotations and bank statements as requested.",
+      "The lender appraises the application and determines the final amount, interest and repayment schedule."
+    ],
+    "application": "https://financialservices.gov.in/pradhan-mantri-mudra-yojana-pmmy",
+    "source": "https://financialservices.gov.in/pradhan-mantri-mudra-yojana-pmmy",
+    "sourceLabel": "Department of Financial Services — PMMY",
+    "sourceDate": "Checked 31 Oct 2026",
+    "amountStatus": "published",
+    "caution": "MUDRA supports eligible micro-enterprises and allied activities, not ordinary crop cultivation expenses. Tarun Plus is only for borrowers who have successfully repaid an earlier Tarun loan.",
+    "keywords": [
+      "dairy",
+      "poultry",
+      "beekeeping",
+      "micro enterprise"
+    ],
+    "providerKinds": [
+      "central-government",
+      "public-bank",
+      "private-bank",
+      "rrb",
+      "regulated-nbfc"
+    ]
+  },
+  {
+    "id": "wb-krishak-bandhu",
+    "name": "Krishak Bandhu (Natun)",
+    "type": "grant",
+    "category": "State income support",
+    "scope": "state",
+    "states": [
+      "West Bengal"
+    ],
+    "districts": "all",
+    "profiles": [
+      "owner",
+      "tenant"
+    ],
+    "amount": "Up to ₹10,000 per year",
+    "amountNote": "West Bengal Agriculture Department states that farmers with 1 acre or more of cultivable land are entitled to up to ₹10,000 per year. Smaller holdings are governed by the pro-rata rules in current state instructions; confirm the live amount at application.",
+    "summary": "Seasonal financial assistance for agricultural inputs, with a separate death-benefit component for eligible farmer families.",
+    "eligibility": "West Bengal farmers with qualifying cultivable land records; recorded sharecroppers may be eligible under the applicable rules. The Agriculture Department's current page describes the ₹10,000 annual support for holdings of 1 acre or more.",
+    "process": [
+      "Open the West Bengal Agriculture Department's Krishak Bandhu information page or visit a Bangla Sahayata Kendra.",
+      "Keep Aadhaar, voter/identity details, bank passbook and current land record/RoR or recorded sharecropper documents ready.",
+      "Submit or update the application through the official state process and obtain an acknowledgement.",
+      "Check application/DBT status and correct land or bank validation errors through the local agriculture office."
+    ],
+    "application": "https://agriculture.wb.gov.in/krishak-bandhu-natun-",
+    "source": "https://agriculture.wb.gov.in/krishak-bandhu-natun-",
+    "sourceLabel": "West Bengal Agriculture Department — Krishak Bandhu Natun",
+    "sourceDate": "Checked 31 Oct 2026",
+    "amountStatus": "published",
+    "caution": "The ₹10,000 figure is stated for one acre or more. Do not apply that maximum to a smaller holding without checking the current pro-rata rule. The death-benefit component is separate and is not a farming loan.",
+    "keywords": [
+      "West Bengal",
+      "income support",
+      "farm input"
+    ],
+    "providerKinds": [
+      "state-government"
+    ]
+  },
+  {
+    "id": "wb-death-benefit",
+    "name": "Krishak Bandhu — Death Benefit",
+    "type": "grant",
+    "category": "Family social protection",
+    "scope": "state",
+    "states": [
+      "West Bengal"
+    ],
+    "districts": "all",
+    "profiles": [
+      "owner",
+      "tenant"
+    ],
+    "amount": "₹2,00,000 one-time assistance",
+    "amountNote": "For the eligible family of a farmer/sharecropper who dies between ages 18 and 60, irrespective of cause, under the state scheme conditions.",
+    "summary": "A family protection payment after the farmer's death. Included for completeness, but it is not money available to fund cultivation or repay farm debt.",
+    "eligibility": "Eligible family of a farmer or sharecropper within the age band and documentation rules set by the state government.",
+    "process": [
+      "Contact the local Agriculture Department office or Bangla Sahayata Kendra after the death of an eligible farmer.",
+      "Submit death certificate, identity and relationship documents, farmer registration/land or sharecropper records and bank details.",
+      "Follow the state department's verification and claim process; retain the acknowledgement."
+    ],
+    "application": "https://agriculture.wb.gov.in/krishak-bandhu-death-benefit-state-",
+    "source": "https://agriculture.wb.gov.in/krishak-bandhu-death-benefit-state-",
+    "sourceLabel": "West Bengal Agriculture Department — Death Benefit",
+    "sourceDate": "Checked 31 Oct 2026",
+    "amountStatus": "published",
+    "caution": "This is a death-triggered family benefit, not a loan, routine grant or annual farmer payment.",
+    "keywords": [
+      "death benefit",
+      "family protection"
+    ],
+    "providerKinds": [
+      "state-government"
+    ]
+  },
+  {
+    "id": "wb-diversification",
+    "name": "Diversified Cropping Programme — Dryland / Rainfed",
+    "type": "subsidy",
+    "category": "District crop support",
+    "scope": "district",
+    "states": [
+      "West Bengal"
+    ],
+    "districts": [
+      "Paschim Medinipur",
+      "Purulia",
+      "Bankura",
+      "Jhargram",
+      "Birbhum",
+      "Paschim Bardhaman"
+    ],
+    "profiles": [
+      "owner",
+      "tenant"
+    ],
+    "amount": "Amount not published on the scheme page",
+    "amountNote": "The official page confirms district coverage and programme purpose, but does not state a fixed per-farmer cash amount. Ask the block agriculture office for the current year's input package and beneficiary rules.",
+    "summary": "State development programme for resource-poor farmers in specified rainfed districts; encourages maize, groundnut, mustard, sesame, lentil and arhar/pigeon pea.",
+    "eligibility": "Farmers in the six named rainfed districts, subject to current block-level crop plan, beneficiary selection and departmental instructions.",
+    "process": [
+      "Contact the Assistant Director of Agriculture / Block Agriculture office for the current year's local target and eligible villages.",
+      "Ask which crop package, input support or demonstration is open for the selected block and season.",
+      "Provide identity, bank and land/cultivation records as requested.",
+      "Confirm the exact benefit in writing before making purchases or paying an intermediary."
+    ],
+    "application": "https://agriculture.wb.gov.in/diversified-cropping-program-for-dry-land-rainfed-condition",
+    "source": "https://agriculture.wb.gov.in/diversified-cropping-program-for-dry-land-rainfed-condition",
+    "sourceLabel": "West Bengal Agriculture Department — scheme coverage",
+    "sourceDate": "Checked 31 Oct 2026",
+    "amountStatus": "not_published",
+    "caution": "Paschim Medinipur is explicitly listed among the six covered districts. The public scheme page does not give a uniform rupee amount; the local seasonal package must be confirmed with the block agriculture office.",
+    "keywords": [
+      "Paschim Medinipur",
+      "rainfed",
+      "maize",
+      "groundnut",
+      "mustard",
+      "sesame"
+    ],
+    "providerKinds": [
+      "state-government"
+    ]
+  },
+  {
+    "id": "wb-shg-credit",
+    "name": "West Bengal Swanirbhar Sahayak Prakalpa (WBSSP) — SHG Interest Support",
+    "type": "subsidy",
+    "category": "Women SHG bank credit",
+    "scope": "state",
+    "states": [
+      "West Bengal"
+    ],
+    "districts": "all",
+    "profiles": [
+      "women_shg",
+      "mixed_shg"
+    ],
+    "amount": "Eligible SHG bank loans; effective interest may reduce to 2% p.a.",
+    "amountNote": "No single rupee loan cap is stated on the norms page. Women SHGs: Category I districts use a 7% bank lending rate plus eligible central and state subvention; Category II districts use the bank rate with central and state subvention. The published norms state an effective 2% p.a. for eligible women SHGs subject to prompt repayment. Male/mixed SHGs have a separate state-only support route.",
+    "summary": "West Bengal’s state-wide SHG interest-support programme reduces the interest burden on eligible bank-linked SHG loans. Paschim Medinipur is a Category I district; other districts use the Category II norms.",
+    "eligibility": "Registered and eligible SHGs accessing bank credit under the relevant NRLM/NULM or state programme. Women SHG terms differ by district category; male or mixed SHGs have separate state-only norms. This is SHG-level finance, not an automatic individual farmer loan.",
+    "process": [
+      "Confirm that the SHG is registered, active and eligible under the relevant NRLM/NULM or West Bengal SHG programme through the block mission/SHG office.",
+      "Apply for bank linkage through the SHG’s bank and obtain a written sanction showing the loan amount, rate and programme category.",
+      "Ask the bank and SHG office which central and state subvention rules apply to the district and SHG composition.",
+      "Repay on time and verify that approved interest subsidy is credited to the SHG account through the prescribed process."
+    ],
+    "application": "https://shgsewb.gov.in/shgportal/shg_interest_subsidy_norms",
+    "source": "https://shgsewb.gov.in/shgportal/shg_interest_subsidy_norms",
+    "sourceLabel": "WB SHG & Self Employment Department — interest norms",
+    "sourceDate": "Checked 31 Oct 2026",
+    "amountStatus": "rate_support",
+    "caution": "The 2% effective rate depends on SHG type, applicable district category, prompt repayment, scheme compliance and actual subvention credit. It is not an upfront interest rate guaranteed by every bank. Confirm current norms and account postings.",
+    "keywords": [
+      "WBSSP",
+      "women SHG",
+      "NRLM",
+      "NULM",
+      "interest subvention",
+      "Paschim Medinipur",
+      "West Bengal"
+    ],
+    "providerKinds": [
+      "state-government",
+      "public-bank",
+      "cooperative"
+    ]
+  },
+  {
+    "id": "wb-coop-credit",
+    "name": "West Bengal Cooperative Crop & Farm Credit (PACS → DCCB → WBSCB)",
+    "type": "loan",
+    "category": "Cooperative / village credit",
+    "scope": "state",
+    "states": [
+      "West Bengal"
+    ],
+    "districts": "all",
+    "profiles": [
+      "owner",
+      "tenant",
+      "women_shg",
+      "fpo",
+      "allied"
+    ],
+    "amount": "Scale-of-finance / appraisal based",
+    "amountNote": "Short-term crop loans are generally for a period not exceeding one year; medium-term farm, allied and non-farm loans can run from over 1 year to 5 years. No single public district-wide amount is specified.",
+    "summary": "Three-tier cooperative credit network: West Bengal State Cooperative Bank, 17 affiliated Central Cooperative Banks at district/sub-division level, and PACS at Gram Panchayat/village level.",
+    "eligibility": "Members and eligible cultivators served by the relevant PACS/cooperative bank. The state describes a focus on small and marginal farmers, including landless sharecroppers, for short-term crop credit; local membership and documentation rules apply.",
+    "process": [
+      "Locate the PACS serving the farmer's village/Gram Panchayat and ask about membership and seasonal crop-loan applications.",
+      "Provide identity, bank account, crop/acreage details and land or cultivation/tenancy evidence accepted by the society.",
+      "Ask the PACS/DCCB for the current crop Scale of Finance, interest and due date.",
+      "Obtain the loan passbook/sanction terms and repayment schedule; confirm any linked government interest support separately."
+    ],
+    "application": "https://cooperation.wb.gov.in/Short-Term-Cooperative-Credit-Structure",
+    "source": "https://cooperation.wb.gov.in/Short-Term-Cooperative-Credit-Structure",
+    "sourceLabel": "West Bengal Cooperation Department — ST Cooperative Credit Structure",
+    "sourceDate": "Checked 31 Oct 2026",
+    "amountStatus": "assessment",
+    "caution": "PACS availability, membership and sanctioned limits vary locally. PACS is a village-level cooperative credit society; it is not a Gram Panchayat grant and it does not guarantee sanction to every applicant.",
+    "keywords": [
+      "PACS",
+      "DCCB",
+      "cooperative bank",
+      "sharecropper",
+      "Gram Panchayat"
+    ],
+    "providerKinds": [
+      "state-government",
+      "cooperative"
+    ]
+  },
+  {
+    "id": "wb-farm-mech",
+    "name": "West Bengal Farm Mechanisation Support (FSSM)",
+    "type": "subsidy",
+    "category": "Machinery subsidy",
+    "scope": "state",
+    "states": [
+      "West Bengal"
+    ],
+    "districts": "all",
+    "profiles": [
+      "owner",
+      "tenant",
+      "fpo",
+      "entrepreneur"
+    ],
+    "amount": "Subsidy amount varies by machine and current call",
+    "amountNote": "The BSK scheme description confirms support for small and marginal farmers purchasing power-operated farm equipment, but the live public summary does not give a fixed subsidy percentage or ceiling.",
+    "summary": "State financial support for eligible small and marginal farmers purchasing power-operated agricultural machinery/equipment.",
+    "eligibility": "Small and marginal farmers of West Bengal, subject to current machine list, category, application window and departmental allocation.",
+    "process": [
+      "Check the current Farm Mechanisation / FSSM notice through the Agriculture Department or Bangla Sahayata Kendra.",
+      "Confirm the approved machine list, beneficiary category, subsidy rate, quotation and application dates.",
+      "Submit the application and required land, identity, bank and quotation documents before purchasing equipment.",
+      "Wait for approval and follow the prescribed purchase, inspection and subsidy-release process."
+    ],
+    "application": "https://bsk.wb.gov.in/all-schemes.html",
+    "source": "https://bsk.wb.gov.in/scheme_bsk/",
+    "sourceLabel": "Bangla Sahayata Kendra — Agriculture schemes",
+    "sourceDate": "Checked 31 Oct 2026",
+    "amountStatus": "not_published",
+    "caution": "Do not buy equipment or pay an agent before written approval. Current subsidy percentage, ceiling, vendor and window need confirmation from the live department notification.",
+    "keywords": [
+      "farm machinery",
+      "power tiller",
+      "small farmer",
+      "FSSM"
+    ],
+    "providerKinds": [
+      "state-government",
+      "local-body"
+    ]
+  },
+  {
+    "id": "wb-amar-fasal",
+    "name": "Amar Fasal Amar Gola",
+    "type": "grant",
+    "category": "Storage / post-harvest support",
+    "scope": "state",
+    "states": [
+      "West Bengal"
+    ],
+    "districts": "all",
+    "profiles": [
+      "owner"
+    ],
+    "amount": "₹5,000–₹25,000 subsidy range",
+    "amountNote": "BSK's scheme description reports subsidy varying between ₹5,000 and ₹25,000 for warehouses. Confirm the current year's eligibility, structure and application window.",
+    "summary": "Financial assistance for marginal farmers to develop their own storage/warehouse facilities and vending carts; the published BSK description specifies the subsidy range for warehouses.",
+    "eligibility": "Marginal farmers in West Bengal, subject to the scheme's current criteria and local availability.",
+    "process": [
+      "Ask the local Agriculture Department office or Bangla Sahayata Kendra whether the scheme is open for the current financial year.",
+      "Confirm whether the proposed storage structure qualifies and obtain the current design/quotation requirements.",
+      "Submit identity, land/possession, bank and project documents through the notified route.",
+      "Wait for sanction/inspection instructions before constructing the warehouse."
+    ],
+    "application": "https://bsk.wb.gov.in/all-schemes.html",
+    "source": "https://bsk.wb.gov.in/all-schemes.html",
+    "sourceLabel": "Bangla Sahayata Kendra — available schemes",
+    "sourceDate": "Checked 31 Oct 2026",
+    "amountStatus": "published",
+    "caution": "The public BSK summary is brief. The ₹5,000–₹25,000 range is described for warehouses; do not assume it applies to every vending-cart or storage proposal without the current order.",
+    "keywords": [
+      "warehouse",
+      "marginal farmer",
+      "storage",
+      "post-harvest"
+    ],
+    "providerKinds": [
+      "state-government",
+      "local-body"
+    ]
+  },
+  {
+    "id": "private-hdfc",
+    "name": "HDFC Bank — Agri & Allied Financing",
+    "type": "loan",
+    "category": "Private bank finance",
+    "scope": "national",
+    "states": "all",
+    "districts": "all",
+    "profiles": [
+      "owner",
+      "allied",
+      "entrepreneur"
+    ],
+    "amount": "Based on land, crop, project & credit profile",
+    "amountNote": "The bank does not publish one universal farmer limit for this product family. The branch assesses the individual proposal and security.",
+    "summary": "Private-bank finance for crop production, post-harvest needs, machinery, irrigation, storage and allied activities such as dairy, poultry and fisheries.",
+    "eligibility": "Farmers and eligible agri/allied borrowers meeting the bank's product-specific requirements; land records/lease proof, KYC and credit assessment may be required.",
+    "process": [
+      "Choose the relevant rural loan product and contact the nearest HDFC Bank rural/agri branch.",
+      "Discuss the crop, machinery or allied-activity purpose and ask for an indicative quote.",
+      "Submit KYC, land/lease evidence, quotations/project details and bank statements as requested.",
+      "Compare APR/interest, processing fees, collateral, insurance add-ons and foreclosure terms before signing."
+    ],
+    "application": "https://www.hdfc.bank.in/agri-banking/rural-loans",
+    "source": "https://www.hdfc.bank.in/agri-banking/rural-loans",
+    "sourceLabel": "HDFC Bank — Rural Loans",
+    "sourceDate": "Checked 31 Oct 2026",
+    "amountStatus": "assessment",
+    "caution": "This is commercial credit, not a government subsidy. Amount, rate, collateral and approval depend on the selected product and borrower assessment.",
+    "keywords": [
+      "private bank",
+      "dairy",
+      "poultry",
+      "machinery",
+      "irrigation"
+    ],
+    "providerKinds": [
+      "private-bank"
+    ]
+  },
+  {
+    "id": "private-icici",
+    "name": "ICICI Bank — Farmer Finance / Krishi Loan",
+    "type": "loan",
+    "category": "Private bank finance",
+    "scope": "national",
+    "states": "all",
+    "districts": "all",
+    "profiles": [
+      "owner",
+      "allied"
+    ],
+    "amount": "Bank assessed — product specific",
+    "amountNote": "ICICI describes overdraft/working capital and term loans, but the public farmer-finance page does not state one standard cap for all borrowers.",
+    "summary": "Private-bank overdraft and term-loan options for cultivation working capital, cattle, irrigation equipment and other agricultural requirements.",
+    "eligibility": "Farmers and qualifying allied borrowers under the selected product; final terms depend on the branch's credit and documentation assessment.",
+    "process": [
+      "Contact an ICICI Bank branch or use its farmer-finance page to identify the relevant product.",
+      "Explain whether funds are needed for seasonal crop expenses, cattle, irrigation or machinery.",
+      "Submit KYC, land/cultivation proof and project or quotation documents.",
+      "Request a written offer including interest rate, fees, collateral, insurance and repayment schedule."
+    ],
+    "application": "https://www.icici.bank.in/rural/loans/farmer-finance",
+    "source": "https://www.icici.bank.in/rural/loans/farmer-finance",
+    "sourceLabel": "ICICI Bank — Farmer Finance",
+    "sourceDate": "Checked 31 Oct 2026",
+    "amountStatus": "assessment",
+    "caution": "Commercial credit is subject to approval. Compare the total cost of borrowing with KCC/cooperative options before accepting a private-bank loan.",
+    "keywords": [
+      "private bank",
+      "overdraft",
+      "cattle",
+      "irrigation"
+    ],
+    "providerKinds": [
+      "private-bank"
+    ]
+  },
+  {
+    "id": "informal-credit",
+    "name": "Local trader / input dealer / moneylender credit",
+    "type": "informal",
+    "category": "Informal / non-institutional credit",
+    "scope": "local",
+    "states": "all",
+    "districts": "all",
+    "profiles": [
+      "owner",
+      "tenant",
+      "allied"
+    ],
+    "amount": "No reliable standard amount or rate",
+    "amountNote": "Terms are privately negotiated and may be undocumented. This directory does not verify or recommend any local informal lender.",
+    "summary": "Some farmers obtain seasonal advances from produce buyers, input dealers, local moneylenders or personal networks. This is not a government scheme and can carry high-cost or coercive terms.",
+    "eligibility": "Set by the individual lender; legality and enforceability depend on state money-lending law and the lender's licence/registration status.",
+    "process": [
+      "Treat this as a last-resort option and compare with KCC, PACS, RRB and regulated bank credit first.",
+      "Verify the lender's legal status and licence with the relevant state authority.",
+      "Insist on a written agreement in a language understood by the borrower, showing principal, annualised interest, all fees, due dates and security.",
+      "Never sign blank cheques, blank papers or an unconditional land-transfer document; keep copies of every receipt."
+    ],
+    "application": "https://rbi.org.in/",
+    "source": "https://www.rbi.org.in/commonman/images/FAME202426022024.pdf",
+    "sourceLabel": "RBI Financial Awareness Messages — digital lending safety",
+    "sourceDate": "Checked 31 Oct 2026",
+    "amountStatus": "unknown",
+    "caution": "Not endorsed. Avoid unlicensed lenders, coercive recovery, hidden compounding charges, advance-fee scams and loan apps received via SMS/social media. RBI advises checking that an app is associated with a regulated bank/NBFC on that lender's official website.",
+    "keywords": [
+      "informal credit",
+      "trader advance",
+      "moneylender",
+      "risk"
+    ],
+    "providerKinds": [
+      "informal"
+    ]
+  },
+  {
+    "id": "panchayat-access",
+    "name": "Gram Panchayat / Block Office — Local Scheme Access Desk",
+    "type": "institution",
+    "category": "Panchayat / BDO facilitation",
+    "scope": "national",
+    "states": "all",
+    "districts": "all",
+    "profiles": [
+      "owner",
+      "tenant",
+      "women_shg",
+      "fpo",
+      "allied",
+      "entrepreneur"
+    ],
+    "amount": "No standard all-India amount",
+    "amountNote": "Panchayats and block offices may facilitate locally notified schemes, beneficiary verification and department applications. Any grant or loan amount comes from the specific programme or implementing institution, not from a uniform Panchayat loan product.",
+    "summary": "A practical first stop for district/block notices, agriculture department camps, beneficiary lists, local subsidy windows and help identifying the implementing office. It is an access route, not a guaranteed grant or loan.",
+    "eligibility": "Depends entirely on the locally notified scheme and applicant category. Tenant farmers, sharecroppers and landless households should ask which documents are accepted for the specific programme.",
+    "process": [
+      "Find the correct Gram Panchayat and local-body jurisdiction in the Government of India Local Government Directory.",
+      "Visit the Panchayat office or Block Development Office and ask for current agriculture, horticulture, irrigation, livestock, fisheries and rural-livelihood scheme notices.",
+      "Request the official government order, eligibility checklist, beneficiary list process, amount and application deadline in writing.",
+      "Apply only through the department or authorised portal named in the notice; do not pay an agent for a supposedly guaranteed selection."
+    ],
+    "application": "https://lgdirectory.gov.in/",
+    "source": "https://data.gov.in/catalog/local-government-directory-lgd",
+    "sourceLabel": "Government of India — Local Government Directory (LGD)",
+    "sourceDate": "Checked 31 Oct 2026",
+    "amountStatus": "not_published",
+    "caution": "A Panchayat is not automatically a lender or grant-maker. Funding depends on a separately notified scheme, budget, local implementation plan and eligibility. This entry is a navigation/contact route only.",
+    "providerKinds": [
+      "local-body"
+    ],
+    "keywords": [
+      "Gram Panchayat",
+      "BDO",
+      "block",
+      "local grant",
+      "district scheme",
+      "beneficiary list"
+    ]
+  },
+  {
+    "id": "formal-lender-channels",
+    "name": "Formal Rural Credit Channels — Banks, RRBs, Cooperatives & PACS",
+    "type": "institution",
+    "category": "Public / private / semi-public delivery network",
+    "scope": "national",
+    "states": "all",
+    "districts": "all",
+    "profiles": [
+      "owner",
+      "tenant",
+      "women_shg",
+      "fpo",
+      "allied",
+      "entrepreneur"
+    ],
+    "amount": "Product and borrower assessed",
+    "amountNote": "No single limit applies across these institutions. For KCC, the bank calculates the limit using crop, acreage, Scale of Finance and applicable norms. Compare the written sanction, interest, collateral and repayment conditions.",
+    "summary": "Agricultural credit can be delivered through scheduled commercial banks, Regional Rural Banks, rural cooperative banks and eligible PACS. Private banks and RBI-regulated NBFC/MFI partners also offer selected agriculture or allied-enterprise products.",
+    "eligibility": "Varies by product and institution. KCC eligibility includes owner cultivators, eligible tenant farmers, oral lessees, sharecroppers and eligible SHGs/JLGs; lender documentation requirements still apply.",
+    "process": [
+      "Use the Kisan Rin Portal or approach a bank branch, RRB, cooperative bank or eligible PACS to identify the applicable crop and allied-activity product.",
+      "Ask for the current district Scale of Finance, interest rate, collateral threshold, processing fees and repayment calendar in writing.",
+      "For private NBFC/MFI or digital channels, verify the lender is RBI-regulated and that any app is linked from the lender’s own official website.",
+      "Compare at least two formal offers and retain the sanction letter and Key Facts Statement where applicable."
+    ],
+    "application": "https://fasalrin.gov.in/",
+    "source": "https://financialservices.gov.in/agriculture-credit",
+    "sourceLabel": "Department of Financial Services — KCC institutions and eligibility",
+    "sourceDate": "Checked 31 Oct 2026",
+    "amountStatus": "assessment",
+    "caution": "“Semi-private” is not one legal lender class. RRBs, cooperatives, private banks, small finance banks and NBFC-MFIs have different regulatory/ownership structures and products. Verify each lender and the exact product before borrowing.",
+    "providerKinds": [
+      "public-bank",
+      "private-bank",
+      "rrb",
+      "cooperative",
+      "regulated-nbfc"
+    ],
+    "keywords": [
+      "RRB",
+      "Regional Rural Bank",
+      "cooperative bank",
+      "PACS",
+      "private bank",
+      "NBFC",
+      "MFI",
+      "formal rural credit"
+    ]
+  }
+]
