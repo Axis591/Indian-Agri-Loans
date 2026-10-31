@@ -248,9 +248,10 @@ function showLenderDetails(id){
 function updateAssistantLocation(){
   const node=$('#assistant-location');
   if(node) node.textContent=stateSelect.value+' · '+districtSelect.value;
-  const ns=$('#ngo-state'), nd=$('#ngo-district');
-  if(ns) ns.value=stateSelect.value;
-  if(nd) nd.value=districtSelect.value;
+  const ns=$('#ngo-state'),nd=$('#ngo-district');
+  if(ns&&geography.length)setOptions(ns,stateNames(),stateSelect.value);
+  if(nd&&geography.length)setOptions(nd,districtsFor(stateSelect.value),districtSelect.value);
+  if(typeof syncMarketLocation==='function')syncMarketLocation();
 }
 function potentialMatches(profile,land,activity,need){
   return records.filter(r=>{
@@ -406,6 +407,70 @@ function initNGOWorkspace(){
   loadNGOWorkspace();
 }
 
+const inrMoney=value=>new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:0}).format(Number(value)||0);
+function calculateMonthlyIrr(netReceived,emi,months){
+  if(!(netReceived>0)||!(emi>=0)||!(months>0))return null;
+  const npv=rate=>{let value=netReceived;for(let month=1;month<=months;month++)value-=emi/Math.pow(1+rate,month);return value;};
+  if(Math.abs(npv(0))<0.0001)return 0;
+  let low=0,high=1;while(npv(high)<0&&high<100)high*=2;if(npv(high)<0)return null;
+  for(let i=0;i<100;i++){const mid=(low+high)/2;if(npv(mid)>0)high=mid;else low=mid;}
+  return (1+(low+high)/2)**12-1;
+}
+function computeLoanOffer(principal,months,method,annualRate,feePercent,otherFees){
+  const monthlyRate=annualRate/1200;let emi=0,totalInterest=0;
+  if(method==='flat'){totalInterest=principal*(annualRate/100)*(months/12);emi=(principal+totalInterest)/months;}
+  else if(monthlyRate===0){emi=principal/months;}
+  else{const factor=Math.pow(1+monthlyRate,months);emi=principal*monthlyRate*factor/(factor-1);totalInterest=emi*months-principal;}
+  const processingFee=principal*feePercent/100,fees=processingFee+otherFees,netReceived=principal-fees,repayments=emi*months;
+  const effectiveRate=calculateMonthlyIrr(netReceived,emi,months);
+  return {emi,totalInterest,processingFee,fees,netReceived,repayments,allInCost:repayments+fees-principal,effectiveApr:effectiveRate===null?null:effectiveRate*100};
+}
+function renderLoanComparison(){
+  const principal=Number($('#loan-principal')?.value),months=Number($('#loan-tenure')?.value),method=$('#loan-method')?.value||'reducing';
+  const rates=[Number($('#offer-a-rate')?.value),Number($('#offer-b-rate')?.value)],feeRates=[Number($('#offer-a-fee')?.value),Number($('#offer-b-fee')?.value)],otherFees=[Number($('#offer-a-other')?.value),Number($('#offer-b-other')?.value)];
+  const output=$('#loan-comparison-output');if(!output)return;
+  if(!(principal>=1000&&principal<=100000000)||!(months>=1&&months<=360)||[...rates,...feeRates,...otherFees].some(x=>!Number.isFinite(x)||x<0)||rates.some(x=>x>60)||feeRates.some(x=>x>20)){output.innerHTML='<div class="loan-calc-placeholder error">Enter a principal from ₹1,000 to ₹10 crore, tenure 1–360 months, annual rate 0–60%, processing fee 0–20% and non-negative charges.</div>';return;}
+  const offers=[computeLoanOffer(principal,months,method,rates[0],feeRates[0],otherFees[0]),computeLoanOffer(principal,months,method,rates[1],feeRates[1],otherFees[1])];
+  const rows=offers.map((o,i)=>'<article class="loan-result-card"><div class="loan-result-head"><b>Offer '+(i?'B':'A')+'</b><span>'+escapeHtml(method==='flat'?'Flat rate':'Reducing balance')+'</span></div><div class="loan-result-emi"><small>ESTIMATED MONTHLY EMI</small><strong>'+inrMoney(o.emi)+'</strong></div><div class="loan-result-lines"><div><span>Net amount credited</span><b>'+inrMoney(o.netReceived)+'</b></div><div><span>Total interest (before fees)</span><b>'+inrMoney(o.totalInterest)+'</b></div><div><span>Upfront fees / charges</span><b>'+inrMoney(o.fees)+'</b></div><div><span>Total repayment</span><b>'+inrMoney(o.repayments)+'</b></div><div><span>All-in financing cost</span><b>'+inrMoney(o.allInCost)+'</b></div><div class="apr-line"><span>Estimated effective annual APR</span><b>'+(o.effectiveApr===null?'Not calculable':o.effectiveApr.toFixed(2)+'%')+'</b></div></div></article>').join('');
+  const difference=Math.abs(offers[0].allInCost-offers[1].allInCost),winner=offers[0].allInCost<=offers[1].allInCost?'A':'B';
+  output.innerHTML='<div class="loan-results-summary"><b>Comparison result:</b> Offer '+winner+' has the lower estimated all-in financing cost by '+inrMoney(difference)+' over '+months+' months, assuming the entered fees and repayment method.</div><div class="loan-result-grid">'+rows+'</div>';
+}
+function initLoanComparator(){
+  $('#calculate-loans')?.addEventListener('click',renderLoanComparison);
+  ['loan-principal','loan-tenure','loan-method','offer-a-rate','offer-a-fee','offer-a-other','offer-b-rate','offer-b-fee','offer-b-other'].forEach(id=>$('#'+id)?.addEventListener('change',renderLoanComparison));
+  renderLoanComparison();
+}
+function syncMarketLocation(){
+  const state=$('#market-state'),district=$('#market-district');if(!state||!district||!geography.length)return;
+  setOptions(state,stateNames(),stateSelect.value);setOptions(district,districtsFor(state.value),districtSelect.value);
+}
+function renderMandiPrices(records,meta={}){
+  const node=$('#market-price-results');if(!node)return;
+  if(!records||!records.length){node.innerHTML='<div class="market-price-placeholder">No records were returned for these filters. Try a broader commodity spelling, remove the district filter or open the official AGMARKNET portal.</div>';return;}
+  const sorted=[...records].sort((a,b)=>String(b.arrivalDate||'').localeCompare(String(a.arrivalDate||'')));
+  node.innerHTML='<div class="market-results-top"><b>'+sorted.length+' mandi price records</b><span>Retrieved '+escapeHtml(new Date(meta.retrievedAt||Date.now()).toLocaleString('en-IN'))+'</span></div><div class="market-price-table-wrap"><table class="market-price-table"><thead><tr><th>Market</th><th>Commodity / variety</th><th>Arrival date</th><th>Min (₹/q)</th><th>Modal (₹/q)</th><th>Max (₹/q)</th></tr></thead><tbody>'+sorted.map(x=>'<tr><td><b>'+escapeHtml(x.market)+'</b><small>'+escapeHtml(x.district)+', '+escapeHtml(x.state)+'</small></td><td>'+escapeHtml(x.commodity)+'<small>'+escapeHtml([x.variety,x.grade].filter(Boolean).join(' · '))+'</small></td><td>'+escapeHtml(x.arrivalDate||'—')+'</td><td>'+inrMoney(x.minPrice)+'</td><td><b>'+inrMoney(x.modalPrice)+'</b></td><td>'+inrMoney(x.maxPrice)+'</td></tr>').join('')+'</tbody></table></div>';
+}
+async function loadMandiPrices(event){
+  if(event)event.preventDefault();
+  const status=$('#market-price-status'),button=$('#market-search-button');if(!status)return;
+  const params=new URLSearchParams(),state=$('#market-state')?.value||stateSelect.value,district=$('#market-district')?.value||'',commodity=$('#market-commodity')?.value.trim()||'',limit=$('#market-limit')?.value||'40';
+  if(state)params.set('state',state);if(district)params.set('district',district);if(commodity)params.set('commodity',commodity);params.set('limit',limit);
+  if(button)button.disabled=true;status.textContent='Requesting published daily mandi records from the official OGD dataset…';
+  try{
+    const response=await fetch('/api/market-prices?'+params.toString(),{cache:'no-store'});
+    const data=await response.json().catch(()=>({error:'The market price service returned an unreadable response.'}));
+    if(!response.ok){const detail=data.code==='DATA_GOV_IN_API_KEY_REQUIRED'?'The server-side OGD API key is not configured yet. The key is intentionally not stored in this page. Open the Cloudflare setup guide or use the official source below.':(data.error||'Mandi data is temporarily unavailable.');status.textContent=detail;$('#market-price-results').innerHTML='<div class="market-price-placeholder">Live feed unavailable. Use the official AGMARKNET / OGD source link below or enable the server secret in Cloudflare.</div>';return;}
+    status.textContent='Source: '+(data.source||'Official daily mandi dataset')+' · '+(data.total??data.count??data.records?.length??0)+' matching records in the source response. Not every mandi reports every commodity every day.';
+    renderMandiPrices(data.records||[],data);
+  }catch(error){status.textContent='Could not connect to the mandi data service. Try again later.';}
+  finally{if(button)button.disabled=false;}
+}
+function initMarketPrices(){
+  syncMarketLocation();
+  $('#market-price-form')?.addEventListener('submit',loadMandiPrices);
+  $('#market-state')?.addEventListener('change',()=>setOptions($('#market-district'),districtsFor($('#market-state').value)));
+}
+
 function scopeRank(r){return r.scope==='district'?0:r.scope==='state'?1:r.scope==='national'?2:3;}
 function showDetails(id){
   const r=records.find(x=>x.id===id);if(!r)return;
@@ -500,7 +565,10 @@ Promise.all([recordsPromise,lendersPromise,portalsPromise,loadGeography()]).then
   portals=portalData;
   initNGOWorkspace();
   render();
-  coveragePromise.then(data=>{coverageData=data;updateCoverageList();}).catch(error=>console.warn('V2.5 coverage register could not be loaded',error));
+  initLoanComparator();
+  initMarketPrices();
+  coveragePromise.then(data=>{coverageData=data;updateCoverageList();}).catch(error=>console.warn('Coverage register could not be loaded',error));
+  stateProgrammePromise.then(data=>{stateProgrammeData=data;renderStateWorkstreams(stateSelect.value);}).catch(error=>console.warn('State programme research register could not be loaded',error));
 }).catch(err=>{
   console.error(err);
   $('#results').innerHTML='<div class="empty-state"><h3>Directory data could not be loaded</h3><p>Check that the project is being served from its root folder and that schemes.json is available.</p></div>';
