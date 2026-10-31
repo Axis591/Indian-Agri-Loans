@@ -10,7 +10,7 @@ This is a source-linked starter release, not yet an exhaustive verified catalogu
 
 - **National records:** PM-KISAN, KCC, Agriculture Infrastructure Fund, PMFBY and MUDRA allied-enterprise credit.
 - **West Bengal records:** Krishak Bandhu, death benefit, rainfed diversification (including Paschim Medinipur), women SHG interest support (including Paschim Medinipur), cooperative credit, farm mechanisation and Amar Fasal Amar Gola.
-- **Lender catalogue:** 15 initial product entries: 8 public-sector-bank product families, 3 private banks, 2 Small Finance Banks and 2 NBFCs. These include SBI, Bank of Baroda, Canara Bank, PNB, Bank of India, Bank of Maharashtra, Indian Bank, UCO Bank, HDFC Bank, ICICI Bank, Axis Bank, Ujjivan SFB, ESAF SFB, Mahindra Finance and Samunnati Finance. Each entry links to product terms, application route, typical documents, process and source material.
+- **Lender catalogue:** 46 initial product entries (including 28 individually listed Regional Rural Banks, cooperative-credit routes and an NBFC-MFI microcredit product): 8 public-sector-bank product families, 3 private banks, 2 Small Finance Banks, 28 Regional Rural Banks, 2 cooperative-credit routes and 3 NBFC products. These include SBI, Bank of Baroda, Canara Bank, PNB, Bank of India, Bank of Maharashtra, Indian Bank, UCO Bank, HDFC Bank, ICICI Bank, Axis Bank, Ujjivan SFB, ESAF SFB, Mahindra Finance and Samunnati Finance. Each entry links to product terms, application route, typical documents, process and source material.
 - **Panchayat / block:** a last-mile navigation entry explains how to find local notices and implementing offices; it is not represented as a uniform Panchayat loan or grant.
 - **Formal rural channels:** RRBs, cooperative banks/PACS, public/private banks and regulated NBFC/MFI routes are identified separately. “Semi-private” is not treated as one legal lender category.
 - **Informal finance:** described as a risk category, not recommended or represented as an approved scheme.
@@ -91,3 +91,10 @@ Use `CONTRIBUTING.md` and the source register in `SOURCES.md`. Priority order: o
 ## Lender catalogue limitations
 
 This is a verified-source starter directory, not every lending product, branch or NBFC in India. Products marked “bank assessed” do not have a universal published cap/rate. Some products are limited to FPOs, SHGs, existing KCC holders, machinery purchasers or allied activities; they must not be presented as an unrestricted individual crop loan. Confirm current APR, processing fees, collateral, repayment schedule, service area and Key Fact Statement directly with the lender.
+
+
+### Regional Rural Banks and cooperative channels
+
+The official Department of Financial Services list currently identifies 28 Regional Rural Banks and publishes each bank's official website. `portals.json` maps these RRBs to the corresponding State/UT; `lenders.json` carries an individual KCC/agriculture-credit entry for each. Where a State/UT does not have an RRB in the official list, the application routes to the national Kisan Rin Portal instead.
+
+The cooperative catalogue separates the national State Cooperative Bank → DCCB → PACS structure from the West Bengal cooperative credit route. PACS membership, financing DCCB, district crop Scale of Finance and actual loan windows must be checked locally.
