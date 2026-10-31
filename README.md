@@ -5,7 +5,7 @@
 This repository publishes a free-to-access, public information directory for farmers. Visitors can open the portal without a GitHub account. The GitHub repository is public and the live public site is hosted on Cloudflare Pages. GitHub Pages remains available as a backup.
 
 
-A static, Cloudflare Pages-hosted and GitHub Pages-compatible directory for discovering farmer grants, subsidies, crop insurance, cooperative loans, private-bank finance and market-access resources across India.
+A Cloudflare Pages application for discovering government farmer support, crop insurance, subsidies, agricultural credit, daily mandi prices, local service routes and NGO programme outcomes across India.
 
 > **Repository slug:** `Indian-Agri-Loans` (GitHub repository names cannot contain spaces). The product title shown in the interface remains **Indian Agri Market and Loans**.
 
@@ -13,13 +13,13 @@ A static, Cloudflare Pages-hosted and GitHub Pages-compatible directory for disc
 
 This is a source-linked national starter catalogue with explicit geographic and verification gaps. It is not an exhaustive verified inventory of every State, district, block, Panchayat, PACS, bank branch, lending product or local grant in India.
 
-- **National records:** 31 scheme/benefit/service records, including PM-KISAN, KCC, AIF, PMFBY, MUDRA, SMAM 2026–27, PDMC, PM-KUSUM, MIDH, AMI, FPO formation support, NLM-EDP, PM-MKSSY, FIDF, PM-AASHA, PM-KMY and Soil Health Card.
+- **Scheme and public-service catalogue:** 37 records, including national programmes and State records for Odisha, Andhra Pradesh, Telangana, Rajasthan, Maharashtra, Assam and West Bengal.
 - **West Bengal records:** Krishak Bandhu, death benefit, rainfed diversification (including Paschim Medinipur), women SHG interest support (including Paschim Medinipur), cooperative credit, farm mechanisation and Amar Fasal Amar Gola.
 - **Lender catalogue:** 46 initial product entries (including 28 individually listed Regional Rural Banks, cooperative-credit routes and an NBFC-MFI microcredit product): 8 public-sector-bank product families, 3 private banks, 2 Small Finance Banks, 28 Regional Rural Banks, 2 cooperative-credit routes and 3 NBFC products. These include SBI, Bank of Baroda, Canara Bank, PNB, Bank of India, Bank of Maharashtra, Indian Bank, UCO Bank, HDFC Bank, ICICI Bank, Axis Bank, Ujjivan SFB, ESAF SFB, Mahindra Finance and Samunnati Finance. Each entry links to product terms, application route, typical documents, process and source material.
 - **Panchayat / block:** a last-mile navigation entry explains how to find local notices and implementing offices; it is not represented as a uniform Panchayat loan or grant.
 - **Formal rural channels:** RRBs, cooperative banks/PACS, public/private banks and regulated NBFC/MFI routes are identified separately. “Semi-private” is not treated as one legal lender category.
 - **Informal finance:** described as a risk category, not recommended or represented as an approved scheme.
-- **Other States/UTs:** all 36 State/UTs have portal links and a structured coverage row. State-specific inventories are marked portal-linked/research-pending unless source-linked records exist. The current State-specific scheme records are concentrated in West Bengal; this is not an all-India State-scheme inventory.
+- **State research:** all 36 State/UTs are tracked across nine programme workstreams. Twelve named State-scope programme/service records are available across seven States/UTs; 29 State/UT inventories still require scheme-by-scheme primary-source research. A State portal link is not counted as a scheme record.
 
 ## Public portal
 
@@ -44,7 +44,10 @@ To report an inaccurate or outdated listing, use the repository's **Issues** tab
 - A dedicated **Schemes & Lenders** second page contains the location-filtered scheme catalogue, separate lender catalogue, process/document detail panels, and State/District portal cards.
 - The last-mile access panel refreshes when either State or District changes. State portals come from an official State Agriculture Department link directory; directly mapped West Bengal district websites are individually linked. When a direct district host is not verified, the page opens the official Government of India district-website directory instead of guessing a URL.
 - Individual detail panels with amount/loan quantum, eligibility, application steps, links and caveats.
-- Dedicated market-access section linking to Agmarknet, e-NAM, MSP information and SFAC.
+- Daily mandi price search through a same-origin Cloudflare Function, plus e-NAM, MSP/procurement and SFAC links. Live price data requires the OGD API key to be configured as a Cloudflare secret.
+- Loan Cost Comparator for reducing-balance and flat-rate instalments, upfront charges, total financing cost and estimated effective APR.
+- Cloudflare Functions for protected NGO workspace operations, market-price API proxy and optional LGD District API proxy.
+- Official LGD CSV import utility; until official geography is configured/imported, the community district fallback is explicitly labelled as provisional.
 - Coverage tracker that distinguishes verified records from unresearched areas.
 - Responsive layout; no build step or package install required.
 
@@ -56,7 +59,7 @@ Use a local web server (do not open `index.html` as a `file://` URL, because bro
 python -m http.server 8000
 ```
 
-Open `http://localhost:8000` from this folder.
+Open `http://localhost:8000` from this folder. The static UI and calculators work locally, but `/api/*` functions, live mandi queries and the protected NGO workspace require Cloudflare Pages Functions and account bindings; they are not emulated by Python's static server.
 
 ## Public hosting and backup
 
@@ -118,13 +121,13 @@ The official Department of Financial Services list currently identifies 28 Regio
 The cooperative catalogue separates the national State Cooperative Bank → DCCB → PACS structure from the West Bengal cooperative credit route. PACS membership, financing DCCB, district crop Scale of Finance and actual loan windows must be checked locally.
 
 
-## AgriBridge V2 — Farmer assistance and NGO pilot
+## AgriBridge V3 — Integrated farmer support and finance intelligence
 
 - **Find My Support:** a browser-side eligibility shortlist that uses selected State/District, applicant type, land/cultivation status, activity and support need. It returns potential scheme records and profile-matched bank/RRB/cooperative/SFB/NBFC product leads only; it is not an official eligibility decision or approval.
 - **Document checklists:** scheme-specific documents and source/verification notes appear in scheme detail panels and eligibility results. The latest official notice takes precedence.
-- **NGO Connect (pilot):** local aggregate project metrics and anonymised internal follow-up references. Data is saved only in the current browser using local storage; there is no organisation login, shared database or cloud synchronisation.
-- **Privacy guardrail:** never enter farmer names, mobile numbers, Aadhaar, bank details, OTPs, passwords or identity-document scans in the NGO pilot. Live multi-user case management requires a secure authenticated backend, organisation-level permissions, consent records, encrypted storage, audit logging, retention/deletion controls and a privacy review.
-- **Eligibility matching limitations:** the assistant filters the current 31 scheme/benefit records using declared profile, location, activity and support tags. It cannot verify a farmer's full legal/financial circumstances, current crop notification, bank credit appraisal, local beneficiary target or application window. Final checks remain with the implementing authority or lender.
+- **NGO Connect:** no longer stores NGO data in browser local storage. It calls Cloudflare Access-protected APIs and organisation-scoped D1 tables for aggregate metrics and pseudonymous internal references. The UI remains disabled until the project owner binds D1, configures Access and provisions approved organisation users.
+- **Privacy guardrail:** the schema does not contain farmer names, mobile numbers, Aadhaar, bank details, OTPs, passwords or document scans. Do not add personal-data fields without a separate legal, privacy and security review.
+- **Eligibility matching limitations:** the assistant filters the current 37 scheme/benefit/public-service records using declared profile, location, activity and support tags. It cannot verify a farmer's full legal/financial circumstances, current crop notification, bank credit appraisal, local beneficiary target or application window. Final checks remain with the implementing authority or lender.
 - **Live public portal:** https://indian-agri-loans.pages.dev/
 
 ### Verification states
@@ -133,20 +136,20 @@ The cooperative catalogue separates the national State Cooperative Bank → DCCB
 - **Source linked — recheck current rules:** a primary source is linked, but the latest local notification or operational circular has not been independently checked for every jurisdiction.
 - **Seasonal / local verification required:** crop, district, season, block target, local PACS or lender branch must be confirmed before applying.
 
-V2.5 adds source-checked national programme records with component, State-window and project-approval caveats. PMFME and AHIDF are visible as legacy/extension-unconfirmed records and excluded from eligibility matching. A record review date does not mean every district window, procurement operation or lender branch is open.
+V3 adds six State-specific programme/service records, State research workstreams, loan-cost comparison, daily mandi query UI, official LGD import path and Cloudflare Access/D1 NGO backend. PMFME and AHIDF remain visible as extension-unconfirmed historical records and are excluded from eligibility matching. A record review date does not mean every district window, procurement operation or lender branch is open.
 
-## AgriBridge V2.5 — all-India parallel release
+## AgriBridge V3 — all-India parallel release
 
-V2.5 advances two equal-priority workstreams in one national catalogue:
+V3 advances two equal-priority workstreams in one national catalogue:
 
 - **Farmer benefits and programmes:** grants, direct benefits, subsidies, crop insurance, pensions, price support, agricultural infrastructure, horticulture, irrigation, mechanisation, livestock, fisheries and soil services.
 - **Agricultural finance:** public-sector and private banks, Small Finance Banks, Regional Rural Banks, cooperative/PACS routes and regulated NBFC products.
 
 ### V2.5 catalogue contents
 
-- 31 scheme/benefit/service records, including 14 additional national programme/status records added for this release.
+- 37 scheme/benefit/service records. The V3 State additions cover Odisha CM-KISAN, Andhra Pradesh Annadatha Sukhibhava, Telangana Rythu Bharosa, Rajasthan CM Kisan Samman, Maharashtra Mahila Shetkari recognition and Assam Krishi Sa Sajuli.
 - 46 lender/provider entries: 8 public-bank product families, 3 private banks, 2 Small Finance Banks, 28 individually listed Regional Rural Banks, 2 cooperative-credit routes and 3 NBFC products.
-- 36 State/UT portal records and a 779-entry community-maintained district snapshot.
+- 36 State/UT portal records and 36 State research rows with nine categories each; the 779-entry district file remains the provisional community fallback until official LGD import.
 - 22 direct West Bengal district website mappings; other districts use the Government of India's official district website directory as a discovery route.
 - A machine-readable `coverage-v25.json` register distinguishing State portal links, State-specific records, district-specific programme records, RRB listing, local branch status and block/Panchayat research gaps.
 
@@ -165,15 +168,32 @@ V2.5 advances two equal-priority workstreams in one national catalogue:
 ### Geographic coverage limitations
 
 - The 36 State/UT portal register is not the same as 36 completed State scheme inventories.
-- Only West Bengal currently has State-specific scheme records in this catalogue (six State-scope records plus one district-scope programme record covering six named districts). Other State/UT scheme inventories remain portal-linked/research-pending.
-- The 779 district entries are a community-maintained fallback snapshot, not an LGD-certified current district list. Official LGD reconciliation is outstanding.
+- Seven States/UTs have named State-scope scheme/service records: Andhra Pradesh, Assam, Maharashtra, Odisha, Rajasthan, Telangana and West Bengal. Twelve State-scope records exist across them; 29 other State/UT inventories remain research pending. West Bengal retains one district-scope programme record covering six named districts.
+- The 779 district entries are a community-maintained fallback snapshot, not an LGD-certified current district list. The app first attempts the official LGD District API, then `lgd-geography.json` imported from official CSV exports, then the provisional fallback. No official LGD import is included yet.
 - Direct district websites are mapped for 22 West Bengal districts. Kolkata and districts outside that mapped set use the India.gov official district directory.
 - The 28 RRB institutions are mapped from the Department of Financial Services list. A State-level RRB listing does not prove a branch exists in every district.
 - District branches, PACS/DCCBs, SHG federations, BDOs, Gram Panchayats, village-level targets and money-lending licences are not comprehensively inventoried.
 
-### Repeatable quality checks
+### Repeatable quality checks and V3 deployment
 
 - `DATA_DICTIONARY.md` documents the scheme, lender, portal, geography and coverage-register fields.
-- `COVERAGE_REPORT_V25.md` explains the current national coverage and research gaps.
-- `scripts/validate-v25.mjs` validates unique IDs, required metadata, source URLs, State/UT names, RRB mappings and catalogue/coverage counts.
-- `.github/workflows/validate-v25.yml` runs the validation script on pushes and pull requests.
+- `state-programme-register.json` tracks nine programme research workstreams for every State/UT.
+- `CLOUDFLARE_SETUP_V3.md` explains D1, Access, OGD API secrets and LGD CSV import setup.
+- `V3_RELEASE_NOTES.md` lists delivered V3 modules and account-level activation limits.
+- `COVERAGE_REPORT_V3.md` explains the current national coverage and research gaps.
+- `scripts/validate-v3.mjs` validates records, sources, State research, Functions routes, app syntax and local-data privacy controls.
+- `.github/workflows/validate-v25.yml` runs the V3 validation through the V3 compatibility wrapper on every push and pull request.
+## V3 account-level activation checklist
+
+- **Mandi data:** add the encrypted `DATA_GOV_IN_API_KEY` secret in Cloudflare Pages Production settings, then redeploy.
+- **Official LGD:** configure `LGD_DISTRICT_RESOURCE_ID` only if the official District resource API is enabled, or import current official CSVs using `scripts/import-lgd-export.mjs` and commit the reviewed `lgd-geography.json`.
+- **NGO network:** create the D1 database, apply the migration, bind it as `NGO_DB`, set `ACCESS_TEAM_DOMAIN` and `ACCESS_AUD`, create an Access application covering `/api/ngo/*`, and provision authorised users in `ngo_users`. Until then, the NGO workspace is disabled and no NGO data is stored in the browser.
+- Step-by-step instructions: `CLOUDFLARE_SETUP_V3.md`.
+
+Cloudflare Pages runs the Functions from the repository's root `functions/` folder. `_routes.json` limits Function invocation to `/api/*`; the rest of the public site remains static.
+
+### V3 privacy and regulatory note
+
+The DPDP Act/Rules have a phased commencement notification. The Gazette notification dated 13 November 2025 schedules key provisions for 18 months after publication (13 May 2027). This release intentionally avoids collecting farmer identity data. Obtain current legal/privacy advice before introducing personal-data collection, consent records, uploads or beneficiary-level case management.
+
+See the official Gazette: https://www.meity.gov.in/static/uploads/2025/11/c56ceae6c383460ca69577428d36828b.pdf.
