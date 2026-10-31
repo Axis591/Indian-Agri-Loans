@@ -10,7 +10,7 @@ This is a source-linked starter release, not yet an exhaustive verified catalogu
 
 - **National records:** PM-KISAN, KCC, Agriculture Infrastructure Fund, PMFBY and MUDRA allied-enterprise credit.
 - **West Bengal records:** Krishak Bandhu, death benefit, rainfed diversification (including Paschim Medinipur), women SHG interest support (including Paschim Medinipur), cooperative credit, farm mechanisation and Amar Fasal Amar Gola.
-- **Private finance:** HDFC Bank and ICICI Bank agri/allied lending pages are linked. Loan amounts and rates are marked bank-assessed where there is no universal published cap.
+- **Lender catalogue:** 15 initial product entries: 8 public-sector-bank product families, 3 private banks, 2 Small Finance Banks and 2 NBFCs. These include SBI, Bank of Baroda, Canara Bank, PNB, Bank of India, Bank of Maharashtra, Indian Bank, UCO Bank, HDFC Bank, ICICI Bank, Axis Bank, Ujjivan SFB, ESAF SFB, Mahindra Finance and Samunnati Finance. Each entry links to product terms, application route, typical documents, process and source material.
 - **Panchayat / block:** a last-mile navigation entry explains how to find local notices and implementing offices; it is not represented as a uniform Panchayat loan or grant.
 - **Formal rural channels:** RRBs, cooperative banks/PACS, public/private banks and regulated NBFC/MFI routes are identified separately. “Semi-private” is not treated as one legal lender category.
 - **Informal finance:** described as a risk category, not recommended or represented as an approved scheme.
@@ -20,7 +20,9 @@ This is a source-linked starter release, not yet an exhaustive verified catalogu
 
 - State → District selector, 36 States and Union Territories.
 - District list loaded from a public JSON directory with a bundled fallback covering 36 States/UTs and 779 district entries.
-- Filter by farmer profile, support type and provider/delivery level (central/state government, public/private bank, RRB, cooperative/PACS, regulated NBFC/MFI/SFB and Panchayat/block access).
+- Filter by farmer profile, support type and provider/delivery level (central/state government, public/private bank, small finance bank, RRB, cooperative/PACS, regulated NBFC and Panchayat/block access).
+- A dedicated **Schemes & Lenders** second page contains the location-filtered scheme catalogue, separate lender catalogue, process/document detail panels, and State/District portal cards.
+- The last-mile access panel refreshes when either State or District changes. State portals come from an official State Agriculture Department link directory; directly mapped West Bengal district websites are individually linked. When a direct district host is not verified, the page opens the official Government of India district-website directory instead of guessing a URL.
 - Individual detail panels with amount/loan quantum, eligibility, application steps, links and caveats.
 - Dedicated market-access section linking to Agmarknet, e-NAM, MSP information and SFAC.
 - Coverage tracker that distinguishes verified records from unresearched areas.
@@ -78,3 +80,14 @@ Official LGD catalogue: https://data.gov.in/catalog/local-government-directory-l
 ## Contributing state and district records
 
 Use `CONTRIBUTING.md` and the source register in `SOURCES.md`. Priority order: official ministry/department notification, scheme portal, state department, district lead bank/cooperative department, regulator and authorised lender product page. Add a source date and a clear caveat whenever the public page does not disclose a rupee limit.
+
+
+## Additional data files
+
+- `portals.json`: State/UT department, application, cooperative, Panchayat/local-government and district-website routes. Includes all 36 State/UT names. State Agriculture Department links are sourced from APEDA FarmerConnect's official Useful Links directory. Verified West Bengal district websites are mapped directly; other district websites open India.gov's official district directory until the specific host is checked.
+- `lenders.json`: 15 initial bank/SFB/NBFC products. Each row stores product scope, borrower segment, published or bank-assessed quantum, interest/pricing note, terms, documents, application steps, application URL, official product sources, availability note and caveats.
+- Lender-category filtering applies to the lender catalogue; scheme type filtering applies to scheme records. A national lender's product page does not prove the bank has a branch in every district.
+
+## Lender catalogue limitations
+
+This is a verified-source starter directory, not every lending product, branch or NBFC in India. Products marked “bank assessed” do not have a universal published cap/rate. Some products are limited to FPOs, SHGs, existing KCC holders, machinery purchasers or allied activities; they must not be presented as an unrestricted individual crop loan. Confirm current APR, processing fees, collateral, repayment schedule, service area and Key Fact Statement directly with the lender.
