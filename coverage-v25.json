@@ -14,7 +14,7 @@
     "caution": "The 36 State/UT and 779 district entries are a community-maintained fallback snapshot, not an official LGD-certified current list. District boundaries and counts change. Refresh/reconcile codes and names against the official Local Government Directory before claiming administrative completeness. Block and Gram Panchayat identifiers are not included."
   },
   "nationalCatalogue": {
-    "schemeRecordCount": 31,
+    "schemeRecordCount": 37,
     "lenderProductRecordCount": 46,
     "schemeRecordIds": [
       "pm-kisan",
@@ -47,7 +47,13 @@
       "pm-kmy",
       "soil-health-card",
       "pmfme-legacy",
-      "ahidf-legacy"
+      "ahidf-legacy",
+      "odisha-cm-kisan",
+      "ap-annadatha-sukhibhava",
+      "telangana-rythu-bharosa",
+      "rajasthan-cm-kisan-samman",
+      "maharashtra-women-farmer-certificate",
+      "assam-krishi-sa-sajuli"
     ],
     "lenderProductIds": [
       "sbi-kcc",
@@ -98,19 +104,30 @@
       "satin-igloan"
     ],
     "schemeTypes": {
-      "grant": 4,
+      "grant": 8,
       "loan": 7,
-      "subsidy": 13,
+      "subsidy": 14,
       "insurance": 1,
       "informal": 1,
-      "institution": 4,
+      "institution": 5,
       "pension": 1
     },
     "programmeStatusCounts": {
-      "legacy_record": 17,
-      "state_window_required": 3,
+      "ongoing_national_programme": 1,
+      "bank_credit_guidance": 1,
+      "project_credit_linked": 2,
+      "seasonal_notification_required": 1,
+      "lender_appraisal_required": 1,
+      "state_validation_required": 1,
+      "family_claim_only": 1,
+      "district_block_target_required": 1,
+      "shg_bank_linkage_required": 1,
+      "local_pacs_membership_required": 1,
+      "state_window_required": 5,
+      "lender_product_confirmation": 3,
+      "risk_information_only": 1,
+      "local_notification_required": 1,
       "state_plan_required": 1,
-      "project_credit_linked": 1,
       "entity_and_ia_route": 1,
       "online_project_application": 1,
       "active_component_based": 1,
@@ -118,7 +135,13 @@
       "procurement_notification_required": 1,
       "enrolment_route_check": 1,
       "service_available_through_state": 1,
-      "extension_not_verified": 2
+      "extension_not_verified": 2,
+      "state_scheme_guideline_and_live_window_required": 1,
+      "state_scheme_current_beneficiary_verification_required": 1,
+      "state_scheme_disbursed_2026_acreage_verification_required": 1,
+      "state_scheme_amount_published_current_rules_check": 1,
+      "recognition_service_current_rules_check": 1,
+      "current_state_call_and_amount_unverified": 1
     },
     "financeProviderCounts": {
       "public-bank": 8,
@@ -130,13 +153,55 @@
     }
   },
   "stateInventory": {
-    "stateSchemeRecords": 6,
+    "stateSchemeRecords": 12,
     "districtSpecificProgrammeRecords": 1,
-    "statesWithAtLeastOneStateSpecificScheme": 1,
+    "statesWithAtLeastOneStateSpecificScheme": 7,
     "statesWithDirectDistrictWebsiteLinks": 1,
     "districtsWithIndividuallyMappedDirectWebsites": 22,
     "districtsWithLimitedDistrictSpecificProgrammeRecord": 6,
-    "reminder": "A State agriculture homepage or district website directory link is not proof that the district's local grants, schemes, PACS and lender branches have been researched."
+    "reminder": "A State agriculture homepage or district website directory link is not proof that the district's local grants, schemes, PACS and lender branches have been researched.",
+    "stateProgrammeResearchWorkstreams": 9,
+    "stateProgrammeResearchStates": 36,
+    "statesWithNamedProgrammeRecords": [
+      "Andhra Pradesh",
+      "Assam",
+      "Maharashtra",
+      "Odisha",
+      "Rajasthan",
+      "Telangana",
+      "West Bengal"
+    ],
+    "statesWithNoNamedStateProgrammeRecords": [
+      "Andaman and Nicobar Islands",
+      "Arunachal Pradesh",
+      "Bihar",
+      "Chandigarh",
+      "Chhattisgarh",
+      "Dadra and Nagar Haveli and Daman and Diu",
+      "Delhi",
+      "Goa",
+      "Gujarat",
+      "Haryana",
+      "Himachal Pradesh",
+      "Jammu and Kashmir",
+      "Jharkhand",
+      "Karnataka",
+      "Kerala",
+      "Ladakh",
+      "Lakshadweep",
+      "Madhya Pradesh",
+      "Manipur",
+      "Meghalaya",
+      "Mizoram",
+      "Nagaland",
+      "Puducherry",
+      "Punjab",
+      "Sikkim",
+      "Tamil Nadu",
+      "Tripura",
+      "Uttar Pradesh",
+      "Uttarakhand"
+    ]
   },
   "financeCoverage": {
     "rrbRecords": 28,
@@ -172,7 +237,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
       "districts": [
         {
           "code": "NICOBAR",
@@ -215,9 +280,11 @@
       "agricultureDepartmentUrl": "https://www.apagrisnet.gov.in/",
       "schemePortalUrl": "https://www.apagrisnet.gov.in/",
       "agriculturePortalStatus": "portal_linked",
-      "stateSchemeInventoryStatus": "portal_linked_research_pending",
-      "stateSchemeRecordIds": [],
-      "stateSchemeRecordCount": 0,
+      "stateSchemeInventoryStatus": "partial_source_linked",
+      "stateSchemeRecordIds": [
+        "ap-annadatha-sukhibhava"
+      ],
+      "stateSchemeRecordCount": 1,
       "districtScopedProgrammeRecordIds": [],
       "districtScopedProgrammeRecordCount": 0,
       "communityDistrictSnapshotCount": 24,
@@ -240,7 +307,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "One or more named State-specific catalogue entries are sourced; this is not a complete State programme inventory.",
       "districts": [
         {
           "code": "ANANTAPUR",
@@ -539,7 +606,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
       "districts": [
         {
           "code": "ANJAW",
@@ -835,9 +902,11 @@
       "agricultureDepartmentUrl": "https://agri-horti.assam.gov.in/",
       "schemePortalUrl": "https://agri-horti.assam.gov.in/",
       "agriculturePortalStatus": "portal_linked",
-      "stateSchemeInventoryStatus": "portal_linked_research_pending",
-      "stateSchemeRecordIds": [],
-      "stateSchemeRecordCount": 0,
+      "stateSchemeInventoryStatus": "partial_source_linked",
+      "stateSchemeRecordIds": [
+        "assam-krishi-sa-sajuli"
+      ],
+      "stateSchemeRecordCount": 1,
       "districtScopedProgrammeRecordIds": [],
       "districtScopedProgrammeRecordCount": 0,
       "communityDistrictSnapshotCount": 35,
@@ -860,7 +929,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "One or more named State-specific catalogue entries are sourced; this is not a complete State programme inventory.",
       "districts": [
         {
           "code": "BAKSA",
@@ -1280,7 +1349,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
       "districts": [
         {
           "code": "ARARIA",
@@ -1728,7 +1797,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
       "districts": [
         {
           "code": "CHANDIGARH",
@@ -1774,7 +1843,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
       "districts": [
         {
           "code": "BALOD",
@@ -2156,7 +2225,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
       "districts": [
         {
           "code": "DADRA_AND_NAGAR_HAVELI",
@@ -2219,7 +2288,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
       "districts": [
         {
           "code": "CENTRAL_DELHI",
@@ -2370,7 +2439,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
       "districts": [
         {
           "code": "NORTH_GOA",
@@ -2427,7 +2496,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
       "districts": [
         {
           "code": "AHMEDABAD",
@@ -2825,7 +2894,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
       "districts": [
         {
           "code": "AMBALA",
@@ -3102,7 +3171,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
       "districts": [
         {
           "code": "BILASPUR",
@@ -3269,7 +3338,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
       "districts": [
         {
           "code": "ANANTNAG",
@@ -3524,7 +3593,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
       "districts": [
         {
           "code": "BOKARO",
@@ -3823,7 +3892,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
       "districts": [
         {
           "code": "BAGALKOT",
@@ -4199,7 +4268,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
       "districts": [
         {
           "code": "ALAPPUZHA",
@@ -4383,7 +4452,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
       "districts": [
         {
           "code": "KARGIL",
@@ -4435,7 +4504,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
       "districts": [
         {
           "code": "LAKSHADWEEP",
@@ -4481,7 +4550,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
       "districts": [
         {
           "code": "AGAR_MALWA",
@@ -5063,9 +5132,11 @@
       "agricultureDepartmentUrl": "http://krishi.maharashtra.gov.in/",
       "schemePortalUrl": "https://mahadbt.maharashtra.gov.in/Farmer/RegistrationLogin/RegistrationLogin",
       "agriculturePortalStatus": "portal_linked",
-      "stateSchemeInventoryStatus": "portal_linked_research_pending",
-      "stateSchemeRecordIds": [],
-      "stateSchemeRecordCount": 0,
+      "stateSchemeInventoryStatus": "partial_source_linked",
+      "stateSchemeRecordIds": [
+        "maharashtra-women-farmer-certificate"
+      ],
+      "stateSchemeRecordCount": 1,
       "districtScopedProgrammeRecordIds": [],
       "districtScopedProgrammeRecordCount": 0,
       "communityDistrictSnapshotCount": 35,
@@ -5088,7 +5159,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "One or more named State-specific catalogue entries are sourced; this is not a complete State programme inventory.",
       "districts": [
         {
           "code": "AHMEDNAGAR",
@@ -5508,7 +5579,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
       "districts": [
         {
           "code": "BISHNUPUR",
@@ -5719,7 +5790,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
       "districts": [
         {
           "code": "EAST_GARO_HILLS",
@@ -5886,7 +5957,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
       "districts": [
         {
           "code": "AIZAWL",
@@ -6042,7 +6113,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
       "districts": [
         {
           "code": "CHUMOUKEDIMA",
@@ -6228,9 +6299,11 @@
       "agricultureDepartmentUrl": "http://agriodisha.nic.in/",
       "schemePortalUrl": "http://agriodisha.nic.in/",
       "agriculturePortalStatus": "portal_linked",
-      "stateSchemeInventoryStatus": "portal_linked_research_pending",
-      "stateSchemeRecordIds": [],
-      "stateSchemeRecordCount": 0,
+      "stateSchemeInventoryStatus": "partial_source_linked",
+      "stateSchemeRecordIds": [
+        "odisha-cm-kisan"
+      ],
+      "stateSchemeRecordCount": 1,
       "districtScopedProgrammeRecordIds": [],
       "districtScopedProgrammeRecordCount": 0,
       "communityDistrictSnapshotCount": 30,
@@ -6253,7 +6326,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "One or more named State-specific catalogue entries are sourced; this is not a complete State programme inventory.",
       "districts": [
         {
           "code": "ANGUL",
@@ -6618,7 +6691,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
       "districts": [
         {
           "code": "KARAIKAL",
@@ -6697,7 +6770,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
       "districts": [
         {
           "code": "AMRITSAR",
@@ -6960,9 +7033,11 @@
       "agricultureDepartmentUrl": "https://agriculture.rajasthan.gov.in/home",
       "schemePortalUrl": "https://agriculture.rajasthan.gov.in/home",
       "agriculturePortalStatus": "portal_linked",
-      "stateSchemeInventoryStatus": "portal_linked_research_pending",
-      "stateSchemeRecordIds": [],
-      "stateSchemeRecordCount": 0,
+      "stateSchemeInventoryStatus": "partial_source_linked",
+      "stateSchemeRecordIds": [
+        "rajasthan-cm-kisan-samman"
+      ],
+      "stateSchemeRecordCount": 1,
       "districtScopedProgrammeRecordIds": [],
       "districtScopedProgrammeRecordCount": 0,
       "communityDistrictSnapshotCount": 50,
@@ -6985,7 +7060,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "One or more named State-specific catalogue entries are sourced; this is not a complete State programme inventory.",
       "districts": [
         {
           "code": "AJMER",
@@ -7565,7 +7640,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
       "districts": [
         {
           "code": "EAST_SIKKIM",
@@ -7666,7 +7741,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
       "districts": [
         {
           "code": "ARIYALUR",
@@ -8094,9 +8169,11 @@
       "agricultureDepartmentUrl": "http://agri.telangana.gov.in/",
       "schemePortalUrl": "http://agri.telangana.gov.in/",
       "agriculturePortalStatus": "portal_linked",
-      "stateSchemeInventoryStatus": "portal_linked_research_pending",
-      "stateSchemeRecordIds": [],
-      "stateSchemeRecordCount": 0,
+      "stateSchemeInventoryStatus": "partial_source_linked",
+      "stateSchemeRecordIds": [
+        "telangana-rythu-bharosa"
+      ],
+      "stateSchemeRecordCount": 1,
       "districtScopedProgrammeRecordIds": [],
       "districtScopedProgrammeRecordCount": 0,
       "communityDistrictSnapshotCount": 33,
@@ -8119,7 +8196,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "One or more named State-specific catalogue entries are sourced; this is not a complete State programme inventory.",
       "districts": [
         {
           "code": "ADILABAD",
@@ -8517,7 +8594,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
       "districts": [
         {
           "code": "DHALAI",
@@ -8640,7 +8717,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
       "districts": [
         {
           "code": "AGRA",
@@ -9500,7 +9577,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "State/UT portal is linked, but an individually researched State scheme inventory is pending.",
+      "recordsStatusNote": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
       "districts": [
         {
           "code": "ALMORA",
@@ -9687,7 +9764,7 @@
       },
       "localBranchPresenceStatus": "not_verified_by_district",
       "panchayatAndBlockInventoryStatus": "not_loaded_from_official_LGD",
-      "recordsStatusNote": "Some State/UT-specific records are source-linked; this is not a complete State scheme inventory.",
+      "recordsStatusNote": "One or more named State-specific catalogue entries are sourced; this is not a complete State programme inventory.",
       "districts": [
         {
           "code": "ALIPURDUAR",
