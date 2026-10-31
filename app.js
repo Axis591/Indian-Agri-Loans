@@ -312,138 +312,98 @@ function resetEligibility(){
   $('#elig-profile').value='owner';$('#elig-land').value='owner';$('#elig-activity').value='crop';$('#elig-need').value='all';
   $('#eligibility-output').innerHTML='<div class="eligibility-empty"><b>Your potential matches will appear here.</b><span>Choose the applicant and farm details, then select Find potential matches.</span></div>';
 }
-const ngoStorageKey='agribridge.ngo.workspace.v1';
+const ngoMetricKeys=['farmersReached','counsellingSessions','applicationsSubmitted','applicationsApproved','benefitsReceived','campsHeld','villagesReached'];
 const ngoEmptyMetrics={farmersReached:0,counsellingSessions:0,applicationsSubmitted:0,applicationsApproved:0,benefitsReceived:0,campsHeld:0,villagesReached:0};
-const ngoMetricKeys=Object.keys(ngoEmptyMetrics);
-let ngoData={metrics:{...ngoEmptyMetrics},followups:[]};
-function loadNGOData(){
-  try{
-    const saved=JSON.parse(localStorage.getItem(ngoStorageKey)||'null');
-    if(saved&&saved.metrics&&Array.isArray(saved.followups)){
-      ngoMetricKeys.forEach(k=>{ngoData.metrics[k]=Math.max(0,Number(saved.metrics[k])||0);});
-      ngoData.followups=saved.followups.filter(x=>x&&typeof x.ref==='string'&&typeof x.district==='string').slice(0,500);
-    }
-  }catch(error){console.warn('Local NGO workspace unavailable',error);}
+let ngoData={organisation:'',role:'',metrics:{...ngoEmptyMetrics},followups:[]};
+let ngoBackendReady=false;
+function showNGOStatus(title,message,code=''){
+  const node=$('#ngo-workspace-status');if(!node)return;
+  node.hidden=false;
+  const signIn=['ACCESS_SIGN_IN_REQUIRED','NGO_USER_NOT_PROVISIONED','ACCESS_ASSERTION_INVALID'].includes(code)?'<a class="secondary-action" href="/api/ngo/workspace" target="_blank" rel="noopener">Open secure sign-in ↗</a>':'';
+  const setup=code==='NGO_BACKEND_NOT_CONFIGURED'?'<a class="secondary-action" href="CLOUDFLARE_SETUP_V3.md" target="_blank">Open administrator setup guide ↗</a>':'';
+  node.innerHTML='<div class="ngo-status-icon">🔐</div><div class="ngo-status-copy"><b>'+escapeHtml(title)+'</b><span>'+escapeHtml(message)+'</span></div><div class="ngo-status-actions">'+signIn+setup+'<button class="primary-action" type="button" id="ngo-status-refresh">Check again</button></div>';
+  $('#ngo-status-refresh')?.addEventListener('click',loadNGOWorkspace);
 }
-function saveNGOData(){
-  try{localStorage.setItem(ngoStorageKey,JSON.stringify(ngoData));const label=$('#ngo-save-status');if(label)label.textContent='Saved locally in this browser at '+new Date().toLocaleTimeString()+'.';}
-  catch(error){const label=$('#ngo-save-status');if(label)label.textContent='Could not save in this browser. Check storage settings.';}
+function populateNGOSelectors(){
+  const state=$('#ngo-state'),district=$('#ngo-district');if(!state||!district)return;
+  setOptions(state,stateNames(),stateSelect.value);setOptions(district,districtsFor(state.value),districtSelect.value);
+  state.addEventListener('change',()=>setOptions(district,districtsFor(state.value)));
 }
 function renderNGOWorkspace(){
-  if(!$('#ngo-followup-list')) return;
-  const m=ngoData.metrics;
-  ngoMetricKeys.forEach(k=>{const el=document.querySelector('[data-ngo-metric="'+k+'"]');if(el)el.value=m[k];});
-  $('#ngo-reached-total').textContent=m.farmersReached;
-  $('#ngo-app-total').textContent=m.applicationsSubmitted;
-  $('#ngo-approval-rate').textContent=m.applicationsSubmitted?Math.round(m.applicationsApproved/m.applicationsSubmitted*100)+'%':'—';
-  $('#ngo-benefit-total').textContent=m.benefitsReceived;
+  const ready=$('#ngo-workspace-ready');if(!ready)return;ready.hidden=!ngoBackendReady;if(!ngoBackendReady)return;
+  const m=ngoData.metrics||ngoEmptyMetrics;
+  ngoMetricKeys.forEach(k=>{const el=document.querySelector('[data-ngo-metric="'+k+'"]');if(el)el.value=Number(m[k])||0;});
+  $('#ngo-reached-total').textContent=Number(m.farmersReached)||0;
+  $('#ngo-app-total').textContent=Number(m.applicationsSubmitted)||0;
+  $('#ngo-approval-rate').textContent=m.applicationsSubmitted?Math.round((m.applicationsApproved/m.applicationsSubmitted)*100)+'%':'—';
+  $('#ngo-benefit-total').textContent=Number(m.benefitsReceived)||0;
+  $('#ngo-org-label').textContent='Organisation: '+ngoData.organisation;$('#ngo-role-label').textContent='Role: '+ngoData.role;
+  $('#ngo-sync-label').textContent=m.updatedAt?'Last saved '+new Date(m.updatedAt).toLocaleString('en-IN'):'Connected to secure database';
+  const readonly=ngoData.role==='viewer';
+  document.querySelectorAll('[data-ngo-metric]').forEach(el=>el.disabled=readonly);
+  $('#ngo-save-metrics').disabled=readonly;
+  $('#ngo-followup-form').querySelectorAll('input,select,button').forEach(el=>el.disabled=readonly);
   const list=$('#ngo-followup-list');
-  if(!ngoData.followups.length){list.innerHTML='<div class="no-directory-results">No references added yet. Add an internal reference code above. Do not enter farmer identity details.</div>';return;}
-  list.innerHTML='<div class="ngo-table-wrap"><table class="ngo-table"><thead><tr><th>Internal reference</th><th>Location</th><th>Support route</th><th>Status</th><th>Added</th><th></th></tr></thead><tbody>'+ngoData.followups.map(x=>'<tr><td><b>'+escapeHtml(x.ref)+'</b></td><td>'+escapeHtml(x.district)+', '+escapeHtml(x.state)+'</td><td>'+escapeHtml(x.support)+'</td><td><span class="ngo-stage">'+escapeHtml(x.status)+'</span></td><td>'+escapeHtml(x.date)+'</td><td><button class="ngo-remove" type="button" data-remove-ref="'+escapeHtml(x.ref)+'" aria-label="Remove reference">×</button></td></tr>').join('')+'</tbody></table></div>';
-  list.querySelectorAll('[data-remove-ref]').forEach(btn=>btn.addEventListener('click',()=>{ngoData.followups=ngoData.followups.filter(x=>x.ref!==btn.dataset.removeRef);saveNGOData();renderNGOWorkspace();}));
+  if(!ngoData.followups.length){list.innerHTML='<div class="no-directory-results">No references added yet. Use an internal code only. Do not include any person-specific details.</div>';return;}
+  list.innerHTML='<div class="ngo-table-wrap"><table class="ngo-table"><thead><tr><th>Internal reference</th><th>Location</th><th>Support route</th><th>Status</th><th>Date</th><th></th></tr></thead><tbody>'+ngoData.followups.map(x=>'<tr><td><b>'+escapeHtml(x.ref)+'</b></td><td>'+escapeHtml(x.district)+', '+escapeHtml(x.state)+'</td><td>'+escapeHtml(x.support)+'</td><td><span class="ngo-stage">'+escapeHtml(x.status)+'</span></td><td>'+escapeHtml(x.date)+'</td><td>'+(ngoData.role==='admin'?'<button class="ngo-remove" type="button" data-delete-ngo-ref="'+escapeHtml(x.id)+'" aria-label="Delete internal reference">×</button>':'')+'</td></tr>').join('')+'</tbody></table></div>';
+  list.querySelectorAll('[data-delete-ngo-ref]').forEach(btn=>btn.addEventListener('click',()=>deleteNGOFollowup(btn.dataset.deleteNgoRef)));
 }
-function saveNGOMetrics(){
-  ngoMetricKeys.forEach(k=>{const el=document.querySelector('[data-ngo-metric="'+k+'"]');ngoData.metrics[k]=Math.max(0,Math.floor(Number(el?.value)||0));});
-  saveNGOData();renderNGOWorkspace();
+async function loadNGOWorkspace(){
+  showNGOStatus('Checking secure NGO workspace…','Connecting to the protected Cloudflare Access and D1 service.');
+  try{
+    const response=await fetch('/api/ngo/workspace',{credentials:'same-origin',cache:'no-store'});
+    const contentType=response.headers.get('content-type')||'';
+    const data=contentType.includes('application/json')?await response.json().catch(()=>({error:'The secure workspace returned invalid JSON.'})):{};
+    if(!response.ok||!contentType.includes('application/json')){
+      ngoBackendReady=false;$('#ngo-workspace-ready').hidden=true;
+      const code=data.code||(response.status===401?'ACCESS_SIGN_IN_REQUIRED':'NGO_API_UNAVAILABLE');
+      const title=code==='NGO_BACKEND_NOT_CONFIGURED'?'Secure workspace needs administrator setup':response.status===401?'Sign in with your organisation account':response.status===403?'Access is restricted to authorised NGO members':'Secure workspace unavailable';
+      const detail=code==='NGO_BACKEND_NOT_CONFIGURED'?'D1, Access and environment variables are not yet configured. No NGO data is being saved. Required: '+(data.required||[]).join(' · '):(data.error||'The request could not be authorised.');
+      showNGOStatus(title,detail,code);return;
+    }
+    ngoData={organisation:data.organisation,role:data.role,metrics:{...ngoEmptyMetrics,...(data.metrics||{})},followups:Array.isArray(data.followups)?data.followups:[]};
+    ngoBackendReady=true;$('#ngo-workspace-status').hidden=true;renderNGOWorkspace();
+  }catch(error){ngoBackendReady=false;$('#ngo-workspace-ready').hidden=true;showNGOStatus('Could not connect to secure workspace','Check the network and try again. This page does not save NGO data in local browser storage.');}
 }
-function addNGOFollowup(event){
-  event.preventDefault();
-  const ref=$('#ngo-ref').value.trim().replace(/\s+/g,'-').slice(0,40);
-  const state=$('#ngo-state').value.trim().slice(0,80),district=$('#ngo-district').value.trim().slice(0,80);
-  if(!ref||!state||!district)return;
-  if(ngoData.followups.some(x=>x.ref.toLowerCase()===ref.toLowerCase())){$('#ngo-save-status').textContent='That internal reference already exists.';return;}
-  ngoData.followups.unshift({ref,state,district,support:$('#ngo-support').value,status:$('#ngo-case-status').value,date:new Date().toISOString().slice(0,10)});
-  $('#ngo-ref').value='';saveNGOData();renderNGOWorkspace();
+async function saveNGOMetrics(){
+  if(!ngoBackendReady||ngoData.role==='viewer')return;
+  const payload={};ngoMetricKeys.forEach(k=>{const el=document.querySelector('[data-ngo-metric="'+k+'"]');payload[k]=Math.max(0,Math.min(10000000,Math.floor(Number(el?.value)||0)));});
+  if(payload.applicationsApproved>payload.applicationsSubmitted){$('#ngo-save-status').textContent='Approved applications cannot exceed submitted applications.';return;}
+  const button=$('#ngo-save-metrics');button.disabled=true;$('#ngo-save-status').textContent='Saving securely…';
+  try{const response=await fetch('/api/ngo/metrics',{method:'PUT',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const data=await response.json().catch(()=>({}));if(!response.ok)throw new Error(data.error||'Could not save the metrics.');$('#ngo-save-status').textContent=data.message||'Saved to organisation database.';await loadNGOWorkspace();}
+  catch(error){$('#ngo-save-status').textContent=error.message;}
+  finally{button.disabled=false;}
+}
+async function addNGOFollowup(event){
+  event.preventDefault();if(!ngoBackendReady||ngoData.role==='viewer')return;
+  const ref=$('#ngo-ref').value.trim().replace(/[^A-Za-z0-9_-]/g,'-').replace(/-+/g,'-').slice(0,40);
+  const payload={ref,state:$('#ngo-state').value,district:$('#ngo-district').value,support:$('#ngo-support').value,status:$('#ngo-case-status').value};
+  if(!/^[A-Za-z0-9][A-Za-z0-9_-]{2,39}$/.test(ref)){$('#ngo-save-status').textContent='Use 3–40 characters: letters, numbers, hyphens or underscores.';return;}
+  const button=$('#ngo-followup-form button[type="submit"]');button.disabled=true;
+  try{const response=await fetch('/api/ngo/followups',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const data=await response.json().catch(()=>({}));if(!response.ok)throw new Error(data.error||'Could not add the follow-up reference.');$('#ngo-ref').value='';$('#ngo-save-status').textContent='Reference saved in the organisation database.';await loadNGOWorkspace();}
+  catch(error){$('#ngo-save-status').textContent=error.message;}
+  finally{button.disabled=false;}
+}
+async function deleteNGOFollowup(id){
+  if(!ngoBackendReady||ngoData.role!=='admin'||!confirm('Delete this internal follow-up reference from the organisation database?'))return;
+  try{const response=await fetch('/api/ngo/followups/'+encodeURIComponent(id),{method:'DELETE',credentials:'same-origin'});const data=await response.json().catch(()=>({}));if(!response.ok)throw new Error(data.error||'Delete failed.');await loadNGOWorkspace();}
+  catch(error){$('#ngo-save-status').textContent=error.message;}
 }
 function exportNGOCSV(){
+  if(!ngoBackendReady)return;
   const rows=[['Internal reference','State','District','Support route','Status','Date'],...ngoData.followups.map(x=>[x.ref,x.state,x.district,x.support,x.status,x.date])];
   const quote=x=>{let value=String(x??'');if(/^\s*[=+@-]/.test(value))value="'"+value;return '"'+value.replace(/"/g,'""')+'"';};
   const csv=rows.map(row=>row.map(quote).join(',')).join('\r\n');
   const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob);
-  const a=document.createElement('a');a.href=url;a.download='agribridge-anonymised-followups.csv';a.click();URL.revokeObjectURL(url);
-}
-function clearNGOData(){
-  if(!confirm('Clear aggregate metrics and anonymised follow-up references stored in this browser? This cannot be undone.'))return;
-  ngoData={metrics:{...ngoEmptyMetrics},followups:[]};
-  try{localStorage.removeItem(ngoStorageKey);}catch(error){}
-  renderNGOWorkspace();$('#ngo-save-status').textContent='Local workspace cleared.';
+  const link=document.createElement('a');link.href=url;link.download='agribridge-organisation-followups.csv';link.click();URL.revokeObjectURL(url);
 }
 function initNGOWorkspace(){
-  loadNGOData();renderNGOWorkspace();updateAssistantLocation();
+  populateNGOSelectors();
   $('#ngo-save-metrics')?.addEventListener('click',saveNGOMetrics);
   $('#ngo-followup-form')?.addEventListener('submit',addNGOFollowup);
   $('#ngo-export')?.addEventListener('click',exportNGOCSV);
-  $('#ngo-clear')?.addEventListener('click',clearNGOData);
-}
-
-const inrMoney=value=>new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:0}).format(Number(value)||0);
-function calculateMonthlyIrr(netReceived,emi,months){
-  if(!(netReceived>0)||!(emi>=0)||!(months>0))return null;
-  const npv=rate=>{let value=netReceived;for(let month=1;month<=months;month++)value-=emi/Math.pow(1+rate,month);return value;};
-  if(Math.abs(npv(0))<0.0001)return 0;
-  let low=0,high=1;while(npv(high)<0&&high<100)high*=2;if(npv(high)<0)return null;
-  for(let i=0;i<100;i++){const mid=(low+high)/2;if(npv(mid)>0)high=mid;else low=mid;}
-  return (1+(low+high)/2)**12-1;
-}
-function computeLoanOffer(principal,months,method,annualRate,feePercent,otherFees){
-  const monthlyRate=annualRate/1200;let emi=0,totalInterest=0;
-  if(method==='flat'){totalInterest=principal*(annualRate/100)*(months/12);emi=(principal+totalInterest)/months;}
-  else if(monthlyRate===0){emi=principal/months;}
-  else{const factor=Math.pow(1+monthlyRate,months);emi=principal*monthlyRate*factor/(factor-1);totalInterest=emi*months-principal;}
-  const processingFee=principal*feePercent/100,fees=processingFee+otherFees,netReceived=principal-fees,repayments=emi*months;
-  const effectiveRate=calculateMonthlyIrr(netReceived,emi,months);
-  return {emi,totalInterest,processingFee,fees,netReceived,repayments,allInCost:repayments+fees-principal,effectiveApr:effectiveRate===null?null:effectiveRate*100};
-}
-function renderLoanComparison(){
-  const principal=Number($('#loan-principal')?.value),months=Number($('#loan-tenure')?.value),method=$('#loan-method')?.value||'reducing';
-  const rates=[Number($('#offer-a-rate')?.value),Number($('#offer-b-rate')?.value)],feeRates=[Number($('#offer-a-fee')?.value),Number($('#offer-b-fee')?.value)],otherFees=[Number($('#offer-a-other')?.value),Number($('#offer-b-other')?.value)];
-  const output=$('#loan-comparison-output');if(!output)return;
-  if(!(principal>=1000&&principal<=100000000)||!(months>=1&&months<=360)||[...rates,...feeRates,...otherFees].some(x=>!Number.isFinite(x)||x<0)||rates.some(x=>x>60)||feeRates.some(x=>x>20)){output.innerHTML='<div class="loan-calc-placeholder error">Enter a principal from ₹1,000 to ₹10 crore, tenure 1–360 months, annual rate 0–60%, processing fee 0–20% and non-negative charges.</div>';return;}
-  const offers=[computeLoanOffer(principal,months,method,rates[0],feeRates[0],otherFees[0]),computeLoanOffer(principal,months,method,rates[1],feeRates[1],otherFees[1])];
-  const rows=offers.map((o,i)=>'<article class="loan-result-card"><div class="loan-result-head"><b>Offer '+(i?'B':'A')+'</b><span>'+escapeHtml(method==='flat'?'Flat rate':'Reducing balance')+'</span></div><div class="loan-result-emi"><small>ESTIMATED MONTHLY EMI</small><strong>'+inrMoney(o.emi)+'</strong></div><div class="loan-result-lines"><div><span>Net amount credited</span><b>'+inrMoney(o.netReceived)+'</b></div><div><span>Total interest (before fees)</span><b>'+inrMoney(o.totalInterest)+'</b></div><div><span>Upfront fees / charges</span><b>'+inrMoney(o.fees)+'</b></div><div><span>Total repayment</span><b>'+inrMoney(o.repayments)+'</b></div><div><span>All-in financing cost</span><b>'+inrMoney(o.allInCost)+'</b></div><div class="apr-line"><span>Estimated effective annual APR</span><b>'+(o.effectiveApr===null?'Not calculable':o.effectiveApr.toFixed(2)+'%')+'</b></div></div></article>').join('');
-  const difference=Math.abs(offers[0].allInCost-offers[1].allInCost),winner=offers[0].allInCost<=offers[1].allInCost?'A':'B';
-  output.innerHTML='<div class="loan-results-summary"><b>Comparison result:</b> Offer '+winner+' has the lower estimated all-in financing cost by '+inrMoney(difference)+' over '+months+' months, assuming the entered fees and repayment method.</div><div class="loan-result-grid">'+rows+'</div>';
-}
-function initLoanComparator(){
-  $('#calculate-loans')?.addEventListener('click',renderLoanComparison);
-  ['loan-principal','loan-tenure','loan-method','offer-a-rate','offer-a-fee','offer-a-other','offer-b-rate','offer-b-fee','offer-b-other'].forEach(id=>$('#'+id)?.addEventListener('change',renderLoanComparison));
-  renderLoanComparison();
-}
-
-function syncMarketLocation(){
-  const state=$('#market-state'),district=$('#market-district');if(!state||!district||!geography.length)return;
-  const selectedState=stateSelect.value,selectedDistrict=districtSelect.value;
-  setOptions(state,stateNames(),selectedState);
-  setOptions(district,districtsFor(state.value),selectedDistrict);
-}
-function renderMandiPrices(records,meta={}){
-  const node=$('#market-price-results');if(!node)return;
-  if(!records||!records.length){node.innerHTML='<div class="market-price-placeholder">No records were returned for these filters. Try a broader commodity spelling, remove the district filter or open the official AGMARKNET portal.</div>';return;}
-  const sorted=[...records].sort((a,b)=>String(b.arrivalDate||'').localeCompare(String(a.arrivalDate||'')));
-  node.innerHTML='<div class="market-results-top"><b>'+sorted.length+' mandi price records</b><span>Retrieved '+escapeHtml(new Date(meta.retrievedAt||Date.now()).toLocaleString('en-IN'))+'</span></div><div class="market-price-table-wrap"><table class="market-price-table"><thead><tr><th>Market</th><th>Commodity / variety</th><th>Arrival date</th><th>Min (₹/q)</th><th>Modal (₹/q)</th><th>Max (₹/q)</th></tr></thead><tbody>'+sorted.map(x=>'<tr><td><b>'+escapeHtml(x.market)+'</b><small>'+escapeHtml(x.district)+', '+escapeHtml(x.state)+'</small></td><td>'+escapeHtml(x.commodity)+'<small>'+escapeHtml([x.variety,x.grade].filter(Boolean).join(' · '))+'</small></td><td>'+escapeHtml(x.arrivalDate||'—')+'</td><td>'+inrMoney(x.minPrice)+'</td><td><b>'+inrMoney(x.modalPrice)+'</b></td><td>'+inrMoney(x.maxPrice)+'</td></tr>').join('')+'</tbody></table></div>';
-}
-async function loadMandiPrices(event){
-  if(event)event.preventDefault();
-  const status=$('#market-price-status'),button=$('#market-search-button');if(!status)return;
-  const params=new URLSearchParams();
-  const state=$('#market-state')?.value||stateSelect.value,district=$('#market-district')?.value||'',commodity=$('#market-commodity')?.value.trim()||'',limit=$('#market-limit')?.value||'40';
-  if(state)params.set('state',state);if(district)params.set('district',district);if(commodity)params.set('commodity',commodity);params.set('limit',limit);
-  if(button)button.disabled=true;status.textContent='Requesting published daily mandi records from the official OGD dataset…';
-  try{
-    const response=await fetch('/api/market-prices?'+params.toString(),{cache:'no-store'});
-    const data=await response.json().catch(()=>({error:'The market price service returned an unreadable response.'}));
-    if(!response.ok){
-      const detail=data.code==='DATA_GOV_IN_API_KEY_REQUIRED'?'The server-side OGD API key is not configured yet. The key is intentionally not stored in this page. Open the Cloudflare setup guide or use the official source below.':(data.error||'Mandi data is temporarily unavailable.');
-      status.textContent=detail;$('#market-price-results').innerHTML='<div class="market-price-placeholder">Live feed unavailable. Use the official AGMARKNET / OGD source link below or enable the server secret in Cloudflare.</div>';return;
-    }
-    status.textContent='Source: '+(data.source||'Official daily mandi dataset')+' · '+(data.total??data.count??data.records?.length??0)+' matching records in the source response. Not every mandi reports every commodity every day.';
-    renderMandiPrices(data.records||[],data);
-  }catch(error){status.textContent='Could not connect to the mandi data service. Try again later.';}
-  finally{if(button)button.disabled=false;}
-}
-function initMarketPrices(){
-  syncMarketLocation();
-  $('#market-state')?.addEventListener('change',()=>setOptions($('#market-district'),districtsFor($('#market-state').value)));
+  $('#ngo-refresh')?.addEventListener('click',loadNGOWorkspace);
+  loadNGOWorkspace();
 }
 
 function scopeRank(r){return r.scope==='district'?0:r.scope==='state'?1:r.scope==='national'?2:3;}
