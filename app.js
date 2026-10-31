@@ -398,8 +398,8 @@ Promise.all([recordsPromise,lendersPromise,portalsPromise,loadGeography()]).then
   console.error(err);
   $('#results').innerHTML='<div class="empty-state"><h3>Directory data could not be loaded</h3><p>Check that the project is being served from its root folder and that schemes.json is available.</p></div>';
 });
-stateSelect.addEventListener('change',()=>populateDistricts());
-districtSelect.addEventListener('change',render);
+stateSelect.addEventListener('change',()=>{populateDistricts();resetEligibility();});
+districtSelect.addEventListener('change',()=>{resetEligibility();render();});
 profileSelect.addEventListener('change',render);
 typeSelect.addEventListener('change',render);
 providerSelect.addEventListener('change',render);
