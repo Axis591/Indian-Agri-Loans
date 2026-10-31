@@ -4,13 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#102d24" />
-  <meta name="description" content="Independent public directory for Indian farmers to discover government schemes, grants, crop insurance, KCC, cooperative credit, bank loans, RRBs, Small Finance Banks and regulated NBFC finance by State and District." />
+  <meta name="description" content="AgriBridge helps Indian farmers and NGOs discover potential schemes, grants, crop insurance, KCC, cooperative credit, bank loans and local application routes by State and District." />
   <meta name="robots" content="index,follow,max-image-preview:large" />
-  <link rel="canonical" href="https://axis591.github.io/Indian-Agri-Loans/" />
+  <link rel="canonical" href="https://indian-agri-loans.pages.dev/" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Indian Agri Market &amp; Loans — Farmer Finance Directory" />
   <meta property="og:description" content="Find farmer schemes, grants, KCC, cooperative credit and bank/NBFC loan routes across India by State and District." />
-  <meta property="og:url" content="https://axis591.github.io/Indian-Agri-Loans/" />
+  <meta property="og:url" content="https://indian-agri-loans.pages.dev/" />
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Indian Agri Market &amp; Loans" />
   <meta name="twitter:description" content="A source-linked public farmer finance directory for India." />
@@ -30,7 +30,9 @@
       <div class="side-label">WORKSPACE</div>
       <nav class="side-nav" aria-label="Main navigation">
         <button class="nav-item active" data-view="finance"><span>◫</span> Finance finder</button>
+        <button class="nav-item" data-view="assistant"><span>⌕</span> Find my support</button>
         <button class="nav-item" data-view="directory"><span>▤</span> Schemes &amp; lenders</button>
+        <button class="nav-item" data-view="ngo"><span>♧</span> NGO Connect</button>
         <button class="nav-item" data-view="market"><span>⌁</span> Market access</button>
         <button class="nav-item" data-view="coverage"><span>▦</span> Data coverage</button>
       </nav>
@@ -127,7 +129,88 @@
         <div class="directory-disclaimer"><b>Important coverage rule:</b> National bank products are not proof that a branch exists in every district. District crop notifications, branch coverage, current lending policy, credit appraisal and scheme application windows control availability. We only show amounts/rates that the linked provider publishes; otherwise the amount is marked “bank assessed” or “not published”.</div>
       </section>
 
-      <section id="view-market" class="view">
+      <section id="view-assistant" class="view">
+  <div class="section-heading">
+    <div><div class="section-kicker">02 / PERSONAL SUPPORT DISCOVERY</div><h2>Find support that may fit your farm</h2><p>Answer a few questions to shortlist relevant schemes and credit routes for the selected State and District.</p></div>
+    <div class="scope-label"><span class="scope-dot"></span> No personal ID required</div>
+  </div>
+  <div class="assistant-notice"><b>Important:</b> This tool identifies potential matches from records currently in AgriBridge. It is not an official eligibility check or approval. Final rules, local notifications, documents and sanction must be confirmed with the implementing department or lender.</div>
+  <div class="assistant-layout">
+    <form id="eligibility-form" class="assistant-form">
+      <div class="assistant-form-head"><span class="finder-number">01</span><div><b>About the farmer or organisation</b><small>Location is taken from Finance Finder</small></div></div>
+      <div class="assistant-location" id="assistant-location">West Bengal · Paschim Medinipur</div>
+      <label class="assistant-field"><span>APPLICANT TYPE</span><select id="elig-profile" required>
+        <option value="owner">Owner cultivator</option><option value="tenant">Tenant farmer</option><option value="women_shg">Women SHG</option><option value="mixed_shg">Male / mixed SHG</option><option value="fpo">FPO / farmer cooperative</option><option value="allied">Dairy / fisheries / poultry / allied farmer</option><option value="entrepreneur">Agri entrepreneur / micro-enterprise</option>
+      </select></label>
+      <label class="assistant-field"><span>LAND / CULTIVATION STATUS</span><select id="elig-land" required>
+        <option value="owner">Own / recorded land</option><option value="tenant">Tenant farmer with cultivation proof</option><option value="sharecropper">Sharecropper / Bargadar</option><option value="group">SHG / FPO / cooperative group</option><option value="landless">Landless but operating an allied / agri enterprise</option>
+      </select></label>
+      <label class="assistant-field"><span>MAIN FARM ACTIVITY</span><select id="elig-activity" required>
+        <option value="crop">Crop cultivation</option><option value="dairy">Dairy / cattle</option><option value="fisheries">Fisheries</option><option value="poultry">Poultry / livestock</option><option value="horticulture">Horticulture / fruit / vegetables</option><option value="machinery">Farm machinery / mechanisation</option><option value="irrigation">Irrigation / water management</option><option value="storage">Storage / warehouse / post-harvest</option><option value="processing">Food / agricultural processing</option><option value="allied">Other allied agriculture</option><option value="agri-enterprise">Agri-enterprise / FPO business</option><option value="group-business">Group livelihood / SHG enterprise</option>
+      </select></label>
+      <label class="assistant-field"><span>WHAT SUPPORT IS NEEDED?</span><select id="elig-need" required>
+        <option value="all">Show all potential support</option><option value="grant">Grant / direct benefit</option><option value="subsidy">Subsidy / interest support</option><option value="loan">Loan / credit</option><option value="insurance">Crop insurance</option><option value="institution">Local help / institution</option>
+      </select></label>
+      <div class="assistant-form-actions"><button class="primary-action" type="submit">Find potential matches <span>→</span></button><button class="secondary-action" id="elig-reset" type="button">Reset answers</button></div>
+      <div class="assistant-privacy">Please do not enter Aadhaar, bank account numbers, OTPs, passwords, phone numbers or upload identity documents. The matching questions run in this browser and are not sent to a server.</div>
+    </form>
+    <div class="assistant-side">
+      <div class="assistant-side-card"><div class="section-kicker">HOW MATCHING WORKS</div><h3>Shortlist first. Verify before applying.</h3><ol><li>Location restricts state and district-specific records.</li><li>Applicant and land status are compared with catalogue profile tags.</li><li>Activity and support need narrow the list.</li><li>Each result explains what must be checked with the official authority.</li></ol></div>
+      <div class="assistant-side-card"><div class="section-kicker">WHAT YOU WILL GET</div><div class="assistant-benefit"><b>Potential schemes</b><small>Benefits, loan routes and local access points.</small></div><div class="assistant-benefit"><b>Document checklist</b><small>Common papers to prepare for each match.</small></div><div class="assistant-benefit"><b>Application process</b><small>Steps and official links from the record.</small></div></div>
+    </div>
+  </div>
+  <div id="eligibility-output" class="eligibility-output" aria-live="polite"><div class="eligibility-empty"><b>Your potential matches will appear here.</b><span>Choose the applicant and farm details, then select Find potential matches.</span></div></div>
+</section>
+<section id="view-ngo" class="view">
+  <div class="section-heading">
+    <div><div class="section-kicker">04 / NGO & FIELD ORGANISATION WORKSPACE</div><h2>Turn field activity into measurable outcomes</h2><p>Track anonymised project totals and non-identifying follow-up references for local pilots.</p></div>
+    <div class="scope-label"><span class="scope-dot"></span> Browser-local pilot workspace</div>
+  </div>
+  <div class="ngo-safety"><b>Prototype & privacy notice:</b> This public version has no NGO login, shared database or cloud sync. Data entered here stays in this browser only. Use aggregate counts and internal reference codes only. Do not enter farmer names, phone numbers, Aadhaar, bank details, document scans or other personal data. For live multi-user NGO case management, a secure authenticated backend and consent workflow must be deployed first.</div>
+  <div class="ngo-overview">
+    <article><small>FARMERS REACHED</small><strong id="ngo-reached-total">0</strong><span>Unique / estimated participants</span></article>
+    <article><small>APPLICATIONS ASSISTED</small><strong id="ngo-app-total">0</strong><span>Submitted with NGO support</span></article>
+    <article><small>APPROVAL RATE</small><strong id="ngo-approval-rate">—</strong><span>Approved ÷ submitted</span></article>
+    <article><small>BENEFITS RECEIVED</small><strong id="ngo-benefit-total">0</strong><span>Verified by organisation</span></article>
+  </div>
+  <div class="ngo-layout">
+    <div class="ngo-card">
+      <div class="ngo-card-head"><div><div class="section-kicker">01 / PROJECT PERFORMANCE</div><h3>Update aggregate project metrics</h3></div><span class="ngo-local-tag">Saved on this device</span></div>
+      <p class="ngo-help">Enter totals for the selected NGO project or reporting period. Use whole numbers; these figures are not submitted to AgriBridge.</p>
+      <div class="ngo-metric-grid">
+        <label>Farmers reached<input data-ngo-metric="farmersReached" type="number" min="0" step="1" value="0"></label>
+        <label>Counselling sessions<input data-ngo-metric="counsellingSessions" type="number" min="0" step="1" value="0"></label>
+        <label>Applications assisted / submitted<input data-ngo-metric="applicationsSubmitted" type="number" min="0" step="1" value="0"></label>
+        <label>Applications approved<input data-ngo-metric="applicationsApproved" type="number" min="0" step="1" value="0"></label>
+        <label>Benefits received / confirmed<input data-ngo-metric="benefitsReceived" type="number" min="0" step="1" value="0"></label>
+        <label>Awareness camps held<input data-ngo-metric="campsHeld" type="number" min="0" step="1" value="0"></label>
+        <label>Villages / hamlets reached<input data-ngo-metric="villagesReached" type="number" min="0" step="1" value="0"></label>
+      </div>
+      <div class="ngo-actions"><button id="ngo-save-metrics" class="primary-action" type="button">Save project totals</button><span id="ngo-save-status" class="ngo-save-status" aria-live="polite">No changes saved yet.</span></div>
+    </div>
+    <div class="ngo-card">
+      <div class="ngo-card-head"><div><div class="section-kicker">02 / NON-IDENTIFYING FOLLOW-UP</div><h3>Track an application reference</h3></div></div>
+      <p class="ngo-help">Use your organisation's internal case code. Do not enter a farmer's name or government ID.</p>
+      <form id="ngo-followup-form" class="ngo-followup-form">
+        <label>Internal reference<input id="ngo-ref" maxlength="40" placeholder="e.g. PMFBY-CAMP-001" required></label>
+        <div class="ngo-two-fields"><label>State / UT<input id="ngo-state" maxlength="80" value="West Bengal" required></label><label>District<input id="ngo-district" maxlength="80" value="Paschim Medinipur" required></label></div>
+        <label>Support route<select id="ngo-support"><option>PM-KISAN</option><option>KCC / crop credit</option><option>PMFBY / crop insurance</option><option>State subsidy / grant</option><option>SHG / FPO finance</option><option>Machinery / irrigation</option><option>Other local support</option></select></label>
+        <label>Follow-up status<select id="ngo-case-status"><option>Identified</option><option>Documents pending</option><option>Ready to apply</option><option>Submitted</option><option>Approved</option><option>Rejected / closed</option><option>Benefit received</option></select></label>
+        <button type="submit" class="primary-action">Add reference <span>＋</span></button>
+      </form>
+    </div>
+  </div>
+  <div class="ngo-card ngo-followups">
+    <div class="ngo-card-head"><div><div class="section-kicker">03 / FOLLOW-UP REGISTER</div><h3>Local pilot follow-ups</h3></div><div class="ngo-actions"><button type="button" id="ngo-export" class="secondary-action">Export CSV</button><button type="button" id="ngo-clear" class="secondary-action">Clear local data</button></div></div>
+    <div id="ngo-followup-list" class="ngo-followup-list"><div class="no-directory-results">No references added yet.</div></div>
+  </div>
+  <div class="ngo-card ngo-next-phase">
+    <div class="section-kicker">04 / BEFORE ORGANISATION-WIDE ROLLOUT</div><h3>What needs to be added for a live NGO network?</h3>
+    <div class="ngo-architecture"><span>Organisation login & roles</span><b>→</b><span>Consent-led beneficiary records</span><b>→</b><span>Encrypted database & audit log</span><b>→</b><span>Shared district reporting</span></div>
+    <p class="ngo-help">This static prototype does not provide multi-user access, server-side storage, secure document upload, automated government application submission or beneficiary identity verification. Those capabilities require a protected backend and security review.</p>
+  </div>
+</section>
+<section id="view-market" class="view">
         <div class="section-heading"><div><div class="section-kicker">MARKET ACCESS</div><h2>Sell better. Check market signals.</h2><p>Official platforms for mandi prices, e-trading, procurement and price support.</p></div></div>
         <div class="market-grid">
           <article class="market-card"><div class="market-icon">₹</div><span class="tag">MARKET PRICES</span><h3>Agmarknet</h3><p>Look up mandi-wise arrivals and commodity prices. Compare nearby markets before choosing where to sell.</p><a href="https://agmarknet.gov.in/" target="_blank" rel="noopener">Open Agmarknet ↗</a></article>
