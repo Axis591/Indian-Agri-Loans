@@ -22,3 +22,12 @@ jobs:
           node-version: '20'
       - name: Validate V3 catalogue, integrations and UI
         run: node scripts/validate-v3.mjs
+      - name: Validate Cloudflare Function and import module syntax
+        shell: bash
+        run: |
+          set -euo pipefail
+          while IFS= read -r file; do
+            echo "Checking ${file}"
+            node --input-type=module --check < "${file}"
+          done < <(find functions -type f -name '*.js' -print | sort)
+          node --check scripts/import-lgd-export.mjs
