@@ -11,15 +11,15 @@ A static, Cloudflare Pages-hosted and GitHub Pages-compatible directory for disc
 
 ## Current release status
 
-This is a source-linked starter release, not yet an exhaustive verified catalogue of every state, district, block, Panchayat, PACS, bank branch, lending product or local grant in India.
+This is a source-linked national starter catalogue with explicit geographic and verification gaps. It is not an exhaustive verified inventory of every State, district, block, Panchayat, PACS, bank branch, lending product or local grant in India.
 
-- **National records:** PM-KISAN, KCC, Agriculture Infrastructure Fund, PMFBY and MUDRA allied-enterprise credit.
+- **National records:** 31 scheme/benefit/service records, including PM-KISAN, KCC, AIF, PMFBY, MUDRA, SMAM 2026–27, PDMC, PM-KUSUM, MIDH, AMI, FPO formation support, NLM-EDP, PM-MKSSY, FIDF, PM-AASHA, PM-KMY and Soil Health Card.
 - **West Bengal records:** Krishak Bandhu, death benefit, rainfed diversification (including Paschim Medinipur), women SHG interest support (including Paschim Medinipur), cooperative credit, farm mechanisation and Amar Fasal Amar Gola.
 - **Lender catalogue:** 46 initial product entries (including 28 individually listed Regional Rural Banks, cooperative-credit routes and an NBFC-MFI microcredit product): 8 public-sector-bank product families, 3 private banks, 2 Small Finance Banks, 28 Regional Rural Banks, 2 cooperative-credit routes and 3 NBFC products. These include SBI, Bank of Baroda, Canara Bank, PNB, Bank of India, Bank of Maharashtra, Indian Bank, UCO Bank, HDFC Bank, ICICI Bank, Axis Bank, Ujjivan SFB, ESAF SFB, Mahindra Finance and Samunnati Finance. Each entry links to product terms, application route, typical documents, process and source material.
 - **Panchayat / block:** a last-mile navigation entry explains how to find local notices and implementing offices; it is not represented as a uniform Panchayat loan or grant.
 - **Formal rural channels:** RRBs, cooperative banks/PACS, public/private banks and regulated NBFC/MFI routes are identified separately. “Semi-private” is not treated as one legal lender category.
 - **Informal finance:** described as a risk category, not recommended or represented as an approved scheme.
-- **Other States/UTs:** national programmes are shown. State-specific and district-specific records are explicitly marked as research pending rather than fabricated.
+- **Other States/UTs:** all 36 State/UTs have portal links and a structured coverage row. State-specific inventories are marked portal-linked/research-pending unless source-linked records exist. The current State-specific scheme records are concentrated in West Bengal; this is not an all-India State-scheme inventory.
 
 ## Public portal
 
@@ -85,7 +85,7 @@ A record should not be added as `verified` without a direct official source, the
 
 ## District directory
 
-The district selector attempts to load `CodingMation/indian-states-districts` JSON at runtime. A complete local fallback is also bundled in `geography-fallback.json` (36 States/UTs and 779 district entries in the bundled snapshot). This is a community dataset, not an official government source; verify administrative changes against the Government of India's Local Government Directory (LGD).
+The district selector attempts to load `CodingMation/indian-states-districts` JSON at runtime. A local fallback and the `coverage-v25.json` register contain 36 State/UTs and 779 community-snapshot district entries. This is not an official dataset and is not yet reconciled to the current Government of India's Local Government Directory (LGD). Block, village and Gram Panchayat identifiers are not yet loaded.
 
 Official LGD catalogue: https://data.gov.in/catalog/local-government-directory-lgd
 
@@ -135,4 +135,47 @@ The cooperative catalogue separates the national State Cooperative Bank → DCCB
 - **Source linked — recheck current rules:** a primary source is linked, but the latest local notification or operational circular has not been independently checked for every jurisdiction.
 - **Seasonal / local verification required:** crop, district, season, block target, local PACS or lender branch must be confirmed before applying.
 
-The first release explicitly marks PM-KISAN, DFS KCC guidance and the PMFBY FAQ as checked on 31 October 2026. Other records remain source-linked and subject to current-notice verification.
+V2.5 adds source-checked national programme records with component, State-window and project-approval caveats. PMFME and AHIDF are visible as legacy/extension-unconfirmed records and excluded from eligibility matching. A record review date does not mean every district window, procurement operation or lender branch is open.
+
+## AgriBridge V2.5 — all-India parallel release
+
+V2.5 advances two equal-priority workstreams in one national catalogue:
+
+- **Farmer benefits and programmes:** grants, direct benefits, subsidies, crop insurance, pensions, price support, agricultural infrastructure, horticulture, irrigation, mechanisation, livestock, fisheries and soil services.
+- **Agricultural finance:** public-sector and private banks, Small Finance Banks, Regional Rural Banks, cooperative/PACS routes and regulated NBFC products.
+
+### V2.5 catalogue contents
+
+- 31 scheme/benefit/service records, including 14 additional national programme/status records added for this release.
+- 46 lender/provider entries: 8 public-bank product families, 3 private banks, 2 Small Finance Banks, 28 individually listed Regional Rural Banks, 2 cooperative-credit routes and 3 NBFC products.
+- 36 State/UT portal records and a 779-entry community-maintained district snapshot.
+- 22 direct West Bengal district website mappings; other districts use the Government of India's official district website directory as a discovery route.
+- A machine-readable `coverage-v25.json` register distinguishing State portal links, State-specific records, district-specific programme records, RRB listing, local branch status and block/Panchayat research gaps.
+
+### Important programme status distinctions
+
+- SMAM 2026–27, PDMC and PM-KUSUM are State/UT implementation and application-window dependent.
+- MIDH and AMI are component/project-based; the displayed rates are not blanket cash payments to every farmer.
+- FPO scheme support is routed through eligible FPOs and designated Implementing Agencies/CBBOs, not paid as a universal individual-farmer grant.
+- NLM-EDP is a project-based capital-subsidy route with component ceilings, State screening and bank/own-contribution requirements.
+- PM-MKSSY and FIDF are fisheries-specific components and project/participant conditions apply.
+- PM-AASHA is a notified procurement/price-support mechanism, not a direct grant to every farmer.
+- PM-KMY is a voluntary contributory pension, not immediate grant assistance.
+- PMFME and AHIDF remain visible for historical reference, but no FY 2026–27 extension was verified in this release; both are excluded from the eligibility matcher.
+- KCC wording distinguishes the DFS page's current description of up to ₹3 lakh from the Budget announcement of a ₹5 lakh Modified Interest Subvention Scheme ceiling enhancement. The latter is not represented as a guaranteed universal KCC limit; confirm the operative circular and the bank's written sanction.
+
+### Geographic coverage limitations
+
+- The 36 State/UT portal register is not the same as 36 completed State scheme inventories.
+- Only West Bengal currently has State-specific scheme records in this catalogue (six State-scope records plus one district-scope programme record covering six named districts). Other State/UT scheme inventories remain portal-linked/research-pending.
+- The 779 district entries are a community-maintained fallback snapshot, not an LGD-certified current district list. Official LGD reconciliation is outstanding.
+- Direct district websites are mapped for 22 West Bengal districts. Kolkata and districts outside that mapped set use the India.gov official district directory.
+- The 28 RRB institutions are mapped from the Department of Financial Services list. A State-level RRB listing does not prove a branch exists in every district.
+- District branches, PACS/DCCBs, SHG federations, BDOs, Gram Panchayats, village-level targets and money-lending licences are not comprehensively inventoried.
+
+### Repeatable quality checks
+
+- `DATA_DICTIONARY.md` documents the scheme, lender, portal, geography and coverage-register fields.
+- `COVERAGE_REPORT_V25.md` explains the current national coverage and research gaps.
+- `scripts/validate-v25.mjs` validates unique IDs, required metadata, source URLs, State/UT names, RRB mappings and catalogue/coverage counts.
+- `.github/workflows/validate-v25.yml` runs the validation script on pushes and pull requests.
