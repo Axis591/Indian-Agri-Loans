@@ -84,8 +84,8 @@
       "fpo",
       "allied"
     ],
-    "amount": "Need-based — bank assessed",
-    "amountNote": "Need-based and bank-assessed using crop, area and district Scale of Finance. DFS guidance lists KCC crop/allied purposes; the 2025-26 Budget announced an increase in the Modified Interest Subvention Scheme ceiling to ₹5 lakh. Confirm the operative circular and actual sanction with the lender.",
+    "amount": "Need-based; DFS page states KCC crop loans up to ₹3 lakh",
+    "amountNote": "DFS's current Agriculture Credit page describes KCC loans up to ₹3 lakh for crops and related uses. The 2025–26 Budget announced an enhancement of the Modified Interest Subvention Scheme ceiling to ₹5 lakh; confirm the operative circular, eligible components and lender implementation before relying on ₹5 lakh. The actual sanctioned credit limit remains based on crop, acreage, district Scale of Finance and bank appraisal.",
     "summary": "Revolving credit for cultivation, post-harvest expenses, farm working capital and eligible allied activities. Tenant farmers, oral lessees, sharecroppers and eligible SHG/JLG groups are included in official eligibility descriptions.",
     "eligibility": "Owner cultivators; tenant farmers; oral lessees; sharecroppers; and eligible SHGs/JLGs of farmers. Dairy, fisheries and animal-husbandry working capital can also be covered through KCC variants.",
     "process": [
@@ -97,7 +97,7 @@
     "application": "https://fasalrin.gov.in/",
     "source": "https://financialservices.gov.in/agriculture-credit",
     "sourceLabel": "Department of Financial Services — Agriculture Credit",
-    "sourceDate": "Checked 31 Oct 2026",
+    "sourceDate": "DFS page and Budget source checked 31 Oct 2026",
     "amountStatus": "assessment",
     "rate": "MISS concessional pricing is subject to the prevailing circular and eligible limit; the DFS FAQ records 7% lending and an extra 3% prompt-repayment incentive (effective 4%) for the earlier ₹3 lakh cap. Budget 2025-26 announced an enhanced ₹5 lakh ceiling; confirm the operative bank circular before relying on the higher ceiling.",
     "caution": "The Department of Financial Services page describes the longstanding KCC facility up to ₹3 lakh; a later Budget 2025-26 announcement raised the MISS ceiling to ₹5 lakh. A budget announcement and a bank's current operational sanction are not the same thing. Confirm the live circular and applicable loan limit with the bank.",
@@ -160,13 +160,23 @@
         "Accepted land / tenancy / sharecropper / group documentation",
         "Current interest subvention, collateral and repayment conditions"
       ],
-      "status": "KCC rules include eligible owner cultivators, tenants, oral lessees, sharecroppers and specified SHG/JLG groups; the bank determines the final limit."
+      "status": "KCC eligibility covers specified owner/tenant/sharecropper/SHG/JLG borrowers; DFS page currently says up to ₹3 lakh while a later Budget announcement proposed a ₹5 lakh interest-subvention ceiling subject to operative implementation."
     },
     "verification": {
-      "status": "official_dfs_guidance_checked",
+      "status": "official_source_checked_budget_implementation_caveat",
       "lastChecked": "2026-10-31",
-      "note": "DFS guidance covers owner cultivators, tenant farmers, oral lessees, sharecroppers and eligible SHG/JLG borrowers; final limit, interest support and security depend on operative instructions and lender."
-    }
+      "note": "DFS's currently retrieved Agriculture Credit page states KCC loans up to ₹3 lakh. The Budget 2025–26 announced a ₹5 lakh enhancement to the Modified Interest Subvention Scheme ceiling. This catalogue does not assume the higher ceiling is operational for all KCC loans or branches; confirm the operative circular and sanction."
+    },
+    "sources": [
+      {
+        "label": "Department of Financial Services — Agriculture Credit / KCC eligibility",
+        "url": "https://www.financialservices.gov.in/agriculture-credit"
+      },
+      {
+        "label": "Union Budget 2025–26 — KCC interest-subvention ceiling announcement",
+        "url": "https://financialservices.gov.in/beta/sites/default/files/2025-02/budget.pdf"
+      }
+    ]
   },
   {
     "id": "aif",
@@ -1498,5 +1508,1480 @@
       "lastChecked": null,
       "note": "Primary source is linked, but this record has not been independently revalidated against the latest notification for every district and application window. Confirm locally before applying."
     }
+  },
+  {
+    "scope": "national",
+    "states": "all",
+    "districts": "all",
+    "sourceDate": "Checked 31 Oct 2026",
+    "verification": {
+      "status": "official_source_checked",
+      "lastChecked": "2026-10-31",
+      "note": "Primary Government source checked for this release. State action plans, district notifications, current application windows and final beneficiary eligibility still need confirmation."
+    },
+    "id": "smam-2026",
+    "name": "Sub-Mission on Agricultural Mechanization (SMAM) — 2026–27",
+    "type": "subsidy",
+    "category": "Farm machinery / custom hiring",
+    "providerKinds": [
+      "central-government",
+      "state-government",
+      "local-body"
+    ],
+    "profiles": [
+      "owner",
+      "tenant",
+      "fpo",
+      "entrepreneur",
+      "women_shg"
+    ],
+    "amount": "40–50% assistance for eligible machinery; component and category dependent",
+    "amountStatus": "published",
+    "amountNote": "Assistance is 40–50% for eligible machines as reported by PIB; the state portal's 2026–27 guideline, approved machine list and district target control the actual calculation.",
+    "summary": "Central support implemented through State Governments for farm machinery, equipment and Custom Hiring Centres, with a focus on small/marginal farmers and low farm-power regions.",
+    "eligibility": "Eligible farmers and eligible entities applying under the current State Annual Action Plan. Machine, category, state target, manufacturer/price approval, selection method and application window vary by State/UT.",
+    "application": "https://agrimachinery.nic.in/",
+    "applicationLabel": "SMAM / DBT in Agriculture Mechanization portal",
+    "source": "https://agrimachinery.nic.in/Report/report/reports",
+    "sourceLabel": "DA&FW Agriculture Mechanization portal — SMAM 2026",
+    "sources": [
+      {
+        "label": "DA&FW SMAM 2026 implementation portal",
+        "url": "https://agrimachinery.nic.in/Report/report/reports"
+      },
+      {
+        "label": "PIB — National Farm Mechanisation Policy, 11 Aug 2026",
+        "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2297647&lang=1&reg=1"
+      }
+    ],
+    "process": [
+      "Open the official Agriculture Mechanization DBT portal and select the State/UT and current financial year (2026–27).",
+      "Check the State's active application window, machine list, beneficiary category, district/block target and whether selection is by lottery or another notified process.",
+      "Register or log in as directed by the State portal; submit KYC, farmer category, land/farm details, bank details and the approved machine quotation.",
+      "Do not purchase the machine before receiving any required approval or authorisation. Follow dealer/manufacturer recommendation and physical-verification instructions.",
+      "Track the application, selection result, purchase/inspection and subsidy release on the State portal. A prior-year wait-list may not carry forward."
+    ],
+    "documents": [
+      "KYC and bank account details",
+      "Landholding / farmer-category evidence accepted by the State",
+      "Approved machine model / quotation from an authorised manufacturer or dealer",
+      "Application reference and any pre-approval / inspection documents required by the State"
+    ],
+    "eligibilityStatus": "State annual action plan and current application window required",
+    "amountNoteShort": "State/category/machine-dependent; do not assume a universal cash grant.",
+    "caution": "The central portal shows State-specific application windows and targets. A scheme appearing nationally does not mean the selected State or District currently has an open application or budget. Do not buy machinery before confirming pre-approval rules.",
+    "keywords": [
+      "smam",
+      "farm mechanisation",
+      "farm machinery",
+      "custom hiring centre",
+      "tractor",
+      "implement",
+      "equipment"
+    ],
+    "activityTags": [
+      "machinery",
+      "agri-enterprise",
+      "group-business"
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "fpo",
+        "entrepreneur",
+        "women_shg"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "group"
+      ],
+      "activities": [
+        "machinery",
+        "agri-enterprise",
+        "group-business"
+      ],
+      "supportNeeds": [
+        "subsidy",
+        "loan"
+      ],
+      "mustVerify": [
+        "State 2026–27 Annual Action Plan, selected district/block target and open application window",
+        "Machine/model must be on the approved list and pre-purchase approval may be required",
+        "Farmer category, subsidy norm, state share and beneficiary selection process"
+      ],
+      "status": "Central scheme with State/UT implementation; current target/window must be checked before applying."
+    },
+    "programmeStatus": "state_window_required",
+    "programmeStatusLabel": "State window / target required"
+  },
+  {
+    "scope": "national",
+    "states": "all",
+    "districts": "all",
+    "sourceDate": "Checked 31 Oct 2026",
+    "verification": {
+      "status": "official_source_checked",
+      "lastChecked": "2026-10-31",
+      "note": "Primary Government source checked for this release. State action plans, district notifications, current application windows and final beneficiary eligibility still need confirmation."
+    },
+    "id": "pdmc-micro-irrigation",
+    "name": "Per Drop More Crop (PDMC) — Micro-Irrigation",
+    "type": "subsidy",
+    "category": "Drip / sprinkler irrigation",
+    "providerKinds": [
+      "central-government",
+      "state-government"
+    ],
+    "profiles": [
+      "owner",
+      "tenant",
+      "allied",
+      "fpo"
+    ],
+    "amount": "55% assistance for small/marginal farmers; 45% for other farmers",
+    "amountStatus": "published",
+    "amountNote": "Government's 2026 explanation states assistance up to 5 hectares per beneficiary: 55% for small/marginal farmers and 45% for other farmers. States may add top-up subsidy. Actual eligible cost is calculated using notified unit costs and the current State application.",
+    "summary": "Centrally sponsored assistance for drip and sprinkler systems to improve farm-level water-use efficiency. Implemented through State/UT agriculture departments under PM-RKVY.",
+    "eligibility": "Farmers applying for eligible micro-irrigation on cultivated land, subject to State guidelines, land/crop, water-source, previous-benefit and area conditions. Applicant evidence for tenants/sharecroppers is State-specific.",
+    "application": "https://pmksy.gov.in/microirrigation/",
+    "applicationLabel": "PMKSY / State micro-irrigation route",
+    "source": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2304480&lang=2&reg=48",
+    "sourceLabel": "PIB — Per Drop More Crop assistance and implementation",
+    "sources": [
+      {
+        "label": "PIB — PDMC assistance and current PM-RKVY implementation",
+        "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2304480&lang=2&reg=48"
+      },
+      {
+        "label": "PMKSY — revised PDMC operational guidelines",
+        "url": "https://pmksy.gov.in/microirrigation/Archive/Revised%20PDMC%20GL%202021.pdf"
+      }
+    ],
+    "process": [
+      "Open the State Agriculture / micro-irrigation portal from the State selector and check the active PDMC component and district target.",
+      "Confirm drip/sprinkler eligibility, crop/area norm, water source, approved system and any restriction on previous assistance for the same land.",
+      "Apply before purchase/installation using the State's prescribed registration and upload/submit KYC, land/cultivation, bank and system quotation details.",
+      "Wait for the technical/site verification and approval required by the State. Use an approved supplier and preserve invoices and installation evidence.",
+      "Complete inspection and beneficiary verification; track subsidy disbursement through the State portal or agriculture office."
+    ],
+    "documents": [
+      "KYC and bank account details",
+      "Land record / cultivation evidence accepted by the State",
+      "Crop, area, irrigation water source and field details",
+      "Approved drip/sprinkler system estimate and supplier details",
+      "Prior assistance declaration and inspection papers, where required"
+    ],
+    "caution": "The 55%/45% figures are assistance rates on eligible cost norms, not cash paid on the full retail price. State top-ups, notified crops/areas, technical standards and application windows differ.",
+    "keywords": [
+      "pdmc",
+      "per drop more crop",
+      "micro irrigation",
+      "drip",
+      "sprinkler",
+      "pm-rkvy",
+      "water use efficiency"
+    ],
+    "activityTags": [
+      "crop",
+      "horticulture",
+      "irrigation"
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "fpo",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group"
+      ],
+      "activities": [
+        "crop",
+        "horticulture",
+        "irrigation"
+      ],
+      "supportNeeds": [
+        "subsidy"
+      ],
+      "mustVerify": [
+        "Current State/UT component, district target and approved unit-cost norms",
+        "Land/cultivation evidence and previous assistance restrictions",
+        "Get required approval before purchase or installation; check eligible supplier/system"
+      ],
+      "status": "National assistance pattern published; apply only through the active State/UT window."
+    },
+    "programmeStatus": "state_window_required",
+    "programmeStatusLabel": "State application window required"
+  },
+  {
+    "scope": "national",
+    "states": "all",
+    "districts": "all",
+    "sourceDate": "Checked 31 Oct 2026",
+    "verification": {
+      "status": "official_source_checked",
+      "lastChecked": "2026-10-31",
+      "note": "Primary Government source checked for this release. State action plans, district notifications, current application windows and final beneficiary eligibility still need confirmation."
+    },
+    "id": "pm-kusum",
+    "name": "PM-KUSUM — Solarisation of Agriculture Pumps",
+    "type": "subsidy",
+    "category": "Solar pumps / solar power",
+    "providerKinds": [
+      "central-government",
+      "state-government",
+      "local-body"
+    ],
+    "profiles": [
+      "owner",
+      "fpo",
+      "entrepreneur"
+    ],
+    "amount": "Central assistance up to 30% or 50% of benchmark cost, depending on State/category/component",
+    "amountStatus": "published",
+    "amountNote": "The official portal describes CFA up to 30% or 50% for eligible standalone solar pumps and solarisation components. State subsidy, farmer contribution, bank finance, capacity and benchmark cost depend on State, component and current tender/notification. Not a universal free solar pump.",
+    "summary": "Supports standalone solar pumps, solarisation of grid-connected agricultural pumps/feeders and eligible decentralised solar power plants on barren/fallow land through designated State implementing agencies.",
+    "eligibility": "Farmers and eligible farmer groups/cooperatives/panchayats/water-user associations applying under the State's notified component. Grid connectivity, land, DISCOM and pump capacity conditions vary by component.",
+    "application": "https://pmkusum.mnre.gov.in/",
+    "applicationLabel": "PM-KUSUM national portal / State agency",
+    "source": "https://pmkusum.mnre.gov.in/landing-faq.html",
+    "sourceLabel": "MNRE National PM-KUSUM portal — FAQ and components",
+    "sources": [
+      {
+        "label": "MNRE PM-KUSUM official FAQ / CFA description",
+        "url": "https://pmkusum.mnre.gov.in/landing-faq.html"
+      },
+      {
+        "label": "MNRE PM-KUSUM national portal",
+        "url": "https://pmkusum.mnre.gov.in/"
+      }
+    ],
+    "process": [
+      "Choose the component relevant to the farm: standalone pump, existing pump solarisation or eligible decentralised plant.",
+      "Open the State implementing agency / DISCOM notification linked from the official PM-KUSUM portal and check whether applications or tenders are open.",
+      "Review the State benchmark cost, pump capacity, farmer contribution, subsidy share, vendor list and land/grid conditions.",
+      "Apply through the designated State portal/agency, submit KYC, land/pump/electricity details and complete any DISCOM feasibility checks.",
+      "Proceed only after written selection/approval; pay only through the notified official channel and retain vendor, installation and inspection records."
+    ],
+    "documents": [
+      "KYC and bank details",
+      "Landholding / land-use evidence and pump/water-source details",
+      "Electricity connection / consumer number where grid-connected component applies",
+      "State-issued application, selection and vendor documents",
+      "Group resolution / authorisation if applying through a collective"
+    ],
+    "caution": "The central contribution is not the full system cost. State share, beneficiary contribution, capacity, benchmark price and open application windows are determined by the State and the selected component. Beware of agents promising guaranteed pumps.",
+    "keywords": [
+      "pm kusum",
+      "solar pump",
+      "solarisation",
+      "renewable energy",
+      "irrigation",
+      "mnre"
+    ],
+    "activityTags": [
+      "irrigation",
+      "agri-enterprise"
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "fpo",
+        "entrepreneur"
+      ],
+      "landStatus": [
+        "owner",
+        "group"
+      ],
+      "activities": [
+        "irrigation",
+        "agri-enterprise"
+      ],
+      "supportNeeds": [
+        "subsidy",
+        "loan"
+      ],
+      "mustVerify": [
+        "Selected State/UT implementing-agency notification and active component window",
+        "Benchmark cost, Central/State subsidy, farmer share and approved vendor",
+        "Pump capacity, electricity/DISCOM feasibility and land-use conditions"
+      ],
+      "status": "National scheme portal is live; applications are State/component/tender dependent."
+    },
+    "programmeStatus": "state_window_required",
+    "programmeStatusLabel": "State component / tender required"
+  },
+  {
+    "scope": "national",
+    "states": "all",
+    "districts": "all",
+    "sourceDate": "Checked 31 Oct 2026",
+    "verification": {
+      "status": "official_source_checked",
+      "lastChecked": "2026-10-31",
+      "note": "Primary Government source checked for this release. State action plans, district notifications, current application windows and final beneficiary eligibility still need confirmation."
+    },
+    "id": "midh-horticulture",
+    "name": "Mission for Integrated Development of Horticulture (MIDH)",
+    "type": "subsidy",
+    "category": "Horticulture production / post-harvest",
+    "providerKinds": [
+      "central-government",
+      "state-government"
+    ],
+    "profiles": [
+      "owner",
+      "tenant",
+      "fpo",
+      "entrepreneur",
+      "women_shg"
+    ],
+    "amount": "Component-based assistance; no single national rupee limit",
+    "amountStatus": "assessment",
+    "amountNote": "MIDH uses crop/component cost norms and State Annual Action Plans. NHB's 2025 guideline for selected integrated commercial horticulture projects describes credit-linked back-ended subsidy of 40% in general areas and 50% in specified NE/Himalayan/Scheduled/UT areas; other MIDH components have different rates and caps.",
+    "summary": "National horticulture programme supporting planting material, nurseries, area expansion, protected cultivation, post-harvest management, cold chain, market infrastructure and selected commercial projects.",
+    "eligibility": "Individual farmers, groups, FPOs, cooperatives and other eligible entities depending on component. Applicant type, crop, area, project size, approved cost norm and State targets govern eligibility.",
+    "application": "https://midh.gov.in/",
+    "applicationLabel": "MIDH / State Horticulture Department",
+    "source": "https://nhb.gov.in/online_application_nhb_scheme_2020_21.aspx",
+    "sourceLabel": "National Horticulture Board — 2026–27 revised scheme guideline notices",
+    "sources": [
+      {
+        "label": "NHB scheme guideline and 2026–27 amendments",
+        "url": "https://nhb.gov.in/online_application_nhb_scheme_2020_21.aspx"
+      },
+      {
+        "label": "MIDH Operational Guidelines 2025",
+        "url": "https://nhb.gov.in/writereaddata/085725055718MIDH%20Guidelines%20DO%20Letter%20%281%29.pdf"
+      },
+      {
+        "label": "NHB online application and scheme guidelines",
+        "url": "https://nhb.gov.in/Scheme_Guideline.aspx"
+      }
+    ],
+    "process": [
+      "Select the relevant crop/activity and check the State Horticulture Department's current Annual Action Plan and beneficiary target.",
+      "For NHB commercial projects, check the current 2026–27 guideline, priority cut-off date, applicant eligibility and required online application before project expenditure.",
+      "Prepare land/site evidence, project report, cost estimates, technical design, quotations, finance plan and any bank term-loan documents.",
+      "Submit through the State horticulture portal or the NHB online route for the named component; complete technical scrutiny and inspection requirements.",
+      "Proceed only after required approval. Subsidy may be credit-linked/back-ended and released after implementation and inspection."
+    ],
+    "documents": [
+      "KYC and bank account details",
+      "Land ownership / registered lease / site-control documents",
+      "Crop, area, planting-material and irrigation details",
+      "Project report, technical design, cost estimates and supplier quotations",
+      "Bank appraisal / term-loan sanction where the component is credit linked"
+    ],
+    "caution": "MIDH is an umbrella mission, not one flat subsidy. A State portal homepage or NHB page does not prove that the selected crop/component has an open district target. Verify the exact cost norm and application timing.",
+    "keywords": [
+      "midh",
+      "horticulture",
+      "nursery",
+      "protected cultivation",
+      "cold storage",
+      "nhb",
+      "post harvest"
+    ],
+    "activityTags": [
+      "horticulture",
+      "storage",
+      "processing",
+      "agri-enterprise",
+      "irrigation"
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "fpo",
+        "entrepreneur",
+        "women_shg"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "group"
+      ],
+      "activities": [
+        "horticulture",
+        "storage",
+        "processing",
+        "agri-enterprise",
+        "irrigation"
+      ],
+      "supportNeeds": [
+        "subsidy",
+        "loan"
+      ],
+      "mustVerify": [
+        "State Annual Action Plan, crop/component and district beneficiary target",
+        "Project size, cost norms, applicant category and applicable 40%/50% NHB component rule",
+        "Credit linkage, project approval, inspection and subsidy claim sequence"
+      ],
+      "status": "National horticulture framework; component-specific rates and State targets apply."
+    },
+    "programmeStatus": "state_plan_required",
+    "programmeStatusLabel": "State component / target required"
+  },
+  {
+    "scope": "national",
+    "states": "all",
+    "districts": "all",
+    "sourceDate": "Checked 31 Oct 2026",
+    "verification": {
+      "status": "official_source_checked",
+      "lastChecked": "2026-10-31",
+      "note": "Primary Government source checked for this release. State action plans, district notifications, current application windows and final beneficiary eligibility still need confirmation."
+    },
+    "id": "ami-marketing-infrastructure",
+    "name": "Agricultural Marketing Infrastructure (AMI) — ISAM",
+    "type": "subsidy",
+    "category": "Warehouse / rural market infrastructure",
+    "providerKinds": [
+      "central-government",
+      "public-bank",
+      "cooperative",
+      "state-government"
+    ],
+    "profiles": [
+      "owner",
+      "fpo",
+      "entrepreneur",
+      "women_shg"
+    ],
+    "amount": "25–33.33% of eligible capital cost, subject to beneficiary, region and current circular",
+    "amountStatus": "published",
+    "amountNote": "AMI is a credit-linked, back-ended capital subsidy. The Ministry of Cooperation's current scheme page describes subsidy at 25%–33.33% of capital cost for eligible projects. Recent Government amendments include revised PACS subsidy norms; do not apply a PACS-specific rate to every applicant.",
+    "summary": "Supports eligible rural godowns/warehouses, cold storage, primary processing, FPO common facilitation centres, rural haats/GrAMs, market yards and other agricultural marketing infrastructure.",
+    "eligibility": "Eligible individuals, farmers, FPOs, cooperatives, PACS and other entities with a qualifying project and term loan from an eligible financial institution. Project type, size, region and category determine assistance.",
+    "application": "https://www.nabard.org/",
+    "applicationLabel": "NABARD / eligible financing institution route",
+    "source": "https://www.cooperation.gov.in/en/convergence-schemes-related-strengthening-pacs-1",
+    "sourceLabel": "Ministry of Cooperation — AMI scheme and assistance",
+    "sources": [
+      {
+        "label": "Ministry of Cooperation — AMI overview, eligible infrastructure and how to apply",
+        "url": "https://www.cooperation.gov.in/en/convergence-schemes-related-strengthening-pacs-1"
+      },
+      {
+        "label": "PIB — 2026 AMI revisions for PACS",
+        "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2241928&lang=1&reg=1"
+      },
+      {
+        "label": "NABARD — refinance and scheme information",
+        "url": "https://www.nabard.org/"
+      }
+    ],
+    "process": [
+      "Identify the eligible infrastructure category (warehouse, cold storage, rural haat, market yard, primary processing or FPO common facility).",
+      "Contact an eligible bank/financial institution and NABARD/state channel to confirm that new applications and the chosen component are being accepted.",
+      "Prepare the DPR, site/land documents, capacity and technical design, quotations, promoter contribution and projected cash flows.",
+      "Obtain the required term-loan sanction from an eligible institution and submit the subsidy proposal through the prescribed channel.",
+      "Complete project construction, inspection and subsidy claim as directed. The subsidy is credit-linked/back-ended; it is not normally paid as an unrestricted upfront farmer grant."
+    ],
+    "documents": [
+      "KYC and entity registration / FPO / cooperative / PACS records",
+      "Land title or registered lease and site plan",
+      "DPR, technical drawings, capacity and eligible cost estimates",
+      "Bank term-loan sanction, promoter margin and projected cash flow",
+      "Inspection, completion and subsidy-claim documents"
+    ],
+    "caution": "AMI is an infrastructure investment scheme, not a personal crop loan. Exact current subsidy, eligible applicant, margin and sanction route must be confirmed for the selected project. A subsidy is not guaranteed merely because a term loan is sanctioned.",
+    "keywords": [
+      "ami",
+      "isam",
+      "warehouse",
+      "godown",
+      "cold storage",
+      "rural haat",
+      "gram",
+      "pacs",
+      "fpo",
+      "market yard"
+    ],
+    "activityTags": [
+      "storage",
+      "processing",
+      "agri-enterprise",
+      "group-business"
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "fpo",
+        "entrepreneur",
+        "women_shg"
+      ],
+      "landStatus": [
+        "owner",
+        "group"
+      ],
+      "activities": [
+        "storage",
+        "processing",
+        "agri-enterprise",
+        "group-business"
+      ],
+      "supportNeeds": [
+        "subsidy",
+        "loan"
+      ],
+      "mustVerify": [
+        "Eligible project and applicant class; individual crop farmers may not qualify without an infrastructure project",
+        "Current capital-subsidy rate and PACS-specific amendments",
+        "Eligible term-loan sanction, margin, DPR and back-ended release process"
+      ],
+      "status": "Credit-linked infrastructure subsidy; project and financing-institution approval required."
+    },
+    "programmeStatus": "project_credit_linked",
+    "programmeStatusLabel": "Credit-linked project route"
+  },
+  {
+    "scope": "national",
+    "states": "all",
+    "districts": "all",
+    "sourceDate": "Checked 31 Oct 2026",
+    "verification": {
+      "status": "official_source_checked",
+      "lastChecked": "2026-10-31",
+      "note": "Primary Government source checked for this release. State action plans, district notifications, current application windows and final beneficiary eligibility still need confirmation."
+    },
+    "id": "fpo-10000-scheme",
+    "name": "Formation & Promotion of 10,000 Farmer Producer Organisations (FPOs)",
+    "type": "subsidy",
+    "category": "FPO formation / equity / credit guarantee",
+    "providerKinds": [
+      "central-government",
+      "state-government"
+    ],
+    "profiles": [
+      "fpo",
+      "owner",
+      "entrepreneur",
+      "women_shg"
+    ],
+    "amount": "Up to ₹18 lakh/FPO management cost over 3 years; equity grant up to ₹15 lakh/FPO; credit guarantee up to ₹2 crore",
+    "amountStatus": "published",
+    "amountNote": "Matching equity grant is up to ₹2,000 per farmer-member subject to a ₹15 lakh/FPO cap. Management support up to ₹18 lakh/FPO over 3 years. Credit guarantee up to ₹2 crore for eligible project loans. These are FPO/entity benefits, not cash paid to each individual farmer.",
+    "summary": "Central Sector Scheme to form, professionalise and handhold FPOs through designated Implementing Agencies and Cluster Based Business Organisations (CBBOs), with equity support and credit-guarantee access.",
+    "eligibility": "Eligible FPOs formed/registered under the scheme and supported through a designated Implementing Agency/CBBO. Existing FPOs should verify whether their registration, member equity and project qualify; this is not a general individual farmer grant.",
+    "application": "https://sfacindia.com/",
+    "applicationLabel": "SFAC / Implementing Agency / CBBO route",
+    "source": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2296208&lang=1&reg=48",
+    "sourceLabel": "PIB — FPO formation and promotion, 7 Aug 2026",
+    "sources": [
+      {
+        "label": "PIB — FPO scheme status and ongoing handholding, 7 Aug 2026",
+        "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2296208&lang=1&reg=48"
+      },
+      {
+        "label": "PIB — management/equity/credit-guarantee support amounts",
+        "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2154174&lang=2&reg=3"
+      },
+      {
+        "label": "Small Farmers' Agribusiness Consortium (SFAC)",
+        "url": "https://sfacindia.com/"
+      }
+    ],
+    "process": [
+      "Check whether the FPO is already registered under the 10,000 FPO programme and identify its designated Implementing Agency/CBBO.",
+      "Contact the IA/CBBO/SFAC/NABARD/NCDC channel for membership, governance, equity contribution and business-plan requirements.",
+      "Complete FPO legal records, board resolution, member shareholding/equity and audited accounts as requested.",
+      "For project credit, prepare a bankable business plan and apply to an eligible lending institution; credit guarantee is processed under the scheme's rules.",
+      "Track handholding, management support, equity grant and guarantee approvals through the designated IA/CBBO; do not treat maximum values as automatically payable."
+    ],
+    "documents": [
+      "FPO registration and governing documents",
+      "Board resolution and authorised signatory KYC",
+      "Member register, shareholding and equity contribution records",
+      "Business plan, annual accounts, bank statements and market linkage evidence",
+      "Project report and lender documents for credit guarantee"
+    ],
+    "caution": "Benefits accrue to eligible FPO entities and are routed through designated Implementing Agencies/CBBOs. Individual farmers do not directly receive ₹18 lakh or ₹15 lakh. Existing programme registration and allocations determine access.",
+    "keywords": [
+      "fpo",
+      "10,000 fpo",
+      "equity grant",
+      "credit guarantee",
+      "farmer producer organisation",
+      "sfac",
+      "cbbo"
+    ],
+    "activityTags": [
+      "agri-enterprise",
+      "group-business",
+      "storage",
+      "processing"
+    ],
+    "matchRules": {
+      "profiles": [
+        "fpo",
+        "owner",
+        "entrepreneur",
+        "women_shg"
+      ],
+      "landStatus": [
+        "group",
+        "owner"
+      ],
+      "activities": [
+        "agri-enterprise",
+        "group-business",
+        "storage",
+        "processing"
+      ],
+      "supportNeeds": [
+        "subsidy",
+        "loan"
+      ],
+      "mustVerify": [
+        "FPO must be eligible/registered under the designated Implementing Agency or CBBO",
+        "Equity grant is capped per member and per FPO; management support is for an approved period",
+        "Credit guarantee is not a grant or automatic loan sanction; bank appraisal still applies"
+      ],
+      "status": "Ongoing FPO programme; access is through designated IA/CBBO and scheme allocation."
+    },
+    "programmeStatus": "entity_and_ia_route",
+    "programmeStatusLabel": "FPO / Implementing Agency route"
+  },
+  {
+    "scope": "national",
+    "states": "all",
+    "districts": "all",
+    "sourceDate": "Checked 31 Oct 2026",
+    "verification": {
+      "status": "official_source_checked",
+      "lastChecked": "2026-10-31",
+      "note": "Primary Government source checked for this release. State action plans, district notifications, current application windows and final beneficiary eligibility still need confirmation."
+    },
+    "id": "nlm-edp",
+    "name": "National Livestock Mission — Entrepreneurship Development Programme",
+    "type": "subsidy",
+    "category": "Livestock / poultry / feed and fodder",
+    "providerKinds": [
+      "central-government",
+      "state-government",
+      "public-bank"
+    ],
+    "profiles": [
+      "owner",
+      "allied",
+      "fpo",
+      "women_shg",
+      "mixed_shg",
+      "entrepreneur"
+    ],
+    "amount": "50% capital subsidy; ceiling up to ₹50 lakh for eligible project components",
+    "amountStatus": "published",
+    "amountNote": "The 2026 PIB release confirms 50% capital subsidy up to ₹50 lakh under NLM-EDP. Component-wise ceilings vary (e.g. poultry, sheep/goat, piggery, camel/horse/donkey breeding and fodder units). The remaining project cost is arranged through bank finance or own contribution; bank margin conditions apply.",
+    "summary": "Credit-linked entrepreneurship support for eligible rural poultry breeding, sheep/goat/piggery and selected indigenous equine/camel/donkey breeding units, plus fodder value-addition and processing infrastructure.",
+    "eligibility": "Individuals, FPOs, SHGs, JLGs, Farmer Cooperative Organisations and eligible Section 8 companies, subject to the chosen component's unit size, technical conditions and State screening.",
+    "application": "https://nlm.udyamimitra.in/",
+    "applicationLabel": "NLM online entrepreneur application",
+    "source": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2239420&lang=1&reg=1",
+    "sourceLabel": "PIB — NLM-EDP implementation, 13 Mar 2026",
+    "sources": [
+      {
+        "label": "NLM-EDP current implementation and 50% capital subsidy",
+        "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2239420&lang=1&reg=1"
+      },
+      {
+        "label": "Department of Animal Husbandry and Dairying — NLM guidelines",
+        "url": "https://dahd.gov.in/sites/default/files/2026-04/NLMGuidelinesJan2025.pdf"
+      },
+      {
+        "label": "Official NLM entrepreneur application portal",
+        "url": "https://nlm.udyamimitra.in/"
+      }
+    ],
+    "process": [
+      "Select the eligible NLM enterprise component and use the current operational guidelines to confirm project size, animal units, technical standards and subsidy ceiling.",
+      "Register and submit the DPR/application through the official NLM Udyamimitra portal.",
+      "The State Implementing Agency screens/recommends the project; eligible proposals are forwarded for bank appraisal and loan sanction unless an approved self-financing route applies.",
+      "Meet the required promoter margin/own contribution and obtain written bank sanction. Do not assume the subsidy covers the complete project cost.",
+      "Complete project implementation and State inspection. Subsidy is released in instalments after the specified verification milestones."
+    ],
+    "documents": [
+      "KYC and entity/group registration records",
+      "Detailed Project Report with unit size, breed, infrastructure and financial plan",
+      "Land/site ownership or registered lease and local approvals",
+      "Bank sanction / promoter margin or self-financing documentation",
+      "Technical quotations, veterinary/animal-husbandry plans and inspection reports"
+    ],
+    "caution": "The ₹50 lakh is a maximum ceiling for eligible project components, not a universal subsidy per farmer. It is a capital subsidy linked to approved project cost and released after milestones. Bank loan and margin money may be required.",
+    "keywords": [
+      "nlm",
+      "livestock",
+      "poultry",
+      "sheep",
+      "goat",
+      "piggery",
+      "fodder",
+      "silage",
+      "tmt",
+      "animal husbandry"
+    ],
+    "activityTags": [
+      "dairy",
+      "poultry",
+      "allied",
+      "agri-enterprise",
+      "group-business"
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "allied",
+        "fpo",
+        "women_shg",
+        "mixed_shg",
+        "entrepreneur"
+      ],
+      "landStatus": [
+        "owner",
+        "group",
+        "tenant"
+      ],
+      "activities": [
+        "dairy",
+        "poultry",
+        "allied",
+        "agri-enterprise",
+        "group-business"
+      ],
+      "supportNeeds": [
+        "subsidy",
+        "loan"
+      ],
+      "mustVerify": [
+        "Chosen NLM component and unit capacity must match current guidelines",
+        "State Implementing Agency recommendation, bank appraisal and margin/own contribution",
+        "Subsidy releases are milestone-based after inspection; ₹50 lakh is not a universal entitlement"
+      ],
+      "status": "2026 NLM-EDP route published; component and State screening required."
+    },
+    "programmeStatus": "online_project_application",
+    "programmeStatusLabel": "Online project application"
+  },
+  {
+    "scope": "national",
+    "states": "all",
+    "districts": "all",
+    "sourceDate": "Checked 31 Oct 2026",
+    "verification": {
+      "status": "official_source_checked",
+      "lastChecked": "2026-10-31",
+      "note": "Primary Government source checked for this release. State action plans, district notifications, current application windows and final beneficiary eligibility still need confirmation."
+    },
+    "id": "pm-mkssy",
+    "name": "Pradhan Mantri Matsya Kisan Samridhi Sah-Yojana (PM-MKSSY)",
+    "type": "subsidy",
+    "category": "Fisheries / aquaculture incentives and insurance",
+    "providerKinds": [
+      "central-government",
+      "state-government"
+    ],
+    "profiles": [
+      "allied",
+      "fpo",
+      "women_shg",
+      "mixed_shg",
+      "entrepreneur"
+    ],
+    "amount": "Component-specific incentives / aquaculture insurance / credit facilitation; no single farmer grant amount",
+    "amountStatus": "not_published",
+    "amountNote": "PM-MKSSY is a ₹6,000 crore sub-scheme running from FY 2023–24 to FY 2026–27. Benefits vary by component and applicant: formalisation, performance-based incentives, aquaculture insurance, institutional credit facilitation, traceability and fisheries cooperative strengthening.",
+    "summary": "National fisheries sub-scheme delivered through the National Fisheries Digital Platform (NFDP). NFDP registration is required for several components and provides benefit/credit/insurance application journeys.",
+    "eligibility": "Fishers, fish farmers, fish workers/vendors, micro and small fisheries enterprises, fisheries cooperatives and other stakeholder classes as specified by the selected component. A general crop farmer is not automatically eligible.",
+    "application": "https://nfdp.dof.gov.in/nfdp/index.html",
+    "applicationLabel": "NFDP registration and PM-MKSSY benefits",
+    "source": "https://nfdp.dof.gov.in/nfdp/index.html",
+    "sourceLabel": "Department of Fisheries — National Fisheries Digital Platform",
+    "sources": [
+      {
+        "label": "National Fisheries Digital Platform — PM-MKSSY benefits and mandatory registration",
+        "url": "https://nfdp.dof.gov.in/nfdp/index.html"
+      },
+      {
+        "label": "PM-MKSSY official portal",
+        "url": "https://www.pmmsy.dof.gov.in/"
+      }
+    ],
+    "process": [
+      "Register the fisheries stakeholder/entity on the National Fisheries Digital Platform (NFDP).",
+      "Choose the applicable PM-MKSSY component such as credit facilitation, aquaculture insurance, performance grant, fisheries cooperative strengthening or traceability.",
+      "Check component eligibility, current application window, State/UT implementation instructions and required fisheries registration/activity evidence.",
+      "Submit the component-specific application and documents on NFDP; complete verification and lender/insurer review where applicable.",
+      "Track the application or claim through the NFDP account and retain acknowledgements."
+    ],
+    "documents": [
+      "NFDP registration and fisheries stakeholder details",
+      "KYC and bank details",
+      "Fisheries/aquaculture registration, lease, pond/area and production evidence where required",
+      "Enterprise/FPO/cooperative registration and financial statements for entity components",
+      "Insurance policy or lender papers for relevant claim/credit component"
+    ],
+    "caution": "PM-MKSSY is component-based. NFDP registration is mandatory for benefits under applicable components, but registration alone does not guarantee an incentive, insurance policy or loan.",
+    "keywords": [
+      "pm-mkssy",
+      "fisheries",
+      "aquaculture",
+      "fish farmer",
+      "nfdp",
+      "insurance",
+      "credit facilitation",
+      "fisheries cooperative"
+    ],
+    "activityTags": [
+      "fisheries",
+      "allied",
+      "agri-enterprise",
+      "group-business"
+    ],
+    "matchRules": {
+      "profiles": [
+        "allied",
+        "fpo",
+        "women_shg",
+        "mixed_shg",
+        "entrepreneur"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "fisheries",
+        "allied",
+        "agri-enterprise",
+        "group-business"
+      ],
+      "supportNeeds": [
+        "subsidy",
+        "insurance",
+        "loan",
+        "institution"
+      ],
+      "mustVerify": [
+        "Applicant must fit the selected fisheries stakeholder category",
+        "NFDP registration is mandatory where specified and State/component window applies",
+        "Insurance, incentive and credit amounts vary by PM-MKSSY component; no single universal amount"
+      ],
+      "status": "Scheme period includes FY 2026–27; apply through NFDP under the relevant component."
+    },
+    "programmeStatus": "active_component_based",
+    "programmeStatusLabel": "Component-specific · NFDP"
+  },
+  {
+    "scope": "national",
+    "states": "all",
+    "districts": "all",
+    "sourceDate": "Checked 31 Oct 2026",
+    "verification": {
+      "status": "official_source_checked",
+      "lastChecked": "2026-10-31",
+      "note": "Primary Government source checked for this release. State action plans, district notifications, current application windows and final beneficiary eligibility still need confirmation."
+    },
+    "id": "fidf-fisheries",
+    "name": "Fisheries and Aquaculture Infrastructure Development Fund (FIDF)",
+    "type": "loan",
+    "category": "Fisheries infrastructure / concessional finance",
+    "providerKinds": [
+      "central-government",
+      "public-bank",
+      "cooperative",
+      "state-government"
+    ],
+    "profiles": [
+      "allied",
+      "fpo",
+      "entrepreneur"
+    ],
+    "amount": "Concessional project finance; up to 3% p.a. interest subvention",
+    "amountStatus": "assessment",
+    "amountNote": "Government's March 2026 release describes FIDF with a total fund size of ₹7,522.48 crore and interest subvention up to 3% p.a.; nodal lending entities' lending rate must not be lower than 5% p.a. Project quantum, borrower contribution, eligible entity and loan appraisal apply.",
+    "summary": "Concessional finance for eligible fisheries and aquaculture infrastructure such as hatcheries, fishing harbours/landing centres, cold chain, processing, markets and other notified infrastructure.",
+    "eligibility": "Eligible entities include State/UT Governments, State entities and other eligible stakeholders as specified by FIDF guidelines and nodal lending entity rules. It is a project finance route, not a small personal crop loan.",
+    "application": "https://dof.gov.in/",
+    "applicationLabel": "Department of Fisheries / Nodal Lending Entity route",
+    "source": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2242413&lang=1&reg=1",
+    "sourceLabel": "PIB — FIDF interest subvention, 19 Mar 2026",
+    "sources": [
+      {
+        "label": "PIB — FIDF fund size and interest subvention, 19 Mar 2026",
+        "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2242413&lang=1&reg=1"
+      },
+      {
+        "label": "Ministry of Cooperation — FIDF programme overview",
+        "url": "https://www.cooperation.gov.in/index.php/en/convergence-schemes-related-strengthening-pacs-1"
+      },
+      {
+        "label": "Department of Fisheries",
+        "url": "https://dof.gov.in/"
+      }
+    ],
+    "process": [
+      "Check whether the intended fisheries infrastructure and borrower class are eligible under the latest FIDF operational guideline.",
+      "Prepare a detailed project report, land/site permissions, technical plan, capacity, cost estimate and projected cash flows.",
+      "Approach the appropriate Nodal Lending Entity and Department/State Fisheries authority to confirm whether the current FIDF application window is accepting proposals.",
+      "Submit the project for financial and technical appraisal. The lender determines the sanction, repayment period, margin and security.",
+      "If sanctioned, the applicable interest-subvention claim is processed under FIDF rules; retain the written sanction and Key Fact Statement."
+    ],
+    "documents": [
+      "KYC and legal-entity registration",
+      "Detailed project report and technical feasibility",
+      "Land/site ownership or lease, statutory clearances and State Fisheries recommendation",
+      "Cost estimates, bank statements and promoter contribution",
+      "Lender appraisal, sanction and compliance records"
+    ],
+    "caution": "FIDF finances eligible infrastructure projects through nodal lending entities. The up-to-3% interest support is not a 3% final borrower rate, and the published fund size is not a per-applicant limit. Confirm the current proposal window and eligible entity before applying.",
+    "keywords": [
+      "fidf",
+      "fisheries",
+      "aquaculture",
+      "infrastructure",
+      "cold chain",
+      "hatchery",
+      "harbour",
+      "processing"
+    ],
+    "activityTags": [
+      "fisheries",
+      "storage",
+      "processing",
+      "agri-enterprise"
+    ],
+    "matchRules": {
+      "profiles": [
+        "allied",
+        "fpo",
+        "entrepreneur"
+      ],
+      "landStatus": [
+        "owner",
+        "group"
+      ],
+      "activities": [
+        "fisheries",
+        "storage",
+        "processing",
+        "agri-enterprise"
+      ],
+      "supportNeeds": [
+        "loan",
+        "subsidy"
+      ],
+      "mustVerify": [
+        "Eligible fisheries infrastructure and legal entity under current FIDF guidelines",
+        "Current Nodal Lending Entity / State Fisheries application window",
+        "Project appraisal, borrower contribution, security and final rate after subvention"
+      ],
+      "status": "Concessional project-finance route; verify current window with Department/State and NLE."
+    },
+    "programmeStatus": "project_finance_window_check",
+    "programmeStatusLabel": "Project window / NLE check"
+  },
+  {
+    "scope": "national",
+    "states": "all",
+    "districts": "all",
+    "sourceDate": "Checked 31 Oct 2026",
+    "verification": {
+      "status": "official_source_checked",
+      "lastChecked": "2026-10-31",
+      "note": "Primary Government source checked for this release. State action plans, district notifications, current application windows and final beneficiary eligibility still need confirmation."
+    },
+    "id": "pm-aasha",
+    "name": "Pradhan Mantri Annadata Aay Sanrakshan Abhiyan (PM-AASHA) — Price Support",
+    "type": "institution",
+    "category": "MSP procurement / price support",
+    "providerKinds": [
+      "central-government",
+      "state-government",
+      "cooperative"
+    ],
+    "profiles": [
+      "owner",
+      "tenant",
+      "allied",
+      "fpo"
+    ],
+    "amount": "MSP procurement price for eligible notified commodities; no fixed grant amount",
+    "amountStatus": "not_published",
+    "amountNote": "Procurement and payment depend on the MSP for the commodity, quality specifications, pre-registration, State request/approval and procurement agency operations. The Union Government reported a ₹7,200 crore PM-AASHA allocation for FY 2026–27; this is programme allocation, not an amount payable to an individual farmer.",
+    "summary": "Price-support framework for eligible pulses, oilseeds and copra under notified procurement operations, through Central/State agencies such as NAFED and NCCF. Supports sale at MSP when scheme conditions and procurement operations are activated.",
+    "eligibility": "Farmers producing eligible notified commodities in a participating State/area, who register with the designated procurement agency within the stated window and meet quality/quantity rules.",
+    "application": "https://www.nafed-india.com/",
+    "applicationLabel": "NAFED / State procurement registration notices",
+    "source": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2301814&lang=1&reg=3",
+    "sourceLabel": "PIB — PM-AASHA and FY 2026–27 allocation, 21 Aug 2026",
+    "sources": [
+      {
+        "label": "PIB — PM-AASHA 2026–27 MSP support",
+        "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2301814&lang=1&reg=3"
+      },
+      {
+        "label": "NAFED — procurement and farmer services",
+        "url": "https://www.nafed-india.com/"
+      },
+      {
+        "label": "NCCF — procurement and farmer services",
+        "url": "https://nccf-india.com/"
+      }
+    ],
+    "process": [
+      "Check whether the crop is covered by the relevant PM-AASHA component and whether procurement has been activated in the State/district.",
+      "Read the State procurement agency, NAFED/NCCF or designated nodal agency registration notice for the season.",
+      "Register within the notified window and provide KYC, land/cultivation and bank details requested by the procurement agency.",
+      "Bring produce to the notified procurement centre after checking quality, moisture, grade, quantity and delivery slot requirements.",
+      "Retain the weighment/quality receipt and track payment through the official procurement agency."
+    ],
+    "documents": [
+      "KYC and bank account details",
+      "Land/cultivation/producer proof accepted by State procurement agency",
+      "Crop, area and season registration",
+      "Quality / weighment / sale receipt and procurement acknowledgement"
+    ],
+    "caution": "PM-AASHA is a notified procurement/price-support mechanism, not a direct grant. It does not guarantee that every crop, farmer, district or date is under procurement; State activation and registration are essential.",
+    "keywords": [
+      "pm-aasha",
+      "msp",
+      "price support",
+      "nafed",
+      "nccf",
+      "procurement",
+      "pulses",
+      "oilseeds",
+      "copra"
+    ],
+    "activityTags": [
+      "crop"
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "allied",
+        "fpo"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group"
+      ],
+      "activities": [
+        "crop"
+      ],
+      "supportNeeds": [
+        "institution"
+      ],
+      "mustVerify": [
+        "Commodity, crop year and State procurement activation under the relevant component",
+        "Registration window, notified centre, quality specification and quantity caps",
+        "MSP is a procurement price and not an automatic payment to all growers"
+      ],
+      "status": "National price-support framework; only applies when procurement is notified/activated."
+    },
+    "programmeStatus": "procurement_notification_required",
+    "programmeStatusLabel": "Season / procurement notice required"
+  },
+  {
+    "scope": "national",
+    "states": "all",
+    "districts": "all",
+    "sourceDate": "Checked 31 Oct 2026",
+    "verification": {
+      "status": "official_source_checked",
+      "lastChecked": "2026-10-31",
+      "note": "Primary Government source checked for this release. State action plans, district notifications, current application windows and final beneficiary eligibility still need confirmation."
+    },
+    "id": "pm-kmy",
+    "name": "Pradhan Mantri Kisan Maandhan Yojana (PM-KMY)",
+    "type": "pension",
+    "category": "Farmer old-age social security",
+    "providerKinds": [
+      "central-government"
+    ],
+    "profiles": [
+      "owner"
+    ],
+    "amount": "Minimum assured pension ₹3,000 per month after age 60",
+    "amountStatus": "published",
+    "amountNote": "Voluntary and contributory pension for eligible small/marginal farmers. Subscriber contribution varies with age at entry and is matched by the Central Government; scheme eligibility uses landholding up to 2 hectares and age 18–40 years under the notified cut-off land-record criteria.",
+    "summary": "Old-age income security for eligible small and marginal farmers through a monthly contributory pension, with spouse family-pension provisions under the scheme.",
+    "eligibility": "Small and marginal farmers with cultivable landholding up to 2 hectares, aged 18–40, whose names appear in State/UT land records as on 1 August 2019, subject to scheme exclusions.",
+    "application": "https://www.myscheme.gov.in/schemes/pmkmdy",
+    "applicationLabel": "myScheme eligibility / CSC enrolment route",
+    "source": "https://www.myscheme.gov.in/schemes/pmkmdy",
+    "sourceLabel": "myScheme — PM-KMY eligibility and benefit",
+    "sources": [
+      {
+        "label": "myScheme — PM Kisan Maandhan Yojana",
+        "url": "https://www.myscheme.gov.in/schemes/pmkmdy"
+      },
+      {
+        "label": "Maandhan pension portal",
+        "url": "https://maandhan.in/"
+      }
+    ],
+    "process": [
+      "Check the small/marginal farmer, 2-hectare, 18–40-year age and land-record cut-off requirements.",
+      "Visit an authorised Common Service Centre or the official Maandhan enrolment route; ask for the age-based monthly contribution before enrolling.",
+      "Provide Aadhaar, savings bank account/IFSC and the landholding/farmer declaration required by the portal.",
+      "Review the monthly contribution, government matching contribution, exit/default provisions and pension commencement conditions.",
+      "Keep the enrolment number and contribution receipts; contact the official channel for corrections or spouse/family-pension queries."
+    ],
+    "documents": [
+      "Aadhaar or accepted identity details",
+      "Savings bank account number and IFSC / passbook or cheque evidence",
+      "Landholding and small/marginal farmer eligibility declaration",
+      "Mobile number and enrolment acknowledgement"
+    ],
+    "caution": "This is a voluntary contributory pension, not an immediate grant or free monthly payment. The farmer pays an age-based monthly contribution until eligibility for pension; exclusions and land-record date conditions apply.",
+    "keywords": [
+      "pm-kmy",
+      "pmkmy",
+      "kisan maandhan",
+      "pension",
+      "small and marginal farmer",
+      "old age security"
+    ],
+    "activityTags": [
+      "crop"
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner"
+      ],
+      "landStatus": [
+        "owner"
+      ],
+      "activities": [
+        "crop"
+      ],
+      "supportNeeds": [
+        "pension"
+      ],
+      "mustVerify": [
+        "Age 18–40 and landholding up to 2 hectares, plus 1 Aug 2019 land-record cut-off",
+        "Check exclusion categories and age-based monthly contribution before enrolment",
+        "Pension begins at 60 only if contribution and scheme conditions are met"
+      ],
+      "status": "Voluntary contributory pension; not an immediate farmer grant."
+    },
+    "programmeStatus": "enrolment_route_check",
+    "programmeStatusLabel": "Check enrolment eligibility"
+  },
+  {
+    "scope": "national",
+    "states": "all",
+    "districts": "all",
+    "sourceDate": "Checked 31 Oct 2026",
+    "verification": {
+      "status": "official_source_checked",
+      "lastChecked": "2026-10-31",
+      "note": "Primary Government source checked for this release. State action plans, district notifications, current application windows and final beneficiary eligibility still need confirmation."
+    },
+    "id": "soil-health-card",
+    "name": "Soil Health Card (SHC) — Soil Testing & Nutrient Advisory",
+    "type": "institution",
+    "category": "Soil testing / input-use advisory",
+    "providerKinds": [
+      "central-government",
+      "state-government",
+      "local-body"
+    ],
+    "profiles": [
+      "owner",
+      "tenant",
+      "allied",
+      "fpo"
+    ],
+    "amount": "Soil testing and advisory service; no cash grant",
+    "amountStatus": "not_published",
+    "amountNote": "This is a public agricultural service, not a cash subsidy or loan. Local sample collection/testing availability is handled through State soil-testing laboratories and designated field agencies.",
+    "summary": "Provides soil nutrient status and crop/fertiliser recommendations in multiple languages and local units, supporting better input decisions and soil-health management.",
+    "eligibility": "Farmers and land managers using State soil sampling, soil-testing laboratory, mobile lab or notified village/block collection services.",
+    "application": "https://soilhealth.dac.gov.in/",
+    "applicationLabel": "Soil Health Card portal / local soil testing route",
+    "source": "https://www.nic.gov.in/project/soil-health-card-portal/",
+    "sourceLabel": "National Informatics Centre — Soil Health Card Portal",
+    "sources": [
+      {
+        "label": "NIC — Soil Health Card portal workflow and benefits",
+        "url": "https://www.nic.gov.in/project/soil-health-card-portal/"
+      },
+      {
+        "label": "Soil Health Card farmer portal",
+        "url": "https://soilhealth.dac.gov.in/"
+      }
+    ],
+    "process": [
+      "Contact the local Agriculture Department, block agriculture office or soil-testing laboratory to confirm sample collection schedule and service point.",
+      "Provide plot/field details and crop information as requested; obtain a sample acknowledgement if issued.",
+      "The sample is registered and tested through the authorised laboratory.",
+      "Access the Soil Health Card and review nutrient status and crop-specific fertiliser/soil amendment recommendations.",
+      "Use recommendations with local agronomist/KVK advice; retest according to the State programme cycle."
+    ],
+    "documents": [
+      "Field / plot identification and farmer details requested by the State service",
+      "Crop and field history information to help interpret the sample",
+      "Sample collection acknowledgement, if provided"
+    ],
+    "caution": "The Soil Health Card is a diagnostic/advisory service. It is not a subsidy payment, fertiliser entitlement or guarantee of yield increase.",
+    "keywords": [
+      "soil health card",
+      "soil testing",
+      "soil fertility",
+      "fertiliser recommendation",
+      "soil laboratory"
+    ],
+    "activityTags": [
+      "crop",
+      "horticulture"
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "allied",
+        "fpo"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group"
+      ],
+      "activities": [
+        "crop",
+        "horticulture"
+      ],
+      "supportNeeds": [
+        "institution"
+      ],
+      "mustVerify": [
+        "Confirm local sample collection and soil-testing laboratory schedule",
+        "A Soil Health Card is advisory service, not a cash benefit or loan",
+        "Use the correct plot/field details and review recommendations locally"
+      ],
+      "status": "National digital service with State/block laboratory delivery."
+    },
+    "programmeStatus": "service_available_through_state",
+    "programmeStatusLabel": "Public service · local testing"
+  },
+  {
+    "scope": "national",
+    "states": "all",
+    "districts": "all",
+    "sourceDate": "Checked 31 Oct 2026",
+    "verification": {
+      "status": "official_source_checked",
+      "lastChecked": "2026-10-31",
+      "note": "Primary Government source checked for this release. State action plans, district notifications, current application windows and final beneficiary eligibility still need confirmation."
+    },
+    "id": "pmfme-legacy",
+    "name": "PM Formalisation of Micro Food Processing Enterprises (PMFME) — Scheme Period Status",
+    "type": "subsidy",
+    "category": "Micro food processing / credit-linked subsidy",
+    "providerKinds": [
+      "central-government",
+      "state-government",
+      "public-bank"
+    ],
+    "profiles": [
+      "owner",
+      "fpo",
+      "women_shg",
+      "entrepreneur"
+    ],
+    "amount": "Historical guideline: 35% credit-linked capital subsidy up to ₹10 lakh per eligible individual unit",
+    "amountStatus": "published",
+    "amountNote": "The published PMFME guidelines described 35% credit-linked capital subsidy, subject to ₹10 lakh per individual micro-unit; common infrastructure and SHG seed-capital provisions had separate rules. Maharashtra Government's programme page states the approved period as 29 June 2020–31 March 2026. No extension for FY 2026–27 was verified for this release.",
+    "summary": "Archived/extension-check record for the PMFME micro-food-processing scheme. The historical application portal remains online, but new applications must not be represented as open until a current extension/order is published.",
+    "eligibility": "Historically covered individual micro food-processing units, SHGs, FPOs, cooperatives and common-infrastructure projects under the approved guidelines. Fresh application eligibility after 31 March 2026 is not verified.",
+    "application": "https://pmfme.mofpi.gov.in/",
+    "applicationLabel": "Status only — verify any extension before applying",
+    "source": "https://msme.maharashtra.gov.in/scheme/pradhan-mantri-formalization-of-micro-food-processing-enterprises-scheme-pmfme/",
+    "sourceLabel": "Maharashtra Government — PMFME approved period / status",
+    "sources": [
+      {
+        "label": "Maharashtra Government — PMFME period and benefit summary",
+        "url": "https://msme.maharashtra.gov.in/scheme/pradhan-mantri-formalization-of-micro-food-processing-enterprises-scheme-pmfme/"
+      },
+      {
+        "label": "PMFME official portal — published programme design",
+        "url": "https://pmfme.mofpi.gov.in/"
+      }
+    ],
+    "process": [
+      "Do not submit a new application on the assumption that the previous scheme period is extended.",
+      "Check for a new Ministry of Food Processing Industries continuation order or current State nodal-agency notification for FY 2026–27.",
+      "If an extension is officially notified, confirm the new application window, eligible project, beneficiary contribution, bank loan and current guidelines with the State nodal agency.",
+      "Until then, use the page as historical scheme information only and explore current alternatives such as AIF, MIDH or relevant State programmes where eligible."
+    ],
+    "documents": [
+      "Historical requirements included KYC and enterprise registration",
+      "Project report, eligible micro-processing activity and cost estimates",
+      "Bank loan / beneficiary contribution documents",
+      "SHG/FPO/cooperative registration where the group component applied"
+    ],
+    "caution": "The approved period shown by a State Government source ended on 31 March 2026. This record is deliberately excluded from the eligibility assistant. Do not treat the live historic portal as proof that new applications are open in FY 2026–27.",
+    "keywords": [
+      "pmfme",
+      "micro food processing",
+      "35 percent subsidy",
+      "food processing",
+      "legacy",
+      "extension status"
+    ],
+    "activityTags": [
+      "processing",
+      "agri-enterprise",
+      "group-business"
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "fpo",
+        "women_shg",
+        "entrepreneur"
+      ],
+      "landStatus": [
+        "owner",
+        "group"
+      ],
+      "activities": [
+        "processing",
+        "agri-enterprise",
+        "group-business"
+      ],
+      "supportNeeds": [
+        "subsidy",
+        "loan"
+      ],
+      "mustVerify": [
+        "Scheme period published by Maharashtra Government ended 31 March 2026",
+        "No central extension for FY 2026–27 was verified for this release",
+        "Do not apply unless a new official continuation order and application window is published"
+      ],
+      "status": "Historical scheme details only · extension not verified.",
+      "excludeFromAssistant": true
+    },
+    "programmeStatus": "extension_not_verified",
+    "programmeStatusLabel": "Extension not verified · do not assume open"
+  },
+  {
+    "scope": "national",
+    "states": "all",
+    "districts": "all",
+    "sourceDate": "Checked 31 Oct 2026",
+    "verification": {
+      "status": "official_source_checked",
+      "lastChecked": "2026-10-31",
+      "note": "Primary Government source checked for this release. State action plans, district notifications, current application windows and final beneficiary eligibility still need confirmation."
+    },
+    "id": "ahidf-legacy",
+    "name": "Animal Husbandry Infrastructure Development Fund (AHIDF) — Continuation Status",
+    "type": "loan",
+    "category": "Dairy / meat / feed infrastructure finance",
+    "providerKinds": [
+      "central-government",
+      "public-bank",
+      "cooperative"
+    ],
+    "profiles": [
+      "allied",
+      "fpo",
+      "entrepreneur"
+    ],
+    "amount": "Historical fund outlay: ₹29,110.25 crore through 31 March 2026",
+    "amountStatus": "not_published",
+    "amountNote": "The Department of Animal Husbandry and Dairying source describes the approved revised outlay up to FY 2025–26 / 31 March 2026. This is scheme fund outlay, not an individual borrower limit. No post-31 March 2026 extension or fresh application window was verified for this V2.5 release.",
+    "summary": "Continuation-status record for project finance for dairy/meat processing, animal feed plants, breed technology, veterinary vaccine/drug infrastructure and animal-waste-to-wealth projects.",
+    "eligibility": "The historical programme included eligible individual entrepreneurs, private companies, MSMEs, FPOs, Section 8 entities and dairy cooperatives for specified infrastructure. Fresh FY 2026–27 availability is not verified.",
+    "application": "https://dahd.gov.in/en/schemes/programmes/ahidf",
+    "applicationLabel": "Status and continuation notice only",
+    "source": "https://dahd.gov.in/en/schemes/programmes/ahidf",
+    "sourceLabel": "Department of Animal Husbandry and Dairying — AHIDF",
+    "sources": [
+      {
+        "label": "DAHD — AHIDF programme, guidelines and application reference",
+        "url": "https://dahd.gov.in/en/schemes/programmes/ahidf"
+      },
+      {
+        "label": "DAHD — AHIDF continuation outlay through 31 March 2026",
+        "url": "https://dahd.gov.in/offerings/schemes-and-services/details/animal-husbandry-infrastructure-development-fund-ahidf-cTM1UTMtQWa"
+      }
+    ],
+    "process": [
+      "Check the Department of Animal Husbandry and Dairying for a fresh extension/revised outlay beyond 31 March 2026.",
+      "Do not initiate a new project or incur costs based only on a historic AHIDF application link.",
+      "If an extension is notified, verify eligible project categories, borrower class, interest subvention, loan period, guarantee and lender channel under the new guidelines.",
+      "Use a written term sheet from the participating lender and the current DAHD order before proceeding."
+    ],
+    "documents": [
+      "Historical scheme required entity KYC and legal registration",
+      "Detailed infrastructure project report and technical estimates",
+      "Land/site control and regulatory approvals",
+      "Lender appraisal, bank sanction and promoter contribution papers"
+    ],
+    "caution": "The programme source displays continuation through 31 March 2026. No fresh FY 2026–27 extension was verified for this release; this record is excluded from eligibility matching and is not an invitation to apply.",
+    "keywords": [
+      "ahidf",
+      "animal husbandry infrastructure fund",
+      "dairy processing",
+      "meat processing",
+      "feed plant",
+      "legacy",
+      "extension status"
+    ],
+    "activityTags": [
+      "dairy",
+      "poultry",
+      "allied",
+      "agri-enterprise"
+    ],
+    "matchRules": {
+      "profiles": [
+        "allied",
+        "fpo",
+        "entrepreneur"
+      ],
+      "landStatus": [
+        "owner",
+        "group"
+      ],
+      "activities": [
+        "dairy",
+        "poultry",
+        "allied",
+        "agri-enterprise"
+      ],
+      "supportNeeds": [
+        "loan",
+        "subsidy"
+      ],
+      "mustVerify": [
+        "Published continuation outlay ended 31 March 2026",
+        "No FY 2026–27 extension was verified in this release",
+        "Do not apply until DAHD issues a fresh continuation/operational guideline"
+      ],
+      "status": "Historical status only · extension not verified.",
+      "excludeFromAssistant": true
+    },
+    "programmeStatus": "extension_not_verified",
+    "programmeStatusLabel": "Extension not verified · do not assume open"
   }
 ]
