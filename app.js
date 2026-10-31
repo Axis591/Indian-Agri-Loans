@@ -10,11 +10,14 @@ const lendersPromise = fetch('lenders.json').then(r => { if(!r.ok) throw new Err
 const portalsPromise = fetch('portals.json').then(r => { if(!r.ok) throw new Error('Could not load portal data'); return r.json(); });
 const coveragePromise = fetch('coverage-v25.json').then(r => { if(!r.ok) throw new Error('Could not load V2.5 coverage register'); return r.json(); });
 const fallbackStatesPromise = fetch('geography-fallback.json').then(r => r.json());
-const districtSource = 'https://raw.githubusercontent.com/CodingMation/indian-states-districts/main/data/india_states_districts.json';
+const lgdStaticPromise = fetch('lgd-geography.json').then(r => { if(!r.ok) throw new Error('No static LGD export'); return r.json(); });
+const stateProgrammePromise = fetch('state-programme-register.json').then(r => { if(!r.ok) throw new Error('Could not load State programme research register'); return r.json(); });
 let records = [];
 let lenders = [];
 let portals = {};
 let coverageData = null;
+let stateProgrammeData = null;
+let geographySourceLabel = 'COMMUNITY SNAPSHOT';
 let geography = [];
 let geographyLive = false;
 let selectedView = 'finance';
@@ -40,22 +43,33 @@ function setOptions(node,values,selected){
 }
 
 async function loadGeography(){
+  const normalizeStates = (states) => (states||[]).map(s=>({code:s.code,name:s.name,districts:Array.isArray(s.districts)?s.districts:[]})).filter(s=>s.name&&s.districts.length);
   try{
-    const response=await fetch(districtSource,{cache:'no-cache'});
-    if(!response.ok) throw new Error('district source unavailable');
-    const raw=await response.json();
-    geography=raw.map(s=>({code:s.code,name:s.name,districts:s.districts||[]}));
-    geographyLive=true;
-  }catch(error){
+    const response=await fetch('/api/geography',{cache:'no-store'});
+    if(response.ok){
+      const data=await response.json();
+      if(data.configured&&Array.isArray(data.states)&&data.states.length>=28){
+        geography=normalizeStates(data.states);geographySourceLabel='OFFICIAL LGD API';geographyLive=true;
+      }
+    }
+  }catch(error){console.info('Official LGD API is not configured; checking downloaded LGD export.',error);}
+  if(!geography.length){
+    try{
+      const data=await lgdStaticPromise;
+      if(Array.isArray(data.states)&&data.states.length>=28){geography=normalizeStates(data.states);geographySourceLabel='OFFICIAL LGD CSV IMPORT';geographyLive=true;}
+    }catch(error){console.info('No imported official LGD snapshot found; using the bundled community snapshot.',error);}
+  }
+  if(!geography.length){
     const states=await fallbackStatesPromise;
-    // Keep the district arrays bundled in geography-fallback.json.
-    geography=states.map(s=>({code:s.code,name:s.name,districts:Array.isArray(s.districts)?s.districts:[]}));
+    geography=normalizeStates(states);
     const wb=geography.find(s=>s.code==='WB');
-    if(wb && !wb.districts.length) wb.districts=wbFallbackDistricts.map(name=>({name}));
-    geographyLive=false;
+    if(wb&&!wb.districts.length)wb.districts=wbFallbackDistricts.map(name=>({name}));
+    geographySourceLabel='COMMUNITY SNAPSHOT · LGD CHECK PENDING';geographyLive=false;
   }
   const liveLabel=document.querySelector('.live-label');
-  if(liveLabel) liveLabel.innerHTML='<i></i> '+(geographyLive?'LIVE DISTRICT DATA':'OFFLINE DISTRICT DATA');
+  if(liveLabel) liveLabel.innerHTML='<i></i> '+geographySourceLabel;
+  const alertNode=$('#coverage-methodology-alert');
+  if(alertNode&&geographyLive)alertNode.innerHTML='<b>Geography status:</b> '+escapeHtml(geographySourceLabel)+'. District and State codes were loaded from an official LGD-sourced dataset. Sub-district, village and local-body completeness depends on the imported resource set.';
   populateStates();
   updateCoverageList();
 }
