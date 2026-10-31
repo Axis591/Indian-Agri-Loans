@@ -97,7 +97,7 @@ function card(record){
     <h4>${escapeHtml(record.name)}</h4><p class="scheme-summary">${escapeHtml(record.summary)}</p>
     <div class="amount-row"><small>AMOUNT / CREDIT QUANTUM</small><strong>${amount}</strong><em>${escapeHtml(record.amountNote)}</em></div>
     <div class="card-meta"><div class="meta-cell"><small>WHO MAY QUALIFY</small><span>${escapeHtml(record.eligibility.split('.')[0])}</span></div><div class="meta-cell"><small>APPLICATION ROUTE</small><span>${escapeHtml(record.process[0])}</span></div>${rate}</div>
-    <div class="card-actions"><span class="evidence">Official source linked</span><button class="details-btn" data-details="${record.id}">View process</button><a class="apply-btn" href="${escapeHtml(record.application)}" target="_blank" rel="noopener">Official link ↗</a></div>
+    <div class="card-actions"><span class="evidence">${escapeHtml(["official_portal_checked","official_dfs_guidance_checked","official_faq_checked_seasonal_notice_required"].includes(record.verification?.status)?"Official source checked":"Source linked · recheck current rules")}</span><button class="details-btn" data-details="${record.id}">View process</button><a class="apply-btn" href="${escapeHtml(record.application)}" target="_blank" rel="noopener">Official link ↗</a></div>
   </article>`;
 }
 function render(){
@@ -120,6 +120,7 @@ function render(){
     $('#coverage-warning').innerHTML=`<b>Coverage note for ${escapeHtml(state)}:</b> state portal links are listed below; state-specific scheme records and district notifications are still being independently curated. Lender products remain subject to branch availability and appraisal. An empty local list does not mean no scheme exists.`;
   }
   $('#location-summary').textContent=`Showing national and ${state} entries for ${district||'the selected district'}.`;
+  updateAssistantLocation();
   $('#results').querySelectorAll('[data-details]').forEach(btn=>btn.addEventListener('click',()=>showDetails(btn.dataset.details)));
   renderLocalAccess();
   renderDirectory();
@@ -223,17 +224,129 @@ function showLenderDetails(id){
   $('#detail-dialog').showModal();
 }
 
+
+function updateAssistantLocation(){
+  const node=$('#assistant-location');
+  if(node) node.textContent=stateSelect.value+' · '+districtSelect.value;
+  const ns=$('#ngo-state'), nd=$('#ngo-district');
+  if(ns) ns.value=stateSelect.value;
+  if(nd) nd.value=districtSelect.value;
+}
+function potentialMatches(profile,land,activity,need){
+  return records.filter(r=>{
+    if(!applicable(r,stateSelect.value,districtSelect.value) || r.type==='informal') return false;
+    const rules=r.matchRules||{};
+    const allowed=rules.profiles||r.profiles||[];
+    if(!allowed.includes(profile)) return false;
+    if(Array.isArray(rules.landStatus) && !rules.landStatus.includes(land)) return false;
+    if(activity!=='any' && Array.isArray(rules.activities) && !rules.activities.includes(activity)) return false;
+    if(need!=='all' && Array.isArray(rules.supportNeeds) && !rules.supportNeeds.includes(need)) return false;
+    return true;
+  }).sort((a,b)=>scopeRank(a)-scopeRank(b));
+}
+function renderEligibilityCard(r){
+  const docs=(r.documents||[]).map(x=>'<li>'+escapeHtml(x)+'</li>').join('');
+  const checks=(r.matchRules?.mustVerify||['Check the latest official notification, applicant definition and district/season coverage']).map(x=>'<li>'+escapeHtml(x)+'</li>').join('');
+  const verified=['official_portal_checked','official_dfs_guidance_checked','official_faq_checked_seasonal_notice_required'].includes(r.verification?.status);
+  const status=verified?'Official source checked':'Source linked · recheck current rules';
+  const sourceDate=r.verification?.lastChecked||'Review required';
+  return '<article class="eligibility-card"><div class="eligibility-card-top"><span class="pill '+typeClass(r.type)+'">'+typeLabel(r.type)+'</span><span class="match-status">'+status+'</span></div><h3>'+escapeHtml(r.name)+'</h3><p>'+escapeHtml(r.summary)+'</p><div class="eligibility-amount"><small>FINANCIAL SUPPORT</small><b>'+escapeHtml(r.amount)+'</b><span>'+escapeHtml(r.amountNote||'Final value depends on current scheme rules or lender assessment.')+'</span></div><div class="eligibility-two-col"><div><h4>Why it appears</h4><p>'+escapeHtml(r.matchRules?.status||'Applicant profile and selected location appear in the catalogue coverage.')+'</p></div><div><h4>Verify before applying</h4><ul>'+checks+'</ul></div></div><details class="checklist-details"><summary>View document checklist ('+(r.documents||[]).length+')</summary><ul>'+docs+'</ul></details><div class="eligibility-card-foot"><small>Source review: '+escapeHtml(sourceDate)+'</small><div><button class="details-btn" data-assistant-details="'+escapeHtml(r.id)+'">Full process</button><a class="apply-btn" href="'+escapeHtml(r.application)+'" target="_blank" rel="noopener noreferrer">Official application ↗</a></div></div></article>';
+}
+function runEligibility(event){
+  if(event) event.preventDefault();
+  const profile=$('#elig-profile').value;
+  const land=$('#elig-land').value;
+  const activity=$('#elig-activity').value;
+  const need=$('#elig-need').value;
+  const matches=potentialMatches(profile,land,activity,need);
+  const output=$('#eligibility-output');
+  output.innerHTML='<div class="eligibility-results-head"><div><div class="section-kicker">POTENTIAL MATCHES · '+escapeHtml(stateSelect.value.toUpperCase())+'</div><h3>'+matches.length+' possible support routes</h3><p>For '+escapeHtml(districtSelect.value)+'. These are catalogue matches, not approval or an official eligibility determination.</p></div><button type="button" class="secondary-action" id="elig-back-directory">Browse full directory</button></div>'+(matches.length?'<div class="eligibility-results-grid">'+matches.map(renderEligibilityCard).join('')+'</div>':'<div class="eligibility-empty"><b>No catalogue matches for this combination yet.</b><span>Try “Show all potential support”, or check the full State/District portal list. An empty result does not prove that no scheme exists.</span></div>');
+  output.querySelectorAll('[data-assistant-details]').forEach(btn=>btn.addEventListener('click',()=>showDetails(btn.dataset.assistantDetails)));
+  $('#elig-back-directory')?.addEventListener('click',()=>{switchView('directory');renderDirectory();});
+}
+function resetEligibility(){
+  $('#elig-profile').value='owner';$('#elig-land').value='owner';$('#elig-activity').value='crop';$('#elig-need').value='all';
+  $('#eligibility-output').innerHTML='<div class="eligibility-empty"><b>Your potential matches will appear here.</b><span>Choose the applicant and farm details, then select Find potential matches.</span></div>';
+}
+const ngoStorageKey='agribridge.ngo.workspace.v1';
+const ngoEmptyMetrics={farmersReached:0,counsellingSessions:0,applicationsSubmitted:0,applicationsApproved:0,benefitsReceived:0,campsHeld:0,villagesReached:0};
+const ngoMetricKeys=Object.keys(ngoEmptyMetrics);
+let ngoData={metrics:{...ngoEmptyMetrics},followups:[]};
+function loadNGOData(){
+  try{
+    const saved=JSON.parse(localStorage.getItem(ngoStorageKey)||'null');
+    if(saved&&saved.metrics&&Array.isArray(saved.followups)){
+      ngoMetricKeys.forEach(k=>{ngoData.metrics[k]=Math.max(0,Number(saved.metrics[k])||0);});
+      ngoData.followups=saved.followups.filter(x=>x&&typeof x.ref==='string'&&typeof x.district==='string').slice(0,500);
+    }
+  }catch(error){console.warn('Local NGO workspace unavailable',error);}
+}
+function saveNGOData(){
+  try{localStorage.setItem(ngoStorageKey,JSON.stringify(ngoData));const label=$('#ngo-save-status');if(label)label.textContent='Saved locally in this browser at '+new Date().toLocaleTimeString()+'.';}
+  catch(error){const label=$('#ngo-save-status');if(label)label.textContent='Could not save in this browser. Check storage settings.';}
+}
+function renderNGOWorkspace(){
+  if(!$('#ngo-followup-list')) return;
+  const m=ngoData.metrics;
+  ngoMetricKeys.forEach(k=>{const el=document.querySelector('[data-ngo-metric="'+k+'"]');if(el)el.value=m[k];});
+  $('#ngo-reached-total').textContent=m.farmersReached;
+  $('#ngo-app-total').textContent=m.applicationsSubmitted;
+  $('#ngo-approval-rate').textContent=m.applicationsSubmitted?Math.round(m.applicationsApproved/m.applicationsSubmitted*100)+'%':'—';
+  $('#ngo-benefit-total').textContent=m.benefitsReceived;
+  const list=$('#ngo-followup-list');
+  if(!ngoData.followups.length){list.innerHTML='<div class="no-directory-results">No references added yet. Add an internal reference code above. Do not enter farmer identity details.</div>';return;}
+  list.innerHTML='<div class="ngo-table-wrap"><table class="ngo-table"><thead><tr><th>Internal reference</th><th>Location</th><th>Support route</th><th>Status</th><th>Added</th><th></th></tr></thead><tbody>'+ngoData.followups.map(x=>'<tr><td><b>'+escapeHtml(x.ref)+'</b></td><td>'+escapeHtml(x.district)+', '+escapeHtml(x.state)+'</td><td>'+escapeHtml(x.support)+'</td><td><span class="ngo-stage">'+escapeHtml(x.status)+'</span></td><td>'+escapeHtml(x.date)+'</td><td><button class="ngo-remove" type="button" data-remove-ref="'+escapeHtml(x.ref)+'" aria-label="Remove reference">×</button></td></tr>').join('')+'</tbody></table></div>';
+  list.querySelectorAll('[data-remove-ref]').forEach(btn=>btn.addEventListener('click',()=>{ngoData.followups=ngoData.followups.filter(x=>x.ref!==btn.dataset.removeRef);saveNGOData();renderNGOWorkspace();}));
+}
+function saveNGOMetrics(){
+  ngoMetricKeys.forEach(k=>{const el=document.querySelector('[data-ngo-metric="'+k+'"]');ngoData.metrics[k]=Math.max(0,Math.floor(Number(el?.value)||0));});
+  saveNGOData();renderNGOWorkspace();
+}
+function addNGOFollowup(event){
+  event.preventDefault();
+  const ref=$('#ngo-ref').value.trim().replace(/\s+/g,'-').slice(0,40);
+  const state=$('#ngo-state').value.trim().slice(0,80),district=$('#ngo-district').value.trim().slice(0,80);
+  if(!ref||!state||!district)return;
+  if(ngoData.followups.some(x=>x.ref.toLowerCase()===ref.toLowerCase())){$('#ngo-save-status').textContent='That internal reference already exists.';return;}
+  ngoData.followups.unshift({ref,state,district,support:$('#ngo-support').value,status:$('#ngo-case-status').value,date:new Date().toISOString().slice(0,10)});
+  $('#ngo-ref').value='';saveNGOData();renderNGOWorkspace();
+}
+function exportNGOCSV(){
+  const rows=[['Internal reference','State','District','Support route','Status','Date'],...ngoData.followups.map(x=>[x.ref,x.state,x.district,x.support,x.status,x.date])];
+  const quote=x=>'"'+String(x??'').replace(/"/g,'""')+'"';
+  const csv=rows.map(row=>row.map(quote).join(',')).join('\r\n');
+  const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob);
+  const a=document.createElement('a');a.href=url;a.download='agribridge-anonymised-followups.csv';a.click();URL.revokeObjectURL(url);
+}
+function clearNGOData(){
+  if(!confirm('Clear aggregate metrics and anonymised follow-up references stored in this browser? This cannot be undone.'))return;
+  ngoData={metrics:{...ngoEmptyMetrics},followups:[]};
+  try{localStorage.removeItem(ngoStorageKey);}catch(error){}
+  renderNGOWorkspace();$('#ngo-save-status').textContent='Local workspace cleared.';
+}
+function initNGOWorkspace(){
+  loadNGOData();renderNGOWorkspace();updateAssistantLocation();
+  $('#ngo-save-metrics')?.addEventListener('click',saveNGOMetrics);
+  $('#ngo-followup-form')?.addEventListener('submit',addNGOFollowup);
+  $('#ngo-export')?.addEventListener('click',exportNGOCSV);
+  $('#ngo-clear')?.addEventListener('click',clearNGOData);
+}
+
 function scopeRank(r){return r.scope==='district'?0:r.scope==='state'?1:r.scope==='national'?2:3;}
 function showDetails(id){
   const r=records.find(x=>x.id===id);if(!r)return;
   $('#dialog-kicker').textContent=`${typeLabel(r.type)} · ${r.category}`;
   $('#dialog-title').textContent=r.name;
   const steps=r.process.map(x=>`<li>${escapeHtml(x)}</li>`).join('');
+  const docs=(r.documents||[]).map(x=>`<li>${escapeHtml(x)}</li>`).join('');
+  const verification=r.verification?.note||'Confirm the latest official order, scheme window and district notification before applying.';
   $('#dialog-body').innerHTML=`
     <div class="detail-section"><h4>Financial value</h4><p><b>${escapeHtml(r.amount)}</b><br>${escapeHtml(r.amountNote)}</p></div>
     <div class="detail-section"><h4>What it provides</h4><p>${escapeHtml(r.summary)}</p></div>
     <div class="detail-section"><h4>Eligibility</h4><p>${escapeHtml(r.eligibility)}</p></div>
     <div class="detail-section"><h4>How to apply</h4><ol>${steps}</ol></div>
+    <div class="detail-section"><h4>Typical document checklist</h4><ul>${docs}</ul></div>
+    <div class="detail-section"><h4>Source / verification status</h4><p>${escapeHtml(verification)}</p></div>
     ${r.rate?`<div class="detail-section"><h4>Interest / financial terms</h4><p>${escapeHtml(r.rate)}</p></div>`:''}
     <div class="detail-caution"><b>Important:</b> ${escapeHtml(r.caution)}</div>
     <div class="dialog-links"><a href="${escapeHtml(r.application)}" target="_blank" rel="noopener">Application / official route ↗</a><a href="${escapeHtml(r.source)}" target="_blank" rel="noopener">Source: ${escapeHtml(r.sourceLabel)} ↗</a></div>
@@ -256,6 +369,7 @@ Promise.all([recordsPromise,lendersPromise,portalsPromise,loadGeography()]).then
   records=data;
   lenders=lenderData;
   portals=portalData;
+  initNGOWorkspace();
   render();
 }).catch(err=>{
   console.error(err);
@@ -271,6 +385,9 @@ sortSelect.addEventListener('change',render);
 $('#directory-type')?.addEventListener('change',renderDirectory);
 $('#directory-provider')?.addEventListener('change',renderDirectory);
 $('#reset-filters').addEventListener('click',()=>{stateSelect.value='West Bengal';profileSelect.value='all';typeSelect.value='all';providerSelect.value='all';sortSelect.value='relevance';populateDistricts('Paschim Medinipur');});
-document.querySelectorAll('.nav-item').forEach(btn=>btn.addEventListener('click',()=>{switchView(btn.dataset.view);if(btn.dataset.view==='directory')renderDirectory();}));
+document.querySelectorAll('.nav-item').forEach(btn=>btn.addEventListener('click',()=>{switchView(btn.dataset.view);if(btn.dataset.view==='directory')renderDirectory();if(btn.dataset.view==='assistant'||btn.dataset.view==='ngo')updateAssistantLocation();}));
 $('#dialog-close').addEventListener('click',()=>$('#detail-dialog').close());
 $('#detail-dialog').addEventListener('click',e=>{if(e.target===$('#detail-dialog'))$('#detail-dialog').close();});
+
+$('#eligibility-form')?.addEventListener('submit',runEligibility);
+$('#elig-reset')?.addEventListener('click',resetEligibility);
