@@ -101,7 +101,7 @@ function card(record){
     <h4>${escapeHtml(record.name)}</h4><p class="scheme-summary">${escapeHtml(record.summary)}</p>
     <div class="amount-row"><small>AMOUNT / CREDIT QUANTUM</small><strong>${amount}</strong><em>${escapeHtml(record.amountNote)}</em></div>
     <div class="card-meta"><div class="meta-cell"><small>WHO MAY QUALIFY</small><span>${escapeHtml(record.eligibility.split('.')[0])}</span></div><div class="meta-cell"><small>APPLICATION ROUTE</small><span>${escapeHtml(record.process[0])}</span></div>${rate}</div>
-    <div class="card-actions"><span class="evidence">${escapeHtml(["official_portal_checked","official_dfs_guidance_checked","official_faq_checked_seasonal_notice_required"].includes(record.verification?.status)?"Official source checked":"Source linked · recheck current rules")}</span><button class="details-btn" data-details="${record.id}">View process</button><a class="apply-btn" href="${escapeHtml(record.application)}" target="_blank" rel="noopener">${applyLabel} ↗</a></div>
+    <div class="card-actions"><span class="evidence">${escapeHtml(["official_portal_checked","official_dfs_guidance_checked","official_faq_checked_seasonal_notice_required","official_source_checked","official_source_checked_budget_implementation_caveat"].includes(record.verification?.status)?"Official source checked":"Source linked · recheck current rules")}</span><button class="details-btn" data-details="${record.id}">View process</button><a class="apply-btn" href="${escapeHtml(record.application)}" target="_blank" rel="noopener">${applyLabel} ↗</a></div>
   </article>`;
 }
 function render(){
