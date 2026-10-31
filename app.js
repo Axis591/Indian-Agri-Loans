@@ -42,11 +42,14 @@ async function loadGeography(){
     geographyLive=true;
   }catch(error){
     const states=await fallbackStatesPromise;
-    geography=states.map(s=>({code:s.code,name:s.name,districts:[]}));
+    // Keep the district arrays bundled in geography-fallback.json.
+    geography=states.map(s=>({code:s.code,name:s.name,districts:Array.isArray(s.districts)?s.districts:[]}));
     const wb=geography.find(s=>s.code==='WB');
-    if(wb) wb.districts=wbFallbackDistricts.map(name=>({name}));
+    if(wb && !wb.districts.length) wb.districts=wbFallbackDistricts.map(name=>({name}));
     geographyLive=false;
   }
+  const liveLabel=document.querySelector('.live-label');
+  if(liveLabel) liveLabel.innerHTML='<i></i> '+(geographyLive?'LIVE DISTRICT DATA':'OFFLINE DISTRICT DATA');
   populateStates();
   updateCoverageList();
 }
