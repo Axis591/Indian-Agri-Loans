@@ -42,3 +42,5 @@
 @media(max-width:1100px){.portal-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:820px){.directory-controls{grid-template-columns:1fr 1fr}.directory-controls .directory-search{grid-column:1/-1}.lender-grid{grid-template-columns:1fr}.portal-cards{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.directory-controls{grid-template-columns:1fr}.directory-controls .directory-search{grid-column:auto}.directory-intro{grid-template-columns:1fr}.directory-block-head{align-items:flex-start;flex-direction:column}.directory-hint{text-align:left}.portal-cards{grid-template-columns:1fr}.lender-facts{grid-template-columns:1fr 1fr}}
+
+.filter-note{font-size:8px;line-height:1.35;color:#8a948d}
