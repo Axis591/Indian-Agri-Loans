@@ -8,11 +8,13 @@ const sortSelect = $('#sort-select');
 const recordsPromise = fetch('schemes.json').then(r => { if(!r.ok) throw new Error('Could not load scheme data'); return r.json(); });
 const lendersPromise = fetch('lenders.json').then(r => { if(!r.ok) throw new Error('Could not load lender data'); return r.json(); });
 const portalsPromise = fetch('portals.json').then(r => { if(!r.ok) throw new Error('Could not load portal data'); return r.json(); });
+const coveragePromise = fetch('coverage-v25.json').then(r => { if(!r.ok) throw new Error('Could not load V2.5 coverage register'); return r.json(); });
 const fallbackStatesPromise = fetch('geography-fallback.json').then(r => r.json());
 const districtSource = 'https://raw.githubusercontent.com/CodingMation/indian-states-districts/main/data/india_states_districts.json';
 let records = [];
 let lenders = [];
 let portals = {};
+let coverageData = null;
 let geography = [];
 let geographyLive = false;
 let selectedView = 'finance';
@@ -82,8 +84,8 @@ function applicable(record,state,district){
   return true;
 }
 function profileMatch(record,profile){ return profile==='all'||record.profiles.includes(profile); }
-function typeClass(type){return type==='grant'?'grant':type==='loan'?'loan':type==='insurance'?'insurance':type==='informal'?'informal':type==='institution'?'institution':'subsidy';}
-function typeLabel(type){return ({grant:'GRANT / DBT',loan:'LOAN / CREDIT',subsidy:'SUBSIDY / INTEREST SUPPORT',insurance:'INSURANCE',informal:'INFORMAL · RISK',institution:'ACCESS POINT'})[type]||type.toUpperCase();}
+function typeClass(type){return type==='grant'?'grant':type==='loan'?'loan':type==='insurance'?'insurance':type==='pension'?'pension':type==='informal'?'informal':type==='institution'?'institution':'subsidy';}
+function typeLabel(type){return ({grant:'GRANT / DBT',loan:'LOAN / CREDIT',subsidy:'SUBSIDY / INTEREST SUPPORT',insurance:'INSURANCE',pension:'PENSION / SOCIAL SECURITY',informal:'INFORMAL · RISK',institution:'SERVICE / MARKET ACCESS'})[type]||type.toUpperCase();}
 function providerLabel(kinds=[]){const labels={'central-government':'CENTRAL GOVT','state-government':'STATE GOVT','public-bank':'PUBLIC BANK','private-bank':'PRIVATE BANK','small-finance-bank':'SMALL FINANCE BANK','rrb':'RRB','cooperative':'COOPERATIVE / PACS','regulated-nbfc':'REGULATED NBFC','local-body':'PANCHAYAT / BLOCK','informal':'INFORMAL'};return [...new Set(kinds)].map(k=>labels[k]||k.toUpperCase()).join(' · ')||'PROVIDER NOT TAGGED';}
 function escapeHtml(value){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function card(record){
@@ -91,13 +93,15 @@ function card(record){
   const district=districtSelect.value;
   const scope=record.scope==='national'?'PAN INDIA':record.scope==='district'?'DISTRICT MATCH':record.scope==='local'?'LOCAL CHANNEL':'STATE SCHEME';
   const amount=escapeHtml(record.amount);
+  const programmeStatus=record.programmeStatusLabel?'<span class="programme-status '+escapeHtml(record.programmeStatus||'')+'">'+escapeHtml(record.programmeStatusLabel)+'</span>':'';
+  const applyLabel=escapeHtml(record.applicationLabel||'Official link');
   const rate=record.rate?`<div class="meta-cell"><small>INTEREST / SUPPORT</small><span>${escapeHtml(record.rate)}</span></div>`:'';
   return `<article class="scheme-card">
-    <div class="card-top"><div class="card-category"><span class="pill ${typeClass(record.type)}">${typeLabel(record.type)}</span><span class="pill">${escapeHtml(record.category)}</span><span class="pill provider-pill">${escapeHtml(providerLabel(record.providerKinds))}</span></div><span class="scope-mini">${scope}</span></div>
+    <div class="card-top"><div class="card-category"><span class="pill ${typeClass(record.type)}">${typeLabel(record.type)}</span><span class="pill">${escapeHtml(record.category)}</span><span class="pill provider-pill">${escapeHtml(providerLabel(record.providerKinds))}</span></div><span class="scope-mini">${scope}</span></div>${programmeStatus}
     <h4>${escapeHtml(record.name)}</h4><p class="scheme-summary">${escapeHtml(record.summary)}</p>
     <div class="amount-row"><small>AMOUNT / CREDIT QUANTUM</small><strong>${amount}</strong><em>${escapeHtml(record.amountNote)}</em></div>
     <div class="card-meta"><div class="meta-cell"><small>WHO MAY QUALIFY</small><span>${escapeHtml(record.eligibility.split('.')[0])}</span></div><div class="meta-cell"><small>APPLICATION ROUTE</small><span>${escapeHtml(record.process[0])}</span></div>${rate}</div>
-    <div class="card-actions"><span class="evidence">${escapeHtml(["official_portal_checked","official_dfs_guidance_checked","official_faq_checked_seasonal_notice_required"].includes(record.verification?.status)?"Official source checked":"Source linked · recheck current rules")}</span><button class="details-btn" data-details="${record.id}">View process</button><a class="apply-btn" href="${escapeHtml(record.application)}" target="_blank" rel="noopener">Official link ↗</a></div>
+    <div class="card-actions"><span class="evidence">${escapeHtml(["official_portal_checked","official_dfs_guidance_checked","official_faq_checked_seasonal_notice_required"].includes(record.verification?.status)?"Official source checked":"Source linked · recheck current rules")}</span><button class="details-btn" data-details="${record.id}">View process</button><a class="apply-btn" href="${escapeHtml(record.application)}" target="_blank" rel="noopener">${applyLabel} ↗</a></div>
   </article>`;
 }
 function render(){
@@ -124,6 +128,7 @@ function render(){
   $('#results').querySelectorAll('[data-details]').forEach(btn=>btn.addEventListener('click',()=>showDetails(btn.dataset.details)));
   renderLocalAccess();
   renderDirectory();
+  if(coverageData) renderCoverageDetails(state);
 }
 
 function currentPortal(){
@@ -363,24 +368,68 @@ function showDetails(id){
   const steps=r.process.map(x=>`<li>${escapeHtml(x)}</li>`).join('');
   const docs=(r.documents||[]).map(x=>`<li>${escapeHtml(x)}</li>`).join('');
   const verification=r.verification?.note||'Confirm the latest official order, scheme window and district notification before applying.';
+  const extraSources=(r.sources||[]).map(s=>`<a href="${escapeHtml(s.url)}" target="_blank" rel="noopener">${escapeHtml(s.label)} ↗</a>`).join(' ');
+  const validity=r.programmeStatusLabel?`<div class="detail-section"><h4>Application status</h4><p><b>${escapeHtml(r.programmeStatusLabel)}</b></p></div>`:'';
   $('#dialog-body').innerHTML=`
     <div class="detail-section"><h4>Financial value</h4><p><b>${escapeHtml(r.amount)}</b><br>${escapeHtml(r.amountNote)}</p></div>
     <div class="detail-section"><h4>What it provides</h4><p>${escapeHtml(r.summary)}</p></div>
     <div class="detail-section"><h4>Eligibility</h4><p>${escapeHtml(r.eligibility)}</p></div>
     <div class="detail-section"><h4>How to apply</h4><ol>${steps}</ol></div>
     <div class="detail-section"><h4>Typical document checklist</h4><ul>${docs}</ul></div>
-    <div class="detail-section"><h4>Source / verification status</h4><p>${escapeHtml(verification)}</p></div>
+    ${validity}
+    <div class="detail-section"><h4>Source / verification status</h4><p>${escapeHtml(verification)}</p>${extraSources?`<p>${extraSources}</p>`:''}</div>
     ${r.rate?`<div class="detail-section"><h4>Interest / financial terms</h4><p>${escapeHtml(r.rate)}</p></div>`:''}
     <div class="detail-caution"><b>Important:</b> ${escapeHtml(r.caution)}</div>
-    <div class="dialog-links"><a href="${escapeHtml(r.application)}" target="_blank" rel="noopener">Application / official route ↗</a><a href="${escapeHtml(r.source)}" target="_blank" rel="noopener">Source: ${escapeHtml(r.sourceLabel)} ↗</a></div>
+    <div class="dialog-links"><a href="${escapeHtml(r.application)}" target="_blank" rel="noopener">${escapeHtml(r.applicationLabel||'Application / official route')} ↗</a><a href="${escapeHtml(r.source)}" target="_blank" rel="noopener">Source: ${escapeHtml(r.sourceLabel)} ↗</a></div>
     <p style="font-size:8px;color:#929b94;margin-top:12px">Source review: ${escapeHtml(r.sourceDate)} · Final eligibility, loan amount, interest and approval remain with the implementing authority/lender.</p>`;
   $('#detail-dialog').showModal();
 }
-function updateCoverageList(){
-  const list=stateNames();
-  $('#state-count').textContent=`${list.length} States & UTs`;
-  $('#state-coverage-list').innerHTML=list.map(name=>`<div class="state-row"><span>${escapeHtml(name)}</span><b class="${normalizedName(name)==='west bengal'?'wb':''}">${normalizedName(name)==='west bengal'?'PARTIAL · SOURCED':'NATIONAL ONLY'}</b></div>`).join('');
+
+function renderCoverageDetails(stateName){
+  if(!coverageData) return;
+  const row=coverageData.states.find(x=>normalizedName(x.stateUT)===normalizedName(stateName));
+  if(!row) return;
+  const selectedDistrict=districtSelect.value;
+  $('#coverage-selected-state').textContent=row.stateUT;
+  $('#coverage-district-count').textContent=row.communityDistrictSnapshotCount+' district snapshot entries';
+  $('#coverage-selected-detail').innerHTML='<div class="coverage-selected-grid">'+
+    '<div><small>STATE AGRICULTURE PORTAL</small><b>'+(row.agricultureDepartmentUrl?'<a href="'+escapeHtml(row.agricultureDepartmentUrl)+'" target="_blank" rel="noopener">Open State/UT portal ↗</a>':'Not mapped')+'</b></div>'+
+    '<div><small>STATE-SPECIFIC SCHEME RECORDS</small><b>'+row.stateSchemeRecordCount+' · '+escapeHtml(row.stateSchemeInventoryStatus.replaceAll('_',' '))+'</b></div>'+
+    '<div><small>DIRECT DISTRICT WEBSITE LINKS</small><b>'+row.directDistrictWebsitesMapped+' / '+row.communityDistrictSnapshotCount+'</b></div>'+
+    '<div><small>REGIONAL RURAL BANK</small><b>'+(row.rrb?escapeHtml(row.rrb.name):'No separate RRB listed in current DFS list')+'</b></div>'+
+    '<div><small>LENDER CATALOGUE ENTRIES</small><b>'+row.lenderCatalogueEnquiryEntries+' · branch presence not verified</b></div>'+
+    '<div><small>BLOCK / PANCHAYAT INVENTORY</small><b>Official LGD mapping pending</b></div></div>'+
+    '<p class="coverage-detail-note">'+escapeHtml(row.recordsStatusNote)+' The district list below uses a bundled community snapshot, not an LGD-certified list.</p>';
+  $('#coverage-district-list').innerHTML=(row.districts||[]).map(d=>{
+    const hasDirect=Boolean(d.directDistrictWebsite),hasScheme=(d.districtProgrammeRecordIds||[]).length>0;
+    return '<div class="coverage-district-row"><div><b>'+escapeHtml(d.name)+'</b><small>'+(hasScheme?'District programme: '+escapeHtml(d.districtProgrammeRecordIds.join(', ')):'No district-specific programme record catalogued')+'</small></div><span class="coverage-district-status '+(hasScheme?'mapped':'pending')+'">'+(hasScheme?'PROGRAMME RECORD':'RESEARCH PENDING')+'</span><a href="'+escapeHtml(d.districtWebsiteDiscoveryUrl)+'" target="_blank" rel="noopener">'+(hasDirect?'District site ↗':'Official directory ↗')+'</a><button type="button" class="coverage-inspect-district" data-coverage-district="'+escapeHtml(d.name)+'">Use location</button></div>';
+  }).join('');
+  $('#coverage-district-list').querySelectorAll('[data-coverage-district]').forEach(btn=>btn.addEventListener('click',()=>{
+    stateSelect.value=row.stateUT;
+    populateDistricts(btn.dataset.coverageDistrict);
+    switchView('finance');
+  }));
 }
+function updateCoverageList(){
+  if(!coverageData) return;
+  const rows=coverageData.states||[];
+  const query=normalizedName($('#coverage-search')?.value||'');
+  const found=rows.filter(x=>normalizedName(x.stateUT).includes(query));
+  $('#state-count').textContent=rows.length+' States & UTs';
+  $('#coverage-scheme-count').textContent=coverageData.nationalCatalogue.schemeRecordCount;
+  $('#coverage-lender-count').textContent=coverageData.nationalCatalogue.lenderProductRecordCount;
+  $('#coverage-state-record-count').textContent=coverageData.stateInventory.statesWithAtLeastOneStateSpecificScheme;
+  $('#coverage-v25-stats').innerHTML='<article><small>STATES & UNION TERRITORIES</small><strong>'+coverageData.geography.stateAndUTCount+'</strong><span>State/UT portal register</span></article><article><small>DISTRICT SNAPSHOT ENTRIES</small><strong>'+coverageData.geography.districtEntryCount+'</strong><span>Community snapshot · official LGD reconciliation pending</span></article><article><small>SCHEME / BENEFIT RECORDS</small><strong>'+coverageData.nationalCatalogue.schemeRecordCount+'</strong><span>National + limited State records</span></article><article><small>LENDER / FINANCE ENTRIES</small><strong>'+coverageData.nationalCatalogue.lenderProductRecordCount+'</strong><span>Product catalogue · branch checks pending</span></article>';
+  $('#state-coverage-list').innerHTML=found.map(x=>{
+    const stateStatus=x.stateSchemeRecordCount?'PARTIAL · SOURCED':'PORTAL LINKED · RESEARCH PENDING';
+    const cls=x.stateSchemeRecordCount?'wb':'pending';
+    return '<div class="state-row-v25"><div><b>'+escapeHtml(x.stateUT)+'</b><small>'+x.communityDistrictSnapshotCount+' district entries · '+x.directDistrictWebsitesMapped+' direct district sites</small></div><span class="state-coverage-status '+cls+'">'+stateStatus+'</span><span class="state-rrb">'+(x.rrb?escapeHtml(x.rrb.name):'No separate RRB listed')+'</span><button type="button" class="secondary-action" data-coverage-state="'+escapeHtml(x.stateUT)+'">Inspect</button></div>';
+  }).join('');
+  $('#state-coverage-list').querySelectorAll('[data-coverage-state]').forEach(btn=>btn.addEventListener('click',()=>renderCoverageDetails(btn.dataset.coverageState)));
+  const selected=rows.find(x=>normalizedName(x.stateUT)===normalizedName(stateSelect.value))||rows[0];
+  renderCoverageDetails(selected.stateUT);
+}
+
 function switchView(view){
   selectedView=view;
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
@@ -394,6 +443,7 @@ Promise.all([recordsPromise,lendersPromise,portalsPromise,loadGeography()]).then
   portals=portalData;
   initNGOWorkspace();
   render();
+  coveragePromise.then(data=>{coverageData=data;updateCoverageList();}).catch(error=>console.warn('V2.5 coverage register could not be loaded',error));
 }).catch(err=>{
   console.error(err);
   $('#results').innerHTML='<div class="empty-state"><h3>Directory data could not be loaded</h3><p>Check that the project is being served from its root folder and that schemes.json is available.</p></div>';
@@ -414,3 +464,4 @@ $('#detail-dialog').addEventListener('click',e=>{if(e.target===$('#detail-dialog
 
 $('#eligibility-form')?.addEventListener('submit',runEligibility);
 $('#elig-reset')?.addEventListener('click',resetEligibility);
+$('#coverage-search')?.addEventListener('input',updateCoverageList);
