@@ -111,7 +111,7 @@ check(appSyntaxValid, 'app.js parses successfully under Node.js.');
 const html = readText('index.html');
 const navViews = [...html.matchAll(/data-view="([^"]+)"/g)].map((m) => m[1]);
 const pageViews = [...html.matchAll(/<section id="view-([^"]+)"/g)].map((m) => m[1]);
-const htmlIds = [...html.matchAll(/\\sid="([^"]+)"/g)].map((m) => m[1]);
+const htmlIds = [...html.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]);
 check(unique(navViews) && unique(pageViews) && navViews.length === pageViews.length && navViews.every((view) => pageViews.includes(view)), 'Every navigation item maps to exactly one page section.');
 check(unique(htmlIds), 'HTML IDs are unique.');
 check(['view-assistant','view-directory','view-ngo','view-market','view-coverage'].every((id) => html.includes(`id="${id}"`)), 'All V2.5 pages are present in the public interface.');
