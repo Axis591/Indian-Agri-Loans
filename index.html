@@ -81,12 +81,38 @@
           <div class="filters-grid">
             <label class="filter-field"><span>STATE / UNION TERRITORY</span><select id="state-select"><option value="West Bengal">West Bengal</option></select></label>
             <label class="filter-field"><span>DISTRICT</span><select id="district-select"><option value="Paschim Medinipur">Paschim Medinipur</option></select></label>
-            <label class="filter-field"><span>FARMER PROFILE</span><select id="profile-select"><option value="all">All farmer profiles</option><option value="owner">Owner cultivator</option><option value="tenant">Tenant / sharecropper</option><option value="women_shg">Women SHG member</option><option value="mixed_shg">Male / mixed SHG</option><option value="fpo">FPO / cooperative / group</option><option value="allied">Dairy / poultry / fisheries / allied</option><option value="entrepreneur">Agri entrepreneur</option></select></label>
+            <label class="filter-field"><span>FARMER PROFILE</span><select id="profile-select"><option value="all">All farmer profiles</option><option value="owner">Owner cultivator</option><option value="tenant">Tenant / sharecropper</option><option value="women_shg">Women SHG member</option><option value="mixed_shg">Male / mixed SHG</option><option value="fpo">FPO / cooperative / group</option><option value="allied">Dairy / poultry / fisheries / allied</option><option value="entrepreneur">Agri entrepreneur</option><option value="women_farmer">Women farmer</option></select></label>
             <label class="filter-field"><span>FINANCE TYPE</span><select id="type-select"><option value="all">All support types</option><option value="grant">Grant / direct benefit</option><option value="loan">Loan / credit</option><option value="subsidy">Subsidy / interest support</option><option value="insurance">Crop insurance</option><option value="pension">Farmer pension / social security</option><option value="institution">Institution / access point</option><option value="informal">Informal credit (risk note)</option></select></label>
             <label class="filter-field"><span>PROGRAMME PROVIDER / DELIVERY LEVEL</span><select id="provider-select"><option value="all">All programme providers</option><option value="central-government">Central government</option><option value="state-government">State government</option><option value="local-body">Panchayat / block / local access</option><option value="informal">Informal / unregulated (risk only)</option></select><small class="filter-note">Bank, RRB, cooperative, SFB and NBFC products are listed on the Schemes &amp; Lenders page.</small></label>
           </div>
           <div class="finder-foot"><span id="location-summary">Showing national and West Bengal entries for Paschim Medinipur.</span><button class="reset-btn" id="reset-filters">↺ Reset filters</button></div>
         </div>
+
+        <section class="loan-comparator" aria-labelledby="loan-comparator-title">
+          <div class="loan-comparator-head"><div><div class="section-kicker">FINANCE INTELLIGENCE · LOAN COST COMPARISON</div><h3 id="loan-comparator-title">Compare the true cost of two loan offers</h3><p>Compare reducing-balance and flat-rate loans, upfront fees and estimated annualised borrowing cost before accepting a lender's offer.</p></div><span class="scope-label">Illustrative calculator</span></div>
+          <div class="loan-calc-inputs">
+            <label>Loan principal (₹)<input id="loan-principal" type="number" min="1000" max="100000000" step="1000" value="300000"></label>
+            <label>Tenure (months)<input id="loan-tenure" type="number" min="1" max="360" step="1" value="36"></label>
+            <label>Repayment method<select id="loan-method"><option value="reducing">Reducing balance</option><option value="flat">Flat rate</option></select></label>
+          </div>
+          <div class="loan-offers-grid">
+            <div class="loan-offer">
+              <div class="loan-offer-title"><b>Offer A</b><span>Loan provider A</span></div>
+              <label>Nominal annual interest (%)<input id="offer-a-rate" type="number" min="0" max="60" step="0.01" value="9"></label>
+              <label>Processing fee (%)<input id="offer-a-fee" type="number" min="0" max="20" step="0.01" value="0.5"></label>
+              <label>Other upfront charges (₹)<input id="offer-a-other" type="number" min="0" max="1000000" step="100" value="1000"></label>
+            </div>
+            <div class="loan-offer">
+              <div class="loan-offer-title"><b>Offer B</b><span>Loan provider B</span></div>
+              <label>Nominal annual interest (%)<input id="offer-b-rate" type="number" min="0" max="60" step="0.01" value="11.5"></label>
+              <label>Processing fee (%)<input id="offer-b-fee" type="number" min="0" max="20" step="0.01" value="1"></label>
+              <label>Other upfront charges (₹)<input id="offer-b-other" type="number" min="0" max="1000000" step="100" value="0"></label>
+            </div>
+          </div>
+          <div class="loan-calc-actions"><button class="primary-action" type="button" id="calculate-loans">Compare loan offers</button><span class="loan-calc-hint">Uses monthly instalments and upfront charges; excludes insurance/taxes unless entered under other charges.</span></div>
+          <div id="loan-comparison-output" class="loan-comparison-output" aria-live="polite"><div class="loan-calc-placeholder">Enter the terms from two written offers and compare their estimated total cost.</div></div>
+          <div class="loan-calc-disclaimer">Estimate only—not a lender quote or sanction. This simplified calculator assumes equal monthly instalments and fees deducted at disbursement. Actual KFS, repayment dates, daily rests, moratorium, insurance and statutory charges can change the effective cost. Ask the institution for its written APR and Key Facts Statement.</div>
+        </section>
 
         <div class="results-head"><div><div class="section-kicker">02 / MATCHED PROGRAMMES & ACCESS</div><h3><span id="results-count">—</span> matched programme entries</h3></div><div class="sort-wrap"><label for="sort-select">SORT BY</label><select id="sort-select"><option value="relevance">Best match</option><option value="amount">Published amount first</option><option value="alpha">Name A–Z</option></select></div></div>
         <div id="coverage-warning" class="coverage-warning hidden"></div>
@@ -140,7 +166,7 @@
       <div class="assistant-form-head"><span class="finder-number">01</span><div><b>About the farmer or organisation</b><small>Location is taken from Finance Finder</small></div></div>
       <div class="assistant-location" id="assistant-location">West Bengal · Paschim Medinipur</div>
       <label class="assistant-field"><span>APPLICANT TYPE</span><select id="elig-profile" required>
-        <option value="owner">Owner cultivator</option><option value="tenant">Tenant farmer</option><option value="women_shg">Women SHG</option><option value="mixed_shg">Male / mixed SHG</option><option value="fpo">FPO / farmer cooperative</option><option value="allied">Dairy / fisheries / poultry / allied farmer</option><option value="entrepreneur">Agri entrepreneur / micro-enterprise</option>
+        <option value="owner">Owner cultivator</option><option value="tenant">Tenant farmer</option><option value="women_shg">Women SHG</option><option value="mixed_shg">Male / mixed SHG</option><option value="fpo">FPO / farmer cooperative</option><option value="allied">Dairy / fisheries / poultry / allied farmer</option><option value="entrepreneur">Agri entrepreneur / micro-enterprise</option><option value="women_farmer">Woman farmer / cultivator</option>
       </select></label>
       <label class="assistant-field"><span>LAND / CULTIVATION STATUS</span><select id="elig-land" required>
         <option value="owner">Own / recorded land</option><option value="tenant">Tenant farmer with cultivation proof</option><option value="sharecropper">Sharecropper / Bargadar</option><option value="group">SHG / FPO / cooperative group</option><option value="landless">Landless but operating an allied / agri enterprise</option>
@@ -163,78 +189,97 @@
 </section>
 <section id="view-ngo" class="view">
   <div class="section-heading">
-    <div><div class="section-kicker">04 / NGO & FIELD ORGANISATION WORKSPACE</div><h2>Turn field activity into measurable outcomes</h2><p>Track anonymised project totals and non-identifying follow-up references for local pilots.</p></div>
-    <div class="scope-label"><span class="scope-dot"></span> Browser-local pilot workspace</div>
+    <div><div class="section-kicker">NGO &amp; FIELD ORGANISATION NETWORK · V3</div><h2>Organisation-wide programme monitoring</h2><p>Secure, role-based workspace for aggregate outcomes and internal follow-up references.</p></div>
+    <div class="scope-label">Cloudflare Access + D1</div>
   </div>
-  <div class="ngo-safety"><b>Prototype & privacy notice:</b> This public version has no NGO login, shared database or cloud sync. Data entered here stays in this browser only. Use aggregate counts and internal reference codes only. Do not enter farmer names, phone numbers, Aadhaar, bank details, document scans or other personal data. For live multi-user NGO case management, a secure authenticated backend and consent workflow must be deployed first.</div>
-  <div class="ngo-overview">
-    <article><small>FARMERS REACHED</small><strong id="ngo-reached-total">0</strong><span>Unique / estimated participants</span></article>
-    <article><small>APPLICATIONS ASSISTED</small><strong id="ngo-app-total">0</strong><span>Submitted with NGO support</span></article>
-    <article><small>APPROVAL RATE</small><strong id="ngo-approval-rate">—</strong><span>Approved ÷ submitted</span></article>
-    <article><small>BENEFITS RECEIVED</small><strong id="ngo-benefit-total">0</strong><span>Verified by organisation</span></article>
+  <div class="ngo-safety"><b>Privacy-first design:</b> this workspace does not collect farmer names, Aadhaar, phone numbers, bank details, identity documents or beneficiary-level sensitive information. It is disabled until Cloudflare Access, the D1 database binding and an authorised organisation user are configured. Never enter personal data in internal reference codes.</div>
+  <div id="ngo-workspace-status" class="ngo-workspace-status" aria-live="polite">
+    <div class="ngo-status-icon">🔐</div><div class="ngo-status-copy"><b>Checking secure NGO workspace…</b><span>The app will connect to the protected organisation database if it has been activated by the administrator.</span></div>
+    <div class="ngo-status-actions"><a class="secondary-action" id="ngo-access-login" href="/api/ngo/workspace" target="_blank" rel="noopener">Sign in / check access ↗</a><button class="primary-action" id="ngo-refresh" type="button">Check again</button></div>
   </div>
-  <div class="ngo-layout">
-    <div class="ngo-card">
-      <div class="ngo-card-head"><div><div class="section-kicker">01 / PROJECT PERFORMANCE</div><h3>Update aggregate project metrics</h3></div><span class="ngo-local-tag">Saved on this device</span></div>
-      <p class="ngo-help">Enter totals for the selected NGO project or reporting period. Use whole numbers; these figures are not submitted to AgriBridge.</p>
-      <div class="ngo-metric-grid">
-        <label>Farmers reached<input data-ngo-metric="farmersReached" type="number" min="0" step="1" value="0"></label>
-        <label>Counselling sessions<input data-ngo-metric="counsellingSessions" type="number" min="0" step="1" value="0"></label>
-        <label>Applications assisted / submitted<input data-ngo-metric="applicationsSubmitted" type="number" min="0" step="1" value="0"></label>
-        <label>Applications approved<input data-ngo-metric="applicationsApproved" type="number" min="0" step="1" value="0"></label>
-        <label>Benefits received / confirmed<input data-ngo-metric="benefitsReceived" type="number" min="0" step="1" value="0"></label>
-        <label>Awareness camps held<input data-ngo-metric="campsHeld" type="number" min="0" step="1" value="0"></label>
-        <label>Villages / hamlets reached<input data-ngo-metric="villagesReached" type="number" min="0" step="1" value="0"></label>
+  <div id="ngo-workspace-ready" hidden>
+    <div class="ngo-workspace-meta"><span id="ngo-org-label">Organisation workspace</span><span id="ngo-role-label">Role</span><span id="ngo-sync-label">Synced to secure database</span></div>
+    <div class="ngo-overview">
+      <article><small>FARMERS REACHED</small><strong id="ngo-reached-total">0</strong><span>Aggregate project metric</span></article>
+      <article><small>APPLICATIONS SUBMITTED</small><strong id="ngo-app-total">0</strong><span>With organisation support</span></article>
+      <article><small>APPROVAL RATE</small><strong id="ngo-approval-rate">—</strong><span>Approved ÷ submitted</span></article>
+      <article><small>BENEFITS RECEIVED</small><strong id="ngo-benefit-total">0</strong><span>Confirmed aggregate count</span></article>
+    </div>
+    <div class="ngo-layout">
+      <div class="ngo-card">
+        <div class="ngo-card-head"><div><div class="section-kicker">01 / PROJECT PERFORMANCE</div><h3>Update aggregate project metrics</h3></div><span class="ngo-local-tag">Secure organisation database</span></div>
+        <p class="ngo-help">Only whole-number aggregate metrics are accepted. Approval count cannot exceed submitted applications.</p>
+        <div class="ngo-metric-grid">
+          <label>Farmers reached<input data-ngo-metric="farmersReached" type="number" min="0" max="10000000" step="1" value="0"></label>
+          <label>Counselling sessions<input data-ngo-metric="counsellingSessions" type="number" min="0" max="10000000" step="1" value="0"></label>
+          <label>Applications submitted<input data-ngo-metric="applicationsSubmitted" type="number" min="0" max="10000000" step="1" value="0"></label>
+          <label>Applications approved<input data-ngo-metric="applicationsApproved" type="number" min="0" max="10000000" step="1" value="0"></label>
+          <label>Benefits received<input data-ngo-metric="benefitsReceived" type="number" min="0" max="10000000" step="1" value="0"></label>
+          <label>Awareness camps<input data-ngo-metric="campsHeld" type="number" min="0" max="10000000" step="1" value="0"></label>
+          <label>Villages / hamlets<input data-ngo-metric="villagesReached" type="number" min="0" max="10000000" step="1" value="0"></label>
+        </div>
+        <div class="ngo-actions"><button id="ngo-save-metrics" class="primary-action" type="button">Save secure totals</button><span id="ngo-save-status" class="ngo-save-status" aria-live="polite">Ready when connected.</span></div>
       </div>
-      <div class="ngo-actions"><button id="ngo-save-metrics" class="primary-action" type="button">Save project totals</button><span id="ngo-save-status" class="ngo-save-status" aria-live="polite">No changes saved yet.</span></div>
+      <div class="ngo-card">
+        <div class="ngo-card-head"><div><div class="section-kicker">02 / PSEUDONYMOUS FOLLOW-UP</div><h3>Track an internal reference</h3></div></div>
+        <p class="ngo-help">Use a random internal code. Do not enter a farmer's name, phone, Aadhaar or bank information.</p>
+        <form id="ngo-followup-form" class="ngo-followup-form">
+          <label>Internal reference<input id="ngo-ref" maxlength="40" placeholder="e.g. CAMP-2026-001" required></label>
+          <div class="ngo-two-fields"><label>State / UT<select id="ngo-state"><option>West Bengal</option></select></label><label>District<select id="ngo-district"><option>Paschim Medinipur</option></select></label></div>
+          <label>Support route<select id="ngo-support"><option>PM-KISAN</option><option>KCC / crop credit</option><option>PMFBY / crop insurance</option><option>State subsidy / grant</option><option>SHG / FPO finance</option><option>Machinery / irrigation</option><option>Other local support</option></select></label>
+          <label>Follow-up status<select id="ngo-case-status"><option>Identified</option><option>Documents pending</option><option>Ready to apply</option><option>Submitted</option><option>Approved</option><option>Rejected / closed</option><option>Benefit received</option></select></label>
+          <button type="submit" class="primary-action">Add secure reference <span>＋</span></button>
+        </form>
+      </div>
     </div>
-    <div class="ngo-card">
-      <div class="ngo-card-head"><div><div class="section-kicker">02 / NON-IDENTIFYING FOLLOW-UP</div><h3>Track an application reference</h3></div></div>
-      <p class="ngo-help">Use your organisation's internal case code. Do not enter a farmer's name or government ID.</p>
-      <form id="ngo-followup-form" class="ngo-followup-form">
-        <label>Internal reference<input id="ngo-ref" maxlength="40" placeholder="e.g. PMFBY-CAMP-001" required></label>
-        <div class="ngo-two-fields"><label>State / UT<input id="ngo-state" maxlength="80" value="West Bengal" required></label><label>District<input id="ngo-district" maxlength="80" value="Paschim Medinipur" required></label></div>
-        <label>Support route<select id="ngo-support"><option>PM-KISAN</option><option>KCC / crop credit</option><option>PMFBY / crop insurance</option><option>State subsidy / grant</option><option>SHG / FPO finance</option><option>Machinery / irrigation</option><option>Other local support</option></select></label>
-        <label>Follow-up status<select id="ngo-case-status"><option>Identified</option><option>Documents pending</option><option>Ready to apply</option><option>Submitted</option><option>Approved</option><option>Rejected / closed</option><option>Benefit received</option></select></label>
-        <button type="submit" class="primary-action">Add reference <span>＋</span></button>
-      </form>
+    <div class="ngo-card ngo-followups">
+      <div class="ngo-card-head"><div><div class="section-kicker">03 / FOLLOW-UP REGISTER</div><h3>Organisation follow-ups</h3></div><div class="ngo-actions"><button type="button" id="ngo-export" class="secondary-action">Export CSV</button></div></div>
+      <div id="ngo-followup-list" class="ngo-followup-list"><div class="no-directory-results">No references added yet.</div></div>
     </div>
   </div>
-  <div class="ngo-card ngo-followups">
-    <div class="ngo-card-head"><div><div class="section-kicker">03 / FOLLOW-UP REGISTER</div><h3>Local pilot follow-ups</h3></div><div class="ngo-actions"><button type="button" id="ngo-export" class="secondary-action">Export CSV</button><button type="button" id="ngo-clear" class="secondary-action">Clear local data</button></div></div>
-    <div id="ngo-followup-list" class="ngo-followup-list"><div class="no-directory-results">No references added yet.</div></div>
-  </div>
-  <div class="ngo-card ngo-next-phase">
-    <div class="section-kicker">04 / BEFORE ORGANISATION-WIDE ROLLOUT</div><h3>What needs to be added for a live NGO network?</h3>
-    <div class="ngo-architecture"><span>Organisation login & roles</span><b>→</b><span>Consent-led beneficiary records</span><b>→</b><span>Encrypted database & audit log</span><b>→</b><span>Shared district reporting</span></div>
-    <p class="ngo-help">This static prototype does not provide multi-user access, server-side storage, secure document upload, automated government application submission or beneficiary identity verification. Those capabilities require a protected backend and security review.</p>
+  <div class="ngo-next-phase">
+    <b>Deployment requirements:</b> create a Cloudflare D1 database, run <code>migrations/0001_ngo_secure.sql</code>, bind it as <code>NGO_DB</code>, configure Cloudflare Access for <code>/api/ngo/*</code>, set the Access team domain and application audience, and provision only approved staff emails in <code>ngo_users</code>. See <a href="CLOUDFLARE_SETUP_V3.md" target="_blank">Cloudflare V3 setup guide ↗</a>.
   </div>
 </section>
 <section id="view-market" class="view">
-        <div class="section-heading"><div><div class="section-kicker">MARKET ACCESS</div><h2>Sell better. Check market signals.</h2><p>Official platforms for mandi prices, e-trading, procurement and price support.</p></div></div>
-        <div class="market-grid">
-          <article class="market-card"><div class="market-icon">₹</div><span class="tag">MARKET PRICES</span><h3>Agmarknet</h3><p>Look up mandi-wise arrivals and commodity prices. Compare nearby markets before choosing where to sell.</p><a href="https://agmarknet.gov.in/" target="_blank" rel="noopener">Open Agmarknet ↗</a></article>
-          <article class="market-card"><div class="market-icon">⇄</div><span class="tag">E-TRADING</span><h3>e-NAM</h3><p>National Agriculture Market connects participating mandis and supports online trade and price discovery.</p><a href="https://enam.gov.in/" target="_blank" rel="noopener">Open e-NAM ↗</a></article>
-          <article class="market-card"><div class="market-icon">⌂</div><span class="tag">PROCUREMENT</span><h3>MSP / procurement</h3><p>Check the current crop-wise MSP announcement and the state procurement agency's open registration window.</p><a href="https://desagri.gov.in/" target="_blank" rel="noopener">Agricultural statistics &amp; MSP ↗</a></article>
-          <article class="market-card"><div class="market-icon">♧</div><span class="tag">COLLECTIVE SELLING</span><h3>FPO / SFAC</h3><p>Explore Farmer Producer Organisation support, aggregation and market-linkage resources.</p><a href="https://sfacindia.com/" target="_blank" rel="noopener">Open SFAC ↗</a></article>
-        </div>
-        <div class="market-note"><b>Live price data is not embedded in this first release.</b> These links open the official portals; prices, arrivals, procurement dates and mandi participation must be checked for the selected commodity and date.</div>
-      </section>
+  <div class="section-heading"><div><div class="section-kicker">MARKET INTELLIGENCE · V3</div><h2>Compare mandi prices before you sell</h2><p>Retrieve published daily wholesale prices by State, District and commodity from the Government of India's OGD / AGMARKNET dataset.</p></div><div class="scope-label">Daily official data · not a live quote</div></div>
+  <div class="market-query-panel">
+    <div class="market-query-head"><div><div class="section-kicker">01 / DAILY MANDI PRICE SEARCH</div><h3>Find recent arrivals and prices</h3><p>The default State and District follow your Finance Finder selection.</p></div></div>
+    <form id="market-price-form" class="market-query-controls">
+      <label>STATE / UT<select id="market-state"><option>West Bengal</option></select></label>
+      <label>DISTRICT<select id="market-district"><option>Paschim Medinipur</option></select></label>
+      <label>COMMODITY<input id="market-commodity" type="search" maxlength="80" placeholder="e.g. onion, paddy, tomato"></label>
+      <label>MAX RECORDS<select id="market-limit"><option value="20">20 records</option><option value="40" selected>40 records</option><option value="80">80 records</option><option value="100">100 records</option></select></label>
+      <button class="primary-action" type="submit" id="market-search-button">Load mandi prices <span>→</span></button>
+    </form>
+    <div id="market-price-status" class="market-price-status" aria-live="polite">Choose a commodity or search the selected district. Prices are reported for specific markets and arrival dates.</div>
+    <div id="market-price-results" class="market-price-results" aria-live="polite"><div class="market-price-placeholder">Your mandi price records will appear here.</div></div>
+    <div class="market-feed-note"><b>How to read these prices:</b> min / modal / max are published wholesale market prices, typically ₹ per quintal. The modal price is not a guaranteed farm-gate offer. Check variety, grade, arrival date, transport, commission and actual procurement terms before deciding.</div>
+    <div class="market-source-line">Source: <a href="https://data.gov.in/resource/current-daily-price-various-commodities-various-markets-mandi" target="_blank" rel="noopener">Open Government Data — Current Daily Mandi Prices ↗</a> · <a href="https://agmarknet.gov.in/" target="_blank" rel="noopener">AGMARKNET ↗</a></div>
+  </div>
+  <div class="section-heading market-links-heading"><div><div class="section-kicker">02 / SELLING & MARKET ACCESS</div><h2>Trading, procurement and collective marketing</h2><p>Use the official provider route to confirm registration, notified procurement, mandi participation and market fees.</p></div></div>
+  <div class="market-grid">
+    <article class="market-card"><div class="market-icon">⇄</div><span class="tag">E-TRADING</span><h3>e-NAM</h3><p>National Agriculture Market connects participating mandis and supports online trade and price discovery.</p><a href="https://enam.gov.in/" target="_blank" rel="noopener">Open e-NAM ↗</a></article>
+    <article class="market-card"><div class="market-icon">⌂</div><span class="tag">PROCUREMENT</span><h3>MSP / procurement</h3><p>Check the current crop-wise MSP announcement and the State procurement agency's open registration window.</p><a href="https://desagri.gov.in/" target="_blank" rel="noopener">Agricultural statistics &amp; MSP ↗</a></article>
+    <article class="market-card"><div class="market-icon">♧</div><span class="tag">COLLECTIVE SELLING</span><h3>FPO / SFAC</h3><p>Explore Farmer Producer Organisation support, aggregation, business planning and market-linkage resources.</p><a href="https://sfacindia.com/" target="_blank" rel="noopener">Open SFAC ↗</a></article>
+    <article class="market-card"><div class="market-icon">₹</div><span class="tag">STATE MARKETING</span><h3>State marketing board</h3><p>Find State mandi regulations, market yards, fees, licences and commodity-specific trading arrangements.</p><a href="https://www.msamb.com/" target="_blank" rel="noopener">Maharashtra State Agricultural Marketing Board ↗</a></article>
+  </div>
+</section>
 
       <section id="view-coverage" class="view">
   <div class="section-heading">
-    <div><div class="section-kicker">DATA COVERAGE &amp; GOVERNANCE · V2.5</div><h2>See what is researched — and what remains open</h2><p>National catalogue, State/UT portals, district website mapping and verified programme coverage are tracked separately.</p></div>
+    <div><div class="section-kicker">DATA COVERAGE &amp; GOVERNANCE · V3</div><h2>See what is researched — and what remains open</h2><p>National catalogue, State/UT portals, district website mapping and verified programme coverage are tracked separately.</p></div>
     <div class="scope-label"><span class="scope-dot"></span> All-India parallel build</div>
   </div>
   <div id="coverage-methodology-alert" class="coverage-methodology-alert"><b>Geography quality note:</b> district names in this release come from a bundled community-maintained snapshot. They are not yet reconciled to current official LGD codes. Block and Gram Panchayat identifiers are not loaded.</div>
   <div class="coverage-v25-stats" id="coverage-v25-stats" aria-live="polite">
     <article><small>STATES &amp; UNION TERRITORIES</small><strong>36</strong><span>State/UT portal register</span></article>
     <article><small>DISTRICT SNAPSHOT ENTRIES</small><strong>779</strong><span>Community snapshot · LGD refresh pending</span></article>
-    <article><small>SCHEME / BENEFIT RECORDS</small><strong>31</strong><span>Central + limited State records</span></article>
+    <article><small>SCHEME / BENEFIT RECORDS</small><strong>37</strong><span>Central + seven State/UT inventories begun</span></article>
     <article><small>LENDER / FINANCE ENTRIES</small><strong>46</strong><span>Product catalogue · branch checks pending</span></article>
   </div>
   <div class="coverage-v25-grid">
-    <article class="coverage-v25-card"><div class="coverage-v25-kicker">SCHEME &amp; BENEFIT WORKSTREAM</div><h3>Government and institutional support</h3><p>Grants, direct benefits, crop insurance, subsidies, pensions, MSP procurement, infrastructure support and scheme-linked credit.</p><b id="coverage-scheme-count">—</b><small>source-linked scheme records</small></article>
+    <article class="coverage-v25-card"><div class="coverage-v25-kicker">SCHEME &amp; BENEFIT WORKSTREAM</div><h3>Government and institutional support</h3><p>Grants, direct benefits, crop insurance, subsidies, pensions, MSP procurement, infrastructure support and scheme-linked credit.</p><b id="coverage-scheme-count">—</b><small>scheme / benefit / public-service records</small></article>
     <article class="coverage-v25-card"><div class="coverage-v25-kicker">FINANCE WORKSTREAM</div><h3>Formal credit and lending</h3><p>Public/private banks, RRBs, cooperative/PACS routes, Small Finance Banks and regulated NBFC products.</p><b id="coverage-lender-count">—</b><small>lender/product entries, not branch confirmations</small></article>
     <article class="coverage-v25-card"><div class="coverage-v25-kicker">STATE / DISTRICT RESEARCH</div><h3>Local inventory completeness</h3><p>State portal mapped is not the same as every State scheme researched. Local PACS, branches, blocks and Panchayats still need field-level verification.</p><b id="coverage-state-record-count">—</b><small>States/UTs with at least one State-specific record</small></article>
   </div>
@@ -244,12 +289,16 @@
     <div id="state-coverage-list" class="state-coverage-list" aria-live="polite"></div>
   </div>
   <div class="coverage-table-wrap coverage-district-wrap">
+    <div class="table-title"><div><div class="section-kicker">STATE PROGRAMME RESEARCH · NINE WORKSTREAMS</div><h3 id="state-workstream-title">State/UT scheme research queue</h3></div><span id="state-workstream-count">—</span></div>
+    <div id="state-workstream-register" class="state-workstream-register" aria-live="polite"><p>State programme research status will appear when the register loads.</p></div>
+  </div>
+  <div class="coverage-table-wrap coverage-district-wrap">
     <div class="table-title"><div><div class="section-kicker">SELECTED STATE / UT</div><h3 id="coverage-selected-state">Select a State/UT above</h3></div><span id="coverage-district-count">—</span></div>
     <div id="coverage-selected-detail" class="coverage-selected-detail" aria-live="polite"><p>Choose a State/UT from the register above to inspect portal mapping, scheme records, RRB directory and district-level research status.</p></div>
     <div id="coverage-district-list" class="coverage-district-list" aria-live="polite"></div>
   </div>
   <div class="data-principles">
-    <h3>V2.5 verification and coverage rules</h3>
+    <h3>V3 verification and coverage rules</h3>
     <ul>
       <li><b>Independent workstreams:</b> government grants/subsidies/insurance/benefits and financial products are tracked separately. Neither workstream is considered complete because a portal link exists.</li>
       <li><b>Amount discipline:</b> published assistance is shown with its beneficiary/component conditions. Project-assessed or unpublished amounts are not guessed. A programme allocation is never presented as an individual farmer entitlement.</li>
@@ -258,7 +307,7 @@
       <li><b>Administrative geography:</b> official LGD identifiers are the target source for district, sub-district, village and local-body coverage. The present 779-entry snapshot is explicitly provisional.</li>
       <li><b>Last-mile gaps:</b> district crop notifications, local PACS, DCCB, bank branches, BDO, Gram Panchayat and village-level beneficiary targets are not yet comprehensively inventoried.</li>
     </ul>
-    <div class="coverage-source-links"><a href="https://lgdirectory.gov.in/" target="_blank" rel="noopener">Official LGD ↗</a><a href="https://data.gov.in/catalog/local-government-directory-lgd" target="_blank" rel="noopener">LGD Open Government Data ↗</a><a href="COVERAGE_REPORT_V25.md" target="_blank">V2.5 coverage report ↗</a><a href="DATA_DICTIONARY.md" target="_blank">Data dictionary ↗</a></div>
+    <div class="coverage-source-links"><a href="https://lgdirectory.gov.in/" target="_blank" rel="noopener">Official LGD ↗</a><a href="https://data.gov.in/catalog/local-government-directory-lgd" target="_blank" rel="noopener">LGD Open Government Data ↗</a><a href="COVERAGE_REPORT_V25.md" target="_blank">V3 coverage report ↗</a><a href="DATA_DICTIONARY.md" target="_blank">Data dictionary ↗</a></div>
   </div>
 </section>
 
