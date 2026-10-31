@@ -113,7 +113,7 @@ function render(){
   else matched.sort((a,b)=>scopeRank(a)-scopeRank(b));
   $('#results').innerHTML=matched.map(card).join('');
   $('#results-count').textContent=matched.length;
-  $('#metric-records').textContent=records.length;
+  $('#metric-records').textContent=records.length+lenders.length;
   $('#empty-state').classList.toggle('hidden',matched.length!==0);
   $('#coverage-warning').classList.toggle('hidden',normalizedName(state)==='west bengal');
   if(normalizedName(state)!=='west bengal'){
@@ -178,7 +178,6 @@ function renderDirectory(){
   const schemeHits=records.filter(r=>{
     if(!applicable(r,state,district)||!profileMatch(r,profileSelect.value)) return false;
     if(type!=='all'&&r.type!==type) return false;
-    if(provider!=='all'&&!(r.providerKinds||[]).includes(provider)) return false;
     if(!query) return true;
     return normalizedName([r.name,r.category,r.summary,r.eligibility,r.amount,(r.keywords||[]).join(' ')].join(' ')).includes(query);
   });
