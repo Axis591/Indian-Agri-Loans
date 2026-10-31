@@ -1,7 +1,7 @@
 {
-  "schemaVersion": "2.5.0",
+  "schemaVersion": "3.0.0",
   "releaseDate": "2026-10-31",
-  "title": "AgriBridge all-India State/UT and District Coverage Register",
+  "title": "AgriBridge V3 all-India State/UT and District Coverage Register",
   "strategy": "All-India parallel catalogue build; grants/subsidies/insurance/benefits and finance/lending routes are tracked as equal workstreams.",
   "geography": {
     "stateAndUTCount": 36,
