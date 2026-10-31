@@ -1,4 +1,4 @@
-name: Validate AgriBridge V2.5 data
+name: Validate AgriBridge V3 release
 
 on:
   push:
@@ -20,5 +20,5 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Validate scheme, lender and geography data
-        run: node scripts/validate-v25.mjs
+      - name: Validate V3 catalogue, integrations and UI
+        run: node scripts/validate-v3.mjs
