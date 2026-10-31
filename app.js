@@ -97,7 +97,7 @@ function applicable(record,state,district){
   if(Array.isArray(record.districts)) return record.districts.some(x=>normalizedName(x)===normalizedName(district));
   return true;
 }
-function profileMatch(record,profile){ return profile==='all'||record.profiles.includes(profile); }
+function profileMatch(record,profile){ if(profile==='all')return true; if(record.profiles.includes(profile))return true; if(profile==='women_farmer')return record.profiles.some(x=>['owner','tenant','allied'].includes(x)); return false; }
 function typeClass(type){return type==='grant'?'grant':type==='loan'?'loan':type==='insurance'?'insurance':type==='pension'?'pension':type==='informal'?'informal':type==='institution'?'institution':'subsidy';}
 function typeLabel(type){return ({grant:'GRANT / DBT',loan:'LOAN / CREDIT',subsidy:'SUBSIDY / INTEREST SUPPORT',insurance:'INSURANCE',pension:'PENSION / SOCIAL SECURITY',informal:'INFORMAL · RISK',institution:'SERVICE / MARKET ACCESS'})[type]||type.toUpperCase();}
 function providerLabel(kinds=[]){const labels={'central-government':'CENTRAL GOVT','state-government':'STATE GOVT','public-bank':'PUBLIC BANK','private-bank':'PRIVATE BANK','small-finance-bank':'SMALL FINANCE BANK','rrb':'RRB','cooperative':'COOPERATIVE / PACS','regulated-nbfc':'REGULATED NBFC','local-body':'PANCHAYAT / BLOCK','informal':'INFORMAL'};return [...new Set(kinds)].map(k=>labels[k]||k.toUpperCase()).join(' · ')||'PROVIDER NOT TAGGED';}
@@ -257,7 +257,8 @@ function potentialMatches(profile,land,activity,need){
     if(!applicable(r,stateSelect.value,districtSelect.value) || r.type==='informal' || r.matchRules?.excludeFromAssistant) return false;
     const rules=r.matchRules||{};
     const allowed=rules.profiles||r.profiles||[];
-    if(!allowed.includes(profile)) return false;
+    const womenLandMatch=profile==='women_farmer'&&((land==='owner'&&allowed.includes('owner'))||((land==='tenant'||land==='sharecropper')&&allowed.includes('tenant'))||(land==='landless'&&allowed.includes('allied')));
+    if(!allowed.includes(profile)&&!womenLandMatch) return false;
     if(Array.isArray(rules.landStatus) && !rules.landStatus.includes(land)) return false;
     if(activity!=='any' && Array.isArray(rules.activities) && !rules.activities.includes(activity)) return false;
     if(need!=='all' && Array.isArray(rules.supportNeeds) && !rules.supportNeeds.includes(need)) return false;
