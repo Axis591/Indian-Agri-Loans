@@ -1109,7 +1109,8 @@
         "crop",
         "dairy",
         "poultry",
-        "allied"
+        "allied",
+        "group-business"
       ],
       "supportNeeds": [
         "loan"
@@ -4316,7 +4317,8 @@
         "poultry",
         "fisheries",
         "allied",
-        "agri-enterprise"
+        "agri-enterprise",
+        "group-business"
       ],
       "supportNeeds": [
         "loan"
