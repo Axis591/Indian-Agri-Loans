@@ -6,9 +6,13 @@ const typeSelect = $('#type-select');
 const providerSelect = $('#provider-select');
 const sortSelect = $('#sort-select');
 const recordsPromise = fetch('schemes.json').then(r => { if(!r.ok) throw new Error('Could not load scheme data'); return r.json(); });
+const lendersPromise = fetch('lenders.json').then(r => { if(!r.ok) throw new Error('Could not load lender data'); return r.json(); });
+const portalsPromise = fetch('portals.json').then(r => { if(!r.ok) throw new Error('Could not load portal data'); return r.json(); });
 const fallbackStatesPromise = fetch('geography-fallback.json').then(r => r.json());
 const districtSource = 'https://raw.githubusercontent.com/CodingMation/indian-states-districts/main/data/india_states_districts.json';
 let records = [];
+let lenders = [];
+let portals = {};
 let geography = [];
 let geographyLive = false;
 let selectedView = 'finance';
@@ -80,7 +84,7 @@ function applicable(record,state,district){
 function profileMatch(record,profile){ return profile==='all'||record.profiles.includes(profile); }
 function typeClass(type){return type==='grant'?'grant':type==='loan'?'loan':type==='insurance'?'insurance':type==='informal'?'informal':type==='institution'?'institution':'subsidy';}
 function typeLabel(type){return ({grant:'GRANT / DBT',loan:'LOAN / CREDIT',subsidy:'SUBSIDY / INTEREST SUPPORT',insurance:'INSURANCE',informal:'INFORMAL · RISK',institution:'ACCESS POINT'})[type]||type.toUpperCase();}
-function providerLabel(kinds=[]){const labels={'central-government':'CENTRAL GOVT','state-government':'STATE GOVT','public-bank':'PUBLIC BANK','private-bank':'PRIVATE BANK','rrb':'RRB','cooperative':'COOPERATIVE / PACS','regulated-nbfc':'REGULATED NBFC / MFI / SFB','local-body':'PANCHAYAT / BLOCK','informal':'INFORMAL'};return [...new Set(kinds)].map(k=>labels[k]||k.toUpperCase()).join(' · ')||'PROVIDER NOT TAGGED';}
+function providerLabel(kinds=[]){const labels={'central-government':'CENTRAL GOVT','state-government':'STATE GOVT','public-bank':'PUBLIC BANK','private-bank':'PRIVATE BANK','small-finance-bank':'SMALL FINANCE BANK','rrb':'RRB','cooperative':'COOPERATIVE / PACS','regulated-nbfc':'REGULATED NBFC','local-body':'PANCHAYAT / BLOCK','informal':'INFORMAL'};return [...new Set(kinds)].map(k=>labels[k]||k.toUpperCase()).join(' · ')||'PROVIDER NOT TAGGED';}
 function escapeHtml(value){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function card(record){
   const state=stateSelect.value;
@@ -113,11 +117,110 @@ function render(){
   $('#empty-state').classList.toggle('hidden',matched.length!==0);
   $('#coverage-warning').classList.toggle('hidden',normalizedName(state)==='west bengal');
   if(normalizedName(state)!=='west bengal'){
-    $('#coverage-warning').innerHTML=`<b>Coverage note for ${escapeHtml(state)}:</b> national programmes and lender routes are shown where relevant. State-specific schemes, district notifications, local cooperative societies and panchayat-level grants for this state have not yet been independently curated in this release. Do not interpret an empty local list as proof that no scheme exists.`;
+    $('#coverage-warning').innerHTML=`<b>Coverage note for ${escapeHtml(state)}:</b> state portal links are listed below; state-specific scheme records and district notifications are still being independently curated. Lender products remain subject to branch availability and appraisal. An empty local list does not mean no scheme exists.`;
   }
-  $('#location-summary').textContent=`Showing national and ${state} entries for ${district||'the selected state'}.`;
+  $('#location-summary').textContent=`Showing national and ${state} entries for ${district||'the selected district'}.`;
   $('#results').querySelectorAll('[data-details]').forEach(btn=>btn.addEventListener('click',()=>showDetails(btn.dataset.details)));
+  renderLocalAccess();
+  renderDirectory();
 }
+
+function currentPortal(){
+  return portals[stateSelect.value] || {
+    state:stateSelect.value,
+    agriculture:{label:'Official State Agriculture Department directory',url:'https://www.india.gov.in/category/agriculture-rural-environment/subcategory/research-marketing/details/departments-of-agriculture-of-states-and-union-territories',description:'Choose the selected State/UT to open its Agriculture Department website.'},
+    scheme:{label:'myScheme State/UT finder',url:'https://www.myscheme.gov.in/',description:'Filter government schemes by State/UT, category and eligibility.'},
+    districtDirectory:{label:'Official district website directory',url:'https://www.india.gov.in/directory/web-directory/districts'},
+    localGovernance:{label:'eGramSwaraj / Panchayat directory',url:'https://egramswaraj.gov.in/'},
+    cooperative:{label:'Kisan Rin Portal — cooperative and bank channels',url:'https://fasalrin.gov.in/'}
+  };
+}
+function currentDistrictPortal(){
+  const p=currentPortal();
+  const direct=(p.districts||{})[districtSelect.value];
+  if(direct) return {label:districtSelect.value+' District Administration',url:direct,description:'Direct district administration website listed by the State Government.'};
+  return {label:districtSelect.value+' — official district website directory',url:p.districtDirectory?.url||'https://www.india.gov.in/directory/web-directory/districts',description:'Open the Government of India district web directory and choose '+districtSelect.value+' under '+stateSelect.value+'. This district host has not been separately validated in this register.'};
+}
+function safeLink(label,url){
+  return '<a href="'+escapeHtml(url)+'" target="_blank" rel="noopener noreferrer">'+escapeHtml(label)+' ↗</a>';
+}
+function renderLocalAccess(){
+  const node=$('#route-list');
+  if(!node) return;
+  const p=currentPortal();
+  const d=currentDistrictPortal();
+  const steps=[
+    {title:'State Agriculture Department — '+stateSelect.value,copy:p.agriculture?.description||'Official department information and current scheme notices for the selected State/UT.',label:p.agriculture?.label||'Open state department',url:p.agriculture?.url},
+    {title:'District Administration — '+districtSelect.value,copy:d.description,label:d.label,url:d.url},
+    {title:(p.localGovernance?.label||'Panchayat / Block / local government')+' — '+districtSelect.value,copy:p.localGovernance?.description||'Use the local-government directory to identify the Gram Panchayat, block/BDO and local department contact. Panchayats do not offer one universal all-India farmer loan.',label:p.localGovernance?.linkLabel||'Open Panchayat portal',url:p.localGovernance?.url||'https://egramswaraj.gov.in/'},
+    {title:p.cooperative?.label||'PACS / Cooperative bank / RRB — '+stateSelect.value,copy:p.cooperative?.description||'Use the State Cooperation Department or Kisan Rin Portal to identify banks and PACS. Confirm membership and local credit terms.',label:p.cooperative?.linkLabel||'Find credit channels',url:p.cooperative?.url||'https://fasalrin.gov.in/'},
+    {title:p.scheme?.label||'State scheme application portal',copy:p.scheme?.description||'Check current application windows, eligibility, documents and district notifications.',label:p.scheme?.linkLabel||'Open scheme portal',url:p.scheme?.url||'https://www.myscheme.gov.in/'},
+    {title:'KCC / Banks / regulated finance providers',copy:'Compare KCC, crop, allied and investment credit. Verify NBFC registration, APR, fees and Key Fact Statement before signing.',label:'Open Kisan Rin Portal',url:'https://fasalrin.gov.in/'}
+  ];
+  if(p.facilitation) steps.splice(4,0,{title:p.facilitation.label,copy:p.facilitation.description,label:'Open facilitation portal',url:p.facilitation.url});
+  node.innerHTML=steps.map((s,i)=>'<div class="route-step"><span>'+String(i+1).padStart(2,'0')+'</span><div><b>'+escapeHtml(s.title)+'</b><small>'+escapeHtml(s.copy)+'</small></div>'+safeLink(s.label,s.url)+'</div>').join('');
+}
+function matchesLenderState(lender){
+  return lender.states==='all'||(Array.isArray(lender.states)&&lender.states.some(s=>normalizedName(s)===normalizedName(stateSelect.value)));
+}
+function lenderCard(l){
+  const amount=escapeHtml(l.amount||'Not published — confirm with lender');
+  const price=escapeHtml(l.rate||'Rate not published on linked page');
+  const cats=(l.providerKinds||[]).map(x=>providerLabel([x])).join(' · ');
+  return '<article class="lender-card"><div class="card-category"><span class="pill">'+cats+'</span><span class="pill">'+escapeHtml(l.scopeLabel||'PAN INDIA')+'</span></div><h4>'+escapeHtml(l.name)+'</h4><div class="lender-product">'+escapeHtml(l.product||'Agriculture finance')+'</div><p>'+escapeHtml(l.summary)+'</p><div class="lender-facts"><div class="lender-fact"><small>AMOUNT / LIMIT</small><b>'+amount+'</b></div><div class="lender-fact"><small>INTEREST / PRICING</small><b>'+price+'</b></div><div class="lender-fact"><small>ELIGIBLE BORROWER</small><b>'+escapeHtml(l.borrower||'Subject to product criteria')+'</b></div><div class="lender-fact"><small>AVAILABILITY</small><b>'+escapeHtml(l.availability||'Branch and appraisal dependent')+'</b></div></div><div class="lender-footer"><small>'+escapeHtml(l.reviewNote||'Check the product page for current terms.')+'</small><div class="lender-buttons"><button class="details-btn" data-lender-details="'+escapeHtml(l.id)+'">Process & documents</button><a class="apply-btn" href="'+escapeHtml(l.applyUrl||l.sourceUrl)+'" target="_blank" rel="noopener noreferrer">'+escapeHtml(l.applyLabel||'Apply / enquire')+' ↗</a></div></div></article>';
+}
+function renderDirectory(){
+  if(!$('#directory-schemes')) return;
+  const state=stateSelect.value, district=districtSelect.value;
+  const query=normalizedName($('#directory-search')?.value||'');
+  const type=$('#directory-type')?.value||'all';
+  const provider=$('#directory-provider')?.value||'all';
+  const schemeHits=records.filter(r=>{
+    if(!applicable(r,state,district)||!profileMatch(r,profileSelect.value)) return false;
+    if(type!=='all'&&r.type!==type) return false;
+    if(provider!=='all'&&!(r.providerKinds||[]).includes(provider)) return false;
+    if(!query) return true;
+    return normalizedName([r.name,r.category,r.summary,r.eligibility,r.amount,(r.keywords||[]).join(' ')].join(' ')).includes(query);
+  });
+  $('#directory-location').textContent='Currently showing '+district+', '+state+'. National records are included where applicable; state/district entries are restricted to their stated coverage.';
+  $('#directory-scheme-count').textContent=schemeHits.length;
+  $('#directory-schemes').innerHTML=schemeHits.length?schemeHits.map(card).join(''):'<div class="no-directory-results">No matching scheme records are catalogued for this location yet. Open the State/District portals below to check current notices.</div>';
+  $('#directory-schemes').querySelectorAll('[data-details]').forEach(btn=>btn.addEventListener('click',()=>showDetails(btn.dataset.details)));
+  const lenderHits=lenders.filter(l=>{
+    if(!matchesLenderState(l)) return false;
+    if(provider!=='all'&&!(l.providerKinds||[]).includes(provider)) return false;
+    if(!query) return true;
+    return normalizedName([l.name,l.product,l.summary,l.borrower,l.purpose,(l.keywords||[]).join(' ')].join(' ')).includes(query);
+  });
+  $('#directory-lender-count').textContent=lenderHits.length;
+  $('#lender-grid').innerHTML=lenderHits.length?lenderHits.map(lenderCard).join(''):'<div class="no-directory-results">No lender products match those filters. Try another provider category or search term.</div>';
+  $('#lender-grid').querySelectorAll('[data-lender-details]').forEach(btn=>btn.addEventListener('click',()=>showLenderDetails(btn.dataset.lenderDetails)));
+  const p=currentPortal(), d=currentDistrictPortal();
+  const portalItems=[
+    {type:'STATE AGRICULTURE DEPARTMENT',title:p.agriculture?.label||'Agriculture Department — '+state,description:p.agriculture?.description||'Official agriculture department portal for the selected State/UT.',url:p.agriculture?.url},
+    {type:'STATE SCHEME / APPLY PORTAL',title:p.scheme?.label||'State scheme discovery',description:p.scheme?.description||'Current state applications, scheme windows and supporting documents.',url:p.scheme?.url},
+    {type:'DISTRICT ADMINISTRATION',title:d.label,description:d.description,url:d.url},
+    {type:'PANCHAYAT / BLOCK',title:p.localGovernance?.label||'Panchayat / Block directory',description:p.localGovernance?.description||'Find the local government office, Panchayat and BDO services for '+district+'.',url:p.localGovernance?.url||'https://egramswaraj.gov.in/'},
+    {type:'COOPERATIVE / PACS CREDIT',title:p.cooperative?.label||'Cooperative and KCC delivery channels',description:p.cooperative?.description||'Use the official bank/credit portal and confirm local PACS membership and credit terms.',url:p.cooperative?.url||'https://fasalrin.gov.in/'},
+    {type:'NATIONAL SCHEME DISCOVERY',title:'myScheme — '+state,description:'Search Central and State/UT schemes by location, category and eligibility.',url:'https://www.myscheme.gov.in/'}
+  ];
+  if(p.facilitation) portalItems.splice(2,0,{type:'STATE FACILITATION CENTRE',title:p.facilitation.label,description:p.facilitation.description,url:p.facilitation.url});
+  if(p.extra) p.extra.forEach(x=>portalItems.push({type:'ADDITIONAL STATE PORTAL',title:x.label,description:'Official linked State/UT agriculture, horticulture or market institution.',url:x.url}));
+  $('#directory-portals').innerHTML=portalItems.map(x=>'<article class="portal-card"><div class="portal-type">'+escapeHtml(x.type)+'</div><h4>'+escapeHtml(x.title)+'</h4><p>'+escapeHtml(x.description)+'</p>'+safeLink('Open official portal',x.url)+'</article>').join('');
+}
+function showLenderDetails(id){
+  const l=lenders.find(x=>x.id===id); if(!l) return;
+  $('#dialog-kicker').textContent=(l.providerKinds||[]).map(x=>providerLabel([x])).join(' · ')+' · '+(l.product||'AGRICULTURE FINANCE');
+  $('#dialog-title').textContent=l.name+' — '+l.product;
+  const makeList=items=>Array.isArray(items)?items.map(x=>'<li>'+escapeHtml(x)+'</li>').join(''):'';
+  const terms=l.terms?'<div class="detail-section"><h4>Loan terms</h4><p>'+escapeHtml(l.terms)+'</p></div>':'';
+  const docs=l.documents?.length?'<div class="detail-section"><h4>Typical documents</h4><ul>'+makeList(l.documents)+'</ul></div>':'';
+  const steps=l.process?.length?'<div class="detail-section"><h4>How to apply</h4><ol>'+makeList(l.process)+'</ol></div>':'';
+  const sources=(l.sources||[]).map(s=>'<a href="'+escapeHtml(s.url)+'" target="_blank" rel="noopener noreferrer">'+escapeHtml(s.label)+' ↗</a>').join(' ');
+  $('#dialog-body').innerHTML='<div class="detail-section"><h4>Loan amount / facility</h4><p><b>'+escapeHtml(l.amount||'Not published')+'</b><br>'+escapeHtml(l.amountNote||'Final amount depends on lender appraisal and current policy.')+'</p></div><div class="detail-section"><h4>Purpose</h4><p>'+escapeHtml(l.purpose||l.summary)+'</p></div><div class="detail-section"><h4>Eligibility</h4><p>'+escapeHtml(l.eligibility||l.borrower||'Subject to lender policy.')+'</p></div>'+terms+docs+steps+'<div class="detail-caution"><b>Important:</b> '+escapeHtml(l.caution||'Confirm current APR, fees, security, repayment schedule and Key Fact Statement before accepting a loan.')+'</div><div class="dialog-links"><a href="'+escapeHtml(l.applyUrl||l.sourceUrl)+'" target="_blank" rel="noopener noreferrer">Apply / enquire ↗</a><a href="'+escapeHtml(l.sourceUrl)+'" target="_blank" rel="noopener noreferrer">Official product source ↗</a></div><div class="detail-section"><h4>Source register</h4><p>'+sources+'</p></div><p style="font-size:8px;color:#929b94;margin-top:12px">Last reviewed: '+escapeHtml(l.reviewDate||'31 Oct 2026')+'. Rates, eligibility, fees, geography and sanctions can change; verify directly with the provider.</p>';
+  $('#detail-dialog').showModal();
+}
+
 function scopeRank(r){return r.scope==='district'?0:r.scope==='state'?1:r.scope==='national'?2:3;}
 function showDetails(id){
   const r=records.find(x=>x.id===id);if(!r)return;
@@ -147,8 +250,10 @@ function switchView(view){
   document.querySelectorAll('.nav-item').forEach(b=>b.classList.toggle('active',b.dataset.view===view));
 }
 
-Promise.all([recordsPromise,loadGeography()]).then(([data])=>{
+Promise.all([recordsPromise,lendersPromise,portalsPromise,loadGeography()]).then(([data,lenderData,portalData])=>{
   records=data;
+  lenders=lenderData;
+  portals=portalData;
   render();
 }).catch(err=>{
   console.error(err);
@@ -160,7 +265,10 @@ profileSelect.addEventListener('change',render);
 typeSelect.addEventListener('change',render);
 providerSelect.addEventListener('change',render);
 sortSelect.addEventListener('change',render);
+['directory-search','directory-type','directory-provider'].forEach(id=>$('#'+id)?.addEventListener('input',renderDirectory));
+$('#directory-type')?.addEventListener('change',renderDirectory);
+$('#directory-provider')?.addEventListener('change',renderDirectory);
 $('#reset-filters').addEventListener('click',()=>{stateSelect.value='West Bengal';profileSelect.value='all';typeSelect.value='all';providerSelect.value='all';sortSelect.value='relevance';populateDistricts('Paschim Medinipur');});
-document.querySelectorAll('.nav-item').forEach(btn=>btn.addEventListener('click',()=>switchView(btn.dataset.view)));
+document.querySelectorAll('.nav-item').forEach(btn=>btn.addEventListener('click',()=>{switchView(btn.dataset.view);if(btn.dataset.view==='directory')renderDirectory();}));
 $('#dialog-close').addEventListener('click',()=>$('#detail-dialog').close());
 $('#detail-dialog').addEventListener('click',e=>{if(e.target===$('#detail-dialog'))$('#detail-dialog').close();});
