@@ -5,8 +5,8 @@ const profileSelect = $('#profile-select');
 const typeSelect = $('#type-select');
 const providerSelect = $('#provider-select');
 const sortSelect = $('#sort-select');
-const recordsPromise = fetch('data/schemes.json').then(r => { if(!r.ok) throw new Error('Could not load scheme data'); return r.json(); });
-const fallbackStatesPromise = fetch('data/geography-fallback.json').then(r => r.json());
+const recordsPromise = fetch('schemes.json').then(r => { if(!r.ok) throw new Error('Could not load scheme data'); return r.json(); });
+const fallbackStatesPromise = fetch('geography-fallback.json').then(r => r.json());
 const districtSource = 'https://raw.githubusercontent.com/CodingMation/indian-states-districts/main/data/india_states_districts.json';
 let records = [];
 let geography = [];
@@ -149,7 +149,7 @@ Promise.all([recordsPromise,loadGeography()]).then(([data])=>{
   render();
 }).catch(err=>{
   console.error(err);
-  $('#results').innerHTML='<div class="empty-state"><h3>Directory data could not be loaded</h3><p>Check that the project is being served from its root folder and that data/schemes.json is available.</p></div>';
+  $('#results').innerHTML='<div class="empty-state"><h3>Directory data could not be loaded</h3><p>Check that the project is being served from its root folder and that schemes.json is available.</p></div>';
 });
 stateSelect.addEventListener('change',()=>populateDistricts());
 districtSelect.addEventListener('change',render);
