@@ -19,7 +19,7 @@ This is a source-linked starter release, not yet an exhaustive verified catalogu
 ## Features
 
 - State → District selector, 36 States and Union Territories.
-- District list loaded from a public JSON directory; Paschim Medinipur fallback is included for offline use.
+- District list loaded from a public JSON directory with a bundled fallback covering 36 States/UTs and 779 district entries.
 - Filter by farmer profile, support type and provider/delivery level (central/state government, public/private bank, RRB, cooperative/PACS, regulated NBFC/MFI/SFB and Panchayat/block access).
 - Individual detail panels with amount/loan quantum, eligibility, application steps, links and caveats.
 - Dedicated market-access section linking to Agmarknet, e-NAM, MSP information and SFAC.
