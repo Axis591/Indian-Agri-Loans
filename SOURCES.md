@@ -109,3 +109,39 @@
 - RBI digital lending safety: https://www.rbi.org.in/commonman/images/FAME202426022024.pdf — verify a digital loan app against the bank/NBFC's own website; compare APR and read the Key Fact Statement; avoid unsolicited links.
 - Kisan Rin Portal: https://fasalrin.gov.in/ — national KCC information and institutional delivery-channel discovery.
 - eGramSwaraj: https://egramswaraj.gov.in/ — Panchayat governance/finance information; not a farmer loan scheme.
+
+
+## Regional Rural Banks (RRBs) — official Government list
+
+The Department of Financial Services, Ministry of Finance, publishes the current list of 28 functioning RRBs with State/UT, sponsor bank and official website:
+https://financialservices.gov.in/list-rrbs-functioning-country
+
+The official table is the source for all 28 RRB names and website URLs stored in `portals.json` and `lenders.json`. The Government states that 28 RRBs operate across 28 States/UTs, with more than 22,000 branches in over 700 districts. This is a state-level directory; the existence of an RRB in a State does not guarantee a branch in every selected district.
+
+For KCC terms and eligibility, use:
+- DFS Agriculture Credit: https://financialservices.gov.in/agriculture-credit
+- Kisan Rin Portal: https://fasalrin.gov.in/
+- KCC scheme page: https://www.myscheme.gov.in/schemes/kcc
+
+**West Bengal Gramin Bank — Bangiya Kisan Credit Card:** https://www.wbgb.bank.in/Bangiya-Kishan-Credit-Card.aspx. Its official product page states the purpose, area of operation through rural/semi-urban branches and eligible owner cultivator/sharecropper/bargadar and allied activity borrower categories.
+
+## Cooperative credit structure
+
+The DFS Agriculture Credit FAQ describes the Short-Term Cooperative Credit Structure as State Cooperative Banks (StCBs) at State level, District Central Cooperative Banks (DCCBs) at district level and PACS at village level. It also explains that PACS are not automatically banks under the Banking Regulation Act:
+https://financialservices.gov.in/agriculture-credit
+
+Kisan Rin Portal lists commercial, rural and cooperative bank delivery channels and KCC information:
+https://fasalrin.gov.in/
+
+West Bengal Cooperative Credit Structure:
+https://cooperation.wb.gov.in/Short-Term-Cooperative-Credit-Structure
+
+## NBFC-MFI product — Satin Creditcare
+
+Satin Creditcare's official product portfolio includes its Income Generation Loan for activities including Agriculture, with a published loan size ₹20,000–₹1,25,000 and 12–48 month tenure. The same page publishes month-specific interest rates and processing fee ranges; the lender catalogue captures the latest displayed month and instructs users to obtain the borrower-level KFS:
+https://satincreditcare.com/product-portfolio/
+
+RBI NBFC register for legal-entity verification:
+https://www.rbi.org.in/Scripts/BS_NBFCList.aspx
+
+Microfinance pricing can be materially higher than KCC. The product is therefore labelled JLG microcredit, not a subsidised crop loan, and its targeted borrower group and affordability caveats are shown.
