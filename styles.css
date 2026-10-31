@@ -46,3 +46,87 @@
 .filter-note{font-size:8px;line-height:1.35;color:#8a948d}
 
 .lender-sponsor{font-size:8px;color:#869187;margin-top:5px}
+
+/* AgriBridge V2: guided farmer assistance and NGO pilot workspace */
+.assistant-notice,.ngo-safety{background:#f6f0e2;border:1px solid #eadfc4;color:#725e3e;border-radius:10px;padding:13px 15px;font-size:10px;line-height:1.6;margin:0 0 15px}
+.assistant-layout{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(260px,.8fr);gap:14px;align-items:start}
+.assistant-form,.assistant-side-card,.ngo-card{background:#fff;border:1px solid var(--line);border-radius:13px;padding:19px}
+.assistant-form-head{display:flex;align-items:center;gap:11px;border-bottom:1px solid #edf0eb;padding-bottom:14px;margin-bottom:14px}
+.assistant-form-head b{display:block;font-size:12px}
+.assistant-form-head small{display:block;font-size:9px;color:#8a948d;margin-top:3px}
+.assistant-location{background:#edf3eb;color:#446b50;border-radius:7px;padding:10px 12px;font-size:10px;font-weight:700;margin-bottom:14px}
+.assistant-field{display:grid;gap:7px;margin:0 0 13px}
+.assistant-field span,.ngo-metric-grid label,.ngo-followup-form label{font-size:8px;letter-spacing:.7px;color:#839087;font-weight:700}
+.assistant-field select,.ngo-followup-form input,.ngo-followup-form select,.ngo-metric-grid input{width:100%;height:39px;border:1px solid #e3e9e1;background:#fbfcfa;border-radius:7px;padding:0 10px;color:#30483a;font:600 10px 'DM Sans',sans-serif;outline:none;margin-top:6px}
+.assistant-form-actions,.ngo-actions{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-top:15px}
+.primary-action,.secondary-action{border:0;border-radius:7px;padding:10px 13px;font:700 10px 'DM Sans',sans-serif;cursor:pointer}
+.primary-action{background:#214d39;color:#fff}
+.primary-action:hover{background:#173d30}
+.secondary-action{background:#eef3eb;color:#49694f;border:1px solid #e0e8dd}
+.assistant-privacy,.ngo-help{font-size:9px;line-height:1.55;color:#839087;margin:13px 0 0}
+.assistant-side{display:grid;gap:12px}
+.assistant-side-card h3{font:800 15px Manrope;margin:6px 0 9px}
+.assistant-side-card ol{padding-left:17px;color:#718076;font-size:10px;line-height:1.65;margin:0}
+.assistant-benefit{border-top:1px solid #edf0eb;padding:10px 0}
+.assistant-benefit b{font-size:10px;display:block}
+.assistant-benefit small{font-size:9px;color:#859188}
+.eligibility-output{margin-top:20px}
+.eligibility-empty{background:#fff;border:1px dashed #d6e0d5;border-radius:12px;padding:24px;text-align:center;display:grid;gap:6px;color:#718076;font-size:10px}
+.eligibility-empty b{color:#30493a;font-size:12px}
+.eligibility-results-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:12px}
+.eligibility-results-head h3{font:800 18px Manrope;margin:4px 0}
+.eligibility-results-head p{font-size:10px;color:#7e8b82;margin:0}
+.eligibility-results-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.eligibility-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px;min-width:0}
+.eligibility-card-top{display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap}
+.match-status{font-size:8px;color:#507658;background:#edf4ed;border-radius:20px;padding:5px 7px;font-weight:700}
+.eligibility-card h3{font:800 15px Manrope;margin:11px 0 5px}
+.eligibility-card>p{font-size:10px;color:#78857c;line-height:1.55;margin:0 0 11px}
+.eligibility-amount{background:#f7f9f5;border:1px solid #edf0e9;border-radius:8px;padding:10px;display:grid;gap:4px;margin-bottom:11px}
+.eligibility-amount small{font-size:7px;letter-spacing:.8px;color:#879289;font-weight:700}
+.eligibility-amount b{font:800 14px Manrope;color:#274d37}
+.eligibility-amount span{font-size:9px;line-height:1.45;color:#77857b}
+.eligibility-two-col{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.eligibility-two-col>div{min-width:0}
+.eligibility-two-col h4,.checklist-details summary{font:700 9px 'DM Sans',sans-serif;color:#385541;margin:0 0 5px}
+.eligibility-two-col p,.eligibility-two-col ul,.checklist-details ul{font-size:9px;line-height:1.5;color:#77857c;margin:0;padding-left:15px}
+.checklist-details{border-top:1px solid #edf0eb;margin-top:11px;padding-top:10px}
+.checklist-details summary{cursor:pointer;list-style:none}
+.checklist-details summary:after{content:' +';color:#66836c}
+.checklist-details[open] summary:after{content:' −'}
+.checklist-details ul{margin-top:8px}
+.eligibility-card-foot{display:flex;align-items:center;justify-content:space-between;gap:9px;border-top:1px solid #edf0eb;padding-top:11px;margin-top:12px}
+.eligibility-card-foot small{font-size:8px;color:#8b958d}
+.eligibility-card-foot>div{display:flex;gap:7px;align-items:center;flex-wrap:wrap}
+.eligibility-card-foot .apply-btn{font-size:8px}
+.ngo-overview{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:11px;margin:0 0 14px}
+.ngo-overview article{background:#fff;border:1px solid var(--line);border-radius:10px;padding:14px}
+.ngo-overview small{display:block;font-size:7px;letter-spacing:.8px;color:#89948d;font-weight:700}
+.ngo-overview strong{display:block;font:800 22px Manrope;color:#214632;margin:5px 0 2px}
+.ngo-overview span{font-size:8px;color:#839087}
+.ngo-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:13px;align-items:start}
+.ngo-card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:8px}
+.ngo-card-head h3,.ngo-next-phase h3{font:800 16px Manrope;margin:5px 0}
+.ngo-local-tag{font-size:8px;border-radius:20px;padding:6px 8px;background:#edf3eb;color:#52745b;white-space:nowrap}
+.ngo-metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:14px}
+.ngo-metric-grid label{display:block}
+.ngo-metric-grid input{display:block}
+.ngo-save-status{font-size:9px;color:#819086}
+.ngo-followup-form{display:grid;gap:10px;margin-top:13px}
+.ngo-followup-form label{display:block}
+.ngo-followup-form input,.ngo-followup-form select{display:block}
+.ngo-two-fields{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.ngo-followups{margin-top:14px}
+.ngo-followup-list{overflow:auto}
+.ngo-table-wrap{overflow:auto}
+.ngo-table{width:100%;border-collapse:collapse;min-width:650px}
+.ngo-table th{font-size:8px;letter-spacing:.7px;text-align:left;color:#839087;padding:10px;border-bottom:1px solid #e7ede6}
+.ngo-table td{font-size:9px;color:#596a5e;padding:10px;border-bottom:1px solid #eef1ec}
+.ngo-stage{display:inline-block;border-radius:20px;background:#edf3eb;padding:5px 7px;color:#526f57;font-size:8px}
+.ngo-remove{border:0;background:#f7eae5;color:#a35e49;border-radius:6px;width:25px;height:25px;cursor:pointer}
+.ngo-architecture{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0}
+.ngo-architecture span{background:#f1f5ef;border:1px solid #e5ece2;border-radius:7px;padding:9px;font-size:9px;color:#4f6955}
+.ngo-architecture b{color:#b08e4c}
+.ngo-next-phase{margin-top:14px}
+@media(max-width:1000px){.assistant-layout,.ngo-layout{grid-template-columns:1fr}.eligibility-results-grid{grid-template-columns:1fr}.ngo-overview{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.assistant-form,.assistant-side-card,.ngo-card{padding:14px}.eligibility-results-head{align-items:flex-start;flex-direction:column}.eligibility-two-col{grid-template-columns:1fr}.eligibility-card-foot{align-items:flex-start;flex-direction:column}.ngo-overview{grid-template-columns:1fr 1fr}.ngo-metric-grid{grid-template-columns:1fr}.ngo-two-fields{grid-template-columns:1fr}}
