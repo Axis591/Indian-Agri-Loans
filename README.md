@@ -1,5 +1,10 @@
 # Indian Agri Market & Loans
 
+> **Public portal:** [https://axis591.github.io/Indian-Agri-Loans/](https://axis591.github.io/Indian-Agri-Loans/)
+
+This repository publishes a free-to-access, public information directory for farmers. Visitors can open the portal without a GitHub account. The GitHub repository is public and the site is deployed through GitHub Pages.
+
+
 A static, GitHub Pages-ready directory for discovering farmer grants, subsidies, crop insurance, cooperative loans, private-bank finance and market-access resources across India.
 
 > **Repository slug:** `Indian-Agri-Loans` (GitHub repository names cannot contain spaces). The product title shown in the interface remains **Indian Agri Market and Loans**.
@@ -15,6 +20,21 @@ This is a source-linked starter release, not yet an exhaustive verified catalogu
 - **Formal rural channels:** RRBs, cooperative banks/PACS, public/private banks and regulated NBFC/MFI routes are identified separately. “Semi-private” is not treated as one legal lender category.
 - **Informal finance:** described as a risk category, not recommended or represented as an approved scheme.
 - **Other States/UTs:** national programmes are shown. State-specific and district-specific records are explicitly marked as research pending rather than fabricated.
+
+## Public portal
+
+**Open the live portal:** https://axis591.github.io/Indian-Agri-Loans/
+
+No sign-in is required to browse the public directory. Farmers can:
+1. Select their State/UT and District on the Finance Finder page.
+2. Filter programme records by farmer profile, support type and programme delivery level.
+3. Open **Schemes & Lenders** for bank, RRB, cooperative, Small Finance Bank and NBFC product details, typical documents, application steps and official links.
+4. Open **Market Access** for official mandi, e-trading, procurement and FPO resources.
+5. Verify live scheme windows and lending terms with the implementing department or lender before applying.
+
+The portal is an independent information directory, not a government website, bank, lender, broker, application authority or eligibility decision service. It does not collect applications, Aadhaar, bank account information, passwords, OTPs or personal financial data. Applications are submitted only through the linked official provider channels.
+
+To report an inaccurate or outdated listing, use the repository's **Issues** tab and include the State, District, record name and official source URL. Please do not post personal documents or sensitive financial information.
 
 ## Features
 
