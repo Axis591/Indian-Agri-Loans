@@ -51,7 +51,7 @@ for (const row of districtRows) {
   const state = states.get(stateCode);
   if (state.name !== stateName) throw new Error(`Conflicting state name for stateCode ${stateCode}.`);
   if (state.districts.has(districtCode)) throw new Error(`Duplicate LGD district code: ${districtCode}.`);
-  state.districts.set(districtCode, { code: districtCode, name: districtName, subdistricts: [], villageCount: 0, localBodyCount: 0 });
+  state.districts.set(districtCode, { code: districtCode, name: districtName, subdistricts: [], villageCount: 0, localBodyCount: null });
 }
 const districtByCode = new Map();
 for (const state of states.values()) for (const district of state.districts.values()) districtByCode.set(district.code, district);
