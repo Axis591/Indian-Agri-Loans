@@ -1,11 +1,11 @@
 # Indian Agri Market & Loans
 
-> **Public portal:** [https://axis591.github.io/Indian-Agri-Loans/](https://axis591.github.io/Indian-Agri-Loans/)
+> **Public portal:** [https://indian-agri-loans.pages.dev/](https://indian-agri-loans.pages.dev/)
 
-This repository publishes a free-to-access, public information directory for farmers. Visitors can open the portal without a GitHub account. The GitHub repository is public and the site is deployed through GitHub Pages.
+This repository publishes a free-to-access, public information directory for farmers. Visitors can open the portal without a GitHub account. The GitHub repository is public and the live public site is hosted on Cloudflare Pages. GitHub Pages remains available as a backup.
 
 
-A static, GitHub Pages-ready directory for discovering farmer grants, subsidies, crop insurance, cooperative loans, private-bank finance and market-access resources across India.
+A static, Cloudflare Pages-hosted and GitHub Pages-compatible directory for discovering farmer grants, subsidies, crop insurance, cooperative loans, private-bank finance and market-access resources across India.
 
 > **Repository slug:** `Indian-Agri-Loans` (GitHub repository names cannot contain spaces). The product title shown in the interface remains **Indian Agri Market and Loans**.
 
@@ -23,7 +23,7 @@ This is a source-linked starter release, not yet an exhaustive verified catalogu
 
 ## Public portal
 
-**Open the live portal:** https://axis591.github.io/Indian-Agri-Loans/
+**Open the live portal:** https://indian-agri-loans.pages.dev/
 
 No sign-in is required to browse the public directory. Farmers can:
 1. Select their State/UT and District on the Finance Finder page.
@@ -118,3 +118,21 @@ This is a verified-source starter directory, not every lending product, branch o
 The official Department of Financial Services list currently identifies 28 Regional Rural Banks and publishes each bank's official website. `portals.json` maps these RRBs to the corresponding State/UT; `lenders.json` carries an individual KCC/agriculture-credit entry for each. Where a State/UT does not have an RRB in the official list, the application routes to the national Kisan Rin Portal instead.
 
 The cooperative catalogue separates the national State Cooperative Bank → DCCB → PACS structure from the West Bengal cooperative credit route. PACS membership, financing DCCB, district crop Scale of Finance and actual loan windows must be checked locally.
+
+
+## AgriBridge V2 — Farmer assistance and NGO pilot
+
+- **Find My Support:** a browser-side eligibility shortlist that uses selected State/District, applicant type, land/cultivation status, activity and support need. It returns potential matches only; it is not an official eligibility decision or approval.
+- **Document checklists:** common scheme-specific documents and source/verification notes appear in scheme detail panels and eligibility results. The latest official notice takes precedence.
+- **NGO Connect (pilot):** local aggregate project metrics and anonymised internal follow-up references. Data is saved only in the current browser using local storage; there is no organisation login, shared database or cloud synchronisation.
+- **Privacy guardrail:** never enter farmer names, mobile numbers, Aadhaar, bank details, OTPs, passwords or identity-document scans in the NGO pilot. Live multi-user case management requires a secure authenticated backend, organisation-level permissions, consent records, encrypted storage, audit logging, retention/deletion controls and a privacy review.
+- **Eligibility matching limitations:** the assistant filters the current 17 scheme records using declared profile, location, activity and support tags. It cannot verify a farmer's full legal/financial circumstances, current crop notification, bank credit appraisal, local beneficiary target or application window. Final checks remain with the implementing authority or lender.
+- **Live public portal:** https://indian-agri-loans.pages.dev/
+
+### Verification states
+
+- **Official source checked:** the primary portal/guidance was checked on the date shown in the record. This does not mean every district window is open.
+- **Source linked — recheck current rules:** a primary source is linked, but the latest local notification or operational circular has not been independently checked for every jurisdiction.
+- **Seasonal / local verification required:** crop, district, season, block target, local PACS or lender branch must be confirmed before applying.
+
+The first release explicitly marks PM-KISAN, DFS KCC guidance and the PMFBY FAQ as checked on 31 October 2026. Other records remain source-linked and subject to current-notice verification.
