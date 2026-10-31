@@ -865,7 +865,8 @@
       "agriculture loan",
       "andhra pradesh",
       "union bank of india"
-    ]
+    ],
+    "sponsorBank": "Union Bank of India"
   },
   {
     "id": "rrb-arunachal-pradesh",
@@ -932,7 +933,8 @@
       "agriculture loan",
       "arunachal pradesh",
       "state bank of india"
-    ]
+    ],
+    "sponsorBank": "State Bank of India"
   },
   {
     "id": "rrb-assam",
@@ -999,7 +1001,8 @@
       "agriculture loan",
       "assam",
       "punjab national bank"
-    ]
+    ],
+    "sponsorBank": "Punjab National Bank"
   },
   {
     "id": "rrb-bihar",
@@ -1066,7 +1069,8 @@
       "agriculture loan",
       "bihar",
       "punjab national bank"
-    ]
+    ],
+    "sponsorBank": "Punjab National Bank"
   },
   {
     "id": "rrb-chhattisgarh",
@@ -1133,7 +1137,8 @@
       "agriculture loan",
       "chhattisgarh",
       "state bank of india"
-    ]
+    ],
+    "sponsorBank": "State Bank of India"
   },
   {
     "id": "rrb-gujarat",
@@ -1200,7 +1205,8 @@
       "agriculture loan",
       "gujarat",
       "bank of baroda"
-    ]
+    ],
+    "sponsorBank": "Bank of Baroda"
   },
   {
     "id": "rrb-haryana",
@@ -1267,7 +1273,8 @@
       "agriculture loan",
       "haryana",
       "punjab national bank"
-    ]
+    ],
+    "sponsorBank": "Punjab National Bank"
   },
   {
     "id": "rrb-himachal-pradesh",
@@ -1334,7 +1341,8 @@
       "agriculture loan",
       "himachal pradesh",
       "punjab national bank"
-    ]
+    ],
+    "sponsorBank": "Punjab National Bank"
   },
   {
     "id": "rrb-jammu-and-kashmir",
@@ -1401,7 +1409,8 @@
       "agriculture loan",
       "jammu and kashmir",
       "jammu & kashmir bank"
-    ]
+    ],
+    "sponsorBank": "Jammu & Kashmir Bank"
   },
   {
     "id": "rrb-jharkhand",
@@ -1468,7 +1477,8 @@
       "agriculture loan",
       "jharkhand",
       "state bank of india"
-    ]
+    ],
+    "sponsorBank": "State Bank of India"
   },
   {
     "id": "rrb-karnataka",
@@ -1535,7 +1545,8 @@
       "agriculture loan",
       "karnataka",
       "canara bank"
-    ]
+    ],
+    "sponsorBank": "Canara Bank"
   },
   {
     "id": "rrb-kerala",
@@ -1602,7 +1613,8 @@
       "agriculture loan",
       "kerala",
       "canara bank"
-    ]
+    ],
+    "sponsorBank": "Canara Bank"
   },
   {
     "id": "rrb-madhya-pradesh",
@@ -1669,7 +1681,8 @@
       "agriculture loan",
       "madhya pradesh",
       "bank of india"
-    ]
+    ],
+    "sponsorBank": "Bank of India"
   },
   {
     "id": "rrb-maharashtra",
@@ -1736,7 +1749,8 @@
       "agriculture loan",
       "maharashtra",
       "bank of maharashtra"
-    ]
+    ],
+    "sponsorBank": "Bank of Maharashtra"
   },
   {
     "id": "rrb-manipur",
@@ -1803,7 +1817,8 @@
       "agriculture loan",
       "manipur",
       "punjab national bank"
-    ]
+    ],
+    "sponsorBank": "Punjab National Bank"
   },
   {
     "id": "rrb-meghalaya",
@@ -1870,7 +1885,8 @@
       "agriculture loan",
       "meghalaya",
       "state bank of india"
-    ]
+    ],
+    "sponsorBank": "State Bank of India"
   },
   {
     "id": "rrb-mizoram",
@@ -1937,7 +1953,8 @@
       "agriculture loan",
       "mizoram",
       "state bank of india"
-    ]
+    ],
+    "sponsorBank": "State Bank of India"
   },
   {
     "id": "rrb-nagaland",
@@ -2004,7 +2021,8 @@
       "agriculture loan",
       "nagaland",
       "state bank of india"
-    ]
+    ],
+    "sponsorBank": "State Bank of India"
   },
   {
     "id": "rrb-odisha",
@@ -2071,7 +2089,8 @@
       "agriculture loan",
       "odisha",
       "indian overseas bank"
-    ]
+    ],
+    "sponsorBank": "Indian Overseas Bank"
   },
   {
     "id": "rrb-puducherry",
@@ -2138,7 +2157,8 @@
       "agriculture loan",
       "puducherry",
       "indian bank"
-    ]
+    ],
+    "sponsorBank": "Indian Bank"
   },
   {
     "id": "rrb-punjab",
@@ -2205,7 +2225,8 @@
       "agriculture loan",
       "punjab",
       "punjab national bank"
-    ]
+    ],
+    "sponsorBank": "Punjab National Bank"
   },
   {
     "id": "rrb-rajasthan",
@@ -2272,7 +2293,8 @@
       "agriculture loan",
       "rajasthan",
       "state bank of india"
-    ]
+    ],
+    "sponsorBank": "State Bank of India"
   },
   {
     "id": "rrb-tamil-nadu",
@@ -2339,7 +2361,8 @@
       "agriculture loan",
       "tamil nadu",
       "indian bank"
-    ]
+    ],
+    "sponsorBank": "Indian Bank"
   },
   {
     "id": "rrb-telangana",
@@ -2406,7 +2429,8 @@
       "agriculture loan",
       "telangana",
       "state bank of india"
-    ]
+    ],
+    "sponsorBank": "State Bank of India"
   },
   {
     "id": "rrb-tripura",
@@ -2473,7 +2497,8 @@
       "agriculture loan",
       "tripura",
       "punjab national bank"
-    ]
+    ],
+    "sponsorBank": "Punjab National Bank"
   },
   {
     "id": "rrb-uttar-pradesh",
@@ -2540,7 +2565,8 @@
       "agriculture loan",
       "uttar pradesh",
       "bank of baroda"
-    ]
+    ],
+    "sponsorBank": "Bank of Baroda"
   },
   {
     "id": "rrb-uttarakhand",
@@ -2607,7 +2633,8 @@
       "agriculture loan",
       "uttarakhand",
       "state bank of india"
-    ]
+    ],
+    "sponsorBank": "State Bank of India"
   },
   {
     "id": "rrb-west-bengal",
@@ -2678,7 +2705,8 @@
       "agriculture loan",
       "west bengal",
       "punjab national bank"
-    ]
+    ],
+    "sponsorBank": "Punjab National Bank"
   },
   {
     "id": "cooperative-kcc-national",
