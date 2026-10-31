@@ -105,7 +105,7 @@ Use `CONTRIBUTING.md` and the source register in `SOURCES.md`. Priority order: o
 ## Additional data files
 
 - `portals.json`: State/UT department, application, cooperative, Panchayat/local-government and district-website routes. Includes all 36 State/UT names. State Agriculture Department links are sourced from APEDA FarmerConnect's official Useful Links directory. Verified West Bengal district websites are mapped directly; other district websites open India.gov's official district directory until the specific host is checked.
-- `lenders.json`: 15 initial bank/SFB/NBFC products. Each row stores product scope, borrower segment, published or bank-assessed quantum, interest/pricing note, terms, documents, application steps, application URL, official product sources, availability note and caveats.
+- `lenders.json`: 46 bank/SFB/RRB/cooperative/NBFC product or institution entries. Each row stores product scope, borrower segment, amount/pricing note, terms, documents, application steps, official product sources, pricing-refresh status and district-branch verification caveat.
 - Lender-category filtering applies to the lender catalogue; scheme type filtering applies to scheme records. A national lender's product page does not prove the bank has a branch in every district.
 
 ## Lender catalogue limitations
@@ -123,10 +123,10 @@ The cooperative catalogue separates the national State Cooperative Bank → DCCB
 ## AgriBridge V2 — Farmer assistance and NGO pilot
 
 - **Find My Support:** a browser-side eligibility shortlist that uses selected State/District, applicant type, land/cultivation status, activity and support need. It returns potential scheme records and profile-matched bank/RRB/cooperative/SFB/NBFC product leads only; it is not an official eligibility decision or approval.
-- **Document checklists:** common scheme-specific documents and source/verification notes appear in scheme detail panels and eligibility results. The latest official notice takes precedence.
+- **Document checklists:** scheme-specific documents and source/verification notes appear in scheme detail panels and eligibility results. The latest official notice takes precedence.
 - **NGO Connect (pilot):** local aggregate project metrics and anonymised internal follow-up references. Data is saved only in the current browser using local storage; there is no organisation login, shared database or cloud synchronisation.
 - **Privacy guardrail:** never enter farmer names, mobile numbers, Aadhaar, bank details, OTPs, passwords or identity-document scans in the NGO pilot. Live multi-user case management requires a secure authenticated backend, organisation-level permissions, consent records, encrypted storage, audit logging, retention/deletion controls and a privacy review.
-- **Eligibility matching limitations:** the assistant filters the current 17 scheme records using declared profile, location, activity and support tags. It cannot verify a farmer's full legal/financial circumstances, current crop notification, bank credit appraisal, local beneficiary target or application window. Final checks remain with the implementing authority or lender.
+- **Eligibility matching limitations:** the assistant filters the current 31 scheme/benefit records using declared profile, location, activity and support tags. It cannot verify a farmer's full legal/financial circumstances, current crop notification, bank credit appraisal, local beneficiary target or application window. Final checks remain with the implementing authority or lender.
 - **Live public portal:** https://indian-agri-loans.pages.dev/
 
 ### Verification states
