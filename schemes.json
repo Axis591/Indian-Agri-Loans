@@ -3189,5 +3189,618 @@
     "amountDisclosureStatus": "not_published",
     "sourceVerificationStatus": "official_source_checked",
     "lastReviewed": "2026-10-31"
+  },
+  {
+    "scope": "state",
+    "sourceDate": "Checked 31 Oct 2026",
+    "verification": {
+      "status": "official_source_checked",
+      "lastChecked": "2026-10-31",
+      "note": "Primary State Government source checked for this release. This does not prove an individual beneficiary's eligibility or that all districts have an open application window."
+    },
+    "recordVersion": "3.0",
+    "recordClass": "scheme_or_support",
+    "amountDisclosureStatus": "published",
+    "sourceVerificationStatus": "official_source_checked",
+    "id": "odisha-cm-kisan",
+    "name": "Odisha CM-KISAN — Cultivation & Landless Household Support",
+    "type": "grant",
+    "category": "State farmer income and livelihood support",
+    "states": [
+      "Odisha"
+    ],
+    "districts": "all",
+    "profiles": [
+      "owner",
+      "tenant",
+      "allied"
+    ],
+    "amount": "₹4,000/year for eligible rural small/marginal farmer families; ₹12,500 one-time for eligible landless agricultural households",
+    "amountStatus": "published",
+    "amountNote": "The official guideline states ₹2,000 per crop season (Kharif and Rabi), totalling ₹4,000/year for rural small/marginal farm families. It separately provides ₹12,500 one-time assistance in three instalments to eligible rural landless agricultural households. These are different beneficiary components, not a combined amount for each applicant. Current State orders govern urban inclusion and any revised rules.",
+    "summary": "Odisha State Plan Scheme supporting rural small/marginal farmers with seasonal cultivation assistance and rural landless agricultural households with one-time livelihood support for eligible allied activities.",
+    "eligibility": "Permanent resident/domicile of Odisha. Cultivation component: rural small and marginal farmers and eligible actual cultivators/sharecroppers subject to programme verification. Livelihood component: rural landless agricultural households primarily dependent on agriculture and selecting one of the approved allied livelihood units. Exclusions and documents in the current State guideline apply.",
+    "application": "https://cmkisan.odisha.gov.in/",
+    "applicationLabel": "Odisha CM-KISAN portal",
+    "source": "https://cmkisan.odisha.gov.in/pdf/CM-KISAN-Guideline.pdf",
+    "sourceLabel": "Government of Odisha — CM-KISAN guideline",
+    "sources": [
+      {
+        "label": "Government of Odisha — CM-KISAN guideline (benefit, eligibility and documents)",
+        "url": "https://cmkisan.odisha.gov.in/pdf/CM-KISAN-Guideline.pdf"
+      },
+      {
+        "label": "Government of Odisha — 2026–27 Budget speech (CM-KISAN allocation and coverage)",
+        "url": "https://assembly.odisha.gov.in/WriteReadData/News/Budget%20Speech%20English%201.pdf"
+      },
+      {
+        "label": "Chief Minister of Odisha — CM-KISAN benefit disbursement, 20 Apr 2026",
+        "url": "https://cm.odisha.gov.in/en/latest-news/honble-chief-minister-shri-mohan-charan-majhi-has-provided-financial-assistance-rs-838"
+      }
+    ],
+    "process": [
+      "Open the official CM-KISAN portal and select the appropriate component for a small/marginal farmer or landless agricultural household.",
+      "Check the current registration, beneficiary inclusion and correction window. The State guideline includes ration-card, KYC, land/actual-cultivation or MGNREGS job-card evidence depending on component.",
+      "Submit the prescribed application and bank details through the official State process or authorised facilitation channel.",
+      "Track the application and beneficiary status on the official portal. Confirm whether the selected beneficiary category and current State order permit enrolment.",
+      "For livelihood support, verify the approved activity/unit and the three-instalment release conditions before investing."
+    ],
+    "documents": [
+      "Aadhaar / KYC details as prescribed by the State",
+      "Valid ration-card evidence where required by the guideline",
+      "Savings-bank passbook / account details",
+      "Land records or accepted actual-cultivation/sharecropper evidence for the cultivation component",
+      "MGNREGS job card / landless-household evidence for the livelihood component"
+    ],
+    "caution": "Do not combine the ₹4,000 cultivation support and ₹12,500 landless livelihood support as one entitlement. The linked 2024–25 guideline contains rural-beneficiary and exclusion rules; later State orders, including urban-farmer inclusion, must be checked before applying.",
+    "keywords": [
+      "odisha cm kisan",
+      "cm-kisan",
+      "landless agriculture household",
+      "small marginal farmer",
+      "sharecropper",
+      "input assistance",
+      "livelihood support"
+    ],
+    "activityTags": [
+      "crop",
+      "dairy",
+      "fisheries",
+      "poultry",
+      "horticulture",
+      "allied",
+      "group-business"
+    ],
+    "programmeStatus": "state_scheme_guideline_and_live_window_required",
+    "programmeStatusLabel": "State guideline · beneficiary window required",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "grant"
+      ],
+      "mustVerify": [
+        "Choose the correct cultivation or landless-household component; amounts differ",
+        "Permanent Odisha domicile and current State inclusion/exclusion rules",
+        "Current portal window, actual-cultivator proof, ration-card and bank-validation rules"
+      ],
+      "status": "Potential Odisha State support; final beneficiary category and current registration window require official confirmation."
+    },
+    "lastReviewed": "2026-10-31"
+  },
+  {
+    "scope": "state",
+    "sourceDate": "Checked 31 Oct 2026",
+    "verification": {
+      "status": "official_source_checked",
+      "lastChecked": "2026-10-31",
+      "note": "Primary State Government source checked for this release. This does not prove an individual beneficiary's eligibility or that all districts have an open application window."
+    },
+    "recordVersion": "3.0",
+    "recordClass": "scheme_or_support",
+    "amountDisclosureStatus": "published",
+    "sourceVerificationStatus": "official_source_checked",
+    "id": "ap-annadatha-sukhibhava",
+    "name": "Andhra Pradesh — Annadatha Sukhibhava (with PM-KISAN)",
+    "type": "grant",
+    "category": "State agricultural investment assistance",
+    "states": [
+      "Andhra Pradesh"
+    ],
+    "districts": "all",
+    "profiles": [
+      "owner",
+      "tenant",
+      "allied"
+    ],
+    "amount": "₹20,000/year per eligible farmer family under the combined State + PM-KISAN support route",
+    "amountStatus": "published",
+    "amountNote": "The Andhra Pradesh district Agriculture Department describes ₹20,000/year per farmer family through Annadatha Sukhibhava–PM-KISAN, including the ₹6,000 Central PM-KISAN component. Do not add ₹20,000 on top of PM-KISAN: the figure is the combined support described by the State source. The same source separately describes State-budget assistance for landless cultivators; component-specific latest amounts and rules must be confirmed.",
+    "summary": "Andhra Pradesh farmer income-support programme delivered in conjunction with PM-KISAN, with State support for eligible farmer families and a separate State-budget route for landless cultivators.",
+    "eligibility": "Andhra Pradesh resident farmer families with eligible cultivable land and eligible ROFR land cultivators under current State definitions. The district Agriculture Department also describes support for landless cultivators; confirm the applicable category, land/tenant status and current beneficiary verification rules.",
+    "application": "https://annadathasukhibhava.ap.gov.in/",
+    "applicationLabel": "Annadatha Sukhibhava official portal",
+    "source": "https://tirupati.ap.gov.in/agriculture/",
+    "sourceLabel": "Tirupati District — Government of Andhra Pradesh, Agriculture Department",
+    "sources": [
+      {
+        "label": "Tirupati District, Government of Andhra Pradesh — Annadatha Sukhibhava and PM-KISAN",
+        "url": "https://tirupati.ap.gov.in/agriculture/"
+      },
+      {
+        "label": "Eluru District, Government of Andhra Pradesh — 2026–27 instalment report",
+        "url": "https://eluru.ap.gov.in/"
+      }
+    ],
+    "process": [
+      "Open the official Annadatha Sukhibhava portal and check the current farmer/beneficiary status.",
+      "Confirm that the landholding, ROFR or landless-cultivator category is accepted under the latest Andhra Pradesh instructions.",
+      "Complete the State's required KYC, land/cultivation, bank and PM-KISAN linkage/verification steps.",
+      "Use the official status/beneficiary service to resolve bank, land or eKYC mismatches.",
+      "Confirm the amount and instalment credited in the current financial year; the ₹20,000 figure in the district source includes the Central PM-KISAN component."
+    ],
+    "documents": [
+      "State-accepted farmer / cultivation / land or ROFR evidence",
+      "Aadhaar / KYC as required by the State and PM-KISAN",
+      "Bank account details and validation",
+      "Landless-cultivator or tenant documentation where applying under that component"
+    ],
+    "caution": "The public district source describes ₹20,000 as the combined Annadatha Sukhibhava–PM-KISAN annual assistance for eligible farmer families and a separate landless-cultivator route. Do not show ₹20,000 as an additional State payment on top of PM-KISAN. Current State eligibility and instalment rules take precedence.",
+    "keywords": [
+      "andhra pradesh annadatha sukhibhava",
+      "annadatha",
+      "pm kisan",
+      "income support",
+      "landless cultivator",
+      "rofr"
+    ],
+    "activityTags": [
+      "crop",
+      "horticulture",
+      "allied"
+    ],
+    "programmeStatus": "state_scheme_current_beneficiary_verification_required",
+    "programmeStatusLabel": "State benefit · beneficiary validation required",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "grant"
+      ],
+      "mustVerify": [
+        "₹20,000 figure is combined with PM-KISAN ₹6,000, not additional to it",
+        "Confirm landholder, ROFR or landless-cultivator category under current State order",
+        "Check current beneficiary status, bank seeding and instalment window"
+      ],
+      "status": "Potential Andhra Pradesh income-support route; combined amount and State beneficiary status must be checked."
+    },
+    "lastReviewed": "2026-10-31"
+  },
+  {
+    "scope": "state",
+    "sourceDate": "Checked 31 Oct 2026",
+    "verification": {
+      "status": "official_source_checked",
+      "lastChecked": "2026-10-31",
+      "note": "Primary State Government source checked for this release. This does not prove an individual beneficiary's eligibility or that all districts have an open application window."
+    },
+    "recordVersion": "3.0",
+    "recordClass": "scheme_or_support",
+    "amountDisclosureStatus": "published",
+    "sourceVerificationStatus": "official_source_checked",
+    "id": "telangana-rythu-bharosa",
+    "name": "Telangana — Rythu Bharosa",
+    "type": "grant",
+    "category": "Per-acre seasonal cultivation assistance",
+    "states": [
+      "Telangana"
+    ],
+    "districts": "all",
+    "profiles": [
+      "owner",
+      "tenant"
+    ],
+    "amount": "₹12,000 per eligible cultivated acre per year (₹6,000 per acre per crop season)",
+    "amountStatus": "published",
+    "amountNote": "Telangana's 2026 State press release confirms continuation and ₹12,000 assistance; current district government scheme pages describe ₹6,000 per acre per Kharif/Rabi season. Eligible acreage and land-use validation determine the payable amount. Linked landless-worker support is a separate programme and is not included in this per-acre figure.",
+    "summary": "Telangana State investment assistance for eligible cultivation area, released by crop season through Direct Benefit Transfer. The State reports active disbursement in June 2026.",
+    "eligibility": "Telangana resident farmer with eligible actively cultivated agricultural land under the latest State rules. State district information includes tenant farmers; registered land/cultivation proof and land-use verification are essential. Non-cultivable industrial, real-estate or other excluded parcels are not to be assumed eligible.",
+    "application": "https://www.rythubharosa.telangana.gov.in/Default_Home.aspx",
+    "applicationLabel": "Rythu Bharosa official portal",
+    "source": "https://www.telangana.gov.in/news/press-releases/2026/06/honble-chief-minister-sri-a-revanth-reddy-releases-rythu-bharosa-addresses-farmers-at-shilpakala-vedika-hyderabad/",
+    "sourceLabel": "Government of Telangana — Rythu Bharosa release, 30 June 2026",
+    "sources": [
+      {
+        "label": "Government of Telangana — 2026 Rythu Bharosa disbursement and continuation",
+        "url": "https://www.telangana.gov.in/news/press-releases/2026/06/honble-chief-minister-sri-a-revanth-reddy-releases-rythu-bharosa-addresses-farmers-at-shilpakala-vedika-hyderabad/"
+      },
+      {
+        "label": "Mulugu District, Government of Telangana — per-acre seasonal benefit and land validation",
+        "url": "https://mulugu.telangana.gov.in/scheme/rythu-bharosa-agriculture-support/"
+      },
+      {
+        "label": "Suryapet District, Government of Telangana — seasonal amount / beneficiary route",
+        "url": "https://suryapet.telangana.gov.in/scheme/rythu-bharosa/"
+      }
+    ],
+    "process": [
+      "Check the official Rythu Bharosa portal and selected State/district agriculture-office instructions.",
+      "Confirm the currently recorded cultivated land and eligible acreage in the State revenue/agriculture systems.",
+      "Complete KYC, bank validation and any tenant/registered lease or Forest Rights Act documentation accepted by the State.",
+      "Check the Kharif/Rabi season beneficiary list and per-acre amount before the seasonal release.",
+      "Resolve land, bank or cultivation-status mismatches through the Mandal Agriculture Office / relevant revenue office."
+    ],
+    "documents": [
+      "Aadhaar / State-accepted KYC",
+      "Pattadar passbook / land record or accepted registered tenancy / cultivation evidence",
+      "Bank account and DBT validation",
+      "ROFR / Forest Rights documentation, where applicable",
+      "Current season beneficiary acknowledgement"
+    ],
+    "caution": "The ₹12,000 rate is per eligible cultivated acre per year, not a flat ₹12,000 for every applicant. June 2026 State release confirms disbursement but does not replace individual acreage/land-use verification. Do not confuse this with linked landless-worker or life-insurance programmes.",
+    "keywords": [
+      "telangana rythu bharosa",
+      "rythu bharosa",
+      "per acre support",
+      "seasonal input assistance",
+      "tenant farmer",
+      "dbt"
+    ],
+    "activityTags": [
+      "crop",
+      "horticulture"
+    ],
+    "programmeStatus": "state_scheme_disbursed_2026_acreage_verification_required",
+    "programmeStatusLabel": "2026 State disbursement · acreage check required",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper"
+      ],
+      "activities": [
+        "crop",
+        "horticulture"
+      ],
+      "supportNeeds": [
+        "grant"
+      ],
+      "mustVerify": [
+        "₹12,000 is per eligible cultivated acre per year, paid by season",
+        "Current cultivated-land, State revenue and accepted tenancy/ROFR evidence",
+        "Seasonal beneficiary list, bank validation and excluded land-use rules"
+      ],
+      "status": "Potential Telangana per-acre seasonal support; final acreage and beneficiary validation required."
+    },
+    "lastReviewed": "2026-10-31"
+  },
+  {
+    "scope": "state",
+    "sourceDate": "Checked 31 Oct 2026",
+    "verification": {
+      "status": "official_source_checked",
+      "lastChecked": "2026-10-31",
+      "note": "Primary State Government source checked for this release. This does not prove an individual beneficiary's eligibility or that all districts have an open application window."
+    },
+    "recordVersion": "3.0",
+    "recordClass": "scheme_or_support",
+    "amountDisclosureStatus": "published",
+    "sourceVerificationStatus": "official_source_checked",
+    "id": "rajasthan-cm-kisan-samman",
+    "name": "Rajasthan — Chief Minister Kisan Samman Nidhi Yojana",
+    "type": "grant",
+    "category": "State income-support top-up",
+    "states": [
+      "Rajasthan"
+    ],
+    "districts": "all",
+    "profiles": [
+      "owner"
+    ],
+    "amount": "₹3,000/year State assistance (scheme amount reported in Rajasthan Economic Review 2025–26)",
+    "amountStatus": "published",
+    "amountNote": "Rajasthan's 2025–26 Economic Review says annual assistance was enhanced from ₹2,000 to ₹3,000 under the 2025–26 Budget and reports ₹1,000 per farmer under the fourth instalment. The eligibility and link to the PM-KISAN beneficiary list must be confirmed under the latest State operational order.",
+    "summary": "Rajasthan State farmer income-assistance top-up programme. The State Economic Review documents the revised annual assistance and actual disbursement.",
+    "eligibility": "Eligible Rajasthan farmer beneficiaries under the current State scheme definition. Confirm current PM-KISAN linkage, landholding and exclusion conditions with the State Agriculture Department / official beneficiary portal.",
+    "application": "https://agriculture.rajasthan.gov.in/",
+    "applicationLabel": "Rajasthan Agriculture Department / beneficiary status",
+    "source": "https://finance.rajasthan.gov.in/docs/budget/statebudget/2026-2027/Economicreviewe.pdf",
+    "sourceLabel": "Government of Rajasthan — Economic Review 2025–26",
+    "sources": [
+      {
+        "label": "Government of Rajasthan — Economic Review 2025–26, farmer welfare initiatives",
+        "url": "https://finance.rajasthan.gov.in/docs/budget/statebudget/2026-2027/Economicreviewe.pdf"
+      },
+      {
+        "label": "Rajasthan Agriculture Department",
+        "url": "https://agriculture.rajasthan.gov.in/"
+      }
+    ],
+    "process": [
+      "Use the Rajasthan Agriculture Department / official beneficiary-status route to check whether the farmer is recorded under the State programme.",
+      "Confirm current State eligibility and whether PM-KISAN enrolment/beneficiary status is a prerequisite under the latest operational order.",
+      "Complete eKYC, land verification, bank and DBT correction steps required by the authority.",
+      "Track each State instalment separately from PM-KISAN instalments and retain the credit statement/beneficiary acknowledgement.",
+      "Contact the district/block Agriculture Department if a State top-up is missing despite valid beneficiary status."
+    ],
+    "documents": [
+      "Rajasthan residence and farmer/land records as required by the current order",
+      "PM-KISAN beneficiary reference/status where required",
+      "Aadhaar/eKYC and bank account validation",
+      "State beneficiary acknowledgement / correction request"
+    ],
+    "caution": "The ₹3,000 annual figure is reported by the Rajasthan Economic Review 2025–26. It is a State scheme amount, not the combined PM-KISAN + State amount. Confirm current eligibility and enrolment rules before relying on the top-up.",
+    "keywords": [
+      "rajasthan cm kisan samman nidhi",
+      "chief minister kisan samman nidhi",
+      "state top up",
+      "dbt",
+      "farmer income support"
+    ],
+    "activityTags": [
+      "crop"
+    ],
+    "programmeStatus": "state_scheme_amount_published_current_rules_check",
+    "programmeStatusLabel": "State amount published · rules check required",
+    "matchRules": {
+      "profiles": [
+        "owner"
+      ],
+      "landStatus": [
+        "owner"
+      ],
+      "activities": [
+        "crop",
+        "horticulture"
+      ],
+      "supportNeeds": [
+        "grant"
+      ],
+      "mustVerify": [
+        "Rajasthan State annual assistance is reported as ₹3,000/year in Economic Review 2025–26",
+        "Confirm latest State operational order and PM-KISAN linkage / exclusions",
+        "Do not add the State top-up to a total without checking the State beneficiary status"
+      ],
+      "status": "Potential Rajasthan State top-up; current eligibility and beneficiary enrolment need confirmation."
+    },
+    "lastReviewed": "2026-10-31"
+  },
+  {
+    "scope": "state",
+    "sourceDate": "Checked 31 Oct 2026",
+    "verification": {
+      "status": "official_source_checked",
+      "lastChecked": "2026-10-31",
+      "note": "Primary State Government source checked for this release. This does not prove an individual beneficiary's eligibility or that all districts have an open application window."
+    },
+    "recordVersion": "3.0",
+    "recordClass": "public_service_or_access",
+    "amountDisclosureStatus": "not_published",
+    "sourceVerificationStatus": "official_source_checked",
+    "id": "maharashtra-women-farmer-certificate",
+    "name": "Maharashtra — Mahila Shetkari Women Farmer Recognition & Certificate",
+    "type": "institution",
+    "category": "Women farmer identity / access and facilitation",
+    "states": [
+      "Maharashtra"
+    ],
+    "districts": "all",
+    "profiles": [
+      "women_farmer"
+    ],
+    "amount": "Recognition / certificate service — no cash grant is stated",
+    "amountStatus": "not_published",
+    "amountNote": "This is a farmer-recognition and facilitation route, not a monetary subsidy. The portal describes a woman-farmer recognition certificate and support access; individual subsidy, insurance and loan eligibility remain governed by each separate programme.",
+    "summary": "Maharashtra's 2026 women-farmer portal explains recognition for women actively engaged in crop and allied agriculture, irrespective of whether the land is recorded in their name, and provides application, tracking and taluka/district assistance routes.",
+    "eligibility": "Woman actively engaged in agriculture/allied activities and a Maharashtra resident, aged 18 or above under the portal's published eligibility page. The portal lists landowner, valid tenant, sharecropper and agricultural-labour categories; complete identity, residence and activity proof must be checked against the Act/rules and current portal.",
+    "application": "https://mahakrushi.maharashtra.gov.in/mahila-shetkari-service/",
+    "applicationLabel": "Mahila Shetkari application / eligibility",
+    "source": "https://mahakrushi.maharashtra.gov.in/mahila-shetkari-service/",
+    "sourceLabel": "Department of Agriculture, Government of Maharashtra — Mahila Shetkari portal",
+    "sources": [
+      {
+        "label": "Maharashtra Department of Agriculture — Women Farmer Recognition portal",
+        "url": "https://mahakrushi.maharashtra.gov.in/mahila-shetkari-service/"
+      },
+      {
+        "label": "Eligibility criteria — women farmer, residency, age and activity",
+        "url": "https://mahakrushi.maharashtra.gov.in/mahila-shetkari-service/eligibility/"
+      },
+      {
+        "label": "Government of Maharashtra — portal resources and 2026 Act materials",
+        "url": "https://mahakrushi.maharashtra.gov.in/mahila-shetkari-service/resources/"
+      }
+    ],
+    "process": [
+      "Open the Maharashtra Mahila Shetkari portal and read the Act, current rules and eligibility before applying.",
+      "Check the applicant's Maharashtra residence, age and actual agricultural/allied work category; land ownership is not described as a universal requirement.",
+      "Submit the prescribed recognition-certificate application and supporting evidence via the official portal.",
+      "Track the application and respond to Gram Sabha / taluka / district verification or appeal steps as required by the current Act and rules.",
+      "Use the certificate as recognition/facilitation evidence only; apply separately for each subsidy, insurance, KCC or market programme."
+    ],
+    "documents": [
+      "Maharashtra residence/domicile evidence",
+      "Identity and age evidence as prescribed by the portal",
+      "Evidence of active agricultural/allied work or accepted tenant/sharecropper/agricultural-labour status",
+      "Portal application acknowledgement and any Gram Sabha verification papers"
+    ],
+    "caution": "The portal presents a 2026 women-farmer recognition framework. A certificate does not automatically confer every grant, loan, insurance or subsidy. Confirm the final Gazette/Act, implementation rules and local verification procedure before relying on the service.",
+    "keywords": [
+      "maharashtra mahila shetkari",
+      "women farmer certificate",
+      "women farmer recognition",
+      "tenant",
+      "sharecropper",
+      "farmer identity",
+      "women in agriculture"
+    ],
+    "activityTags": [
+      "crop",
+      "dairy",
+      "fisheries",
+      "poultry",
+      "horticulture",
+      "allied"
+    ],
+    "programmeStatus": "recognition_service_current_rules_check",
+    "programmeStatusLabel": "Recognition service · local rules check",
+    "matchRules": {
+      "profiles": [
+        "women_farmer"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "institution"
+      ],
+      "mustVerify": [
+        "Confirm current Act, rules, age/residence and accepted activity evidence",
+        "Recognition certificate is not a cash grant or automatic scheme eligibility",
+        "Taluka/district assistance and any Gram Sabha verification/appeal process"
+      ],
+      "status": "Potential women-farmer recognition route; certification and each linked benefit remain separately governed."
+    },
+    "lastReviewed": "2026-10-31"
+  },
+  {
+    "scope": "state",
+    "sourceDate": "Checked 31 Oct 2026",
+    "verification": {
+      "status": "official_source_checked",
+      "lastChecked": "2026-10-31",
+      "note": "Primary State Government source checked for this release. This does not prove an individual beneficiary's eligibility or that all districts have an open application window."
+    },
+    "recordVersion": "3.0",
+    "recordClass": "scheme_or_support",
+    "amountDisclosureStatus": "not_published",
+    "sourceVerificationStatus": "official_source_checked",
+    "id": "assam-krishi-sa-sajuli",
+    "name": "Assam — Mukhya Mantri Krishi Sa Sajuli Yojana (Farm Tools)",
+    "type": "subsidy",
+    "category": "Farm mechanisation / tools",
+    "states": [
+      "Assam"
+    ],
+    "districts": "all",
+    "profiles": [
+      "owner",
+      "tenant"
+    ],
+    "amount": "Assistance amount not stated on the linked scheme summary",
+    "amountStatus": "not_published",
+    "amountNote": "The Directorate of Agriculture page lists the scheme and its small/marginal farmer, age, cultivation-history and household conditions, but the readable summary does not state the current assistance amount. Do not rely on historic or third-party rupee figures; check the current Assam Government guideline and application notice.",
+    "summary": "Assam State scheme intended to promote farm mechanisation and access to scientific farm tools, with published summary eligibility for small/marginal resident farmers and conditional consideration of tenant/sharecropper farmers.",
+    "eligibility": "The Assam Directorate of Agriculture summary lists small/marginal farmers, resident cultivators aged over 21 with at least three consecutive years of cultivation; tenant/sharecropper consideration is subject to a minimum cultivated area. A live bank account and one beneficiary per family are listed. Confirm the current guideline.",
+    "application": "https://diragri.assam.gov.in/schemes/detail/mukhya-mantri-krishi-sa-sajuli-yojana-mmkssy",
+    "applicationLabel": "Assam Agriculture scheme information",
+    "source": "https://diragri.assam.gov.in/schemes/detail/mukhya-mantri-krishi-sa-sajuli-yojana-mmkssy",
+    "sourceLabel": "Directorate of Agriculture, Government of Assam — MMKSSY",
+    "sources": [
+      {
+        "label": "Directorate of Agriculture, Government of Assam — Mukhya Mantri Krishi Sa Sajuli Yojana",
+        "url": "https://diragri.assam.gov.in/schemes/detail/mukhya-mantri-krishi-sa-sajuli-yojana-mmkssy"
+      }
+    ],
+    "process": [
+      "Read the Assam Directorate of Agriculture scheme summary and obtain the current State guideline/application notice.",
+      "Confirm the current scheme-year call, beneficiary target, application window and exact assistance amount with the district Agriculture office.",
+      "Check the small/marginal category, age, cultivation history, KCC/bank and one-beneficiary-per-family requirements.",
+      "Tenant/sharecropper farmers must obtain written confirmation of accepted cultivation proof and the minimum eligible cultivated area.",
+      "Apply only through the current notified State route and retain the acknowledgement; do not purchase tools assuming subsidy approval."
+    ],
+    "documents": [
+      "Residence and farmer-category evidence",
+      "Evidence of cultivation history / area and accepted tenancy/sharecropper proof where relevant",
+      "Bank account details",
+      "Age and family/beneficiary declaration required by the current State form",
+      "Current scheme-year application acknowledgement"
+    ],
+    "caution": "The official summary page is source-linked, but the current scheme-year call and rupee assistance were not established from the page retrieved for this release. This record is deliberately excluded from automated eligibility matches until the live State guideline and current application window are confirmed.",
+    "keywords": [
+      "assam krishi sa sajuli",
+      "mukhya mantri krishi sa sajuli",
+      "farm tools",
+      "assam farm mechanisation",
+      "tenant sharecropper"
+    ],
+    "activityTags": [
+      "crop",
+      "machinery"
+    ],
+    "programmeStatus": "current_state_call_and_amount_unverified",
+    "programmeStatusLabel": "State call / amount not verified",
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper"
+      ],
+      "activities": [
+        "crop",
+        "machinery"
+      ],
+      "supportNeeds": [
+        "subsidy"
+      ],
+      "mustVerify": [
+        "Current State guideline, rupee assistance and scheme-year application window not verified",
+        "Age, small/marginal farmer, 3-year cultivation history and one-per-family rules",
+        "Tenant/sharecropper minimum cultivated area and accepted cultivation proof"
+      ],
+      "status": "Research record only; verify current State call and amount before recommending.",
+      "excludeFromAssistant": true
+    },
+    "lastReviewed": "2026-10-31"
   }
 ]
