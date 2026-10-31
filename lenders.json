@@ -799,5 +799,2073 @@
       "working capital",
       "farmer collective"
     ]
+  },
+  {
+    "id": "rrb-andhra-pradesh",
+    "name": "Andhra Pradesh Grameena Bank",
+    "product": "Kisan Credit Card (KCC) and agriculture credit",
+    "providerKinds": [
+      "rrb"
+    ],
+    "states": [
+      "Andhra Pradesh"
+    ],
+    "scopeLabel": "Regional Rural Bank · Andhra Pradesh",
+    "borrower": "Owner cultivators, tenants, oral lessees, sharecroppers, eligible SHGs/JLGs and allied-activity farmers, subject to current KCC guidelines and bank terms",
+    "amount": "Need-based; no single universal RRB amount",
+    "amountNote": "KCC limits are assessed using crop pattern, cultivated area, district Scale of Finance and eligible working-capital/allied needs. The RRB branch's current policy controls final sanction.",
+    "rate": "Confirm the current RRB rate, Government interest-subvention eligibility, fees and repayment terms directly with the bank.",
+    "summary": "The Government-listed State Regional Rural Bank is a local institutional route for KCC, crop credit and eligible agriculture/allied lending. Product availability is branch and borrower dependent.",
+    "purpose": "Crop production, post-harvest expenses, farm-asset maintenance, and eligible allied activities such as dairy, poultry and fisheries; term finance only where the bank's named product supports it.",
+    "eligibility": "KCC eligibility under national guidelines includes owner cultivators, tenant farmers, oral lessees, sharecroppers and eligible farmer SHGs/JLGs; individual RRB product rules and accepted evidence must be confirmed.",
+    "terms": "No fixed rate or loan limit is inferred for all RRBs. The bank evaluates crop/acreage, current district Scale of Finance, repayment capacity, account conduct, security and seasonal repayment needs.",
+    "documents": [
+      "Identity and address KYC; bank account details",
+      "Land record, cultivation proof or accepted tenant/sharecropper/JLG documentation",
+      "Crop, acreage, irrigation and allied-activity particulars",
+      "Any bank-specific application form, quotation or supporting evidence"
+    ],
+    "process": [
+      "Open the official Andhra Pradesh Grameena Bank website and locate its Agriculture / KCC / Loan Products section. For West Bengal, use the Bangiya Kisan Credit Card product page.",
+      "Check whether a rural or semi-urban branch serves the selected district and whether the proposed crop/allied activity is eligible.",
+      "Ask the branch for the current district crop Scale of Finance, KCC limit calculation, interest rate, subvention rules, security and application form.",
+      "Submit KYC, land/cultivation evidence, crop/acreage and allied-activity documents; tenants/sharecroppers should ask which local proof is accepted.",
+      "The RRB verifies documents and assesses the credit limit. Review written sanction, charges, repayment and renewal conditions before accepting."
+    ],
+    "applyUrl": "https://apgb.bank.in/",
+    "applyLabel": "Official RRB website / agriculture loan enquiry",
+    "sourceUrl": "https://financialservices.gov.in/list-rrbs-functioning-country",
+    "sources": [
+      {
+        "label": "Government of India — official list of 28 functioning RRBs",
+        "url": "https://financialservices.gov.in/list-rrbs-functioning-country"
+      },
+      {
+        "label": "Andhra Pradesh Grameena Bank official website",
+        "url": "https://apgb.bank.in/"
+      },
+      {
+        "label": "Government Kisan Rin Portal — KCC eligibility, loan quantum and delivery channel",
+        "url": "https://fasalrin.gov.in/"
+      },
+      {
+        "label": "DFS Agriculture Credit — KCC eligibility and cooperative/RRB structure",
+        "url": "https://financialservices.gov.in/agriculture-credit"
+      }
+    ],
+    "availability": "State RRB listed by DFS; confirm whether its actual branch network serves Andhra Pradesh district and the selected district.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "RRB name and official website taken from DFS list last updated 13 Jan 2026. The RRB's own live loan/rate circular controls.",
+    "caution": "A state-level RRB listing does not prove a branch in every district or a guaranteed sanction. Ask the branch for the current product sheet and Key Fact Statement. Do not assume the same rate/limit across all RRBs.",
+    "keywords": [
+      "rrb",
+      "regional rural bank",
+      "kcc",
+      "crop credit",
+      "agriculture loan",
+      "andhra pradesh",
+      "union bank of india"
+    ]
+  },
+  {
+    "id": "rrb-arunachal-pradesh",
+    "name": "Arunachal Pradesh Rural Bank",
+    "product": "Kisan Credit Card (KCC) and agriculture credit",
+    "providerKinds": [
+      "rrb"
+    ],
+    "states": [
+      "Arunachal Pradesh"
+    ],
+    "scopeLabel": "Regional Rural Bank · Arunachal Pradesh",
+    "borrower": "Owner cultivators, tenants, oral lessees, sharecroppers, eligible SHGs/JLGs and allied-activity farmers, subject to current KCC guidelines and bank terms",
+    "amount": "Need-based; no single universal RRB amount",
+    "amountNote": "KCC limits are assessed using crop pattern, cultivated area, district Scale of Finance and eligible working-capital/allied needs. The RRB branch's current policy controls final sanction.",
+    "rate": "Confirm the current RRB rate, Government interest-subvention eligibility, fees and repayment terms directly with the bank.",
+    "summary": "The Government-listed State Regional Rural Bank is a local institutional route for KCC, crop credit and eligible agriculture/allied lending. Product availability is branch and borrower dependent.",
+    "purpose": "Crop production, post-harvest expenses, farm-asset maintenance, and eligible allied activities such as dairy, poultry and fisheries; term finance only where the bank's named product supports it.",
+    "eligibility": "KCC eligibility under national guidelines includes owner cultivators, tenant farmers, oral lessees, sharecroppers and eligible farmer SHGs/JLGs; individual RRB product rules and accepted evidence must be confirmed.",
+    "terms": "No fixed rate or loan limit is inferred for all RRBs. The bank evaluates crop/acreage, current district Scale of Finance, repayment capacity, account conduct, security and seasonal repayment needs.",
+    "documents": [
+      "Identity and address KYC; bank account details",
+      "Land record, cultivation proof or accepted tenant/sharecropper/JLG documentation",
+      "Crop, acreage, irrigation and allied-activity particulars",
+      "Any bank-specific application form, quotation or supporting evidence"
+    ],
+    "process": [
+      "Open the official Arunachal Pradesh Rural Bank website and locate its Agriculture / KCC / Loan Products section. For West Bengal, use the Bangiya Kisan Credit Card product page.",
+      "Check whether a rural or semi-urban branch serves the selected district and whether the proposed crop/allied activity is eligible.",
+      "Ask the branch for the current district crop Scale of Finance, KCC limit calculation, interest rate, subvention rules, security and application form.",
+      "Submit KYC, land/cultivation evidence, crop/acreage and allied-activity documents; tenants/sharecroppers should ask which local proof is accepted.",
+      "The RRB verifies documents and assesses the credit limit. Review written sanction, charges, repayment and renewal conditions before accepting."
+    ],
+    "applyUrl": "https://aprb.bank.in/",
+    "applyLabel": "Official RRB website / agriculture loan enquiry",
+    "sourceUrl": "https://financialservices.gov.in/list-rrbs-functioning-country",
+    "sources": [
+      {
+        "label": "Government of India — official list of 28 functioning RRBs",
+        "url": "https://financialservices.gov.in/list-rrbs-functioning-country"
+      },
+      {
+        "label": "Arunachal Pradesh Rural Bank official website",
+        "url": "https://aprb.bank.in/"
+      },
+      {
+        "label": "Government Kisan Rin Portal — KCC eligibility, loan quantum and delivery channel",
+        "url": "https://fasalrin.gov.in/"
+      },
+      {
+        "label": "DFS Agriculture Credit — KCC eligibility and cooperative/RRB structure",
+        "url": "https://financialservices.gov.in/agriculture-credit"
+      }
+    ],
+    "availability": "State RRB listed by DFS; confirm whether its actual branch network serves Arunachal Pradesh district and the selected district.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "RRB name and official website taken from DFS list last updated 13 Jan 2026. The RRB's own live loan/rate circular controls.",
+    "caution": "A state-level RRB listing does not prove a branch in every district or a guaranteed sanction. Ask the branch for the current product sheet and Key Fact Statement. Do not assume the same rate/limit across all RRBs.",
+    "keywords": [
+      "rrb",
+      "regional rural bank",
+      "kcc",
+      "crop credit",
+      "agriculture loan",
+      "arunachal pradesh",
+      "state bank of india"
+    ]
+  },
+  {
+    "id": "rrb-assam",
+    "name": "Assam Gramin Bank",
+    "product": "Kisan Credit Card (KCC) and agriculture credit",
+    "providerKinds": [
+      "rrb"
+    ],
+    "states": [
+      "Assam"
+    ],
+    "scopeLabel": "Regional Rural Bank · Assam",
+    "borrower": "Owner cultivators, tenants, oral lessees, sharecroppers, eligible SHGs/JLGs and allied-activity farmers, subject to current KCC guidelines and bank terms",
+    "amount": "Need-based; no single universal RRB amount",
+    "amountNote": "KCC limits are assessed using crop pattern, cultivated area, district Scale of Finance and eligible working-capital/allied needs. The RRB branch's current policy controls final sanction.",
+    "rate": "Confirm the current RRB rate, Government interest-subvention eligibility, fees and repayment terms directly with the bank.",
+    "summary": "The Government-listed State Regional Rural Bank is a local institutional route for KCC, crop credit and eligible agriculture/allied lending. Product availability is branch and borrower dependent.",
+    "purpose": "Crop production, post-harvest expenses, farm-asset maintenance, and eligible allied activities such as dairy, poultry and fisheries; term finance only where the bank's named product supports it.",
+    "eligibility": "KCC eligibility under national guidelines includes owner cultivators, tenant farmers, oral lessees, sharecroppers and eligible farmer SHGs/JLGs; individual RRB product rules and accepted evidence must be confirmed.",
+    "terms": "No fixed rate or loan limit is inferred for all RRBs. The bank evaluates crop/acreage, current district Scale of Finance, repayment capacity, account conduct, security and seasonal repayment needs.",
+    "documents": [
+      "Identity and address KYC; bank account details",
+      "Land record, cultivation proof or accepted tenant/sharecropper/JLG documentation",
+      "Crop, acreage, irrigation and allied-activity particulars",
+      "Any bank-specific application form, quotation or supporting evidence"
+    ],
+    "process": [
+      "Open the official Assam Gramin Bank website and locate its Agriculture / KCC / Loan Products section. For West Bengal, use the Bangiya Kisan Credit Card product page.",
+      "Check whether a rural or semi-urban branch serves the selected district and whether the proposed crop/allied activity is eligible.",
+      "Ask the branch for the current district crop Scale of Finance, KCC limit calculation, interest rate, subvention rules, security and application form.",
+      "Submit KYC, land/cultivation evidence, crop/acreage and allied-activity documents; tenants/sharecroppers should ask which local proof is accepted.",
+      "The RRB verifies documents and assesses the credit limit. Review written sanction, charges, repayment and renewal conditions before accepting."
+    ],
+    "applyUrl": "https://www.agvb.bank.in/",
+    "applyLabel": "Official RRB website / agriculture loan enquiry",
+    "sourceUrl": "https://financialservices.gov.in/list-rrbs-functioning-country",
+    "sources": [
+      {
+        "label": "Government of India — official list of 28 functioning RRBs",
+        "url": "https://financialservices.gov.in/list-rrbs-functioning-country"
+      },
+      {
+        "label": "Assam Gramin Bank official website",
+        "url": "https://www.agvb.bank.in/"
+      },
+      {
+        "label": "Government Kisan Rin Portal — KCC eligibility, loan quantum and delivery channel",
+        "url": "https://fasalrin.gov.in/"
+      },
+      {
+        "label": "DFS Agriculture Credit — KCC eligibility and cooperative/RRB structure",
+        "url": "https://financialservices.gov.in/agriculture-credit"
+      }
+    ],
+    "availability": "State RRB listed by DFS; confirm whether its actual branch network serves Assam district and the selected district.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "RRB name and official website taken from DFS list last updated 13 Jan 2026. The RRB's own live loan/rate circular controls.",
+    "caution": "A state-level RRB listing does not prove a branch in every district or a guaranteed sanction. Ask the branch for the current product sheet and Key Fact Statement. Do not assume the same rate/limit across all RRBs.",
+    "keywords": [
+      "rrb",
+      "regional rural bank",
+      "kcc",
+      "crop credit",
+      "agriculture loan",
+      "assam",
+      "punjab national bank"
+    ]
+  },
+  {
+    "id": "rrb-bihar",
+    "name": "Bihar Gramin Bank",
+    "product": "Kisan Credit Card (KCC) and agriculture credit",
+    "providerKinds": [
+      "rrb"
+    ],
+    "states": [
+      "Bihar"
+    ],
+    "scopeLabel": "Regional Rural Bank · Bihar",
+    "borrower": "Owner cultivators, tenants, oral lessees, sharecroppers, eligible SHGs/JLGs and allied-activity farmers, subject to current KCC guidelines and bank terms",
+    "amount": "Need-based; no single universal RRB amount",
+    "amountNote": "KCC limits are assessed using crop pattern, cultivated area, district Scale of Finance and eligible working-capital/allied needs. The RRB branch's current policy controls final sanction.",
+    "rate": "Confirm the current RRB rate, Government interest-subvention eligibility, fees and repayment terms directly with the bank.",
+    "summary": "The Government-listed State Regional Rural Bank is a local institutional route for KCC, crop credit and eligible agriculture/allied lending. Product availability is branch and borrower dependent.",
+    "purpose": "Crop production, post-harvest expenses, farm-asset maintenance, and eligible allied activities such as dairy, poultry and fisheries; term finance only where the bank's named product supports it.",
+    "eligibility": "KCC eligibility under national guidelines includes owner cultivators, tenant farmers, oral lessees, sharecroppers and eligible farmer SHGs/JLGs; individual RRB product rules and accepted evidence must be confirmed.",
+    "terms": "No fixed rate or loan limit is inferred for all RRBs. The bank evaluates crop/acreage, current district Scale of Finance, repayment capacity, account conduct, security and seasonal repayment needs.",
+    "documents": [
+      "Identity and address KYC; bank account details",
+      "Land record, cultivation proof or accepted tenant/sharecropper/JLG documentation",
+      "Crop, acreage, irrigation and allied-activity particulars",
+      "Any bank-specific application form, quotation or supporting evidence"
+    ],
+    "process": [
+      "Open the official Bihar Gramin Bank website and locate its Agriculture / KCC / Loan Products section. For West Bengal, use the Bangiya Kisan Credit Card product page.",
+      "Check whether a rural or semi-urban branch serves the selected district and whether the proposed crop/allied activity is eligible.",
+      "Ask the branch for the current district crop Scale of Finance, KCC limit calculation, interest rate, subvention rules, security and application form.",
+      "Submit KYC, land/cultivation evidence, crop/acreage and allied-activity documents; tenants/sharecroppers should ask which local proof is accepted.",
+      "The RRB verifies documents and assesses the credit limit. Review written sanction, charges, repayment and renewal conditions before accepting."
+    ],
+    "applyUrl": "https://bgb.bank.in/",
+    "applyLabel": "Official RRB website / agriculture loan enquiry",
+    "sourceUrl": "https://financialservices.gov.in/list-rrbs-functioning-country",
+    "sources": [
+      {
+        "label": "Government of India — official list of 28 functioning RRBs",
+        "url": "https://financialservices.gov.in/list-rrbs-functioning-country"
+      },
+      {
+        "label": "Bihar Gramin Bank official website",
+        "url": "https://bgb.bank.in/"
+      },
+      {
+        "label": "Government Kisan Rin Portal — KCC eligibility, loan quantum and delivery channel",
+        "url": "https://fasalrin.gov.in/"
+      },
+      {
+        "label": "DFS Agriculture Credit — KCC eligibility and cooperative/RRB structure",
+        "url": "https://financialservices.gov.in/agriculture-credit"
+      }
+    ],
+    "availability": "State RRB listed by DFS; confirm whether its actual branch network serves Bihar district and the selected district.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "RRB name and official website taken from DFS list last updated 13 Jan 2026. The RRB's own live loan/rate circular controls.",
+    "caution": "A state-level RRB listing does not prove a branch in every district or a guaranteed sanction. Ask the branch for the current product sheet and Key Fact Statement. Do not assume the same rate/limit across all RRBs.",
+    "keywords": [
+      "rrb",
+      "regional rural bank",
+      "kcc",
+      "crop credit",
+      "agriculture loan",
+      "bihar",
+      "punjab national bank"
+    ]
+  },
+  {
+    "id": "rrb-chhattisgarh",
+    "name": "Chhattisgarh Gramin Bank",
+    "product": "Kisan Credit Card (KCC) and agriculture credit",
+    "providerKinds": [
+      "rrb"
+    ],
+    "states": [
+      "Chhattisgarh"
+    ],
+    "scopeLabel": "Regional Rural Bank · Chhattisgarh",
+    "borrower": "Owner cultivators, tenants, oral lessees, sharecroppers, eligible SHGs/JLGs and allied-activity farmers, subject to current KCC guidelines and bank terms",
+    "amount": "Need-based; no single universal RRB amount",
+    "amountNote": "KCC limits are assessed using crop pattern, cultivated area, district Scale of Finance and eligible working-capital/allied needs. The RRB branch's current policy controls final sanction.",
+    "rate": "Confirm the current RRB rate, Government interest-subvention eligibility, fees and repayment terms directly with the bank.",
+    "summary": "The Government-listed State Regional Rural Bank is a local institutional route for KCC, crop credit and eligible agriculture/allied lending. Product availability is branch and borrower dependent.",
+    "purpose": "Crop production, post-harvest expenses, farm-asset maintenance, and eligible allied activities such as dairy, poultry and fisheries; term finance only where the bank's named product supports it.",
+    "eligibility": "KCC eligibility under national guidelines includes owner cultivators, tenant farmers, oral lessees, sharecroppers and eligible farmer SHGs/JLGs; individual RRB product rules and accepted evidence must be confirmed.",
+    "terms": "No fixed rate or loan limit is inferred for all RRBs. The bank evaluates crop/acreage, current district Scale of Finance, repayment capacity, account conduct, security and seasonal repayment needs.",
+    "documents": [
+      "Identity and address KYC; bank account details",
+      "Land record, cultivation proof or accepted tenant/sharecropper/JLG documentation",
+      "Crop, acreage, irrigation and allied-activity particulars",
+      "Any bank-specific application form, quotation or supporting evidence"
+    ],
+    "process": [
+      "Open the official Chhattisgarh Gramin Bank website and locate its Agriculture / KCC / Loan Products section. For West Bengal, use the Bangiya Kisan Credit Card product page.",
+      "Check whether a rural or semi-urban branch serves the selected district and whether the proposed crop/allied activity is eligible.",
+      "Ask the branch for the current district crop Scale of Finance, KCC limit calculation, interest rate, subvention rules, security and application form.",
+      "Submit KYC, land/cultivation evidence, crop/acreage and allied-activity documents; tenants/sharecroppers should ask which local proof is accepted.",
+      "The RRB verifies documents and assesses the credit limit. Review written sanction, charges, repayment and renewal conditions before accepting."
+    ],
+    "applyUrl": "https://www.crgb.bank.in/",
+    "applyLabel": "Official RRB website / agriculture loan enquiry",
+    "sourceUrl": "https://financialservices.gov.in/list-rrbs-functioning-country",
+    "sources": [
+      {
+        "label": "Government of India — official list of 28 functioning RRBs",
+        "url": "https://financialservices.gov.in/list-rrbs-functioning-country"
+      },
+      {
+        "label": "Chhattisgarh Gramin Bank official website",
+        "url": "https://www.crgb.bank.in/"
+      },
+      {
+        "label": "Government Kisan Rin Portal — KCC eligibility, loan quantum and delivery channel",
+        "url": "https://fasalrin.gov.in/"
+      },
+      {
+        "label": "DFS Agriculture Credit — KCC eligibility and cooperative/RRB structure",
+        "url": "https://financialservices.gov.in/agriculture-credit"
+      }
+    ],
+    "availability": "State RRB listed by DFS; confirm whether its actual branch network serves Chhattisgarh district and the selected district.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "RRB name and official website taken from DFS list last updated 13 Jan 2026. The RRB's own live loan/rate circular controls.",
+    "caution": "A state-level RRB listing does not prove a branch in every district or a guaranteed sanction. Ask the branch for the current product sheet and Key Fact Statement. Do not assume the same rate/limit across all RRBs.",
+    "keywords": [
+      "rrb",
+      "regional rural bank",
+      "kcc",
+      "crop credit",
+      "agriculture loan",
+      "chhattisgarh",
+      "state bank of india"
+    ]
+  },
+  {
+    "id": "rrb-gujarat",
+    "name": "Gujarat Gramin Bank",
+    "product": "Kisan Credit Card (KCC) and agriculture credit",
+    "providerKinds": [
+      "rrb"
+    ],
+    "states": [
+      "Gujarat"
+    ],
+    "scopeLabel": "Regional Rural Bank · Gujarat",
+    "borrower": "Owner cultivators, tenants, oral lessees, sharecroppers, eligible SHGs/JLGs and allied-activity farmers, subject to current KCC guidelines and bank terms",
+    "amount": "Need-based; no single universal RRB amount",
+    "amountNote": "KCC limits are assessed using crop pattern, cultivated area, district Scale of Finance and eligible working-capital/allied needs. The RRB branch's current policy controls final sanction.",
+    "rate": "Confirm the current RRB rate, Government interest-subvention eligibility, fees and repayment terms directly with the bank.",
+    "summary": "The Government-listed State Regional Rural Bank is a local institutional route for KCC, crop credit and eligible agriculture/allied lending. Product availability is branch and borrower dependent.",
+    "purpose": "Crop production, post-harvest expenses, farm-asset maintenance, and eligible allied activities such as dairy, poultry and fisheries; term finance only where the bank's named product supports it.",
+    "eligibility": "KCC eligibility under national guidelines includes owner cultivators, tenant farmers, oral lessees, sharecroppers and eligible farmer SHGs/JLGs; individual RRB product rules and accepted evidence must be confirmed.",
+    "terms": "No fixed rate or loan limit is inferred for all RRBs. The bank evaluates crop/acreage, current district Scale of Finance, repayment capacity, account conduct, security and seasonal repayment needs.",
+    "documents": [
+      "Identity and address KYC; bank account details",
+      "Land record, cultivation proof or accepted tenant/sharecropper/JLG documentation",
+      "Crop, acreage, irrigation and allied-activity particulars",
+      "Any bank-specific application form, quotation or supporting evidence"
+    ],
+    "process": [
+      "Open the official Gujarat Gramin Bank website and locate its Agriculture / KCC / Loan Products section. For West Bengal, use the Bangiya Kisan Credit Card product page.",
+      "Check whether a rural or semi-urban branch serves the selected district and whether the proposed crop/allied activity is eligible.",
+      "Ask the branch for the current district crop Scale of Finance, KCC limit calculation, interest rate, subvention rules, security and application form.",
+      "Submit KYC, land/cultivation evidence, crop/acreage and allied-activity documents; tenants/sharecroppers should ask which local proof is accepted.",
+      "The RRB verifies documents and assesses the credit limit. Review written sanction, charges, repayment and renewal conditions before accepting."
+    ],
+    "applyUrl": "https://www.ggb.bank.in/",
+    "applyLabel": "Official RRB website / agriculture loan enquiry",
+    "sourceUrl": "https://financialservices.gov.in/list-rrbs-functioning-country",
+    "sources": [
+      {
+        "label": "Government of India — official list of 28 functioning RRBs",
+        "url": "https://financialservices.gov.in/list-rrbs-functioning-country"
+      },
+      {
+        "label": "Gujarat Gramin Bank official website",
+        "url": "https://www.ggb.bank.in/"
+      },
+      {
+        "label": "Government Kisan Rin Portal — KCC eligibility, loan quantum and delivery channel",
+        "url": "https://fasalrin.gov.in/"
+      },
+      {
+        "label": "DFS Agriculture Credit — KCC eligibility and cooperative/RRB structure",
+        "url": "https://financialservices.gov.in/agriculture-credit"
+      }
+    ],
+    "availability": "State RRB listed by DFS; confirm whether its actual branch network serves Gujarat district and the selected district.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "RRB name and official website taken from DFS list last updated 13 Jan 2026. The RRB's own live loan/rate circular controls.",
+    "caution": "A state-level RRB listing does not prove a branch in every district or a guaranteed sanction. Ask the branch for the current product sheet and Key Fact Statement. Do not assume the same rate/limit across all RRBs.",
+    "keywords": [
+      "rrb",
+      "regional rural bank",
+      "kcc",
+      "crop credit",
+      "agriculture loan",
+      "gujarat",
+      "bank of baroda"
+    ]
+  },
+  {
+    "id": "rrb-haryana",
+    "name": "Haryana Gramin Bank",
+    "product": "Kisan Credit Card (KCC) and agriculture credit",
+    "providerKinds": [
+      "rrb"
+    ],
+    "states": [
+      "Haryana"
+    ],
+    "scopeLabel": "Regional Rural Bank · Haryana",
+    "borrower": "Owner cultivators, tenants, oral lessees, sharecroppers, eligible SHGs/JLGs and allied-activity farmers, subject to current KCC guidelines and bank terms",
+    "amount": "Need-based; no single universal RRB amount",
+    "amountNote": "KCC limits are assessed using crop pattern, cultivated area, district Scale of Finance and eligible working-capital/allied needs. The RRB branch's current policy controls final sanction.",
+    "rate": "Confirm the current RRB rate, Government interest-subvention eligibility, fees and repayment terms directly with the bank.",
+    "summary": "The Government-listed State Regional Rural Bank is a local institutional route for KCC, crop credit and eligible agriculture/allied lending. Product availability is branch and borrower dependent.",
+    "purpose": "Crop production, post-harvest expenses, farm-asset maintenance, and eligible allied activities such as dairy, poultry and fisheries; term finance only where the bank's named product supports it.",
+    "eligibility": "KCC eligibility under national guidelines includes owner cultivators, tenant farmers, oral lessees, sharecroppers and eligible farmer SHGs/JLGs; individual RRB product rules and accepted evidence must be confirmed.",
+    "terms": "No fixed rate or loan limit is inferred for all RRBs. The bank evaluates crop/acreage, current district Scale of Finance, repayment capacity, account conduct, security and seasonal repayment needs.",
+    "documents": [
+      "Identity and address KYC; bank account details",
+      "Land record, cultivation proof or accepted tenant/sharecropper/JLG documentation",
+      "Crop, acreage, irrigation and allied-activity particulars",
+      "Any bank-specific application form, quotation or supporting evidence"
+    ],
+    "process": [
+      "Open the official Haryana Gramin Bank website and locate its Agriculture / KCC / Loan Products section. For West Bengal, use the Bangiya Kisan Credit Card product page.",
+      "Check whether a rural or semi-urban branch serves the selected district and whether the proposed crop/allied activity is eligible.",
+      "Ask the branch for the current district crop Scale of Finance, KCC limit calculation, interest rate, subvention rules, security and application form.",
+      "Submit KYC, land/cultivation evidence, crop/acreage and allied-activity documents; tenants/sharecroppers should ask which local proof is accepted.",
+      "The RRB verifies documents and assesses the credit limit. Review written sanction, charges, repayment and renewal conditions before accepting."
+    ],
+    "applyUrl": "https://shgb.bank.in/",
+    "applyLabel": "Official RRB website / agriculture loan enquiry",
+    "sourceUrl": "https://financialservices.gov.in/list-rrbs-functioning-country",
+    "sources": [
+      {
+        "label": "Government of India — official list of 28 functioning RRBs",
+        "url": "https://financialservices.gov.in/list-rrbs-functioning-country"
+      },
+      {
+        "label": "Haryana Gramin Bank official website",
+        "url": "https://shgb.bank.in/"
+      },
+      {
+        "label": "Government Kisan Rin Portal — KCC eligibility, loan quantum and delivery channel",
+        "url": "https://fasalrin.gov.in/"
+      },
+      {
+        "label": "DFS Agriculture Credit — KCC eligibility and cooperative/RRB structure",
+        "url": "https://financialservices.gov.in/agriculture-credit"
+      }
+    ],
+    "availability": "State RRB listed by DFS; confirm whether its actual branch network serves Haryana district and the selected district.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "RRB name and official website taken from DFS list last updated 13 Jan 2026. The RRB's own live loan/rate circular controls.",
+    "caution": "A state-level RRB listing does not prove a branch in every district or a guaranteed sanction. Ask the branch for the current product sheet and Key Fact Statement. Do not assume the same rate/limit across all RRBs.",
+    "keywords": [
+      "rrb",
+      "regional rural bank",
+      "kcc",
+      "crop credit",
+      "agriculture loan",
+      "haryana",
+      "punjab national bank"
+    ]
+  },
+  {
+    "id": "rrb-himachal-pradesh",
+    "name": "Himachal Pradesh Gramin Bank",
+    "product": "Kisan Credit Card (KCC) and agriculture credit",
+    "providerKinds": [
+      "rrb"
+    ],
+    "states": [
+      "Himachal Pradesh"
+    ],
+    "scopeLabel": "Regional Rural Bank · Himachal Pradesh",
+    "borrower": "Owner cultivators, tenants, oral lessees, sharecroppers, eligible SHGs/JLGs and allied-activity farmers, subject to current KCC guidelines and bank terms",
+    "amount": "Need-based; no single universal RRB amount",
+    "amountNote": "KCC limits are assessed using crop pattern, cultivated area, district Scale of Finance and eligible working-capital/allied needs. The RRB branch's current policy controls final sanction.",
+    "rate": "Confirm the current RRB rate, Government interest-subvention eligibility, fees and repayment terms directly with the bank.",
+    "summary": "The Government-listed State Regional Rural Bank is a local institutional route for KCC, crop credit and eligible agriculture/allied lending. Product availability is branch and borrower dependent.",
+    "purpose": "Crop production, post-harvest expenses, farm-asset maintenance, and eligible allied activities such as dairy, poultry and fisheries; term finance only where the bank's named product supports it.",
+    "eligibility": "KCC eligibility under national guidelines includes owner cultivators, tenant farmers, oral lessees, sharecroppers and eligible farmer SHGs/JLGs; individual RRB product rules and accepted evidence must be confirmed.",
+    "terms": "No fixed rate or loan limit is inferred for all RRBs. The bank evaluates crop/acreage, current district Scale of Finance, repayment capacity, account conduct, security and seasonal repayment needs.",
+    "documents": [
+      "Identity and address KYC; bank account details",
+      "Land record, cultivation proof or accepted tenant/sharecropper/JLG documentation",
+      "Crop, acreage, irrigation and allied-activity particulars",
+      "Any bank-specific application form, quotation or supporting evidence"
+    ],
+    "process": [
+      "Open the official Himachal Pradesh Gramin Bank website and locate its Agriculture / KCC / Loan Products section. For West Bengal, use the Bangiya Kisan Credit Card product page.",
+      "Check whether a rural or semi-urban branch serves the selected district and whether the proposed crop/allied activity is eligible.",
+      "Ask the branch for the current district crop Scale of Finance, KCC limit calculation, interest rate, subvention rules, security and application form.",
+      "Submit KYC, land/cultivation evidence, crop/acreage and allied-activity documents; tenants/sharecroppers should ask which local proof is accepted.",
+      "The RRB verifies documents and assesses the credit limit. Review written sanction, charges, repayment and renewal conditions before accepting."
+    ],
+    "applyUrl": "https://www.hpgb.bank.in/",
+    "applyLabel": "Official RRB website / agriculture loan enquiry",
+    "sourceUrl": "https://financialservices.gov.in/list-rrbs-functioning-country",
+    "sources": [
+      {
+        "label": "Government of India — official list of 28 functioning RRBs",
+        "url": "https://financialservices.gov.in/list-rrbs-functioning-country"
+      },
+      {
+        "label": "Himachal Pradesh Gramin Bank official website",
+        "url": "https://www.hpgb.bank.in/"
+      },
+      {
+        "label": "Government Kisan Rin Portal — KCC eligibility, loan quantum and delivery channel",
+        "url": "https://fasalrin.gov.in/"
+      },
+      {
+        "label": "DFS Agriculture Credit — KCC eligibility and cooperative/RRB structure",
+        "url": "https://financialservices.gov.in/agriculture-credit"
+      }
+    ],
+    "availability": "State RRB listed by DFS; confirm whether its actual branch network serves Himachal Pradesh district and the selected district.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "RRB name and official website taken from DFS list last updated 13 Jan 2026. The RRB's own live loan/rate circular controls.",
+    "caution": "A state-level RRB listing does not prove a branch in every district or a guaranteed sanction. Ask the branch for the current product sheet and Key Fact Statement. Do not assume the same rate/limit across all RRBs.",
+    "keywords": [
+      "rrb",
+      "regional rural bank",
+      "kcc",
+      "crop credit",
+      "agriculture loan",
+      "himachal pradesh",
+      "punjab national bank"
+    ]
+  },
+  {
+    "id": "rrb-jammu-and-kashmir",
+    "name": "Jammu and Kashmir Grameen Bank",
+    "product": "Kisan Credit Card (KCC) and agriculture credit",
+    "providerKinds": [
+      "rrb"
+    ],
+    "states": [
+      "Jammu and Kashmir"
+    ],
+    "scopeLabel": "Regional Rural Bank · Jammu and Kashmir",
+    "borrower": "Owner cultivators, tenants, oral lessees, sharecroppers, eligible SHGs/JLGs and allied-activity farmers, subject to current KCC guidelines and bank terms",
+    "amount": "Need-based; no single universal RRB amount",
+    "amountNote": "KCC limits are assessed using crop pattern, cultivated area, district Scale of Finance and eligible working-capital/allied needs. The RRB branch's current policy controls final sanction.",
+    "rate": "Confirm the current RRB rate, Government interest-subvention eligibility, fees and repayment terms directly with the bank.",
+    "summary": "The Government-listed State Regional Rural Bank is a local institutional route for KCC, crop credit and eligible agriculture/allied lending. Product availability is branch and borrower dependent.",
+    "purpose": "Crop production, post-harvest expenses, farm-asset maintenance, and eligible allied activities such as dairy, poultry and fisheries; term finance only where the bank's named product supports it.",
+    "eligibility": "KCC eligibility under national guidelines includes owner cultivators, tenant farmers, oral lessees, sharecroppers and eligible farmer SHGs/JLGs; individual RRB product rules and accepted evidence must be confirmed.",
+    "terms": "No fixed rate or loan limit is inferred for all RRBs. The bank evaluates crop/acreage, current district Scale of Finance, repayment capacity, account conduct, security and seasonal repayment needs.",
+    "documents": [
+      "Identity and address KYC; bank account details",
+      "Land record, cultivation proof or accepted tenant/sharecropper/JLG documentation",
+      "Crop, acreage, irrigation and allied-activity particulars",
+      "Any bank-specific application form, quotation or supporting evidence"
+    ],
+    "process": [
+      "Open the official Jammu and Kashmir Grameen Bank website and locate its Agriculture / KCC / Loan Products section. For West Bengal, use the Bangiya Kisan Credit Card product page.",
+      "Check whether a rural or semi-urban branch serves the selected district and whether the proposed crop/allied activity is eligible.",
+      "Ask the branch for the current district crop Scale of Finance, KCC limit calculation, interest rate, subvention rules, security and application form.",
+      "Submit KYC, land/cultivation evidence, crop/acreage and allied-activity documents; tenants/sharecroppers should ask which local proof is accepted.",
+      "The RRB verifies documents and assesses the credit limit. Review written sanction, charges, repayment and renewal conditions before accepting."
+    ],
+    "applyUrl": "https://www.jkgrameen.bank.in/",
+    "applyLabel": "Official RRB website / agriculture loan enquiry",
+    "sourceUrl": "https://financialservices.gov.in/list-rrbs-functioning-country",
+    "sources": [
+      {
+        "label": "Government of India — official list of 28 functioning RRBs",
+        "url": "https://financialservices.gov.in/list-rrbs-functioning-country"
+      },
+      {
+        "label": "Jammu and Kashmir Grameen Bank official website",
+        "url": "https://www.jkgrameen.bank.in/"
+      },
+      {
+        "label": "Government Kisan Rin Portal — KCC eligibility, loan quantum and delivery channel",
+        "url": "https://fasalrin.gov.in/"
+      },
+      {
+        "label": "DFS Agriculture Credit — KCC eligibility and cooperative/RRB structure",
+        "url": "https://financialservices.gov.in/agriculture-credit"
+      }
+    ],
+    "availability": "State RRB listed by DFS; confirm whether its actual branch network serves Jammu and Kashmir district and the selected district.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "RRB name and official website taken from DFS list last updated 13 Jan 2026. The RRB's own live loan/rate circular controls.",
+    "caution": "A state-level RRB listing does not prove a branch in every district or a guaranteed sanction. Ask the branch for the current product sheet and Key Fact Statement. Do not assume the same rate/limit across all RRBs.",
+    "keywords": [
+      "rrb",
+      "regional rural bank",
+      "kcc",
+      "crop credit",
+      "agriculture loan",
+      "jammu and kashmir",
+      "jammu & kashmir bank"
+    ]
+  },
+  {
+    "id": "rrb-jharkhand",
+    "name": "Jharkhand Gramin Bank",
+    "product": "Kisan Credit Card (KCC) and agriculture credit",
+    "providerKinds": [
+      "rrb"
+    ],
+    "states": [
+      "Jharkhand"
+    ],
+    "scopeLabel": "Regional Rural Bank · Jharkhand",
+    "borrower": "Owner cultivators, tenants, oral lessees, sharecroppers, eligible SHGs/JLGs and allied-activity farmers, subject to current KCC guidelines and bank terms",
+    "amount": "Need-based; no single universal RRB amount",
+    "amountNote": "KCC limits are assessed using crop pattern, cultivated area, district Scale of Finance and eligible working-capital/allied needs. The RRB branch's current policy controls final sanction.",
+    "rate": "Confirm the current RRB rate, Government interest-subvention eligibility, fees and repayment terms directly with the bank.",
+    "summary": "The Government-listed State Regional Rural Bank is a local institutional route for KCC, crop credit and eligible agriculture/allied lending. Product availability is branch and borrower dependent.",
+    "purpose": "Crop production, post-harvest expenses, farm-asset maintenance, and eligible allied activities such as dairy, poultry and fisheries; term finance only where the bank's named product supports it.",
+    "eligibility": "KCC eligibility under national guidelines includes owner cultivators, tenant farmers, oral lessees, sharecroppers and eligible farmer SHGs/JLGs; individual RRB product rules and accepted evidence must be confirmed.",
+    "terms": "No fixed rate or loan limit is inferred for all RRBs. The bank evaluates crop/acreage, current district Scale of Finance, repayment capacity, account conduct, security and seasonal repayment needs.",
+    "documents": [
+      "Identity and address KYC; bank account details",
+      "Land record, cultivation proof or accepted tenant/sharecropper/JLG documentation",
+      "Crop, acreage, irrigation and allied-activity particulars",
+      "Any bank-specific application form, quotation or supporting evidence"
+    ],
+    "process": [
+      "Open the official Jharkhand Gramin Bank website and locate its Agriculture / KCC / Loan Products section. For West Bengal, use the Bangiya Kisan Credit Card product page.",
+      "Check whether a rural or semi-urban branch serves the selected district and whether the proposed crop/allied activity is eligible.",
+      "Ask the branch for the current district crop Scale of Finance, KCC limit calculation, interest rate, subvention rules, security and application form.",
+      "Submit KYC, land/cultivation evidence, crop/acreage and allied-activity documents; tenants/sharecroppers should ask which local proof is accepted.",
+      "The RRB verifies documents and assesses the credit limit. Review written sanction, charges, repayment and renewal conditions before accepting."
+    ],
+    "applyUrl": "https://www.jrgbank.bank.in/",
+    "applyLabel": "Official RRB website / agriculture loan enquiry",
+    "sourceUrl": "https://financialservices.gov.in/list-rrbs-functioning-country",
+    "sources": [
+      {
+        "label": "Government of India — official list of 28 functioning RRBs",
+        "url": "https://financialservices.gov.in/list-rrbs-functioning-country"
+      },
+      {
+        "label": "Jharkhand Gramin Bank official website",
+        "url": "https://www.jrgbank.bank.in/"
+      },
+      {
+        "label": "Government Kisan Rin Portal — KCC eligibility, loan quantum and delivery channel",
+        "url": "https://fasalrin.gov.in/"
+      },
+      {
+        "label": "DFS Agriculture Credit — KCC eligibility and cooperative/RRB structure",
+        "url": "https://financialservices.gov.in/agriculture-credit"
+      }
+    ],
+    "availability": "State RRB listed by DFS; confirm whether its actual branch network serves Jharkhand district and the selected district.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "RRB name and official website taken from DFS list last updated 13 Jan 2026. The RRB's own live loan/rate circular controls.",
+    "caution": "A state-level RRB listing does not prove a branch in every district or a guaranteed sanction. Ask the branch for the current product sheet and Key Fact Statement. Do not assume the same rate/limit across all RRBs.",
+    "keywords": [
+      "rrb",
+      "regional rural bank",
+      "kcc",
+      "crop credit",
+      "agriculture loan",
+      "jharkhand",
+      "state bank of india"
+    ]
+  },
+  {
+    "id": "rrb-karnataka",
+    "name": "Karnataka Grameena Bank",
+    "product": "Kisan Credit Card (KCC) and agriculture credit",
+    "providerKinds": [
+      "rrb"
+    ],
+    "states": [
+      "Karnataka"
+    ],
+    "scopeLabel": "Regional Rural Bank · Karnataka",
+    "borrower": "Owner cultivators, tenants, oral lessees, sharecroppers, eligible SHGs/JLGs and allied-activity farmers, subject to current KCC guidelines and bank terms",
+    "amount": "Need-based; no single universal RRB amount",
+    "amountNote": "KCC limits are assessed using crop pattern, cultivated area, district Scale of Finance and eligible working-capital/allied needs. The RRB branch's current policy controls final sanction.",
+    "rate": "Confirm the current RRB rate, Government interest-subvention eligibility, fees and repayment terms directly with the bank.",
+    "summary": "The Government-listed State Regional Rural Bank is a local institutional route for KCC, crop credit and eligible agriculture/allied lending. Product availability is branch and borrower dependent.",
+    "purpose": "Crop production, post-harvest expenses, farm-asset maintenance, and eligible allied activities such as dairy, poultry and fisheries; term finance only where the bank's named product supports it.",
+    "eligibility": "KCC eligibility under national guidelines includes owner cultivators, tenant farmers, oral lessees, sharecroppers and eligible farmer SHGs/JLGs; individual RRB product rules and accepted evidence must be confirmed.",
+    "terms": "No fixed rate or loan limit is inferred for all RRBs. The bank evaluates crop/acreage, current district Scale of Finance, repayment capacity, account conduct, security and seasonal repayment needs.",
+    "documents": [
+      "Identity and address KYC; bank account details",
+      "Land record, cultivation proof or accepted tenant/sharecropper/JLG documentation",
+      "Crop, acreage, irrigation and allied-activity particulars",
+      "Any bank-specific application form, quotation or supporting evidence"
+    ],
+    "process": [
+      "Open the official Karnataka Grameena Bank website and locate its Agriculture / KCC / Loan Products section. For West Bengal, use the Bangiya Kisan Credit Card product page.",
+      "Check whether a rural or semi-urban branch serves the selected district and whether the proposed crop/allied activity is eligible.",
+      "Ask the branch for the current district crop Scale of Finance, KCC limit calculation, interest rate, subvention rules, security and application form.",
+      "Submit KYC, land/cultivation evidence, crop/acreage and allied-activity documents; tenants/sharecroppers should ask which local proof is accepted.",
+      "The RRB verifies documents and assesses the credit limit. Review written sanction, charges, repayment and renewal conditions before accepting."
+    ],
+    "applyUrl": "https://karnatakagb.bank.in/",
+    "applyLabel": "Official RRB website / agriculture loan enquiry",
+    "sourceUrl": "https://financialservices.gov.in/list-rrbs-functioning-country",
+    "sources": [
+      {
+        "label": "Government of India — official list of 28 functioning RRBs",
+        "url": "https://financialservices.gov.in/list-rrbs-functioning-country"
+      },
+      {
+        "label": "Karnataka Grameena Bank official website",
+        "url": "https://karnatakagb.bank.in/"
+      },
+      {
+        "label": "Government Kisan Rin Portal — KCC eligibility, loan quantum and delivery channel",
+        "url": "https://fasalrin.gov.in/"
+      },
+      {
+        "label": "DFS Agriculture Credit — KCC eligibility and cooperative/RRB structure",
+        "url": "https://financialservices.gov.in/agriculture-credit"
+      }
+    ],
+    "availability": "State RRB listed by DFS; confirm whether its actual branch network serves Karnataka district and the selected district.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "RRB name and official website taken from DFS list last updated 13 Jan 2026. The RRB's own live loan/rate circular controls.",
+    "caution": "A state-level RRB listing does not prove a branch in every district or a guaranteed sanction. Ask the branch for the current product sheet and Key Fact Statement. Do not assume the same rate/limit across all RRBs.",
+    "keywords": [
+      "rrb",
+      "regional rural bank",
+      "kcc",
+      "crop credit",
+      "agriculture loan",
+      "karnataka",
+      "canara bank"
+    ]
+  },
+  {
+    "id": "rrb-kerala",
+    "name": "Kerala Grameena Bank",
+    "product": "Kisan Credit Card (KCC) and agriculture credit",
+    "providerKinds": [
+      "rrb"
+    ],
+    "states": [
+      "Kerala"
+    ],
+    "scopeLabel": "Regional Rural Bank · Kerala",
+    "borrower": "Owner cultivators, tenants, oral lessees, sharecroppers, eligible SHGs/JLGs and allied-activity farmers, subject to current KCC guidelines and bank terms",
+    "amount": "Need-based; no single universal RRB amount",
+    "amountNote": "KCC limits are assessed using crop pattern, cultivated area, district Scale of Finance and eligible working-capital/allied needs. The RRB branch's current policy controls final sanction.",
+    "rate": "Confirm the current RRB rate, Government interest-subvention eligibility, fees and repayment terms directly with the bank.",
+    "summary": "The Government-listed State Regional Rural Bank is a local institutional route for KCC, crop credit and eligible agriculture/allied lending. Product availability is branch and borrower dependent.",
+    "purpose": "Crop production, post-harvest expenses, farm-asset maintenance, and eligible allied activities such as dairy, poultry and fisheries; term finance only where the bank's named product supports it.",
+    "eligibility": "KCC eligibility under national guidelines includes owner cultivators, tenant farmers, oral lessees, sharecroppers and eligible farmer SHGs/JLGs; individual RRB product rules and accepted evidence must be confirmed.",
+    "terms": "No fixed rate or loan limit is inferred for all RRBs. The bank evaluates crop/acreage, current district Scale of Finance, repayment capacity, account conduct, security and seasonal repayment needs.",
+    "documents": [
+      "Identity and address KYC; bank account details",
+      "Land record, cultivation proof or accepted tenant/sharecropper/JLG documentation",
+      "Crop, acreage, irrigation and allied-activity particulars",
+      "Any bank-specific application form, quotation or supporting evidence"
+    ],
+    "process": [
+      "Open the official Kerala Grameena Bank website and locate its Agriculture / KCC / Loan Products section. For West Bengal, use the Bangiya Kisan Credit Card product page.",
+      "Check whether a rural or semi-urban branch serves the selected district and whether the proposed crop/allied activity is eligible.",
+      "Ask the branch for the current district crop Scale of Finance, KCC limit calculation, interest rate, subvention rules, security and application form.",
+      "Submit KYC, land/cultivation evidence, crop/acreage and allied-activity documents; tenants/sharecroppers should ask which local proof is accepted.",
+      "The RRB verifies documents and assesses the credit limit. Review written sanction, charges, repayment and renewal conditions before accepting."
+    ],
+    "applyUrl": "https://kgb.bank.in/",
+    "applyLabel": "Official RRB website / agriculture loan enquiry",
+    "sourceUrl": "https://financialservices.gov.in/list-rrbs-functioning-country",
+    "sources": [
+      {
+        "label": "Government of India — official list of 28 functioning RRBs",
+        "url": "https://financialservices.gov.in/list-rrbs-functioning-country"
+      },
+      {
+        "label": "Kerala Grameena Bank official website",
+        "url": "https://kgb.bank.in/"
+      },
+      {
+        "label": "Government Kisan Rin Portal — KCC eligibility, loan quantum and delivery channel",
+        "url": "https://fasalrin.gov.in/"
+      },
+      {
+        "label": "DFS Agriculture Credit — KCC eligibility and cooperative/RRB structure",
+        "url": "https://financialservices.gov.in/agriculture-credit"
+      }
+    ],
+    "availability": "State RRB listed by DFS; confirm whether its actual branch network serves Kerala district and the selected district.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "RRB name and official website taken from DFS list last updated 13 Jan 2026. The RRB's own live loan/rate circular controls.",
+    "caution": "A state-level RRB listing does not prove a branch in every district or a guaranteed sanction. Ask the branch for the current product sheet and Key Fact Statement. Do not assume the same rate/limit across all RRBs.",
+    "keywords": [
+      "rrb",
+      "regional rural bank",
+      "kcc",
+      "crop credit",
+      "agriculture loan",
+      "kerala",
+      "canara bank"
+    ]
+  },
+  {
+    "id": "rrb-madhya-pradesh",
+    "name": "Madhya Pradesh Gramin Bank",
+    "product": "Kisan Credit Card (KCC) and agriculture credit",
+    "providerKinds": [
+      "rrb"
+    ],
+    "states": [
+      "Madhya Pradesh"
+    ],
+    "scopeLabel": "Regional Rural Bank · Madhya Pradesh",
+    "borrower": "Owner cultivators, tenants, oral lessees, sharecroppers, eligible SHGs/JLGs and allied-activity farmers, subject to current KCC guidelines and bank terms",
+    "amount": "Need-based; no single universal RRB amount",
+    "amountNote": "KCC limits are assessed using crop pattern, cultivated area, district Scale of Finance and eligible working-capital/allied needs. The RRB branch's current policy controls final sanction.",
+    "rate": "Confirm the current RRB rate, Government interest-subvention eligibility, fees and repayment terms directly with the bank.",
+    "summary": "The Government-listed State Regional Rural Bank is a local institutional route for KCC, crop credit and eligible agriculture/allied lending. Product availability is branch and borrower dependent.",
+    "purpose": "Crop production, post-harvest expenses, farm-asset maintenance, and eligible allied activities such as dairy, poultry and fisheries; term finance only where the bank's named product supports it.",
+    "eligibility": "KCC eligibility under national guidelines includes owner cultivators, tenant farmers, oral lessees, sharecroppers and eligible farmer SHGs/JLGs; individual RRB product rules and accepted evidence must be confirmed.",
+    "terms": "No fixed rate or loan limit is inferred for all RRBs. The bank evaluates crop/acreage, current district Scale of Finance, repayment capacity, account conduct, security and seasonal repayment needs.",
+    "documents": [
+      "Identity and address KYC; bank account details",
+      "Land record, cultivation proof or accepted tenant/sharecropper/JLG documentation",
+      "Crop, acreage, irrigation and allied-activity particulars",
+      "Any bank-specific application form, quotation or supporting evidence"
+    ],
+    "process": [
+      "Open the official Madhya Pradesh Gramin Bank website and locate its Agriculture / KCC / Loan Products section. For West Bengal, use the Bangiya Kisan Credit Card product page.",
+      "Check whether a rural or semi-urban branch serves the selected district and whether the proposed crop/allied activity is eligible.",
+      "Ask the branch for the current district crop Scale of Finance, KCC limit calculation, interest rate, subvention rules, security and application form.",
+      "Submit KYC, land/cultivation evidence, crop/acreage and allied-activity documents; tenants/sharecroppers should ask which local proof is accepted.",
+      "The RRB verifies documents and assesses the credit limit. Review written sanction, charges, repayment and renewal conditions before accepting."
+    ],
+    "applyUrl": "https://mpgb.bank.in/",
+    "applyLabel": "Official RRB website / agriculture loan enquiry",
+    "sourceUrl": "https://financialservices.gov.in/list-rrbs-functioning-country",
+    "sources": [
+      {
+        "label": "Government of India — official list of 28 functioning RRBs",
+        "url": "https://financialservices.gov.in/list-rrbs-functioning-country"
+      },
+      {
+        "label": "Madhya Pradesh Gramin Bank official website",
+        "url": "https://mpgb.bank.in/"
+      },
+      {
+        "label": "Government Kisan Rin Portal — KCC eligibility, loan quantum and delivery channel",
+        "url": "https://fasalrin.gov.in/"
+      },
+      {
+        "label": "DFS Agriculture Credit — KCC eligibility and cooperative/RRB structure",
+        "url": "https://financialservices.gov.in/agriculture-credit"
+      }
+    ],
+    "availability": "State RRB listed by DFS; confirm whether its actual branch network serves Madhya Pradesh district and the selected district.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "RRB name and official website taken from DFS list last updated 13 Jan 2026. The RRB's own live loan/rate circular controls.",
+    "caution": "A state-level RRB listing does not prove a branch in every district or a guaranteed sanction. Ask the branch for the current product sheet and Key Fact Statement. Do not assume the same rate/limit across all RRBs.",
+    "keywords": [
+      "rrb",
+      "regional rural bank",
+      "kcc",
+      "crop credit",
+      "agriculture loan",
+      "madhya pradesh",
+      "bank of india"
+    ]
+  },
+  {
+    "id": "rrb-maharashtra",
+    "name": "Maharashtra Gramin Bank",
+    "product": "Kisan Credit Card (KCC) and agriculture credit",
+    "providerKinds": [
+      "rrb"
+    ],
+    "states": [
+      "Maharashtra"
+    ],
+    "scopeLabel": "Regional Rural Bank · Maharashtra",
+    "borrower": "Owner cultivators, tenants, oral lessees, sharecroppers, eligible SHGs/JLGs and allied-activity farmers, subject to current KCC guidelines and bank terms",
+    "amount": "Need-based; no single universal RRB amount",
+    "amountNote": "KCC limits are assessed using crop pattern, cultivated area, district Scale of Finance and eligible working-capital/allied needs. The RRB branch's current policy controls final sanction.",
+    "rate": "Confirm the current RRB rate, Government interest-subvention eligibility, fees and repayment terms directly with the bank.",
+    "summary": "The Government-listed State Regional Rural Bank is a local institutional route for KCC, crop credit and eligible agriculture/allied lending. Product availability is branch and borrower dependent.",
+    "purpose": "Crop production, post-harvest expenses, farm-asset maintenance, and eligible allied activities such as dairy, poultry and fisheries; term finance only where the bank's named product supports it.",
+    "eligibility": "KCC eligibility under national guidelines includes owner cultivators, tenant farmers, oral lessees, sharecroppers and eligible farmer SHGs/JLGs; individual RRB product rules and accepted evidence must be confirmed.",
+    "terms": "No fixed rate or loan limit is inferred for all RRBs. The bank evaluates crop/acreage, current district Scale of Finance, repayment capacity, account conduct, security and seasonal repayment needs.",
+    "documents": [
+      "Identity and address KYC; bank account details",
+      "Land record, cultivation proof or accepted tenant/sharecropper/JLG documentation",
+      "Crop, acreage, irrigation and allied-activity particulars",
+      "Any bank-specific application form, quotation or supporting evidence"
+    ],
+    "process": [
+      "Open the official Maharashtra Gramin Bank website and locate its Agriculture / KCC / Loan Products section. For West Bengal, use the Bangiya Kisan Credit Card product page.",
+      "Check whether a rural or semi-urban branch serves the selected district and whether the proposed crop/allied activity is eligible.",
+      "Ask the branch for the current district crop Scale of Finance, KCC limit calculation, interest rate, subvention rules, security and application form.",
+      "Submit KYC, land/cultivation evidence, crop/acreage and allied-activity documents; tenants/sharecroppers should ask which local proof is accepted.",
+      "The RRB verifies documents and assesses the credit limit. Review written sanction, charges, repayment and renewal conditions before accepting."
+    ],
+    "applyUrl": "https://www.mahagramin.bank.in/",
+    "applyLabel": "Official RRB website / agriculture loan enquiry",
+    "sourceUrl": "https://financialservices.gov.in/list-rrbs-functioning-country",
+    "sources": [
+      {
+        "label": "Government of India — official list of 28 functioning RRBs",
+        "url": "https://financialservices.gov.in/list-rrbs-functioning-country"
+      },
+      {
+        "label": "Maharashtra Gramin Bank official website",
+        "url": "https://www.mahagramin.bank.in/"
+      },
+      {
+        "label": "Government Kisan Rin Portal — KCC eligibility, loan quantum and delivery channel",
+        "url": "https://fasalrin.gov.in/"
+      },
+      {
+        "label": "DFS Agriculture Credit — KCC eligibility and cooperative/RRB structure",
+        "url": "https://financialservices.gov.in/agriculture-credit"
+      }
+    ],
+    "availability": "State RRB listed by DFS; confirm whether its actual branch network serves Maharashtra district and the selected district.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "RRB name and official website taken from DFS list last updated 13 Jan 2026. The RRB's own live loan/rate circular controls.",
+    "caution": "A state-level RRB listing does not prove a branch in every district or a guaranteed sanction. Ask the branch for the current product sheet and Key Fact Statement. Do not assume the same rate/limit across all RRBs.",
+    "keywords": [
+      "rrb",
+      "regional rural bank",
+      "kcc",
+      "crop credit",
+      "agriculture loan",
+      "maharashtra",
+      "bank of maharashtra"
+    ]
+  },
+  {
+    "id": "rrb-manipur",
+    "name": "Manipur Rural Bank",
+    "product": "Kisan Credit Card (KCC) and agriculture credit",
+    "providerKinds": [
+      "rrb"
+    ],
+    "states": [
+      "Manipur"
+    ],
+    "scopeLabel": "Regional Rural Bank · Manipur",
+    "borrower": "Owner cultivators, tenants, oral lessees, sharecroppers, eligible SHGs/JLGs and allied-activity farmers, subject to current KCC guidelines and bank terms",
+    "amount": "Need-based; no single universal RRB amount",
+    "amountNote": "KCC limits are assessed using crop pattern, cultivated area, district Scale of Finance and eligible working-capital/allied needs. The RRB branch's current policy controls final sanction.",
+    "rate": "Confirm the current RRB rate, Government interest-subvention eligibility, fees and repayment terms directly with the bank.",
+    "summary": "The Government-listed State Regional Rural Bank is a local institutional route for KCC, crop credit and eligible agriculture/allied lending. Product availability is branch and borrower dependent.",
+    "purpose": "Crop production, post-harvest expenses, farm-asset maintenance, and eligible allied activities such as dairy, poultry and fisheries; term finance only where the bank's named product supports it.",
+    "eligibility": "KCC eligibility under national guidelines includes owner cultivators, tenant farmers, oral lessees, sharecroppers and eligible farmer SHGs/JLGs; individual RRB product rules and accepted evidence must be confirmed.",
+    "terms": "No fixed rate or loan limit is inferred for all RRBs. The bank evaluates crop/acreage, current district Scale of Finance, repayment capacity, account conduct, security and seasonal repayment needs.",
+    "documents": [
+      "Identity and address KYC; bank account details",
+      "Land record, cultivation proof or accepted tenant/sharecropper/JLG documentation",
+      "Crop, acreage, irrigation and allied-activity particulars",
+      "Any bank-specific application form, quotation or supporting evidence"
+    ],
+    "process": [
+      "Open the official Manipur Rural Bank website and locate its Agriculture / KCC / Loan Products section. For West Bengal, use the Bangiya Kisan Credit Card product page.",
+      "Check whether a rural or semi-urban branch serves the selected district and whether the proposed crop/allied activity is eligible.",
+      "Ask the branch for the current district crop Scale of Finance, KCC limit calculation, interest rate, subvention rules, security and application form.",
+      "Submit KYC, land/cultivation evidence, crop/acreage and allied-activity documents; tenants/sharecroppers should ask which local proof is accepted.",
+      "The RRB verifies documents and assesses the credit limit. Review written sanction, charges, repayment and renewal conditions before accepting."
+    ],
+    "applyUrl": "https://manipurrural.bank.in/",
+    "applyLabel": "Official RRB website / agriculture loan enquiry",
+    "sourceUrl": "https://financialservices.gov.in/list-rrbs-functioning-country",
+    "sources": [
+      {
+        "label": "Government of India — official list of 28 functioning RRBs",
+        "url": "https://financialservices.gov.in/list-rrbs-functioning-country"
+      },
+      {
+        "label": "Manipur Rural Bank official website",
+        "url": "https://manipurrural.bank.in/"
+      },
+      {
+        "label": "Government Kisan Rin Portal — KCC eligibility, loan quantum and delivery channel",
+        "url": "https://fasalrin.gov.in/"
+      },
+      {
+        "label": "DFS Agriculture Credit — KCC eligibility and cooperative/RRB structure",
+        "url": "https://financialservices.gov.in/agriculture-credit"
+      }
+    ],
+    "availability": "State RRB listed by DFS; confirm whether its actual branch network serves Manipur district and the selected district.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "RRB name and official website taken from DFS list last updated 13 Jan 2026. The RRB's own live loan/rate circular controls.",
+    "caution": "A state-level RRB listing does not prove a branch in every district or a guaranteed sanction. Ask the branch for the current product sheet and Key Fact Statement. Do not assume the same rate/limit across all RRBs.",
+    "keywords": [
+      "rrb",
+      "regional rural bank",
+      "kcc",
+      "crop credit",
+      "agriculture loan",
+      "manipur",
+      "punjab national bank"
+    ]
+  },
+  {
+    "id": "rrb-meghalaya",
+    "name": "Meghalaya Rural Bank",
+    "product": "Kisan Credit Card (KCC) and agriculture credit",
+    "providerKinds": [
+      "rrb"
+    ],
+    "states": [
+      "Meghalaya"
+    ],
+    "scopeLabel": "Regional Rural Bank · Meghalaya",
+    "borrower": "Owner cultivators, tenants, oral lessees, sharecroppers, eligible SHGs/JLGs and allied-activity farmers, subject to current KCC guidelines and bank terms",
+    "amount": "Need-based; no single universal RRB amount",
+    "amountNote": "KCC limits are assessed using crop pattern, cultivated area, district Scale of Finance and eligible working-capital/allied needs. The RRB branch's current policy controls final sanction.",
+    "rate": "Confirm the current RRB rate, Government interest-subvention eligibility, fees and repayment terms directly with the bank.",
+    "summary": "The Government-listed State Regional Rural Bank is a local institutional route for KCC, crop credit and eligible agriculture/allied lending. Product availability is branch and borrower dependent.",
+    "purpose": "Crop production, post-harvest expenses, farm-asset maintenance, and eligible allied activities such as dairy, poultry and fisheries; term finance only where the bank's named product supports it.",
+    "eligibility": "KCC eligibility under national guidelines includes owner cultivators, tenant farmers, oral lessees, sharecroppers and eligible farmer SHGs/JLGs; individual RRB product rules and accepted evidence must be confirmed.",
+    "terms": "No fixed rate or loan limit is inferred for all RRBs. The bank evaluates crop/acreage, current district Scale of Finance, repayment capacity, account conduct, security and seasonal repayment needs.",
+    "documents": [
+      "Identity and address KYC; bank account details",
+      "Land record, cultivation proof or accepted tenant/sharecropper/JLG documentation",
+      "Crop, acreage, irrigation and allied-activity particulars",
+      "Any bank-specific application form, quotation or supporting evidence"
+    ],
+    "process": [
+      "Open the official Meghalaya Rural Bank website and locate its Agriculture / KCC / Loan Products section. For West Bengal, use the Bangiya Kisan Credit Card product page.",
+      "Check whether a rural or semi-urban branch serves the selected district and whether the proposed crop/allied activity is eligible.",
+      "Ask the branch for the current district crop Scale of Finance, KCC limit calculation, interest rate, subvention rules, security and application form.",
+      "Submit KYC, land/cultivation evidence, crop/acreage and allied-activity documents; tenants/sharecroppers should ask which local proof is accepted.",
+      "The RRB verifies documents and assesses the credit limit. Review written sanction, charges, repayment and renewal conditions before accepting."
+    ],
+    "applyUrl": "https://meghalayaruralbank.bank.in/",
+    "applyLabel": "Official RRB website / agriculture loan enquiry",
+    "sourceUrl": "https://financialservices.gov.in/list-rrbs-functioning-country",
+    "sources": [
+      {
+        "label": "Government of India — official list of 28 functioning RRBs",
+        "url": "https://financialservices.gov.in/list-rrbs-functioning-country"
+      },
+      {
+        "label": "Meghalaya Rural Bank official website",
+        "url": "https://meghalayaruralbank.bank.in/"
+      },
+      {
+        "label": "Government Kisan Rin Portal — KCC eligibility, loan quantum and delivery channel",
+        "url": "https://fasalrin.gov.in/"
+      },
+      {
+        "label": "DFS Agriculture Credit — KCC eligibility and cooperative/RRB structure",
+        "url": "https://financialservices.gov.in/agriculture-credit"
+      }
+    ],
+    "availability": "State RRB listed by DFS; confirm whether its actual branch network serves Meghalaya district and the selected district.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "RRB name and official website taken from DFS list last updated 13 Jan 2026. The RRB's own live loan/rate circular controls.",
+    "caution": "A state-level RRB listing does not prove a branch in every district or a guaranteed sanction. Ask the branch for the current product sheet and Key Fact Statement. Do not assume the same rate/limit across all RRBs.",
+    "keywords": [
+      "rrb",
+      "regional rural bank",
+      "kcc",
+      "crop credit",
+      "agriculture loan",
+      "meghalaya",
+      "state bank of india"
+    ]
+  },
+  {
+    "id": "rrb-mizoram",
+    "name": "Mizoram Rural Bank",
+    "product": "Kisan Credit Card (KCC) and agriculture credit",
+    "providerKinds": [
+      "rrb"
+    ],
+    "states": [
+      "Mizoram"
+    ],
+    "scopeLabel": "Regional Rural Bank · Mizoram",
+    "borrower": "Owner cultivators, tenants, oral lessees, sharecroppers, eligible SHGs/JLGs and allied-activity farmers, subject to current KCC guidelines and bank terms",
+    "amount": "Need-based; no single universal RRB amount",
+    "amountNote": "KCC limits are assessed using crop pattern, cultivated area, district Scale of Finance and eligible working-capital/allied needs. The RRB branch's current policy controls final sanction.",
+    "rate": "Confirm the current RRB rate, Government interest-subvention eligibility, fees and repayment terms directly with the bank.",
+    "summary": "The Government-listed State Regional Rural Bank is a local institutional route for KCC, crop credit and eligible agriculture/allied lending. Product availability is branch and borrower dependent.",
+    "purpose": "Crop production, post-harvest expenses, farm-asset maintenance, and eligible allied activities such as dairy, poultry and fisheries; term finance only where the bank's named product supports it.",
+    "eligibility": "KCC eligibility under national guidelines includes owner cultivators, tenant farmers, oral lessees, sharecroppers and eligible farmer SHGs/JLGs; individual RRB product rules and accepted evidence must be confirmed.",
+    "terms": "No fixed rate or loan limit is inferred for all RRBs. The bank evaluates crop/acreage, current district Scale of Finance, repayment capacity, account conduct, security and seasonal repayment needs.",
+    "documents": [
+      "Identity and address KYC; bank account details",
+      "Land record, cultivation proof or accepted tenant/sharecropper/JLG documentation",
+      "Crop, acreage, irrigation and allied-activity particulars",
+      "Any bank-specific application form, quotation or supporting evidence"
+    ],
+    "process": [
+      "Open the official Mizoram Rural Bank website and locate its Agriculture / KCC / Loan Products section. For West Bengal, use the Bangiya Kisan Credit Card product page.",
+      "Check whether a rural or semi-urban branch serves the selected district and whether the proposed crop/allied activity is eligible.",
+      "Ask the branch for the current district crop Scale of Finance, KCC limit calculation, interest rate, subvention rules, security and application form.",
+      "Submit KYC, land/cultivation evidence, crop/acreage and allied-activity documents; tenants/sharecroppers should ask which local proof is accepted.",
+      "The RRB verifies documents and assesses the credit limit. Review written sanction, charges, repayment and renewal conditions before accepting."
+    ],
+    "applyUrl": "https://mrb.bank.in/",
+    "applyLabel": "Official RRB website / agriculture loan enquiry",
+    "sourceUrl": "https://financialservices.gov.in/list-rrbs-functioning-country",
+    "sources": [
+      {
+        "label": "Government of India — official list of 28 functioning RRBs",
+        "url": "https://financialservices.gov.in/list-rrbs-functioning-country"
+      },
+      {
+        "label": "Mizoram Rural Bank official website",
+        "url": "https://mrb.bank.in/"
+      },
+      {
+        "label": "Government Kisan Rin Portal — KCC eligibility, loan quantum and delivery channel",
+        "url": "https://fasalrin.gov.in/"
+      },
+      {
+        "label": "DFS Agriculture Credit — KCC eligibility and cooperative/RRB structure",
+        "url": "https://financialservices.gov.in/agriculture-credit"
+      }
+    ],
+    "availability": "State RRB listed by DFS; confirm whether its actual branch network serves Mizoram district and the selected district.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "RRB name and official website taken from DFS list last updated 13 Jan 2026. The RRB's own live loan/rate circular controls.",
+    "caution": "A state-level RRB listing does not prove a branch in every district or a guaranteed sanction. Ask the branch for the current product sheet and Key Fact Statement. Do not assume the same rate/limit across all RRBs.",
+    "keywords": [
+      "rrb",
+      "regional rural bank",
+      "kcc",
+      "crop credit",
+      "agriculture loan",
+      "mizoram",
+      "state bank of india"
+    ]
+  },
+  {
+    "id": "rrb-nagaland",
+    "name": "Nagaland Rural Bank",
+    "product": "Kisan Credit Card (KCC) and agriculture credit",
+    "providerKinds": [
+      "rrb"
+    ],
+    "states": [
+      "Nagaland"
+    ],
+    "scopeLabel": "Regional Rural Bank · Nagaland",
+    "borrower": "Owner cultivators, tenants, oral lessees, sharecroppers, eligible SHGs/JLGs and allied-activity farmers, subject to current KCC guidelines and bank terms",
+    "amount": "Need-based; no single universal RRB amount",
+    "amountNote": "KCC limits are assessed using crop pattern, cultivated area, district Scale of Finance and eligible working-capital/allied needs. The RRB branch's current policy controls final sanction.",
+    "rate": "Confirm the current RRB rate, Government interest-subvention eligibility, fees and repayment terms directly with the bank.",
+    "summary": "The Government-listed State Regional Rural Bank is a local institutional route for KCC, crop credit and eligible agriculture/allied lending. Product availability is branch and borrower dependent.",
+    "purpose": "Crop production, post-harvest expenses, farm-asset maintenance, and eligible allied activities such as dairy, poultry and fisheries; term finance only where the bank's named product supports it.",
+    "eligibility": "KCC eligibility under national guidelines includes owner cultivators, tenant farmers, oral lessees, sharecroppers and eligible farmer SHGs/JLGs; individual RRB product rules and accepted evidence must be confirmed.",
+    "terms": "No fixed rate or loan limit is inferred for all RRBs. The bank evaluates crop/acreage, current district Scale of Finance, repayment capacity, account conduct, security and seasonal repayment needs.",
+    "documents": [
+      "Identity and address KYC; bank account details",
+      "Land record, cultivation proof or accepted tenant/sharecropper/JLG documentation",
+      "Crop, acreage, irrigation and allied-activity particulars",
+      "Any bank-specific application form, quotation or supporting evidence"
+    ],
+    "process": [
+      "Open the official Nagaland Rural Bank website and locate its Agriculture / KCC / Loan Products section. For West Bengal, use the Bangiya Kisan Credit Card product page.",
+      "Check whether a rural or semi-urban branch serves the selected district and whether the proposed crop/allied activity is eligible.",
+      "Ask the branch for the current district crop Scale of Finance, KCC limit calculation, interest rate, subvention rules, security and application form.",
+      "Submit KYC, land/cultivation evidence, crop/acreage and allied-activity documents; tenants/sharecroppers should ask which local proof is accepted.",
+      "The RRB verifies documents and assesses the credit limit. Review written sanction, charges, repayment and renewal conditions before accepting."
+    ],
+    "applyUrl": "https://www.nrb.bank.in/",
+    "applyLabel": "Official RRB website / agriculture loan enquiry",
+    "sourceUrl": "https://financialservices.gov.in/list-rrbs-functioning-country",
+    "sources": [
+      {
+        "label": "Government of India — official list of 28 functioning RRBs",
+        "url": "https://financialservices.gov.in/list-rrbs-functioning-country"
+      },
+      {
+        "label": "Nagaland Rural Bank official website",
+        "url": "https://www.nrb.bank.in/"
+      },
+      {
+        "label": "Government Kisan Rin Portal — KCC eligibility, loan quantum and delivery channel",
+        "url": "https://fasalrin.gov.in/"
+      },
+      {
+        "label": "DFS Agriculture Credit — KCC eligibility and cooperative/RRB structure",
+        "url": "https://financialservices.gov.in/agriculture-credit"
+      }
+    ],
+    "availability": "State RRB listed by DFS; confirm whether its actual branch network serves Nagaland district and the selected district.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "RRB name and official website taken from DFS list last updated 13 Jan 2026. The RRB's own live loan/rate circular controls.",
+    "caution": "A state-level RRB listing does not prove a branch in every district or a guaranteed sanction. Ask the branch for the current product sheet and Key Fact Statement. Do not assume the same rate/limit across all RRBs.",
+    "keywords": [
+      "rrb",
+      "regional rural bank",
+      "kcc",
+      "crop credit",
+      "agriculture loan",
+      "nagaland",
+      "state bank of india"
+    ]
+  },
+  {
+    "id": "rrb-odisha",
+    "name": "Odisha Grameen Bank",
+    "product": "Kisan Credit Card (KCC) and agriculture credit",
+    "providerKinds": [
+      "rrb"
+    ],
+    "states": [
+      "Odisha"
+    ],
+    "scopeLabel": "Regional Rural Bank · Odisha",
+    "borrower": "Owner cultivators, tenants, oral lessees, sharecroppers, eligible SHGs/JLGs and allied-activity farmers, subject to current KCC guidelines and bank terms",
+    "amount": "Need-based; no single universal RRB amount",
+    "amountNote": "KCC limits are assessed using crop pattern, cultivated area, district Scale of Finance and eligible working-capital/allied needs. The RRB branch's current policy controls final sanction.",
+    "rate": "Confirm the current RRB rate, Government interest-subvention eligibility, fees and repayment terms directly with the bank.",
+    "summary": "The Government-listed State Regional Rural Bank is a local institutional route for KCC, crop credit and eligible agriculture/allied lending. Product availability is branch and borrower dependent.",
+    "purpose": "Crop production, post-harvest expenses, farm-asset maintenance, and eligible allied activities such as dairy, poultry and fisheries; term finance only where the bank's named product supports it.",
+    "eligibility": "KCC eligibility under national guidelines includes owner cultivators, tenant farmers, oral lessees, sharecroppers and eligible farmer SHGs/JLGs; individual RRB product rules and accepted evidence must be confirmed.",
+    "terms": "No fixed rate or loan limit is inferred for all RRBs. The bank evaluates crop/acreage, current district Scale of Finance, repayment capacity, account conduct, security and seasonal repayment needs.",
+    "documents": [
+      "Identity and address KYC; bank account details",
+      "Land record, cultivation proof or accepted tenant/sharecropper/JLG documentation",
+      "Crop, acreage, irrigation and allied-activity particulars",
+      "Any bank-specific application form, quotation or supporting evidence"
+    ],
+    "process": [
+      "Open the official Odisha Grameen Bank website and locate its Agriculture / KCC / Loan Products section. For West Bengal, use the Bangiya Kisan Credit Card product page.",
+      "Check whether a rural or semi-urban branch serves the selected district and whether the proposed crop/allied activity is eligible.",
+      "Ask the branch for the current district crop Scale of Finance, KCC limit calculation, interest rate, subvention rules, security and application form.",
+      "Submit KYC, land/cultivation evidence, crop/acreage and allied-activity documents; tenants/sharecroppers should ask which local proof is accepted.",
+      "The RRB verifies documents and assesses the credit limit. Review written sanction, charges, repayment and renewal conditions before accepting."
+    ],
+    "applyUrl": "https://odishabank.in/",
+    "applyLabel": "Official RRB website / agriculture loan enquiry",
+    "sourceUrl": "https://financialservices.gov.in/list-rrbs-functioning-country",
+    "sources": [
+      {
+        "label": "Government of India — official list of 28 functioning RRBs",
+        "url": "https://financialservices.gov.in/list-rrbs-functioning-country"
+      },
+      {
+        "label": "Odisha Grameen Bank official website",
+        "url": "https://odishabank.in/"
+      },
+      {
+        "label": "Government Kisan Rin Portal — KCC eligibility, loan quantum and delivery channel",
+        "url": "https://fasalrin.gov.in/"
+      },
+      {
+        "label": "DFS Agriculture Credit — KCC eligibility and cooperative/RRB structure",
+        "url": "https://financialservices.gov.in/agriculture-credit"
+      }
+    ],
+    "availability": "State RRB listed by DFS; confirm whether its actual branch network serves Odisha district and the selected district.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "RRB name and official website taken from DFS list last updated 13 Jan 2026. The RRB's own live loan/rate circular controls.",
+    "caution": "A state-level RRB listing does not prove a branch in every district or a guaranteed sanction. Ask the branch for the current product sheet and Key Fact Statement. Do not assume the same rate/limit across all RRBs.",
+    "keywords": [
+      "rrb",
+      "regional rural bank",
+      "kcc",
+      "crop credit",
+      "agriculture loan",
+      "odisha",
+      "indian overseas bank"
+    ]
+  },
+  {
+    "id": "rrb-puducherry",
+    "name": "Puducherry Grama Bank",
+    "product": "Kisan Credit Card (KCC) and agriculture credit",
+    "providerKinds": [
+      "rrb"
+    ],
+    "states": [
+      "Puducherry"
+    ],
+    "scopeLabel": "Regional Rural Bank · Puducherry",
+    "borrower": "Owner cultivators, tenants, oral lessees, sharecroppers, eligible SHGs/JLGs and allied-activity farmers, subject to current KCC guidelines and bank terms",
+    "amount": "Need-based; no single universal RRB amount",
+    "amountNote": "KCC limits are assessed using crop pattern, cultivated area, district Scale of Finance and eligible working-capital/allied needs. The RRB branch's current policy controls final sanction.",
+    "rate": "Confirm the current RRB rate, Government interest-subvention eligibility, fees and repayment terms directly with the bank.",
+    "summary": "The Government-listed State Regional Rural Bank is a local institutional route for KCC, crop credit and eligible agriculture/allied lending. Product availability is branch and borrower dependent.",
+    "purpose": "Crop production, post-harvest expenses, farm-asset maintenance, and eligible allied activities such as dairy, poultry and fisheries; term finance only where the bank's named product supports it.",
+    "eligibility": "KCC eligibility under national guidelines includes owner cultivators, tenant farmers, oral lessees, sharecroppers and eligible farmer SHGs/JLGs; individual RRB product rules and accepted evidence must be confirmed.",
+    "terms": "No fixed rate or loan limit is inferred for all RRBs. The bank evaluates crop/acreage, current district Scale of Finance, repayment capacity, account conduct, security and seasonal repayment needs.",
+    "documents": [
+      "Identity and address KYC; bank account details",
+      "Land record, cultivation proof or accepted tenant/sharecropper/JLG documentation",
+      "Crop, acreage, irrigation and allied-activity particulars",
+      "Any bank-specific application form, quotation or supporting evidence"
+    ],
+    "process": [
+      "Open the official Puducherry Grama Bank website and locate its Agriculture / KCC / Loan Products section. For West Bengal, use the Bangiya Kisan Credit Card product page.",
+      "Check whether a rural or semi-urban branch serves the selected district and whether the proposed crop/allied activity is eligible.",
+      "Ask the branch for the current district crop Scale of Finance, KCC limit calculation, interest rate, subvention rules, security and application form.",
+      "Submit KYC, land/cultivation evidence, crop/acreage and allied-activity documents; tenants/sharecroppers should ask which local proof is accepted.",
+      "The RRB verifies documents and assesses the credit limit. Review written sanction, charges, repayment and renewal conditions before accepting."
+    ],
+    "applyUrl": "https://pygb.bank.in/",
+    "applyLabel": "Official RRB website / agriculture loan enquiry",
+    "sourceUrl": "https://financialservices.gov.in/list-rrbs-functioning-country",
+    "sources": [
+      {
+        "label": "Government of India — official list of 28 functioning RRBs",
+        "url": "https://financialservices.gov.in/list-rrbs-functioning-country"
+      },
+      {
+        "label": "Puducherry Grama Bank official website",
+        "url": "https://pygb.bank.in/"
+      },
+      {
+        "label": "Government Kisan Rin Portal — KCC eligibility, loan quantum and delivery channel",
+        "url": "https://fasalrin.gov.in/"
+      },
+      {
+        "label": "DFS Agriculture Credit — KCC eligibility and cooperative/RRB structure",
+        "url": "https://financialservices.gov.in/agriculture-credit"
+      }
+    ],
+    "availability": "State RRB listed by DFS; confirm whether its actual branch network serves Puducherry district and the selected district.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "RRB name and official website taken from DFS list last updated 13 Jan 2026. The RRB's own live loan/rate circular controls.",
+    "caution": "A state-level RRB listing does not prove a branch in every district or a guaranteed sanction. Ask the branch for the current product sheet and Key Fact Statement. Do not assume the same rate/limit across all RRBs.",
+    "keywords": [
+      "rrb",
+      "regional rural bank",
+      "kcc",
+      "crop credit",
+      "agriculture loan",
+      "puducherry",
+      "indian bank"
+    ]
+  },
+  {
+    "id": "rrb-punjab",
+    "name": "Punjab Gramin Bank",
+    "product": "Kisan Credit Card (KCC) and agriculture credit",
+    "providerKinds": [
+      "rrb"
+    ],
+    "states": [
+      "Punjab"
+    ],
+    "scopeLabel": "Regional Rural Bank · Punjab",
+    "borrower": "Owner cultivators, tenants, oral lessees, sharecroppers, eligible SHGs/JLGs and allied-activity farmers, subject to current KCC guidelines and bank terms",
+    "amount": "Need-based; no single universal RRB amount",
+    "amountNote": "KCC limits are assessed using crop pattern, cultivated area, district Scale of Finance and eligible working-capital/allied needs. The RRB branch's current policy controls final sanction.",
+    "rate": "Confirm the current RRB rate, Government interest-subvention eligibility, fees and repayment terms directly with the bank.",
+    "summary": "The Government-listed State Regional Rural Bank is a local institutional route for KCC, crop credit and eligible agriculture/allied lending. Product availability is branch and borrower dependent.",
+    "purpose": "Crop production, post-harvest expenses, farm-asset maintenance, and eligible allied activities such as dairy, poultry and fisheries; term finance only where the bank's named product supports it.",
+    "eligibility": "KCC eligibility under national guidelines includes owner cultivators, tenant farmers, oral lessees, sharecroppers and eligible farmer SHGs/JLGs; individual RRB product rules and accepted evidence must be confirmed.",
+    "terms": "No fixed rate or loan limit is inferred for all RRBs. The bank evaluates crop/acreage, current district Scale of Finance, repayment capacity, account conduct, security and seasonal repayment needs.",
+    "documents": [
+      "Identity and address KYC; bank account details",
+      "Land record, cultivation proof or accepted tenant/sharecropper/JLG documentation",
+      "Crop, acreage, irrigation and allied-activity particulars",
+      "Any bank-specific application form, quotation or supporting evidence"
+    ],
+    "process": [
+      "Open the official Punjab Gramin Bank website and locate its Agriculture / KCC / Loan Products section. For West Bengal, use the Bangiya Kisan Credit Card product page.",
+      "Check whether a rural or semi-urban branch serves the selected district and whether the proposed crop/allied activity is eligible.",
+      "Ask the branch for the current district crop Scale of Finance, KCC limit calculation, interest rate, subvention rules, security and application form.",
+      "Submit KYC, land/cultivation evidence, crop/acreage and allied-activity documents; tenants/sharecroppers should ask which local proof is accepted.",
+      "The RRB verifies documents and assesses the credit limit. Review written sanction, charges, repayment and renewal conditions before accepting."
+    ],
+    "applyUrl": "https://pgb.bank.in/",
+    "applyLabel": "Official RRB website / agriculture loan enquiry",
+    "sourceUrl": "https://financialservices.gov.in/list-rrbs-functioning-country",
+    "sources": [
+      {
+        "label": "Government of India — official list of 28 functioning RRBs",
+        "url": "https://financialservices.gov.in/list-rrbs-functioning-country"
+      },
+      {
+        "label": "Punjab Gramin Bank official website",
+        "url": "https://pgb.bank.in/"
+      },
+      {
+        "label": "Government Kisan Rin Portal — KCC eligibility, loan quantum and delivery channel",
+        "url": "https://fasalrin.gov.in/"
+      },
+      {
+        "label": "DFS Agriculture Credit — KCC eligibility and cooperative/RRB structure",
+        "url": "https://financialservices.gov.in/agriculture-credit"
+      }
+    ],
+    "availability": "State RRB listed by DFS; confirm whether its actual branch network serves Punjab district and the selected district.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "RRB name and official website taken from DFS list last updated 13 Jan 2026. The RRB's own live loan/rate circular controls.",
+    "caution": "A state-level RRB listing does not prove a branch in every district or a guaranteed sanction. Ask the branch for the current product sheet and Key Fact Statement. Do not assume the same rate/limit across all RRBs.",
+    "keywords": [
+      "rrb",
+      "regional rural bank",
+      "kcc",
+      "crop credit",
+      "agriculture loan",
+      "punjab",
+      "punjab national bank"
+    ]
+  },
+  {
+    "id": "rrb-rajasthan",
+    "name": "Rajasthan Gramin Bank",
+    "product": "Kisan Credit Card (KCC) and agriculture credit",
+    "providerKinds": [
+      "rrb"
+    ],
+    "states": [
+      "Rajasthan"
+    ],
+    "scopeLabel": "Regional Rural Bank · Rajasthan",
+    "borrower": "Owner cultivators, tenants, oral lessees, sharecroppers, eligible SHGs/JLGs and allied-activity farmers, subject to current KCC guidelines and bank terms",
+    "amount": "Need-based; no single universal RRB amount",
+    "amountNote": "KCC limits are assessed using crop pattern, cultivated area, district Scale of Finance and eligible working-capital/allied needs. The RRB branch's current policy controls final sanction.",
+    "rate": "Confirm the current RRB rate, Government interest-subvention eligibility, fees and repayment terms directly with the bank.",
+    "summary": "The Government-listed State Regional Rural Bank is a local institutional route for KCC, crop credit and eligible agriculture/allied lending. Product availability is branch and borrower dependent.",
+    "purpose": "Crop production, post-harvest expenses, farm-asset maintenance, and eligible allied activities such as dairy, poultry and fisheries; term finance only where the bank's named product supports it.",
+    "eligibility": "KCC eligibility under national guidelines includes owner cultivators, tenant farmers, oral lessees, sharecroppers and eligible farmer SHGs/JLGs; individual RRB product rules and accepted evidence must be confirmed.",
+    "terms": "No fixed rate or loan limit is inferred for all RRBs. The bank evaluates crop/acreage, current district Scale of Finance, repayment capacity, account conduct, security and seasonal repayment needs.",
+    "documents": [
+      "Identity and address KYC; bank account details",
+      "Land record, cultivation proof or accepted tenant/sharecropper/JLG documentation",
+      "Crop, acreage, irrigation and allied-activity particulars",
+      "Any bank-specific application form, quotation or supporting evidence"
+    ],
+    "process": [
+      "Open the official Rajasthan Gramin Bank website and locate its Agriculture / KCC / Loan Products section. For West Bengal, use the Bangiya Kisan Credit Card product page.",
+      "Check whether a rural or semi-urban branch serves the selected district and whether the proposed crop/allied activity is eligible.",
+      "Ask the branch for the current district crop Scale of Finance, KCC limit calculation, interest rate, subvention rules, security and application form.",
+      "Submit KYC, land/cultivation evidence, crop/acreage and allied-activity documents; tenants/sharecroppers should ask which local proof is accepted.",
+      "The RRB verifies documents and assesses the credit limit. Review written sanction, charges, repayment and renewal conditions before accepting."
+    ],
+    "applyUrl": "https://rgb.bank.in/",
+    "applyLabel": "Official RRB website / agriculture loan enquiry",
+    "sourceUrl": "https://financialservices.gov.in/list-rrbs-functioning-country",
+    "sources": [
+      {
+        "label": "Government of India — official list of 28 functioning RRBs",
+        "url": "https://financialservices.gov.in/list-rrbs-functioning-country"
+      },
+      {
+        "label": "Rajasthan Gramin Bank official website",
+        "url": "https://rgb.bank.in/"
+      },
+      {
+        "label": "Government Kisan Rin Portal — KCC eligibility, loan quantum and delivery channel",
+        "url": "https://fasalrin.gov.in/"
+      },
+      {
+        "label": "DFS Agriculture Credit — KCC eligibility and cooperative/RRB structure",
+        "url": "https://financialservices.gov.in/agriculture-credit"
+      }
+    ],
+    "availability": "State RRB listed by DFS; confirm whether its actual branch network serves Rajasthan district and the selected district.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "RRB name and official website taken from DFS list last updated 13 Jan 2026. The RRB's own live loan/rate circular controls.",
+    "caution": "A state-level RRB listing does not prove a branch in every district or a guaranteed sanction. Ask the branch for the current product sheet and Key Fact Statement. Do not assume the same rate/limit across all RRBs.",
+    "keywords": [
+      "rrb",
+      "regional rural bank",
+      "kcc",
+      "crop credit",
+      "agriculture loan",
+      "rajasthan",
+      "state bank of india"
+    ]
+  },
+  {
+    "id": "rrb-tamil-nadu",
+    "name": "Tamil Nadu Grama Bank",
+    "product": "Kisan Credit Card (KCC) and agriculture credit",
+    "providerKinds": [
+      "rrb"
+    ],
+    "states": [
+      "Tamil Nadu"
+    ],
+    "scopeLabel": "Regional Rural Bank · Tamil Nadu",
+    "borrower": "Owner cultivators, tenants, oral lessees, sharecroppers, eligible SHGs/JLGs and allied-activity farmers, subject to current KCC guidelines and bank terms",
+    "amount": "Need-based; no single universal RRB amount",
+    "amountNote": "KCC limits are assessed using crop pattern, cultivated area, district Scale of Finance and eligible working-capital/allied needs. The RRB branch's current policy controls final sanction.",
+    "rate": "Confirm the current RRB rate, Government interest-subvention eligibility, fees and repayment terms directly with the bank.",
+    "summary": "The Government-listed State Regional Rural Bank is a local institutional route for KCC, crop credit and eligible agriculture/allied lending. Product availability is branch and borrower dependent.",
+    "purpose": "Crop production, post-harvest expenses, farm-asset maintenance, and eligible allied activities such as dairy, poultry and fisheries; term finance only where the bank's named product supports it.",
+    "eligibility": "KCC eligibility under national guidelines includes owner cultivators, tenant farmers, oral lessees, sharecroppers and eligible farmer SHGs/JLGs; individual RRB product rules and accepted evidence must be confirmed.",
+    "terms": "No fixed rate or loan limit is inferred for all RRBs. The bank evaluates crop/acreage, current district Scale of Finance, repayment capacity, account conduct, security and seasonal repayment needs.",
+    "documents": [
+      "Identity and address KYC; bank account details",
+      "Land record, cultivation proof or accepted tenant/sharecropper/JLG documentation",
+      "Crop, acreage, irrigation and allied-activity particulars",
+      "Any bank-specific application form, quotation or supporting evidence"
+    ],
+    "process": [
+      "Open the official Tamil Nadu Grama Bank website and locate its Agriculture / KCC / Loan Products section. For West Bengal, use the Bangiya Kisan Credit Card product page.",
+      "Check whether a rural or semi-urban branch serves the selected district and whether the proposed crop/allied activity is eligible.",
+      "Ask the branch for the current district crop Scale of Finance, KCC limit calculation, interest rate, subvention rules, security and application form.",
+      "Submit KYC, land/cultivation evidence, crop/acreage and allied-activity documents; tenants/sharecroppers should ask which local proof is accepted.",
+      "The RRB verifies documents and assesses the credit limit. Review written sanction, charges, repayment and renewal conditions before accepting."
+    ],
+    "applyUrl": "https://tngb.bank.in/",
+    "applyLabel": "Official RRB website / agriculture loan enquiry",
+    "sourceUrl": "https://financialservices.gov.in/list-rrbs-functioning-country",
+    "sources": [
+      {
+        "label": "Government of India — official list of 28 functioning RRBs",
+        "url": "https://financialservices.gov.in/list-rrbs-functioning-country"
+      },
+      {
+        "label": "Tamil Nadu Grama Bank official website",
+        "url": "https://tngb.bank.in/"
+      },
+      {
+        "label": "Government Kisan Rin Portal — KCC eligibility, loan quantum and delivery channel",
+        "url": "https://fasalrin.gov.in/"
+      },
+      {
+        "label": "DFS Agriculture Credit — KCC eligibility and cooperative/RRB structure",
+        "url": "https://financialservices.gov.in/agriculture-credit"
+      }
+    ],
+    "availability": "State RRB listed by DFS; confirm whether its actual branch network serves Tamil Nadu district and the selected district.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "RRB name and official website taken from DFS list last updated 13 Jan 2026. The RRB's own live loan/rate circular controls.",
+    "caution": "A state-level RRB listing does not prove a branch in every district or a guaranteed sanction. Ask the branch for the current product sheet and Key Fact Statement. Do not assume the same rate/limit across all RRBs.",
+    "keywords": [
+      "rrb",
+      "regional rural bank",
+      "kcc",
+      "crop credit",
+      "agriculture loan",
+      "tamil nadu",
+      "indian bank"
+    ]
+  },
+  {
+    "id": "rrb-telangana",
+    "name": "Telangana Grameena Bank",
+    "product": "Kisan Credit Card (KCC) and agriculture credit",
+    "providerKinds": [
+      "rrb"
+    ],
+    "states": [
+      "Telangana"
+    ],
+    "scopeLabel": "Regional Rural Bank · Telangana",
+    "borrower": "Owner cultivators, tenants, oral lessees, sharecroppers, eligible SHGs/JLGs and allied-activity farmers, subject to current KCC guidelines and bank terms",
+    "amount": "Need-based; no single universal RRB amount",
+    "amountNote": "KCC limits are assessed using crop pattern, cultivated area, district Scale of Finance and eligible working-capital/allied needs. The RRB branch's current policy controls final sanction.",
+    "rate": "Confirm the current RRB rate, Government interest-subvention eligibility, fees and repayment terms directly with the bank.",
+    "summary": "The Government-listed State Regional Rural Bank is a local institutional route for KCC, crop credit and eligible agriculture/allied lending. Product availability is branch and borrower dependent.",
+    "purpose": "Crop production, post-harvest expenses, farm-asset maintenance, and eligible allied activities such as dairy, poultry and fisheries; term finance only where the bank's named product supports it.",
+    "eligibility": "KCC eligibility under national guidelines includes owner cultivators, tenant farmers, oral lessees, sharecroppers and eligible farmer SHGs/JLGs; individual RRB product rules and accepted evidence must be confirmed.",
+    "terms": "No fixed rate or loan limit is inferred for all RRBs. The bank evaluates crop/acreage, current district Scale of Finance, repayment capacity, account conduct, security and seasonal repayment needs.",
+    "documents": [
+      "Identity and address KYC; bank account details",
+      "Land record, cultivation proof or accepted tenant/sharecropper/JLG documentation",
+      "Crop, acreage, irrigation and allied-activity particulars",
+      "Any bank-specific application form, quotation or supporting evidence"
+    ],
+    "process": [
+      "Open the official Telangana Grameena Bank website and locate its Agriculture / KCC / Loan Products section. For West Bengal, use the Bangiya Kisan Credit Card product page.",
+      "Check whether a rural or semi-urban branch serves the selected district and whether the proposed crop/allied activity is eligible.",
+      "Ask the branch for the current district crop Scale of Finance, KCC limit calculation, interest rate, subvention rules, security and application form.",
+      "Submit KYC, land/cultivation evidence, crop/acreage and allied-activity documents; tenants/sharecroppers should ask which local proof is accepted.",
+      "The RRB verifies documents and assesses the credit limit. Review written sanction, charges, repayment and renewal conditions before accepting."
+    ],
+    "applyUrl": "https://tgbhyd.in/",
+    "applyLabel": "Official RRB website / agriculture loan enquiry",
+    "sourceUrl": "https://financialservices.gov.in/list-rrbs-functioning-country",
+    "sources": [
+      {
+        "label": "Government of India — official list of 28 functioning RRBs",
+        "url": "https://financialservices.gov.in/list-rrbs-functioning-country"
+      },
+      {
+        "label": "Telangana Grameena Bank official website",
+        "url": "https://tgbhyd.in/"
+      },
+      {
+        "label": "Government Kisan Rin Portal — KCC eligibility, loan quantum and delivery channel",
+        "url": "https://fasalrin.gov.in/"
+      },
+      {
+        "label": "DFS Agriculture Credit — KCC eligibility and cooperative/RRB structure",
+        "url": "https://financialservices.gov.in/agriculture-credit"
+      }
+    ],
+    "availability": "State RRB listed by DFS; confirm whether its actual branch network serves Telangana district and the selected district.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "RRB name and official website taken from DFS list last updated 13 Jan 2026. The RRB's own live loan/rate circular controls.",
+    "caution": "A state-level RRB listing does not prove a branch in every district or a guaranteed sanction. Ask the branch for the current product sheet and Key Fact Statement. Do not assume the same rate/limit across all RRBs.",
+    "keywords": [
+      "rrb",
+      "regional rural bank",
+      "kcc",
+      "crop credit",
+      "agriculture loan",
+      "telangana",
+      "state bank of india"
+    ]
+  },
+  {
+    "id": "rrb-tripura",
+    "name": "Tripura Gramin Bank",
+    "product": "Kisan Credit Card (KCC) and agriculture credit",
+    "providerKinds": [
+      "rrb"
+    ],
+    "states": [
+      "Tripura"
+    ],
+    "scopeLabel": "Regional Rural Bank · Tripura",
+    "borrower": "Owner cultivators, tenants, oral lessees, sharecroppers, eligible SHGs/JLGs and allied-activity farmers, subject to current KCC guidelines and bank terms",
+    "amount": "Need-based; no single universal RRB amount",
+    "amountNote": "KCC limits are assessed using crop pattern, cultivated area, district Scale of Finance and eligible working-capital/allied needs. The RRB branch's current policy controls final sanction.",
+    "rate": "Confirm the current RRB rate, Government interest-subvention eligibility, fees and repayment terms directly with the bank.",
+    "summary": "The Government-listed State Regional Rural Bank is a local institutional route for KCC, crop credit and eligible agriculture/allied lending. Product availability is branch and borrower dependent.",
+    "purpose": "Crop production, post-harvest expenses, farm-asset maintenance, and eligible allied activities such as dairy, poultry and fisheries; term finance only where the bank's named product supports it.",
+    "eligibility": "KCC eligibility under national guidelines includes owner cultivators, tenant farmers, oral lessees, sharecroppers and eligible farmer SHGs/JLGs; individual RRB product rules and accepted evidence must be confirmed.",
+    "terms": "No fixed rate or loan limit is inferred for all RRBs. The bank evaluates crop/acreage, current district Scale of Finance, repayment capacity, account conduct, security and seasonal repayment needs.",
+    "documents": [
+      "Identity and address KYC; bank account details",
+      "Land record, cultivation proof or accepted tenant/sharecropper/JLG documentation",
+      "Crop, acreage, irrigation and allied-activity particulars",
+      "Any bank-specific application form, quotation or supporting evidence"
+    ],
+    "process": [
+      "Open the official Tripura Gramin Bank website and locate its Agriculture / KCC / Loan Products section. For West Bengal, use the Bangiya Kisan Credit Card product page.",
+      "Check whether a rural or semi-urban branch serves the selected district and whether the proposed crop/allied activity is eligible.",
+      "Ask the branch for the current district crop Scale of Finance, KCC limit calculation, interest rate, subvention rules, security and application form.",
+      "Submit KYC, land/cultivation evidence, crop/acreage and allied-activity documents; tenants/sharecroppers should ask which local proof is accepted.",
+      "The RRB verifies documents and assesses the credit limit. Review written sanction, charges, repayment and renewal conditions before accepting."
+    ],
+    "applyUrl": "https://tripuragramin.bank.in/",
+    "applyLabel": "Official RRB website / agriculture loan enquiry",
+    "sourceUrl": "https://financialservices.gov.in/list-rrbs-functioning-country",
+    "sources": [
+      {
+        "label": "Government of India — official list of 28 functioning RRBs",
+        "url": "https://financialservices.gov.in/list-rrbs-functioning-country"
+      },
+      {
+        "label": "Tripura Gramin Bank official website",
+        "url": "https://tripuragramin.bank.in/"
+      },
+      {
+        "label": "Government Kisan Rin Portal — KCC eligibility, loan quantum and delivery channel",
+        "url": "https://fasalrin.gov.in/"
+      },
+      {
+        "label": "DFS Agriculture Credit — KCC eligibility and cooperative/RRB structure",
+        "url": "https://financialservices.gov.in/agriculture-credit"
+      }
+    ],
+    "availability": "State RRB listed by DFS; confirm whether its actual branch network serves Tripura district and the selected district.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "RRB name and official website taken from DFS list last updated 13 Jan 2026. The RRB's own live loan/rate circular controls.",
+    "caution": "A state-level RRB listing does not prove a branch in every district or a guaranteed sanction. Ask the branch for the current product sheet and Key Fact Statement. Do not assume the same rate/limit across all RRBs.",
+    "keywords": [
+      "rrb",
+      "regional rural bank",
+      "kcc",
+      "crop credit",
+      "agriculture loan",
+      "tripura",
+      "punjab national bank"
+    ]
+  },
+  {
+    "id": "rrb-uttar-pradesh",
+    "name": "Uttar Pradesh Gramin Bank",
+    "product": "Kisan Credit Card (KCC) and agriculture credit",
+    "providerKinds": [
+      "rrb"
+    ],
+    "states": [
+      "Uttar Pradesh"
+    ],
+    "scopeLabel": "Regional Rural Bank · Uttar Pradesh",
+    "borrower": "Owner cultivators, tenants, oral lessees, sharecroppers, eligible SHGs/JLGs and allied-activity farmers, subject to current KCC guidelines and bank terms",
+    "amount": "Need-based; no single universal RRB amount",
+    "amountNote": "KCC limits are assessed using crop pattern, cultivated area, district Scale of Finance and eligible working-capital/allied needs. The RRB branch's current policy controls final sanction.",
+    "rate": "Confirm the current RRB rate, Government interest-subvention eligibility, fees and repayment terms directly with the bank.",
+    "summary": "The Government-listed State Regional Rural Bank is a local institutional route for KCC, crop credit and eligible agriculture/allied lending. Product availability is branch and borrower dependent.",
+    "purpose": "Crop production, post-harvest expenses, farm-asset maintenance, and eligible allied activities such as dairy, poultry and fisheries; term finance only where the bank's named product supports it.",
+    "eligibility": "KCC eligibility under national guidelines includes owner cultivators, tenant farmers, oral lessees, sharecroppers and eligible farmer SHGs/JLGs; individual RRB product rules and accepted evidence must be confirmed.",
+    "terms": "No fixed rate or loan limit is inferred for all RRBs. The bank evaluates crop/acreage, current district Scale of Finance, repayment capacity, account conduct, security and seasonal repayment needs.",
+    "documents": [
+      "Identity and address KYC; bank account details",
+      "Land record, cultivation proof or accepted tenant/sharecropper/JLG documentation",
+      "Crop, acreage, irrigation and allied-activity particulars",
+      "Any bank-specific application form, quotation or supporting evidence"
+    ],
+    "process": [
+      "Open the official Uttar Pradesh Gramin Bank website and locate its Agriculture / KCC / Loan Products section. For West Bengal, use the Bangiya Kisan Credit Card product page.",
+      "Check whether a rural or semi-urban branch serves the selected district and whether the proposed crop/allied activity is eligible.",
+      "Ask the branch for the current district crop Scale of Finance, KCC limit calculation, interest rate, subvention rules, security and application form.",
+      "Submit KYC, land/cultivation evidence, crop/acreage and allied-activity documents; tenants/sharecroppers should ask which local proof is accepted.",
+      "The RRB verifies documents and assesses the credit limit. Review written sanction, charges, repayment and renewal conditions before accepting."
+    ],
+    "applyUrl": "https://upgb.bank.in/",
+    "applyLabel": "Official RRB website / agriculture loan enquiry",
+    "sourceUrl": "https://financialservices.gov.in/list-rrbs-functioning-country",
+    "sources": [
+      {
+        "label": "Government of India — official list of 28 functioning RRBs",
+        "url": "https://financialservices.gov.in/list-rrbs-functioning-country"
+      },
+      {
+        "label": "Uttar Pradesh Gramin Bank official website",
+        "url": "https://upgb.bank.in/"
+      },
+      {
+        "label": "Government Kisan Rin Portal — KCC eligibility, loan quantum and delivery channel",
+        "url": "https://fasalrin.gov.in/"
+      },
+      {
+        "label": "DFS Agriculture Credit — KCC eligibility and cooperative/RRB structure",
+        "url": "https://financialservices.gov.in/agriculture-credit"
+      }
+    ],
+    "availability": "State RRB listed by DFS; confirm whether its actual branch network serves Uttar Pradesh district and the selected district.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "RRB name and official website taken from DFS list last updated 13 Jan 2026. The RRB's own live loan/rate circular controls.",
+    "caution": "A state-level RRB listing does not prove a branch in every district or a guaranteed sanction. Ask the branch for the current product sheet and Key Fact Statement. Do not assume the same rate/limit across all RRBs.",
+    "keywords": [
+      "rrb",
+      "regional rural bank",
+      "kcc",
+      "crop credit",
+      "agriculture loan",
+      "uttar pradesh",
+      "bank of baroda"
+    ]
+  },
+  {
+    "id": "rrb-uttarakhand",
+    "name": "Uttarakhand Gramin Bank",
+    "product": "Kisan Credit Card (KCC) and agriculture credit",
+    "providerKinds": [
+      "rrb"
+    ],
+    "states": [
+      "Uttarakhand"
+    ],
+    "scopeLabel": "Regional Rural Bank · Uttarakhand",
+    "borrower": "Owner cultivators, tenants, oral lessees, sharecroppers, eligible SHGs/JLGs and allied-activity farmers, subject to current KCC guidelines and bank terms",
+    "amount": "Need-based; no single universal RRB amount",
+    "amountNote": "KCC limits are assessed using crop pattern, cultivated area, district Scale of Finance and eligible working-capital/allied needs. The RRB branch's current policy controls final sanction.",
+    "rate": "Confirm the current RRB rate, Government interest-subvention eligibility, fees and repayment terms directly with the bank.",
+    "summary": "The Government-listed State Regional Rural Bank is a local institutional route for KCC, crop credit and eligible agriculture/allied lending. Product availability is branch and borrower dependent.",
+    "purpose": "Crop production, post-harvest expenses, farm-asset maintenance, and eligible allied activities such as dairy, poultry and fisheries; term finance only where the bank's named product supports it.",
+    "eligibility": "KCC eligibility under national guidelines includes owner cultivators, tenant farmers, oral lessees, sharecroppers and eligible farmer SHGs/JLGs; individual RRB product rules and accepted evidence must be confirmed.",
+    "terms": "No fixed rate or loan limit is inferred for all RRBs. The bank evaluates crop/acreage, current district Scale of Finance, repayment capacity, account conduct, security and seasonal repayment needs.",
+    "documents": [
+      "Identity and address KYC; bank account details",
+      "Land record, cultivation proof or accepted tenant/sharecropper/JLG documentation",
+      "Crop, acreage, irrigation and allied-activity particulars",
+      "Any bank-specific application form, quotation or supporting evidence"
+    ],
+    "process": [
+      "Open the official Uttarakhand Gramin Bank website and locate its Agriculture / KCC / Loan Products section. For West Bengal, use the Bangiya Kisan Credit Card product page.",
+      "Check whether a rural or semi-urban branch serves the selected district and whether the proposed crop/allied activity is eligible.",
+      "Ask the branch for the current district crop Scale of Finance, KCC limit calculation, interest rate, subvention rules, security and application form.",
+      "Submit KYC, land/cultivation evidence, crop/acreage and allied-activity documents; tenants/sharecroppers should ask which local proof is accepted.",
+      "The RRB verifies documents and assesses the credit limit. Review written sanction, charges, repayment and renewal conditions before accepting."
+    ],
+    "applyUrl": "https://www.ukgb.bank.in/",
+    "applyLabel": "Official RRB website / agriculture loan enquiry",
+    "sourceUrl": "https://financialservices.gov.in/list-rrbs-functioning-country",
+    "sources": [
+      {
+        "label": "Government of India — official list of 28 functioning RRBs",
+        "url": "https://financialservices.gov.in/list-rrbs-functioning-country"
+      },
+      {
+        "label": "Uttarakhand Gramin Bank official website",
+        "url": "https://www.ukgb.bank.in/"
+      },
+      {
+        "label": "Government Kisan Rin Portal — KCC eligibility, loan quantum and delivery channel",
+        "url": "https://fasalrin.gov.in/"
+      },
+      {
+        "label": "DFS Agriculture Credit — KCC eligibility and cooperative/RRB structure",
+        "url": "https://financialservices.gov.in/agriculture-credit"
+      }
+    ],
+    "availability": "State RRB listed by DFS; confirm whether its actual branch network serves Uttarakhand district and the selected district.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "RRB name and official website taken from DFS list last updated 13 Jan 2026. The RRB's own live loan/rate circular controls.",
+    "caution": "A state-level RRB listing does not prove a branch in every district or a guaranteed sanction. Ask the branch for the current product sheet and Key Fact Statement. Do not assume the same rate/limit across all RRBs.",
+    "keywords": [
+      "rrb",
+      "regional rural bank",
+      "kcc",
+      "crop credit",
+      "agriculture loan",
+      "uttarakhand",
+      "state bank of india"
+    ]
+  },
+  {
+    "id": "rrb-west-bengal",
+    "name": "West Bengal Gramin Bank",
+    "product": "Bangiya Kisan Credit Card (KCC) — crop and allied activities",
+    "providerKinds": [
+      "rrb"
+    ],
+    "states": [
+      "West Bengal"
+    ],
+    "scopeLabel": "Regional Rural Bank · West Bengal",
+    "borrower": "Owner cultivators, sharecroppers/bargadars and eligible agriculture/allied borrowers",
+    "amount": "Need-based; no single universal RRB amount",
+    "amountNote": "KCC limits are assessed using crop pattern, cultivated area, district Scale of Finance and eligible working-capital/allied needs. The RRB branch's current policy controls final sanction.",
+    "rate": "Confirm the current RRB rate, Government interest-subvention eligibility, fees and repayment terms directly with the bank.",
+    "summary": "West Bengal Gramin Bank's Bangiya Kisan Credit Card provides timely crop and allied-activity credit through its rural and semi-urban branches.",
+    "purpose": "Crop production, post-harvest expenses, farm-asset maintenance, and eligible allied activities such as dairy, poultry and fisheries; term finance only where the bank's named product supports it.",
+    "eligibility": "WBGB's product page names owner cultivators, sharecroppers/bargadars and eligible allied-activity farmers. Other borrower forms must be confirmed against current bank KCC terms.",
+    "terms": "No fixed rate or loan limit is inferred for all RRBs. The bank evaluates crop/acreage, current district Scale of Finance, repayment capacity, account conduct, security and seasonal repayment needs.",
+    "documents": [
+      "Identity and address KYC; bank account details",
+      "Land record, cultivation proof or accepted tenant/sharecropper/JLG documentation",
+      "Crop, acreage, irrigation and allied-activity particulars",
+      "Any bank-specific application form, quotation or supporting evidence"
+    ],
+    "process": [
+      "Open the official West Bengal Gramin Bank website and locate its Agriculture / KCC / Loan Products section. For West Bengal, use the Bangiya Kisan Credit Card product page.",
+      "Check whether a rural or semi-urban branch serves the selected district and whether the proposed crop/allied activity is eligible.",
+      "Ask the branch for the current district crop Scale of Finance, KCC limit calculation, interest rate, subvention rules, security and application form.",
+      "Submit KYC, land/cultivation evidence, crop/acreage and allied-activity documents; tenants/sharecroppers should ask which local proof is accepted.",
+      "The RRB verifies documents and assesses the credit limit. Review written sanction, charges, repayment and renewal conditions before accepting."
+    ],
+    "applyUrl": "https://www.wbgb.bank.in/Bangiya-Kishan-Credit-Card.aspx",
+    "applyLabel": "Bangiya KCC product / apply through branch",
+    "sourceUrl": "https://www.wbgb.bank.in/Bangiya-Kishan-Credit-Card.aspx",
+    "sources": [
+      {
+        "label": "Government of India — official list of 28 functioning RRBs",
+        "url": "https://financialservices.gov.in/list-rrbs-functioning-country"
+      },
+      {
+        "label": "West Bengal Gramin Bank official website",
+        "url": "https://www.wbgb.bank.in/"
+      },
+      {
+        "label": "West Bengal Gramin Bank — Bangiya KCC product",
+        "url": "https://www.wbgb.bank.in/Bangiya-Kishan-Credit-Card.aspx"
+      },
+      {
+        "label": "Government Kisan Rin Portal — KCC eligibility, loan quantum and delivery channel",
+        "url": "https://fasalrin.gov.in/"
+      },
+      {
+        "label": "DFS Agriculture Credit — KCC eligibility and cooperative/RRB structure",
+        "url": "https://financialservices.gov.in/agriculture-credit"
+      }
+    ],
+    "availability": "State RRB listed by DFS; confirm whether its actual branch network serves West Bengal district including the selected district.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "RRB name and official website taken from DFS list last updated 13 Jan 2026. The RRB's own live loan/rate circular controls.",
+    "caution": "A state-level RRB listing does not prove a branch in every district or a guaranteed sanction. Ask the branch for the current product sheet and Key Fact Statement. Do not assume the same rate/limit across all RRBs.",
+    "keywords": [
+      "rrb",
+      "regional rural bank",
+      "kcc",
+      "crop credit",
+      "agriculture loan",
+      "west bengal",
+      "punjab national bank"
+    ]
+  },
+  {
+    "id": "cooperative-kcc-national",
+    "name": "Rural Cooperative Credit Network",
+    "product": "KCC / short-term crop credit through StCB → DCCB → PACS",
+    "providerKinds": [
+      "cooperative"
+    ],
+    "states": "all",
+    "scopeLabel": "National structure · local PACS/DCCB availability varies",
+    "borrower": "Owner cultivators, tenants, oral lessees, sharecroppers, eligible farmer SHGs/JLGs and allied-activity borrowers under current KCC rules",
+    "amount": "Need-based; set by crop, district Scale of Finance and local cooperative rules",
+    "amountNote": "No national fixed PACS amount. The limit is assessed at the lending society/bank using acreage, crop, SOF and repayment capacity.",
+    "rate": "State and institution-specific; confirm current KCC interest-subvention and prompt-repayment benefits and the actual rate from PACS/DCCB/StCB.",
+    "summary": "India's short-term rural cooperative credit structure provides last-mile agriculture credit through State Cooperative Banks, District Central Cooperative Banks and village-level PACS.",
+    "purpose": "Seasonal crop credit, post-harvest, marketing, farm-asset working capital and eligible allied activity lending through the local cooperative network.",
+    "eligibility": "Eligible farmers under KCC/State cooperative rules. Membership, land/cultivation proof, residence, share contribution and no-dues requirements vary by society and State.",
+    "terms": "StCB at State level → DCCB at district level → PACS at village level. PACS are cooperative societies, not interchangeable with a regulated bank; rules and supervision differ across entities.",
+    "documents": [
+      "KYC and bank details",
+      "Land/cultivation or accepted tenancy/sharecropper proof",
+      "Crop pattern, area and current district Scale of Finance",
+      "PACS membership/share contribution and no-dues documents if required",
+      "SHG/JLG/group documents where relevant"
+    ],
+    "process": [
+      "Identify the PACS serving the farmer's village/Gram Panchayat and confirm that it is operational and linked to a lending DCCB/StCB.",
+      "Ask for PACS membership requirements, the current KCC application form, eligible crops and district Scale of Finance.",
+      "Submit KYC, land/cultivation proof, crop and acreage information, bank details and any membership/no-dues forms.",
+      "PACS and its financing cooperative bank verify the application and calculate the eligible credit limit.",
+      "Review interest, subsidy conditions, share contribution, fees, crop-linked repayment and renewal terms in writing."
+    ],
+    "applyUrl": "https://fasalrin.gov.in/",
+    "applyLabel": "Kisan Rin Portal / local PACS route",
+    "sourceUrl": "https://financialservices.gov.in/agriculture-credit",
+    "sources": [
+      {
+        "label": "DFS Agriculture Credit — STCCS structure and KCC eligibility",
+        "url": "https://financialservices.gov.in/agriculture-credit"
+      },
+      {
+        "label": "Kisan Rin Portal — KCC and bank delivery channels",
+        "url": "https://fasalrin.gov.in/"
+      },
+      {
+        "label": "NABARD institutional role and cooperative credit support",
+        "url": "https://www.nabard.org/"
+      }
+    ],
+    "availability": "Confirm the actual PACS/DCCB service area and membership for the selected village/district.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "The Kisan Rin Portal lists cooperative bank delivery channels; the DFS explains the STCCS tiers. Exact local availability is not inferred.",
+    "caution": "PACS are not automatically RBI-regulated banks. Check the legal entity, lending DCCB, written rate/fees and grievance channel. Avoid undocumented cash lending.",
+    "keywords": [
+      "cooperative bank",
+      "pacs",
+      "dccb",
+      "state cooperative bank",
+      "kcc",
+      "crop loan",
+      "stccs"
+    ]
+  },
+  {
+    "id": "wb-cooperative-kcc",
+    "name": "West Bengal Cooperative Credit Network",
+    "product": "Short-term crop and allied credit through WBSCB → Central Cooperative Banks → PACS",
+    "providerKinds": [
+      "cooperative"
+    ],
+    "states": [
+      "West Bengal"
+    ],
+    "scopeLabel": "West Bengal · district PACS/DCCB verification required",
+    "borrower": "Owner cultivators, tenants, oral lessees, sharecroppers, eligible farmer SHGs/JLGs and allied-activity borrowers under current KCC rules",
+    "amount": "Need-based; set by crop, district Scale of Finance and local cooperative rules",
+    "amountNote": "No national fixed PACS amount. The limit is assessed at the lending society/bank using acreage, crop, SOF and repayment capacity.",
+    "rate": "State and institution-specific; confirm current KCC interest-subvention and prompt-repayment benefits and the actual rate from PACS/DCCB/StCB.",
+    "summary": "West Bengal's three-tier cooperative credit structure routes short-term crop finance and selected medium-term farm/allied credit through the State Cooperative Bank, affiliated Central Cooperative Banks and village/Gram Panchayat-level PACS.",
+    "purpose": "Seasonal crop credit, post-harvest, marketing, farm-asset working capital and eligible allied activity lending through the local cooperative network.",
+    "eligibility": "Eligible farmers under KCC/State cooperative rules. Membership, land/cultivation proof, residence, share contribution and no-dues requirements vary by society and State.",
+    "terms": "StCB at State level → DCCB at district level → PACS at village level. PACS are cooperative societies, not interchangeable with a regulated bank; rules and supervision differ across entities.",
+    "documents": [
+      "KYC and bank details",
+      "Land/cultivation or accepted tenancy/sharecropper proof",
+      "Crop pattern, area and current district Scale of Finance",
+      "PACS membership/share contribution and no-dues documents if required",
+      "SHG/JLG/group documents where relevant"
+    ],
+    "process": [
+      "Identify the PACS serving the farmer's village/Gram Panchayat and confirm that it is operational and linked to a lending DCCB/StCB.",
+      "Ask for PACS membership requirements, the current KCC application form, eligible crops and district Scale of Finance.",
+      "Submit KYC, land/cultivation proof, crop and acreage information, bank details and any membership/no-dues forms.",
+      "PACS and its financing cooperative bank verify the application and calculate the eligible credit limit.",
+      "Review interest, subsidy conditions, share contribution, fees, crop-linked repayment and renewal terms in writing."
+    ],
+    "applyUrl": "https://cooperation.wb.gov.in/Short-Term-Cooperative-Credit-Structure",
+    "applyLabel": "WB cooperative structure / local PACS route",
+    "sourceUrl": "https://cooperation.wb.gov.in/Short-Term-Cooperative-Credit-Structure",
+    "sources": [
+      {
+        "label": "West Bengal Cooperation Department — short-term cooperative credit structure",
+        "url": "https://cooperation.wb.gov.in/Short-Term-Cooperative-Credit-Structure"
+      },
+      {
+        "label": "DFS Agriculture Credit — cooperative/RRB/KCC framework",
+        "url": "https://financialservices.gov.in/agriculture-credit"
+      },
+      {
+        "label": "Kisan Rin Portal",
+        "url": "https://fasalrin.gov.in/"
+      }
+    ],
+    "availability": "Use the selected district's Central Cooperative Bank/PACS network; exact society/branch and credit window must be confirmed locally.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "The Kisan Rin Portal lists cooperative bank delivery channels; the DFS explains the STCCS tiers. Exact local availability is not inferred.",
+    "caution": "PACS are not automatically RBI-regulated banks. Check the legal entity, lending DCCB, written rate/fees and grievance channel. Avoid undocumented cash lending.",
+    "keywords": [
+      "west bengal",
+      "wbscb",
+      "cooperative",
+      "pacs",
+      "dccb",
+      "kcc",
+      "crop loan"
+    ]
+  },
+  {
+    "id": "satin-igloan",
+    "name": "Satin Creditcare Network Limited",
+    "product": "Income Generation Loan (IGL) — agriculture and livelihood microcredit",
+    "providerKinds": [
+      "regulated-nbfc"
+    ],
+    "states": "all",
+    "scopeLabel": "NBFC-MFI / JLG microcredit · check local branch coverage",
+    "borrower": "Economically active women in rural, semi-urban and urban areas under JLG model; agriculture is one of the stated income-generation purposes",
+    "amount": "₹20,000–₹1,25,000",
+    "amountNote": "Published IGL product size; actual sanctioned amount depends on borrower eligibility, cycle, household cash flow and local branch presence.",
+    "rate": "Latest posted product table: 23.03%–27.95% reducing balance; average IGL rate 25.73% for month ending Aug 2026; processing fee 0.75%–1.50% plus GST.",
+    "summary": "Group-based microcredit for income-generating purposes that include agriculture, trading, transport and production-related business. It is not a subsidised KCC crop loan.",
+    "purpose": "Small-ticket agriculture/livelihood income generation, subject to the lender's JLG rules and the permitted end-use assessment.",
+    "eligibility": "Economically active women with group/JLG eligibility, local operational presence, KYC and repayment capacity. Product is not a universal individual farmer crop loan.",
+    "terms": "Product page lists ₹20,000–₹1,25,000 and 12–48 months. Repayment frequency may be weekly, bi-weekly or monthly as agreed. The official page posts month-specific lending rate statistics; these can change.",
+    "documents": [
+      "KYC and residence documents",
+      "JLG/group eligibility and member details",
+      "Household income and existing debt information",
+      "Agricultural/livelihood activity and intended use details",
+      "Bank account and any lender-required forms"
+    ],
+    "process": [
+      "Check whether Satin has an active branch/field team in the selected district and whether the activity is eligible for its Income Generation Loan.",
+      "Contact the lender through its official product page or official branch contact; do not use an agent's personal payment account.",
+      "Complete group/JLG screening, KYC, household income and existing-debt checks.",
+      "Ask for the borrower-level Key Fact Statement showing APR, interest method, processing fee, net disbursal, repayment frequency and all charges.",
+      "Accept only after comparing the total cost with KCC or other bank/cooperative credit; obtain the loan card/repayment schedule."
+    ],
+    "applyUrl": "https://satincreditcare.com/product-portfolio/",
+    "applyLabel": "Official product details / enquiry",
+    "sourceUrl": "https://satincreditcare.com/product-portfolio/",
+    "sources": [
+      {
+        "label": "Satin Creditcare — official product portfolio and published pricing",
+        "url": "https://satincreditcare.com/product-portfolio/"
+      },
+      {
+        "label": "Satin Creditcare — official investor/company information",
+        "url": "https://satincreditcare.com/"
+      },
+      {
+        "label": "RBI NBFC registration verification",
+        "url": "https://www.rbi.org.in/Scripts/BS_NBFCList.aspx"
+      }
+    ],
+    "availability": "Only where Satin has an active service/branch footprint and the JLG product is open. Check the selected PIN code.",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "Official page's latest rate table captured for month ending Aug 2026; confirm current KFS before applying.",
+    "caution": "This is relatively high-cost microcredit (up to 27.95% reducing balance on the published product table), not a substitute for KCC. Compare APR and total repayment. The product is JLG-based and targeted to economically active women.",
+    "keywords": [
+      "satin",
+      "microfinance",
+      "nbfc-mfi",
+      "income generation loan",
+      "agriculture",
+      "jlg",
+      "women borrower"
+    ]
   }
 ]
