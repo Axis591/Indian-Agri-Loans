@@ -145,3 +145,17 @@ RBI NBFC register for legal-entity verification:
 https://www.rbi.org.in/Scripts/BS_NBFCList.aspx
 
 Microfinance pricing can be materially higher than KCC. The product is therefore labelled JLG microcredit, not a subsidised crop loan, and its targeted borrower group and affordability caveats are shown.
+
+
+## V2 eligibility-assistant evidence and document guidance
+
+| Programme / dataset | Official source | Evidence used and limitation |
+|---|---|---|
+| PM-KISAN | https://pmkisan.gov.in/ | Portal checked 31 Oct 2026. The portal states eKYC is mandatory, directs farmers to Know Your Status and lists exclusion categories. Suspected cases may require physical verification. |
+| Kisan Credit Card | https://www.financialservices.gov.in/agriculture-credit | DFS guidance lists owner cultivators, tenant farmers, oral lessees, sharecroppers and eligible SHGs/JLGs. Crop/allied purposes and lender assessment apply. |
+| KCC 2025-26 budget announcement | https://financialservices.gov.in/beta/sites/default/files/2025-02/budget.pdf | Budget announcement stated that the Modified Interest Subvention Scheme KCC ceiling would increase from ₹3 lakh to ₹5 lakh. Confirm the operative circular and actual lender sanction; the announcement is not a guaranteed loan amount. |
+| PMFBY | https://pmfby.gov.in/faq | FAQ checked 31 Oct 2026. Farmer premium caps: 2% Kharif foodgrain/oilseeds; 1.5% Rabi foodgrain/oilseeds; 5% annual commercial/horticultural crops (or actuarial rate if lower). District/crop/season notification is essential. |
+| Local Government Directory | https://lgdirectory.gov.in/ | Official district, sub-district and local-government / Panchayat directory for future deeper geography validation. |
+| DPDP Rules 2025 explanatory note | https://www.meity.gov.in/writereaddata/files/Explanatory-Note-DPDP-Rules-2025.pdf | Notes requirements around clear, standalone notices, itemised data/purpose information and user rights / withdrawal. NGO live operations need legal/privacy review before personal-data processing. |
+
+**Verification labels in this release:** PM-KISAN, DFS KCC guidance and PMFBY FAQ are marked as official-source checked on 31 Oct 2026. Other entries are marked source-linked with current-notification / lender-term review required; the assistant must not describe them as officially eligibility-verified.
