@@ -13,12 +13,12 @@
     "amount": "₹6,000 per year",
     "amountNote": "Paid in 3 equal instalments of ₹2,000 to an eligible farmer family.",
     "summary": "Central income support for eligible landholding farmer families. This is a grant/DBT benefit, not a loan.",
-    "eligibility": "Eligible landholding farmer families, subject to the scheme's exclusion categories (including institutional landholders, specified constitutional/public office holders, certain government employees and income-tax payers). Aadhaar, land record and bank-account validation apply.",
+    "eligibility": "Eligible landholding farmer families, subject to institutional landholder and higher-economic-status exclusion categories. The current PM-KISAN portal states eKYC is mandatory; land seeding, bank validation and family/exclusion checks apply.",
     "process": [
       "Open the official PM-KISAN portal and choose Farmers Corner → New Farmer Registration.",
-      "Complete Aadhaar and mobile verification; enter landholding, bank and contact details.",
-      "Submit the application and retain the registration number.",
-      "Track status and resolve e-KYC, land-seeding or bank validation issues through the portal or local agriculture office."
+      "Complete official registration and eKYC steps through the official portal or authorised CSC route.",
+      "Provide eligible family landholding, bank and contact details requested by the State/UT verification process.",
+      "Retain the registration number and use Know Your Status to resolve eKYC, land-seeding, bank-validation or exclusion queries."
     ],
     "application": "https://pmkisan.gov.in/",
     "source": "https://pmkisan.gov.in/",
@@ -33,7 +33,41 @@
     ],
     "providerKinds": [
       "central-government"
-    ]
+    ],
+    "documents": [
+      "Aadhaar and mobile access for eKYC/status checks",
+      "Land record / Record of Rights showing eligible family landholding",
+      "Bank account details and IFSC for DBT validation",
+      "Family and exclusion-category information requested by the portal"
+    ],
+    "activityTags": [
+      "crop"
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner"
+      ],
+      "landStatus": [
+        "owner"
+      ],
+      "activities": [
+        "crop"
+      ],
+      "supportNeeds": [
+        "grant"
+      ],
+      "mustVerify": [
+        "Eligible landholding farmer-family definition and exclusion categories",
+        "eKYC, land seeding and bank validation status",
+        "Recent land acquisition / multiple family-member cases may require verification"
+      ],
+      "status": "Official portal checked · eligibility and exclusions must be confirmed"
+    },
+    "verification": {
+      "status": "official_portal_checked",
+      "lastChecked": "2026-10-31",
+      "note": "The official portal states eKYC is mandatory and directs suspected exclusion / land-validation cases to Know Your Status. Check the current scheme definition and exclusion categories."
+    }
   },
   {
     "id": "kcc",
@@ -51,7 +85,7 @@
       "allied"
     ],
     "amount": "Need-based — bank assessed",
-    "amountNote": "The bank calculates the limit using crop, acreage, district Scale of Finance, allied activity and repayment capacity. Do not assume a fixed amount for every farmer.",
+    "amountNote": "Need-based and bank-assessed using crop, area and district Scale of Finance. DFS guidance lists KCC crop/allied purposes; the 2025-26 Budget announced an increase in the Modified Interest Subvention Scheme ceiling to ₹5 lakh. Confirm the operative circular and actual sanction with the lender.",
     "summary": "Revolving credit for cultivation, post-harvest expenses, farm working capital and eligible allied activities. Tenant farmers, oral lessees, sharecroppers and eligible SHG/JLG groups are included in official eligibility descriptions.",
     "eligibility": "Owner cultivators; tenant farmers; oral lessees; sharecroppers; and eligible SHGs/JLGs of farmers. Dairy, fisheries and animal-husbandry working capital can also be covered through KCC variants.",
     "process": [
@@ -80,7 +114,59 @@
       "private-bank",
       "rrb",
       "cooperative"
-    ]
+    ],
+    "documents": [
+      "Bank KCC application form and KYC documents",
+      "Land record or accepted cultivation / tenancy / sharecropper / JLG proof",
+      "Crop, cultivated area and current district Scale of Finance details",
+      "Bank account and allied-activity evidence where relevant"
+    ],
+    "activityTags": [
+      "crop",
+      "dairy",
+      "fisheries",
+      "poultry",
+      "horticulture",
+      "allied"
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "fpo",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Current district/crop Scale of Finance and lender policy",
+        "Accepted land / tenancy / sharecropper / group documentation",
+        "Current interest subvention, collateral and repayment conditions"
+      ],
+      "status": "Official DFS guidance checked · lender sanction required"
+    },
+    "verification": {
+      "status": "official_dfs_guidance_checked",
+      "lastChecked": "2026-10-31",
+      "note": "DFS guidance covers owner cultivators, tenant farmers, oral lessees, sharecroppers and eligible SHG/JLG borrowers; final limit, interest support and security depend on operative instructions and lender."
+    }
   },
   {
     "id": "aif",
@@ -125,7 +211,51 @@
       "private-bank",
       "rrb",
       "cooperative"
-    ]
+    ],
+    "documents": [
+      "Project report with cost, capacity, location and implementation schedule",
+      "KYC and entity documents for the eligible applicant",
+      "Land ownership / registered lease / site-control documents",
+      "Quotations, projected cash flows, bank statements and lender-specific appraisal papers"
+    ],
+    "activityTags": [
+      "storage",
+      "processing",
+      "horticulture",
+      "agri-enterprise"
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "fpo",
+        "entrepreneur"
+      ],
+      "landStatus": [
+        "owner",
+        "group"
+      ],
+      "activities": [
+        "storage",
+        "processing",
+        "horticulture",
+        "agri-enterprise"
+      ],
+      "supportNeeds": [
+        "subsidy",
+        "loan"
+      ],
+      "mustVerify": [
+        "Project and eligible-entity criteria under current guidelines",
+        "Lender appraisal, borrower contribution and eligible asset type",
+        "Interest-subvention / credit-guarantee conditions"
+      ],
+      "status": "Official source linked · project eligibility review required"
+    },
+    "verification": {
+      "status": "official_source_linked_review_required",
+      "lastChecked": null,
+      "note": "Primary source is linked, but this record has not been independently revalidated against the latest notification for every district and application window. Confirm locally before applying."
+    }
   },
   {
     "id": "pmfby",
@@ -164,7 +294,47 @@
     "providerKinds": [
       "central-government",
       "state-government"
-    ]
+    ],
+    "documents": [
+      "KYC and bank account details",
+      "Land / cultivation evidence or accepted tenant/sharecropper documents",
+      "Notified crop, insured area and sowing / crop declaration",
+      "Current State-District-season notification and application acknowledgement"
+    ],
+    "activityTags": [
+      "crop",
+      "horticulture"
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper"
+      ],
+      "activities": [
+        "crop",
+        "horticulture"
+      ],
+      "supportNeeds": [
+        "insurance"
+      ],
+      "mustVerify": [
+        "Selected crop and insurance unit must be notified for State, District and season",
+        "Cultivation / insurable-interest documents for tenant and sharecropper farmers",
+        "Current cut-off date, insurer and premium"
+      ],
+      "status": "Official FAQ checked · seasonal notification mandatory"
+    },
+    "verification": {
+      "status": "official_faq_checked_seasonal_notice_required",
+      "lastChecked": "2026-10-31",
+      "note": "Official FAQ states farmer premium caps of 2% for Kharif foodgrain/oilseeds, 1.5% for Rabi foodgrain/oilseeds and 5% for annual commercial/horticulture crops (or actuarial rate if lower). Only notified crops and insurance units can be enrolled."
+    },
+    "rate": "Farmer premium cap: 2% Kharif foodgrain/oilseeds; 1.5% Rabi foodgrain/oilseeds; 5% annual commercial/horticultural crops (or actuarial rate if lower). Confirm the notified crop and season."
   },
   {
     "id": "mudra",
@@ -206,7 +376,55 @@
       "private-bank",
       "rrb",
       "regulated-nbfc"
-    ]
+    ],
+    "documents": [
+      "KYC and address proof",
+      "Business / activity plan and expected cash flow",
+      "Quotation or working-capital calculation",
+      "Bank statements and business/entity documents where applicable"
+    ],
+    "activityTags": [
+      "dairy",
+      "poultry",
+      "fisheries",
+      "allied",
+      "processing",
+      "agri-enterprise"
+    ],
+    "matchRules": {
+      "profiles": [
+        "allied",
+        "entrepreneur"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "landless",
+        "group"
+      ],
+      "activities": [
+        "dairy",
+        "poultry",
+        "fisheries",
+        "allied",
+        "processing",
+        "agri-enterprise"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Activity must be an eligible income-generating micro-enterprise",
+        "Lender appraisal, repayment capacity and current category",
+        "Not a general crop cultivation grant"
+      ],
+      "status": "Official source linked · lender appraisal required"
+    },
+    "verification": {
+      "status": "official_source_linked_review_required",
+      "lastChecked": null,
+      "note": "Primary source is linked, but this record has not been independently revalidated against the latest notification for every district and application window. Confirm locally before applying."
+    }
   },
   {
     "id": "wb-krishak-bandhu",
@@ -245,7 +463,45 @@
     ],
     "providerKinds": [
       "state-government"
-    ]
+    ],
+    "documents": [
+      "Identity proof",
+      "Current land record / RoR or recorded sharecropper evidence",
+      "Bank account details",
+      "Mobile number and state application acknowledgement"
+    ],
+    "activityTags": [
+      "crop",
+      "horticulture"
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant"
+      ],
+      "landStatus": [
+        "owner",
+        "sharecropper"
+      ],
+      "activities": [
+        "crop",
+        "horticulture"
+      ],
+      "supportNeeds": [
+        "grant"
+      ],
+      "mustVerify": [
+        "West Bengal residence and current scheme definition",
+        "Land record / recorded sharecropper status and state validation",
+        "Current application / correction window"
+      ],
+      "status": "State source linked · current state verification required"
+    },
+    "verification": {
+      "status": "official_source_linked_review_required",
+      "lastChecked": null,
+      "note": "Primary source is linked, but this record has not been independently revalidated against the latest notification for every district and application window. Confirm locally before applying."
+    }
   },
   {
     "id": "wb-death-benefit",
@@ -282,7 +538,45 @@
     ],
     "providerKinds": [
       "state-government"
-    ]
+    ],
+    "documents": [
+      "Death certificate of the eligible farmer/sharecropper",
+      "Applicant identity and relationship proof",
+      "Farmer registration, land record or accepted sharecropper record",
+      "Bank account details and state claim form"
+    ],
+    "activityTags": [
+      "crop",
+      "horticulture"
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant"
+      ],
+      "landStatus": [
+        "owner",
+        "sharecropper"
+      ],
+      "activities": [
+        "crop",
+        "horticulture"
+      ],
+      "supportNeeds": [
+        "grant"
+      ],
+      "mustVerify": [
+        "Claim is made by eligible family member after death; not a cultivation loan",
+        "Age band, state registration and documentary conditions",
+        "Current claim form and deadline"
+      ],
+      "status": "State source linked · claim conditions required"
+    },
+    "verification": {
+      "status": "official_source_linked_review_required",
+      "lastChecked": null,
+      "note": "Primary source is linked, but this record has not been independently revalidated against the latest notification for every district and application window. Confirm locally before applying."
+    }
   },
   {
     "id": "wb-diversification",
@@ -331,7 +625,46 @@
     ],
     "providerKinds": [
       "state-government"
-    ]
+    ],
+    "documents": [
+      "Identity and bank account details",
+      "Land/cultivation or accepted tenancy/sharecropper evidence",
+      "Crop plan and village/block details",
+      "Current block agriculture office notice / beneficiary form"
+    ],
+    "activityTags": [
+      "crop",
+      "horticulture"
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper"
+      ],
+      "activities": [
+        "crop",
+        "horticulture"
+      ],
+      "supportNeeds": [
+        "subsidy"
+      ],
+      "mustVerify": [
+        "Only named rainfed districts are listed in the scheme source",
+        "Current block/village target, crop plan and season",
+        "No fixed cash amount is published on the cited page"
+      ],
+      "status": "District-specific source linked · block target required"
+    },
+    "verification": {
+      "status": "official_source_linked_review_required",
+      "lastChecked": null,
+      "note": "Primary source is linked, but this record has not been independently revalidated against the latest notification for every district and application window. Confirm locally before applying."
+    }
   },
   {
     "id": "wb-shg-credit",
@@ -376,7 +709,47 @@
       "state-government",
       "public-bank",
       "cooperative"
-    ]
+    ],
+    "documents": [
+      "SHG registration / group records and member list",
+      "Bank linkage and loan sanction / account details",
+      "SHG resolution and authorised signatory documents",
+      "Repayment records and eligibility proof under applicable norms"
+    ],
+    "activityTags": [
+      "group-business",
+      "allied",
+      "crop"
+    ],
+    "matchRules": {
+      "profiles": [
+        "women_shg",
+        "mixed_shg"
+      ],
+      "landStatus": [
+        "group"
+      ],
+      "activities": [
+        "group-business",
+        "allied",
+        "crop"
+      ],
+      "supportNeeds": [
+        "subsidy",
+        "loan"
+      ],
+      "mustVerify": [
+        "SHG registration, bank linkage and group eligibility",
+        "District category and women / male / mixed SHG terms",
+        "Interest support is conditional on rules and prompt repayment"
+      ],
+      "status": "State source linked · SHG-level eligibility required"
+    },
+    "verification": {
+      "status": "official_source_linked_review_required",
+      "lastChecked": null,
+      "note": "Primary source is linked, but this record has not been independently revalidated against the latest notification for every district and application window. Confirm locally before applying."
+    }
   },
   {
     "id": "wb-coop-credit",
@@ -421,7 +794,60 @@
     "providerKinds": [
       "state-government",
       "cooperative"
-    ]
+    ],
+    "documents": [
+      "PACS membership / application documents if required",
+      "KYC and bank account details",
+      "Land/cultivation / accepted sharecropper proof",
+      "Crop, acreage and district Scale of Finance details",
+      "No-dues / share contribution documents if required"
+    ],
+    "activityTags": [
+      "crop",
+      "dairy",
+      "fisheries",
+      "poultry",
+      "horticulture",
+      "allied"
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "fpo",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Actual serving PACS and financing DCCB",
+        "Membership, accepted cultivation proof and local crop Scale of Finance",
+        "Current interest, due date and any linked support"
+      ],
+      "status": "State cooperative source linked · local PACS confirmation required"
+    },
+    "verification": {
+      "status": "official_source_linked_review_required",
+      "lastChecked": null,
+      "note": "Primary source is linked, but this record has not been independently revalidated against the latest notification for every district and application window. Confirm locally before applying."
+    }
   },
   {
     "id": "wb-farm-mech",
@@ -464,7 +890,51 @@
     "providerKinds": [
       "state-government",
       "local-body"
-    ]
+    ],
+    "documents": [
+      "KYC and bank details",
+      "Landholding / farmer-category evidence",
+      "Approved machinery quotation and model specification",
+      "Current scheme application and pre-purchase approval documents"
+    ],
+    "activityTags": [
+      "machinery",
+      "irrigation",
+      "agri-enterprise"
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "fpo",
+        "entrepreneur"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "group"
+      ],
+      "activities": [
+        "machinery",
+        "irrigation",
+        "agri-enterprise"
+      ],
+      "supportNeeds": [
+        "subsidy",
+        "loan"
+      ],
+      "mustVerify": [
+        "Current approved machine list, farmer category and application window",
+        "Obtain written pre-approval before purchase",
+        "Subsidy release may follow inspection and budget"
+      ],
+      "status": "State source linked · current machinery call required"
+    },
+    "verification": {
+      "status": "official_source_linked_review_required",
+      "lastChecked": null,
+      "note": "Primary source is linked, but this record has not been independently revalidated against the latest notification for every district and application window. Confirm locally before applying."
+    }
   },
   {
     "id": "wb-amar-fasal",
@@ -504,7 +974,42 @@
     "providerKinds": [
       "state-government",
       "local-body"
-    ]
+    ],
+    "documents": [
+      "KYC and bank account",
+      "Land / possession and eligible marginal-farmer proof",
+      "Storage structure plan, estimate and site details",
+      "Current sanction / inspection checklist"
+    ],
+    "activityTags": [
+      "storage"
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner"
+      ],
+      "landStatus": [
+        "owner"
+      ],
+      "activities": [
+        "storage"
+      ],
+      "supportNeeds": [
+        "grant",
+        "subsidy"
+      ],
+      "mustVerify": [
+        "Current scheme operation and block availability",
+        "Eligibility of proposed storage structure and approved estimate",
+        "Written sanction / inspection before construction"
+      ],
+      "status": "State source linked · current scheme confirmation required"
+    },
+    "verification": {
+      "status": "official_source_linked_review_required",
+      "lastChecked": null,
+      "note": "Primary source is linked, but this record has not been independently revalidated against the latest notification for every district and application window. Confirm locally before applying."
+    }
   },
   {
     "id": "private-hdfc",
@@ -544,7 +1049,59 @@
     ],
     "providerKinds": [
       "private-bank"
-    ]
+    ],
+    "documents": [
+      "KYC and bank account",
+      "Land/cultivation or farm-activity proof",
+      "Purpose-specific quotation or project estimate",
+      "Bank statements and any security / guarantor documents requested"
+    ],
+    "activityTags": [
+      "crop",
+      "dairy",
+      "poultry",
+      "fisheries",
+      "horticulture",
+      "machinery",
+      "irrigation",
+      "allied"
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "allied",
+        "entrepreneur"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "poultry",
+        "fisheries",
+        "horticulture",
+        "machinery",
+        "irrigation",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Exact product and branch serviceability in selected district",
+        "Current APR, margin, fees, collateral and insurance add-ons",
+        "Final amount subject to bank appraisal"
+      ],
+      "status": "Bank product source linked · branch terms required"
+    },
+    "verification": {
+      "status": "official_source_linked_review_required",
+      "lastChecked": null,
+      "note": "Primary source is linked, but this record has not been independently revalidated against the latest notification for every district and application window. Confirm locally before applying."
+    }
   },
   {
     "id": "private-icici",
@@ -582,7 +1139,54 @@
     ],
     "providerKinds": [
       "private-bank"
-    ]
+    ],
+    "documents": [
+      "KYC and bank account",
+      "Land/cultivation or cooperative supply evidence",
+      "Crop / working-capital estimate or equipment / cattle quotation",
+      "Bank statements and activity/project details"
+    ],
+    "activityTags": [
+      "crop",
+      "dairy",
+      "fisheries",
+      "machinery",
+      "irrigation",
+      "allied"
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "machinery",
+        "irrigation",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Exact farmer-finance product and branch serviceability",
+        "Current APR, fees, collateral and repayment schedule",
+        "Final amount subject to bank appraisal"
+      ],
+      "status": "Bank product source linked · branch terms required"
+    },
+    "verification": {
+      "status": "official_source_linked_review_required",
+      "lastChecked": null,
+      "note": "Primary source is linked, but this record has not been independently revalidated against the latest notification for every district and application window. Confirm locally before applying."
+    }
   },
   {
     "id": "informal-credit",
@@ -621,7 +1225,51 @@
     ],
     "providerKinds": [
       "informal"
-    ]
+    ],
+    "documents": [
+      "Risk information only: verify licence, written contract, annualised interest, fees and grievance route. This is not an application recommendation."
+    ],
+    "activityTags": [
+      "crop",
+      "dairy",
+      "poultry",
+      "fisheries",
+      "allied"
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "allied"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "poultry",
+        "fisheries",
+        "allied"
+      ],
+      "supportNeeds": [
+        "loan"
+      ],
+      "mustVerify": [
+        "Risk information only; not an endorsed product",
+        "Verify lender licence under applicable State law and all-in cost",
+        "Prefer regulated bank / cooperative / RBI-regulated options"
+      ],
+      "status": "Risk information only · not recommended"
+    },
+    "verification": {
+      "status": "official_source_linked_review_required",
+      "lastChecked": null,
+      "note": "Primary source is linked, but this record has not been independently revalidated against the latest notification for every district and application window. Confirm locally before applying."
+    }
   },
   {
     "id": "panchayat-access",
@@ -665,7 +1313,74 @@
       "local grant",
       "district scheme",
       "beneficiary list"
-    ]
+    ],
+    "documents": [
+      "Current Gram Panchayat / BDO jurisdiction and scheme notification",
+      "Identity and category documents stated in the official notice",
+      "Land / cultivation / livelihood proof accepted for that scheme",
+      "Written acknowledgement and official application reference"
+    ],
+    "activityTags": [
+      "crop",
+      "dairy",
+      "fisheries",
+      "poultry",
+      "horticulture",
+      "machinery",
+      "irrigation",
+      "storage",
+      "processing",
+      "allied",
+      "agri-enterprise",
+      "group-business"
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "fpo",
+        "allied",
+        "entrepreneur"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "machinery",
+        "irrigation",
+        "storage",
+        "processing",
+        "allied",
+        "agri-enterprise",
+        "group-business"
+      ],
+      "supportNeeds": [
+        "grant",
+        "subsidy",
+        "institution"
+      ],
+      "mustVerify": [
+        "Panchayat is an access point, not a universal lender",
+        "Ask for current scheme notification and implementing department",
+        "Do not pay for guaranteed beneficiary selection"
+      ],
+      "status": "Local access route · scheme notification required"
+    },
+    "verification": {
+      "status": "official_source_linked_review_required",
+      "lastChecked": null,
+      "note": "Primary source is linked, but this record has not been independently revalidated against the latest notification for every district and application window. Confirm locally before applying."
+    }
   },
   {
     "id": "formal-lender-channels",
@@ -715,6 +1430,72 @@
       "NBFC",
       "MFI",
       "formal rural credit"
-    ]
+    ],
+    "documents": [
+      "KYC and bank account details",
+      "Land/cultivation or accepted tenant/sharecropper proof where required",
+      "Crop, acreage and district Scale of Finance details",
+      "Written product terms, rate, fees, collateral and repayment schedule"
+    ],
+    "activityTags": [
+      "crop",
+      "dairy",
+      "fisheries",
+      "poultry",
+      "horticulture",
+      "machinery",
+      "irrigation",
+      "storage",
+      "processing",
+      "allied",
+      "agri-enterprise",
+      "group-business"
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "fpo",
+        "allied",
+        "entrepreneur"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "dairy",
+        "fisheries",
+        "poultry",
+        "horticulture",
+        "machinery",
+        "irrigation",
+        "storage",
+        "processing",
+        "allied",
+        "agri-enterprise",
+        "group-business"
+      ],
+      "supportNeeds": [
+        "loan",
+        "institution"
+      ],
+      "mustVerify": [
+        "Exact product, lender regulation and district/branch serviceability",
+        "Current Scale of Finance, annualised rate, fees and security",
+        "Obtain written sanction and Key Facts Statement"
+      ],
+      "status": "Formal credit route · product and branch verification required"
+    },
+    "verification": {
+      "status": "official_source_linked_review_required",
+      "lastChecked": null,
+      "note": "Primary source is linked, but this record has not been independently revalidated against the latest notification for every district and application window. Confirm locally before applying."
+    }
   }
 ]
