@@ -61,7 +61,7 @@
         "eKYC, land seeding and bank validation status",
         "Recent land acquisition / multiple family-member cases may require verification"
       ],
-      "status": "Official portal checked · eligibility and exclusions must be confirmed"
+      "status": "For eligible landholding farmer families; eKYC, land seeding, bank validation and exclusion-category checks apply."
     },
     "verification": {
       "status": "official_portal_checked",
@@ -160,7 +160,7 @@
         "Accepted land / tenancy / sharecropper / group documentation",
         "Current interest subvention, collateral and repayment conditions"
       ],
-      "status": "Official DFS guidance checked · lender sanction required"
+      "status": "KCC rules include eligible owner cultivators, tenants, oral lessees, sharecroppers and specified SHG/JLG groups; the bank determines the final limit."
     },
     "verification": {
       "status": "official_dfs_guidance_checked",
@@ -249,7 +249,7 @@
         "Lender appraisal, borrower contribution and eligible asset type",
         "Interest-subvention / credit-guarantee conditions"
       ],
-      "status": "Official source linked · project eligibility review required"
+      "status": "Eligible agricultural infrastructure projects may receive finance and interest support after project and lender appraisal."
     },
     "verification": {
       "status": "official_source_linked_review_required",
@@ -327,7 +327,7 @@
         "Cultivation / insurable-interest documents for tenant and sharecropper farmers",
         "Current cut-off date, insurer and premium"
       ],
-      "status": "Official FAQ checked · seasonal notification mandatory"
+      "status": "Crop insurance is only available for notified crops and insurance units in the selected State, District and season."
     },
     "verification": {
       "status": "official_faq_checked_seasonal_notice_required",
@@ -570,7 +570,8 @@
         "Age band, state registration and documentary conditions",
         "Current claim form and deadline"
       ],
-      "status": "State source linked · claim conditions required"
+      "status": "Family claim route only after the death of an eligible registered farmer/sharecropper; not a living farmer's grant or cultivation loan.",
+      "excludeFromAssistant": true
     },
     "verification": {
       "status": "official_source_linked_review_required",
