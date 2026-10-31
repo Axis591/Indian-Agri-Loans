@@ -3303,7 +3303,10 @@
       ],
       "status": "Potential Odisha State support; final beneficiary category and current registration window require official confirmation."
     },
-    "lastReviewed": "2026-10-31"
+    "lastReviewed": "2026-10-31",
+    "providerKinds": [
+      "state-government"
+    ]
   },
   {
     "scope": "state",
@@ -3405,7 +3408,11 @@
       ],
       "status": "Potential Andhra Pradesh income-support route; combined amount and State beneficiary status must be checked."
     },
-    "lastReviewed": "2026-10-31"
+    "lastReviewed": "2026-10-31",
+    "providerKinds": [
+      "state-government",
+      "central-government"
+    ]
   },
   {
     "scope": "state",
@@ -3507,7 +3514,10 @@
       ],
       "status": "Potential Telangana per-acre seasonal support; final acreage and beneficiary validation required."
     },
-    "lastReviewed": "2026-10-31"
+    "lastReviewed": "2026-10-31",
+    "providerKinds": [
+      "state-government"
+    ]
   },
   {
     "scope": "state",
@@ -3598,7 +3608,10 @@
       ],
       "status": "Potential Rajasthan State top-up; current eligibility and beneficiary enrolment need confirmation."
     },
-    "lastReviewed": "2026-10-31"
+    "lastReviewed": "2026-10-31",
+    "providerKinds": [
+      "state-government"
+    ]
   },
   {
     "scope": "state",
@@ -3707,7 +3720,11 @@
       ],
       "status": "Potential women-farmer recognition route; certification and each linked benefit remain separately governed."
     },
-    "lastReviewed": "2026-10-31"
+    "lastReviewed": "2026-10-31",
+    "providerKinds": [
+      "state-government",
+      "local-body"
+    ]
   },
   {
     "scope": "state",
@@ -3801,6 +3818,9 @@
       "status": "Research record only; verify current State call and amount before recommending.",
       "excludeFromAssistant": true
     },
-    "lastReviewed": "2026-10-31"
+    "lastReviewed": "2026-10-31",
+    "providerKinds": [
+      "state-government"
+    ]
   }
 ]
