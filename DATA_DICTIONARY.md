@@ -99,7 +99,25 @@ Machine-readable progress and research-gap register. Important fields:
 - nationalCatalogue: actual record counts, IDs, type counts, status counts and provider categories.
 - stateInventory: State-scope and district-scope record counts, number of States with any State-specific records, and direct district website count.
 - financeCoverage: RRB count and district branch verification caveat.
-- states[]: each State/UT's agriculture/scheme portal, state scheme record IDs/count, district record IDs/count, district website mapping, RRB, lender catalogue count and each district's separate programme/branch/PACS/block status.
+- states[]: each State/UT's agriculture/scheme portal, State-specific record IDs/count, district record IDs/count, district website mapping, RRB, lender catalogue count and each district's separate programme/branch/PACS/block status.
+
+## 6. `state-programme-register.json`
+
+A V3 research queue for all 36 State/UTs. Each State/UT has nine workstreams: farmer income/DBT; crop production support; mechanisation/irrigation; horticulture; animal husbandry/fisheries; marketing/procurement; cooperative credit; tenant/landless/tribal support; and FPO/enterprise/infrastructure. Each workstream stores a research status, record IDs, source reference where available and next research action. A portal link alone is not counted as a researched scheme.
+
+## 7. Official geography import (`lgd-geography.json`)
+
+Generated locally from downloaded official LGD CSV exports using `scripts/import-lgd-export.mjs`. State and District codes are required; Sub-district/Village CSVs are optional but enrich the hierarchy. Local Bodies exports may lack district parents; the importer retains those codes at State level instead of attributing them to a district. Never commit sensitive or non-administrative fields from exports.
+
+## 8. V3 API contracts
+
+- `GET /api/market-prices`: server-side data.gov.in daily market price proxy; requires `DATA_GOV_IN_API_KEY` secret. Filters are State, District and commodity; result records include the source arrival date and prices. Daily records are not real-time farm-gate quotations.
+- `GET /api/geography`: optional official LGD District API proxy. Without a resource API it returns a not-configured response and the app tries the imported official file then community snapshot.
+- `/api/ngo/*`: Cloudflare Access authenticated, organisation-scoped D1 routes. `ngo_users` defines active org role; only aggregate metrics and internal follow-up references are stored. Admin/editor/viewer permissions apply.
+
+## 9. Security and privacy boundaries
+
+The static Find My Support tool does not submit farmer profiles. NGO V3 stores no farmer names, phone numbers, Aadhaar, bank numbers, identity scans or free-text case notes. Do not add personal-data fields without a separate threat model, access/consent/retention design and legal/privacy review. Cloudflare Access authenticates the member; the D1 `org_id` scopes every read/write.
 
 ### Status language
 
@@ -114,4 +132,4 @@ Machine-readable progress and research-gap register. Important fields:
 
 The Find My Support assistant uses the selected State/District plus a broad applicant category, land/cultivation status, activity and support need. It only returns potential catalogue matches. It does not test income-tax exclusions, land records, KYC, notified crop status, past benefit history, bank credit score, local targets, budget availability or complete legal conditions. The final determination belongs to the implementing authority or lender.
 
-Never enter Aadhaar, mobile number, bank account, OTP, password or identity documents into the public static assistant or NGO local pilot.
+Never enter Aadhaar, mobile number, bank account, OTP, password or identity documents into the public static assistant. The protected NGO V3 workspace accepts only aggregate totals and internal non-identifying reference codes.
