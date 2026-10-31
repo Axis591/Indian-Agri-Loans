@@ -279,7 +279,13 @@ function potentialLenders(profile,land,activity,need){
   return lenders.filter(l=>{
     if(!matchesLenderState(l)) return false;
     const rules=l.matchRules||{};
-    if(!Array.isArray(rules.profiles)||!rules.profiles.includes(profile)) return false;
+    const allowed=rules.profiles||[];
+    const womenLandMatch=profile==='women_farmer'&&(
+      (land==='owner'&&allowed.includes('owner'))||
+      ((land==='tenant'||land==='sharecropper')&&allowed.includes('tenant'))||
+      (land==='landless'&&allowed.includes('allied'))
+    );
+    if(!allowed.includes(profile)&&!womenLandMatch) return false;
     if(Array.isArray(rules.landStatus)&&!rules.landStatus.includes(land)) return false;
     if(activity!=='any'&&Array.isArray(rules.activities)&&!rules.activities.includes(activity)) return false;
     return true;
