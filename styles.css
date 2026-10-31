@@ -185,3 +185,5 @@
 @media(max-width:1000px){.coverage-v25-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.coverage-v25-grid{grid-template-columns:1fr}.coverage-selected-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:760px){.state-row-v25{grid-template-columns:1fr 1fr;gap:8px}.coverage-searchbar{align-items:flex-start;flex-direction:column}.coverage-district-row{grid-template-columns:1fr 1fr;gap:7px}}
 @media(max-width:520px){.coverage-v25-stats{grid-template-columns:1fr 1fr}.coverage-selected-grid{grid-template-columns:1fr}.state-row-v25{grid-template-columns:1fr}.coverage-district-row{grid-template-columns:1fr 1fr}}
+
+.lender-verification-note{background:#f7f9f5;border-left:2px solid #95ad93;color:#6f7e72;font-size:8px;line-height:1.45;padding:8px 9px;margin:0 0 10px;border-radius:0 6px 6px 0}
