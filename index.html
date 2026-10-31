@@ -53,7 +53,7 @@
         <div class="hero-copy">
           <div class="eyebrow"><span class="eyebrow-line"></span> THE FARMER FINANCE DIRECTORY</div>
           <h1>Indian Agri Market<br><em>&amp; Loans</em></h1>
-          <p>Find government support, cooperative credit, private bank finance and district-level opportunities — with amounts, eligibility, application steps and official links.</p>
+          <p>Discover farmer benefits, grants, insurance, agricultural finance and market access — with source-linked amounts, eligibility, application steps and State/District routes.</p>
           <div class="hero-meta"><span>36 States &amp; UTs</span><b>·</b><span>District-led discovery</span><b>·</b><span>Source-first records</span></div>
         </div>
         <div class="hero-art" aria-hidden="true">
@@ -64,10 +64,10 @@
       </section>
 
       <section class="metrics" aria-label="Directory summary">
-        <article class="metric"><span class="metric-icon green">◈</span><div><small>SCHEME + LENDER RECORDS</small><strong id="metric-records">—</strong><span>Source-linked entries</span></div></article>
+        <article class="metric"><span class="metric-icon green">◈</span><div><small>SCHEME + LENDER RECORDS</small><strong id="metric-records">—</strong><span>Scheme catalogue + lender products</span></div></article>
         <article class="metric"><span class="metric-icon gold">⌂</span><div><small>INDIAN STATES &amp; UTs</small><strong>36</strong><span>Full geography selector</span></div></article>
-        <article class="metric"><span class="metric-icon blue">↗</span><div><small>FINANCE CHANNELS</small><strong>10</strong><span>Govt · banks · RRB · PACS · local</span></div></article>
-        <article class="metric"><span class="metric-icon clay">◎</span><div><small>DATA REVIEW</small><strong>31.10.26</strong><span>Last content review</span></div></article>
+        <article class="metric"><span class="metric-icon blue">↗</span><div><small>FORMAL FINANCE CATEGORIES</small><strong>6</strong><span>Public · private · SFB · RRB · PACS · NBFC</span></div></article>
+        <article class="metric"><span class="metric-icon clay">◎</span><div><small>DATA RELEASE</small><strong>V2.5</strong><span>All-India parallel catalogue</span></div></article>
       </section>
 
       <section id="view-finance" class="view active">
@@ -82,7 +82,7 @@
             <label class="filter-field"><span>STATE / UNION TERRITORY</span><select id="state-select"><option value="West Bengal">West Bengal</option></select></label>
             <label class="filter-field"><span>DISTRICT</span><select id="district-select"><option value="Paschim Medinipur">Paschim Medinipur</option></select></label>
             <label class="filter-field"><span>FARMER PROFILE</span><select id="profile-select"><option value="all">All farmer profiles</option><option value="owner">Owner cultivator</option><option value="tenant">Tenant / sharecropper</option><option value="women_shg">Women SHG member</option><option value="mixed_shg">Male / mixed SHG</option><option value="fpo">FPO / cooperative / group</option><option value="allied">Dairy / poultry / fisheries / allied</option><option value="entrepreneur">Agri entrepreneur</option></select></label>
-            <label class="filter-field"><span>FINANCE TYPE</span><select id="type-select"><option value="all">All support types</option><option value="grant">Grant / direct benefit</option><option value="loan">Loan / credit</option><option value="subsidy">Subsidy / interest support</option><option value="insurance">Crop insurance</option><option value="institution">Institution / access point</option><option value="informal">Informal credit (risk note)</option></select></label>
+            <label class="filter-field"><span>FINANCE TYPE</span><select id="type-select"><option value="all">All support types</option><option value="grant">Grant / direct benefit</option><option value="loan">Loan / credit</option><option value="subsidy">Subsidy / interest support</option><option value="insurance">Crop insurance</option><option value="pension">Farmer pension / social security</option><option value="institution">Institution / access point</option><option value="informal">Informal credit (risk note)</option></select></label>
             <label class="filter-field"><span>PROGRAMME PROVIDER / DELIVERY LEVEL</span><select id="provider-select"><option value="all">All programme providers</option><option value="central-government">Central government</option><option value="state-government">State government</option><option value="local-body">Panchayat / block / local access</option><option value="informal">Informal / unregulated (risk only)</option></select><small class="filter-note">Bank, RRB, cooperative, SFB and NBFC products are listed on the Schemes &amp; Lenders page.</small></label>
           </div>
           <div class="finder-foot"><span id="location-summary">Showing national and West Bengal entries for Paschim Medinipur.</span><button class="reset-btn" id="reset-filters">↺ Reset filters</button></div>
@@ -149,7 +149,7 @@
         <option value="crop">Crop cultivation</option><option value="dairy">Dairy / cattle</option><option value="fisheries">Fisheries</option><option value="poultry">Poultry / livestock</option><option value="horticulture">Horticulture / fruit / vegetables</option><option value="machinery">Farm machinery / mechanisation</option><option value="irrigation">Irrigation / water management</option><option value="storage">Storage / warehouse / post-harvest</option><option value="processing">Food / agricultural processing</option><option value="allied">Other allied agriculture</option><option value="agri-enterprise">Agri-enterprise / FPO business</option><option value="group-business">Group livelihood / SHG enterprise</option>
       </select></label>
       <label class="assistant-field"><span>WHAT SUPPORT IS NEEDED?</span><select id="elig-need" required>
-        <option value="all">Show all potential support</option><option value="grant">Grant / direct benefit</option><option value="subsidy">Subsidy / interest support</option><option value="loan">Loan / credit</option><option value="insurance">Crop insurance</option><option value="institution">Local help / institution</option>
+        <option value="all">Show all potential support</option><option value="grant">Grant / direct benefit</option><option value="subsidy">Subsidy / interest support</option><option value="loan">Loan / credit</option><option value="insurance">Crop insurance</option><option value="pension">Farmer pension / social security</option><option value="institution">Local help / institution</option>
       </select></label>
       <div class="assistant-form-actions"><button class="primary-action" type="submit">Find potential matches <span>→</span></button><button class="secondary-action" id="elig-reset" type="button">Reset answers</button></div>
       <div class="assistant-privacy">Please do not enter Aadhaar, bank account numbers, OTPs, passwords, phone numbers or upload identity documents. The questions and matching run in this browser and are not sent to a server; the scheme and lender directory itself is public reference data.</div>
@@ -222,16 +222,45 @@
       </section>
 
       <section id="view-coverage" class="view">
-        <div class="section-heading"><div><div class="section-kicker">DATA COVERAGE &amp; GOVERNANCE</div><h2>What is covered — and what is not yet verified?</h2><p>The directory is designed for nationwide growth, but it does not label an unresearched district as fully covered.</p></div></div>
-        <div class="coverage-grid">
-          <article class="coverage-card"><span class="coverage-mark good">✓</span><h3>National programmes</h3><p>Core records include PM-KISAN, KCC, AIF, PMFBY and eligible allied-enterprise finance. National schemes remain subject to state notification and beneficiary criteria.</p><span class="coverage-state">CURATED STARTER SET</span></article>
-          <article class="coverage-card"><span class="coverage-mark good">✓</span><h3>West Bengal</h3><p>State-level records include Krishak Bandhu, cooperative credit, farm mechanisation, the rainfed diversification programme and women SHG interest support.</p><span class="coverage-state">PARTIAL · SOURCED</span></article>
-          <article class="coverage-card"><span class="coverage-mark warn">!</span><h3>Other state / UT schemes</h3><p>State-specific grants, interest subsidies, crop packages, local bank products and district notices still need separate official-source verification.</p><span class="coverage-state pending">RESEARCH REQUIRED</span></article>
-          <article class="coverage-card"><span class="coverage-mark warn">!</span><h3>Panchayat / block / lender inventory</h3><p>Exact PACS names, bank branches, SHG federations, block notices and local money-lending licences are not yet populated for every district.</p><span class="coverage-state pending">LOCAL VALIDATION REQUIRED</span></article>
-        </div>
-        <div class="coverage-table-wrap"><div class="table-title"><div><div class="section-kicker">IMPLEMENTATION TRACKER</div><h3>State-wise research status</h3></div><span id="state-count">36 States &amp; UTs</span></div><div id="state-coverage-list" class="state-coverage-list"></div></div>
-        <div class="data-principles"><h3>Data rules used in this directory</h3><ul><li><b>Amount discipline:</b> published caps are shown as published; bank-assessed limits are marked “need-based”. Unpublished amounts are not guessed.</li><li><b>Type discipline:</b> grants, loans, subsidies, insurance and access points are separated.</li><li><b>Geography discipline:</b> “National” does not mean every crop or district is currently notified. Seasonal and district notifications control actual availability.</li><li><b>Private / informal discipline:</b> regulated lenders are linked to their official product pages. Unlicensed or undocumented lending is not endorsed.</li><li><b>Freshness:</b> scheme windows and rates can change. Confirm the current circular with the implementing authority before applying.</li></ul></div>
-      </section>
+  <div class="section-heading">
+    <div><div class="section-kicker">DATA COVERAGE &amp; GOVERNANCE · V2.5</div><h2>See what is researched — and what remains open</h2><p>National catalogue, State/UT portals, district website mapping and verified programme coverage are tracked separately.</p></div>
+    <div class="scope-label"><span class="scope-dot"></span> All-India parallel build</div>
+  </div>
+  <div id="coverage-methodology-alert" class="coverage-methodology-alert"><b>Geography quality note:</b> district names in this release come from a bundled community-maintained snapshot. They are not yet reconciled to current official LGD codes. Block and Gram Panchayat identifiers are not loaded.</div>
+  <div class="coverage-v25-stats" id="coverage-v25-stats" aria-live="polite">
+    <article><small>STATES &amp; UNION TERRITORIES</small><strong>36</strong><span>State/UT portal register</span></article>
+    <article><small>DISTRICT SNAPSHOT ENTRIES</small><strong>779</strong><span>Community snapshot · LGD refresh pending</span></article>
+    <article><small>SCHEME / BENEFIT RECORDS</small><strong>31</strong><span>Central + limited State records</span></article>
+    <article><small>LENDER / FINANCE ENTRIES</small><strong>46</strong><span>Product catalogue · branch checks pending</span></article>
+  </div>
+  <div class="coverage-v25-grid">
+    <article class="coverage-v25-card"><div class="coverage-v25-kicker">SCHEME &amp; BENEFIT WORKSTREAM</div><h3>Government and institutional support</h3><p>Grants, direct benefits, crop insurance, subsidies, pensions, MSP procurement, infrastructure support and scheme-linked credit.</p><b id="coverage-scheme-count">—</b><small>source-linked scheme records</small></article>
+    <article class="coverage-v25-card"><div class="coverage-v25-kicker">FINANCE WORKSTREAM</div><h3>Formal credit and lending</h3><p>Public/private banks, RRBs, cooperative/PACS routes, Small Finance Banks and regulated NBFC products.</p><b id="coverage-lender-count">—</b><small>lender/product entries, not branch confirmations</small></article>
+    <article class="coverage-v25-card"><div class="coverage-v25-kicker">STATE / DISTRICT RESEARCH</div><h3>Local inventory completeness</h3><p>State portal mapped is not the same as every State scheme researched. Local PACS, branches, blocks and Panchayats still need field-level verification.</p><b id="coverage-state-record-count">—</b><small>States/UTs with at least one State-specific record</small></article>
+  </div>
+  <div class="coverage-table-wrap">
+    <div class="table-title"><div><div class="section-kicker">36 STATE / UT REGISTER</div><h3>Portal links and independent research status</h3></div><span id="state-count">36 States &amp; UTs</span></div>
+    <div class="coverage-searchbar"><label><span>FIND A STATE / UNION TERRITORY</span><input id="coverage-search" type="search" placeholder="Search State or UT..." /></label><span class="coverage-search-note">Select a row to inspect its district snapshot and local research gaps.</span></div>
+    <div id="state-coverage-list" class="state-coverage-list" aria-live="polite"></div>
+  </div>
+  <div class="coverage-table-wrap coverage-district-wrap">
+    <div class="table-title"><div><div class="section-kicker">SELECTED STATE / UT</div><h3 id="coverage-selected-state">Select a State/UT above</h3></div><span id="coverage-district-count">—</span></div>
+    <div id="coverage-selected-detail" class="coverage-selected-detail" aria-live="polite"><p>Choose a State/UT from the register above to inspect portal mapping, scheme records, RRB directory and district-level research status.</p></div>
+    <div id="coverage-district-list" class="coverage-district-list" aria-live="polite"></div>
+  </div>
+  <div class="data-principles">
+    <h3>V2.5 verification and coverage rules</h3>
+    <ul>
+      <li><b>Independent workstreams:</b> government grants/subsidies/insurance/benefits and financial products are tracked separately. Neither workstream is considered complete because a portal link exists.</li>
+      <li><b>Amount discipline:</b> published assistance is shown with its beneficiary/component conditions. Project-assessed or unpublished amounts are not guessed. A programme allocation is never presented as an individual farmer entitlement.</li>
+      <li><b>Application status:</b> seasonal and State-specific windows must be checked. Extension-unconfirmed legacy schemes are visible for context but excluded from eligibility matching.</li>
+      <li><b>Finance discipline:</b> lender product pages and RRB registers do not prove a branch is present in the selected district or that a farmer will qualify for a sanction.</li>
+      <li><b>Administrative geography:</b> official LGD identifiers are the target source for district, sub-district, village and local-body coverage. The present 779-entry snapshot is explicitly provisional.</li>
+      <li><b>Last-mile gaps:</b> district crop notifications, local PACS, DCCB, bank branches, BDO, Gram Panchayat and village-level beneficiary targets are not yet comprehensively inventoried.</li>
+    </ul>
+    <div class="coverage-source-links"><a href="https://lgdirectory.gov.in/" target="_blank" rel="noopener">Official LGD ↗</a><a href="https://data.gov.in/catalog/local-government-directory-lgd" target="_blank" rel="noopener">LGD Open Government Data ↗</a><a href="COVERAGE_REPORT_V25.md" target="_blank">V2.5 coverage report ↗</a><a href="DATA_DICTIONARY.md" target="_blank">Data dictionary ↗</a></div>
+  </div>
+</section>
 
       <footer class="footer"><span>AgriBridge · Indian Agri Market &amp; Loans</span><span>Information only · Not a lender · Not an eligibility decision</span><a href="SOURCES.md" target="_blank">Sources &amp; methodology ↗</a></footer>
     </main>
