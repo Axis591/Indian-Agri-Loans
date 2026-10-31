@@ -1,0 +1,4537 @@
+{
+  "schemaVersion": "3.0.0",
+  "releaseDate": "2026-10-31",
+  "strategy": "All 36 States/UTs remain in one parallel research queue, with grants/benefits and finance/credit as equal workstreams. A portal link is not counted as a scheme record.",
+  "officialGeographyTargets": {
+    "lgdPortal": "https://lgdirectory.gov.in/",
+    "ogdCatalogue": "https://data.gov.in/catalog/local-government-directory-lgd",
+    "districtResource": "https://data.gov.in/resource/local-government-directory-lgd-districts",
+    "localBodyResource": "https://data.gov.in/resource/local-government-directory-lgd-local-bodies",
+    "districtResourceUpdated": "2026-10-27",
+    "localBodyResourceUpdated": "2026-10-28",
+    "notes": "OGD states the District dataset carries LGD district codes and monthly updates. The Local Bodies page states no API is currently available for that resource. For districts/sub-districts/villages/local bodies, use official LGD exports or an enabled official API; never infer IDs from the community district-name list."
+  },
+  "workstreamDefinitions": [
+    {
+      "id": "farmer_income_support",
+      "label": "Farmer income support / DBT",
+      "reviewRequired": [
+        "official operational guideline/order",
+        "State/UT budget and current scheme year",
+        "eligible farmer and land / tenancy / activity class",
+        "district/block/season/application window",
+        "published benefit or amount calculation",
+        "official application route",
+        "source review date"
+      ]
+    },
+    {
+      "id": "crop_production_support",
+      "label": "Crop inputs, crop diversification and extension",
+      "reviewRequired": [
+        "official operational guideline/order",
+        "State/UT budget and current scheme year",
+        "eligible farmer and land / tenancy / activity class",
+        "district/block/season/application window",
+        "published benefit or amount calculation",
+        "official application route",
+        "source review date"
+      ]
+    },
+    {
+      "id": "mechanisation_irrigation",
+      "label": "Mechanisation, irrigation and water-use efficiency",
+      "reviewRequired": [
+        "official operational guideline/order",
+        "State/UT budget and current scheme year",
+        "eligible farmer and land / tenancy / activity class",
+        "district/block/season/application window",
+        "published benefit or amount calculation",
+        "official application route",
+        "source review date"
+      ]
+    },
+    {
+      "id": "horticulture",
+      "label": "Horticulture, nurseries and protected cultivation",
+      "reviewRequired": [
+        "official operational guideline/order",
+        "State/UT budget and current scheme year",
+        "eligible farmer and land / tenancy / activity class",
+        "district/block/season/application window",
+        "published benefit or amount calculation",
+        "official application route",
+        "source review date"
+      ]
+    },
+    {
+      "id": "animal_husbandry_fisheries",
+      "label": "Animal husbandry, dairy, livestock and fisheries",
+      "reviewRequired": [
+        "official operational guideline/order",
+        "State/UT budget and current scheme year",
+        "eligible farmer and land / tenancy / activity class",
+        "district/block/season/application window",
+        "published benefit or amount calculation",
+        "official application route",
+        "source review date"
+      ]
+    },
+    {
+      "id": "marketing_procurement",
+      "label": "MSP, procurement, mandi and market infrastructure",
+      "reviewRequired": [
+        "official operational guideline/order",
+        "State/UT budget and current scheme year",
+        "eligible farmer and land / tenancy / activity class",
+        "district/block/season/application window",
+        "published benefit or amount calculation",
+        "official application route",
+        "source review date"
+      ]
+    },
+    {
+      "id": "cooperative_credit",
+      "label": "State cooperative banks, DCCBs and PACS",
+      "reviewRequired": [
+        "official operational guideline/order",
+        "State/UT budget and current scheme year",
+        "eligible farmer and land / tenancy / activity class",
+        "district/block/season/application window",
+        "published benefit or amount calculation",
+        "official application route",
+        "source review date"
+      ]
+    },
+    {
+      "id": "tenant_landless_tribal",
+      "label": "Tenant, sharecropper, landless and tribal farmer support",
+      "reviewRequired": [
+        "official operational guideline/order",
+        "State/UT budget and current scheme year",
+        "eligible farmer and land / tenancy / activity class",
+        "district/block/season/application window",
+        "published benefit or amount calculation",
+        "official application route",
+        "source review date"
+      ]
+    },
+    {
+      "id": "enterprise_infrastructure",
+      "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+      "reviewRequired": [
+        "official operational guideline/order",
+        "State/UT budget and current scheme year",
+        "eligible farmer and land / tenancy / activity class",
+        "district/block/season/application window",
+        "published benefit or amount calculation",
+        "official application route",
+        "source review date"
+      ]
+    }
+  ],
+  "totals": {
+    "stateUTCount": 36,
+    "statesWithNamedStateProgrammes": 7,
+    "namedStateProgrammeRecords": 12,
+    "statesPortalLinked": 36,
+    "researchPendingStates": [
+      "Andaman and Nicobar Islands",
+      "Arunachal Pradesh",
+      "Bihar",
+      "Chandigarh",
+      "Chhattisgarh",
+      "Dadra and Nagar Haveli and Daman and Diu",
+      "Delhi",
+      "Goa",
+      "Gujarat",
+      "Haryana",
+      "Himachal Pradesh",
+      "Jammu and Kashmir",
+      "Jharkhand",
+      "Karnataka",
+      "Kerala",
+      "Ladakh",
+      "Lakshadweep",
+      "Madhya Pradesh",
+      "Manipur",
+      "Meghalaya",
+      "Mizoram",
+      "Nagaland",
+      "Puducherry",
+      "Punjab",
+      "Sikkim",
+      "Tamil Nadu",
+      "Tripura",
+      "Uttar Pradesh",
+      "Uttarakhand"
+    ]
+  },
+  "states": [
+    {
+      "stateCode": "AN",
+      "stateUT": "Andaman and Nicobar Islands",
+      "stateAgriculturePortal": {
+        "url": "https://agri.andamannicobar.gov.in/",
+        "label": "Andaman and Nicobar Islands Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "https://agri.andamannicobar.gov.in/",
+        "label": "Andaman and Nicobar Islands farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [],
+      "namedSchemeRecordIds": [],
+      "namedSchemeRecordCount": 0,
+      "researchStatus": "portal_linked_research_pending",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
+      "districtIds": [
+        "NICOBAR",
+        "NORTH_AND_MIDDLE_ANDAMAN",
+        "SOUTH_ANDAMAN"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "AP",
+      "stateUT": "Andhra Pradesh",
+      "stateAgriculturePortal": {
+        "url": "https://www.apagrisnet.gov.in/",
+        "label": "Andhra Pradesh Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "https://www.apagrisnet.gov.in/",
+        "label": "Andhra Pradesh farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [
+        {
+          "label": "Department of Horticulture",
+          "url": "https://horticulturedept.ap.gov.in/Horticulture/Newhome.aspx",
+          "status": "discovery_link_only"
+        },
+        {
+          "label": "Agricultural Marketing Department",
+          "url": "http://market.ap.nic.in/",
+          "status": "discovery_link_only"
+        }
+      ],
+      "namedSchemeRecordIds": [
+        "ap-annadatha-sukhibhava"
+      ],
+      "namedSchemeRecordCount": 1,
+      "researchStatus": "partial_source_linked",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "partial_source_linked",
+          "recordIds": [
+            "ap-annadatha-sukhibhava"
+          ],
+          "evidenceUrl": "https://tirupati.ap.gov.in/agriculture/",
+          "nextAction": "Confirm current operational guideline, target districts, application window and district-level amount/benefit conditions."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "One or more named State-specific catalogue entries are sourced; this is not a complete State programme inventory.",
+      "districtIds": [
+        "ANANTAPUR",
+        "CHITTOOR",
+        "EAST_GODAVARI",
+        "GUNTUR",
+        "KADAPA",
+        "KRISHNA",
+        "KURNOOL",
+        "NELLORE",
+        "PRAKASAM",
+        "SRIKAKULAM",
+        "VISAKHAPATNAM",
+        "VIZIANAGARAM",
+        "WEST_GODAVARI",
+        "ANNAMAYYA",
+        "BAPATLA",
+        "ELURU",
+        "KAKINADA",
+        "KONASEEMA",
+        "NANDYAL",
+        "NTR",
+        "PALNADU",
+        "PARVATHIPURAM_MANYAM",
+        "SRI_SATHYA_SAI",
+        "TIRUPATI"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "AR",
+      "stateUT": "Arunachal Pradesh",
+      "stateAgriculturePortal": {
+        "url": "https://www.agri.arunachal.gov.in/",
+        "label": "Arunachal Pradesh Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "https://www.agri.arunachal.gov.in/",
+        "label": "Arunachal Pradesh farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [],
+      "namedSchemeRecordIds": [],
+      "namedSchemeRecordCount": 0,
+      "researchStatus": "portal_linked_research_pending",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
+      "districtIds": [
+        "ANJAW",
+        "CHANGLANG",
+        "DIBANG_VALLEY",
+        "EAST_KAMENG",
+        "EAST_SIANG",
+        "KAMLE",
+        "KRA_DAADI",
+        "KURUNG_KUMEY",
+        "LEPA_RADA",
+        "LOHIT",
+        "LONGDING",
+        "LOWER_DIBANG_VALLEY",
+        "LOWER_SIANG",
+        "LOWER_SUBANSIRI",
+        "NAMSAI",
+        "PAKKE_KESSANG",
+        "PAPUM_PARE",
+        "SHI_YOMI",
+        "SIANG",
+        "TAWANG",
+        "TIRAP",
+        "UPPER_SIANG",
+        "UPPER_SUBANSIRI",
+        "WEST_KAMENG",
+        "WEST_SIANG",
+        "ITANAGAR_CAPITAL_COMPLEX"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "AS",
+      "stateUT": "Assam",
+      "stateAgriculturePortal": {
+        "url": "https://agri-horti.assam.gov.in/",
+        "label": "Assam Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "https://agri-horti.assam.gov.in/",
+        "label": "Assam farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [],
+      "namedSchemeRecordIds": [
+        "assam-krishi-sa-sajuli"
+      ],
+      "namedSchemeRecordCount": 1,
+      "researchStatus": "partial_source_linked",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "partial_source_linked",
+          "recordIds": [
+            "assam-krishi-sa-sajuli"
+          ],
+          "evidenceUrl": "https://diragri.assam.gov.in/schemes/detail/mukhya-mantri-krishi-sa-sajuli-yojana-mmkssy",
+          "nextAction": "Confirm current operational guideline, target districts, application window and district-level amount/benefit conditions."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "One or more named State-specific catalogue entries are sourced; this is not a complete State programme inventory.",
+      "districtIds": [
+        "BAKSA",
+        "BARPETA",
+        "BISWANATH",
+        "BONGAIGAON",
+        "CACHAR",
+        "CHARAIDEO",
+        "CHIRANG",
+        "DARRANG",
+        "DHEMAJI",
+        "DHUBRI",
+        "DIBRUGARH",
+        "DIMA_HASAO",
+        "GOALPARA",
+        "GOLAGHAT",
+        "HAILAKANDI",
+        "HOJAI",
+        "JORHAT",
+        "KAMRUP",
+        "KAMRUP_METROPOLITAN",
+        "KARBI_ANGLONG",
+        "KARIMGANJ",
+        "KOKRAJHAR",
+        "LAKHIMPUR",
+        "MAJULI",
+        "MORIGAON",
+        "NAGAON",
+        "NALBARI",
+        "SIVASAGAR",
+        "SONITPUR",
+        "SOUTH_SALMARA_MANKACHAR",
+        "TINSUKIA",
+        "UDALGURI",
+        "WEST_KARBI_ANGLONG",
+        "BAJALI",
+        "TAMULPUR"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "BR",
+      "stateUT": "Bihar",
+      "stateAgriculturePortal": {
+        "url": "https://dbtagriculture.bihar.gov.in/",
+        "label": "Bihar Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "https://dbtagriculture.bihar.gov.in/",
+        "label": "Bihar farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [],
+      "namedSchemeRecordIds": [],
+      "namedSchemeRecordCount": 0,
+      "researchStatus": "portal_linked_research_pending",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
+      "districtIds": [
+        "ARARIA",
+        "ARWAL",
+        "AURANGABAD",
+        "BANKA",
+        "BEGUSARAI",
+        "BHAGALPUR",
+        "BHOJPUR",
+        "BUXAR",
+        "DARBHANGA",
+        "EAST_CHAMPARAN",
+        "GAYA",
+        "GOPALGANJ",
+        "JAMUI",
+        "JEHANABAD",
+        "KAIMUR",
+        "KATIHAR",
+        "KHAGARIA",
+        "KISHANGANJ",
+        "LAKHISARAI",
+        "MADHEPURA",
+        "MADHUBANI",
+        "MUNGER",
+        "MUZAFFARPUR",
+        "NALANDA",
+        "NAWADA",
+        "PATNA",
+        "PURNIA",
+        "ROHTAS",
+        "SAHARSA",
+        "SAMASTIPUR",
+        "SARAN",
+        "SHEIKHPURA",
+        "SHEOHAR",
+        "SITAMARHI",
+        "SIWAN",
+        "SUPAUL",
+        "VAISHALI",
+        "WEST_CHAMPARAN"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "CH",
+      "stateUT": "Chandigarh",
+      "stateAgriculturePortal": {
+        "url": "https://agri.punjab.gov.in/",
+        "label": "Chandigarh Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "https://agri.punjab.gov.in/",
+        "label": "Chandigarh farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [
+        {
+          "label": "Chandigarh Market Committee",
+          "url": "http://chdmktcommittee.gov.in/",
+          "status": "discovery_link_only"
+        }
+      ],
+      "namedSchemeRecordIds": [],
+      "namedSchemeRecordCount": 0,
+      "researchStatus": "portal_linked_research_pending",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
+      "districtIds": [
+        "CHANDIGARH"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "CT",
+      "stateUT": "Chhattisgarh",
+      "stateAgriculturePortal": {
+        "url": "https://agriportal.cg.nic.in/horticulture/HortiEn/Default.aspx",
+        "label": "Chhattisgarh Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "https://agriportal.cg.nic.in/horticulture/HortiEn/Default.aspx",
+        "label": "Chhattisgarh farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [],
+      "namedSchemeRecordIds": [],
+      "namedSchemeRecordCount": 0,
+      "researchStatus": "portal_linked_research_pending",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
+      "districtIds": [
+        "BALOD",
+        "BALODA_BAZAR",
+        "BALRAMPUR",
+        "BASTAR",
+        "BEMETARA",
+        "BIJAPUR",
+        "BILASPUR",
+        "DANTEWADA",
+        "DHAMTARI",
+        "DURG",
+        "GARIABAND",
+        "GAURELA_PENDRA_MARWAHI",
+        "JANJGIR_CHAMPA",
+        "JASHPUR",
+        "KABIRDHAM",
+        "KANKER",
+        "KONDAGAON",
+        "KORBA",
+        "KORIYA",
+        "MAHASAMUND",
+        "MUNGELI",
+        "NARAYANPUR",
+        "RAIGARH",
+        "RAIPUR",
+        "RAJNANDGAON",
+        "SUKMA",
+        "SURAJPUR",
+        "SURGUJA",
+        "MANENDRAGARH_CHIRMIRI_BH",
+        "MOHLA_MANPUR_AMBAGARH_CH",
+        "SARANGARH_BILAIGARH",
+        "SAKTI"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "DH",
+      "stateUT": "Dadra and Nagar Haveli and Daman and Diu",
+      "stateAgriculturePortal": {
+        "url": "https://ddd.gov.in/Departments/Agriculture.aspx",
+        "label": "Dadra and Nagar Haveli and Daman and Diu Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "https://ddd.gov.in/Departments/Agriculture.aspx",
+        "label": "Dadra and Nagar Haveli and Daman and Diu farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [],
+      "namedSchemeRecordIds": [],
+      "namedSchemeRecordCount": 0,
+      "researchStatus": "portal_linked_research_pending",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
+      "districtIds": [
+        "DADRA_AND_NAGAR_HAVELI",
+        "DAMAN",
+        "DIU"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "DL",
+      "stateUT": "Delhi",
+      "stateAgriculturePortal": {
+        "url": "https://delhi.gov.in/",
+        "label": "Delhi Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "https://www.india.gov.in/category/agriculture-rural-environment/subcategory/research-marketing/details/departments-of-agriculture-of-states-and-union-territories",
+        "label": "State Agriculture Department directory",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [],
+      "namedSchemeRecordIds": [],
+      "namedSchemeRecordCount": 0,
+      "researchStatus": "portal_linked_research_pending",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
+      "districtIds": [
+        "CENTRAL_DELHI",
+        "EAST_DELHI",
+        "NEW_DELHI",
+        "NORTH_DELHI",
+        "NORTH_EAST_DELHI",
+        "NORTH_WEST_DELHI",
+        "SHAHDARA",
+        "SOUTH_DELHI",
+        "SOUTH_EAST_DELHI",
+        "SOUTH_WEST_DELHI",
+        "WEST_DELHI"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "GA",
+      "stateUT": "Goa",
+      "stateAgriculturePortal": {
+        "url": "http://agri.goa.gov.in/",
+        "label": "Goa Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "http://agri.goa.gov.in/",
+        "label": "Goa farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [],
+      "namedSchemeRecordIds": [],
+      "namedSchemeRecordCount": 0,
+      "researchStatus": "portal_linked_research_pending",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
+      "districtIds": [
+        "NORTH_GOA",
+        "SOUTH_GOA"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "GJ",
+      "stateUT": "Gujarat",
+      "stateAgriculturePortal": {
+        "url": "https://agri.gujarat.gov.in/",
+        "label": "Gujarat Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "https://ikhedut.gujarat.gov.in/iKhedutPublicScheme/",
+        "label": "Gujarat farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [],
+      "namedSchemeRecordIds": [],
+      "namedSchemeRecordCount": 0,
+      "researchStatus": "portal_linked_research_pending",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
+      "districtIds": [
+        "AHMEDABAD",
+        "AMRELI",
+        "ANAND",
+        "ARAVALLI",
+        "BANASKANTHA",
+        "BHARUCH",
+        "BHAVNAGAR",
+        "BOTAD",
+        "CHHOTA_UDAIPUR",
+        "DAHOD",
+        "DANG",
+        "DEVBHOOMI_DWARKA",
+        "GANDHINAGAR",
+        "GIR_SOMNATH",
+        "JAMNAGAR",
+        "JUNAGADH",
+        "KHEDA",
+        "KUTCH",
+        "MAHISAGAR",
+        "MEHSANA",
+        "MORBI",
+        "NARMADA",
+        "NAVSARI",
+        "PANCHMAHAL",
+        "PATAN",
+        "PORBANDAR",
+        "RAJKOT",
+        "SABARKANTHA",
+        "SURAT",
+        "SURENDRANAGAR",
+        "TAPI",
+        "VADODARA",
+        "VALSAD"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "HR",
+      "stateUT": "Haryana",
+      "stateAgriculturePortal": {
+        "url": "http://agriharyana.gov.in/",
+        "label": "Haryana Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "http://agriharyana.gov.in/",
+        "label": "Haryana farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [],
+      "namedSchemeRecordIds": [],
+      "namedSchemeRecordCount": 0,
+      "researchStatus": "portal_linked_research_pending",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
+      "districtIds": [
+        "AMBALA",
+        "BHIWANI",
+        "CHARKHI_DADRI",
+        "FARIDABAD",
+        "FATEHABAD",
+        "GURUGRAM",
+        "HISAR",
+        "JHAJJAR",
+        "JIND",
+        "KAITHAL",
+        "KARNAL",
+        "KURUKSHETRA",
+        "MAHENDRAGARH",
+        "NUH",
+        "PALWAL",
+        "PANCHKULA",
+        "PANIPAT",
+        "REWARI",
+        "ROHTAK",
+        "SIRSA",
+        "SONIPAT",
+        "YAMUNANAGAR"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "HP",
+      "stateUT": "Himachal Pradesh",
+      "stateAgriculturePortal": {
+        "url": "https://agriculture.hp.gov.in/en/",
+        "label": "Himachal Pradesh Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "https://agriculture.hp.gov.in/en/scheme_category/state-en/",
+        "label": "Himachal Pradesh farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [],
+      "namedSchemeRecordIds": [],
+      "namedSchemeRecordCount": 0,
+      "researchStatus": "portal_linked_research_pending",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
+      "districtIds": [
+        "BILASPUR",
+        "CHAMBA",
+        "HAMIRPUR",
+        "KANGRA",
+        "KINNAUR",
+        "KULLU",
+        "LAHAUL_AND_SPITI",
+        "MANDI",
+        "SHIMLA",
+        "SIRMAUR",
+        "SOLAN",
+        "UNA"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "JK",
+      "stateUT": "Jammu and Kashmir",
+      "stateAgriculturePortal": {
+        "url": "https://apd.jk.gov.in/index.html",
+        "label": "Jammu and Kashmir Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "https://apd.jk.gov.in/index.html",
+        "label": "Jammu and Kashmir farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [],
+      "namedSchemeRecordIds": [],
+      "namedSchemeRecordCount": 0,
+      "researchStatus": "portal_linked_research_pending",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
+      "districtIds": [
+        "ANANTNAG",
+        "BANDIPORA",
+        "BARAMULLA",
+        "BUDGAM",
+        "DODA",
+        "GANDERBAL",
+        "JAMMU",
+        "KATHUA",
+        "KISHTWAR",
+        "KULGAM",
+        "KUPWARA",
+        "POONCH",
+        "PULWAMA",
+        "RAJOURI",
+        "RAMBAN",
+        "REASI",
+        "SAMBA",
+        "SHOPIAN",
+        "SRINAGAR",
+        "UDHAMPUR"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "JH",
+      "stateUT": "Jharkhand",
+      "stateAgriculturePortal": {
+        "url": "https://www.jharkhand.gov.in/agriculture",
+        "label": "Jharkhand Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "https://www.jharkhand.gov.in/agriculture",
+        "label": "Jharkhand farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [],
+      "namedSchemeRecordIds": [],
+      "namedSchemeRecordCount": 0,
+      "researchStatus": "portal_linked_research_pending",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
+      "districtIds": [
+        "BOKARO",
+        "CHATRA",
+        "DEOGHAR",
+        "DHANBAD",
+        "DUMKA",
+        "EAST_SINGHBHUM",
+        "GARHWA",
+        "GIRIDIH",
+        "GODDA",
+        "GUMLA",
+        "HAZARIBAGH",
+        "JAMTARA",
+        "KHUNTI",
+        "KODERMA",
+        "LATEHAR",
+        "LOHARDAGA",
+        "PAKUR",
+        "PALAMU",
+        "RAMGARH",
+        "RANCHI",
+        "SAHIBGANJ",
+        "SERAIKELA_KHARSAWAN",
+        "SIMDEGA",
+        "WEST_SINGHBHUM"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "KA",
+      "stateUT": "Karnataka",
+      "stateAgriculturePortal": {
+        "url": "https://karnataka.mygov.in/en",
+        "label": "Karnataka Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "https://karnataka.mygov.in/en",
+        "label": "Karnataka farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [
+        {
+          "label": "Department of Horticulture",
+          "url": "https://www.karnataka.gov.in/horticulture/Pages/home.aspx",
+          "status": "discovery_link_only"
+        }
+      ],
+      "namedSchemeRecordIds": [],
+      "namedSchemeRecordCount": 0,
+      "researchStatus": "portal_linked_research_pending",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
+      "districtIds": [
+        "BAGALKOT",
+        "BALLARI",
+        "BELAGAVI",
+        "BENGALURU_RURAL",
+        "BENGALURU_URBAN",
+        "BIDAR",
+        "CHAMARAJANAGAR",
+        "CHIKKABALLAPUR",
+        "CHIKKAMAGALURU",
+        "CHITRADURGA",
+        "DAKSHINA_KANNADA",
+        "DAVANAGERE",
+        "DHARWAD",
+        "GADAG",
+        "HASSAN",
+        "HAVERI",
+        "KALABURAGI",
+        "KODAGU",
+        "KOLAR",
+        "KOPPAL",
+        "MANDYA",
+        "MYSURU",
+        "RAICHUR",
+        "RAMANAGARA",
+        "SHIVAMOGGA",
+        "TUMAKURU",
+        "UDUPI",
+        "UTTARA_KANNADA",
+        "VIJAYAPURA",
+        "YADGIR",
+        "VIJAYANAGARA"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "KL",
+      "stateUT": "Kerala",
+      "stateAgriculturePortal": {
+        "url": "https://ashraya.kerala.gov.in/",
+        "label": "Kerala Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "https://ashraya.kerala.gov.in/",
+        "label": "Kerala farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [
+        {
+          "label": "Agriculture Department",
+          "url": "http://www.keralaagriculture.gov.in/",
+          "status": "discovery_link_only"
+        }
+      ],
+      "namedSchemeRecordIds": [],
+      "namedSchemeRecordCount": 0,
+      "researchStatus": "portal_linked_research_pending",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
+      "districtIds": [
+        "ALAPPUZHA",
+        "ERNAKULAM",
+        "IDUKKI",
+        "KANNUR",
+        "KASARAGOD",
+        "KOLLAM",
+        "KOTTAYAM",
+        "KOZHIKODE",
+        "MALAPPURAM",
+        "PALAKKAD",
+        "PATHANAMTHITTA",
+        "THIRUVANANTHAPURAM",
+        "THRISSUR",
+        "WAYANAD"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "LA",
+      "stateUT": "Ladakh",
+      "stateAgriculturePortal": {
+        "url": "https://ladakh.gov.in/",
+        "label": "Ladakh Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "https://www.india.gov.in/category/agriculture-rural-environment/subcategory/research-marketing/details/departments-of-agriculture-of-states-and-union-territories",
+        "label": "Official Agriculture Department directory",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [],
+      "namedSchemeRecordIds": [],
+      "namedSchemeRecordCount": 0,
+      "researchStatus": "portal_linked_research_pending",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
+      "districtIds": [
+        "KARGIL",
+        "LEH"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "LD",
+      "stateUT": "Lakshadweep",
+      "stateAgriculturePortal": {
+        "url": "https://lakshadweep.gov.in/departments/agriculture/",
+        "label": "Lakshadweep Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "https://lakshadweep.gov.in/departments/agriculture/",
+        "label": "Lakshadweep farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [],
+      "namedSchemeRecordIds": [],
+      "namedSchemeRecordCount": 0,
+      "researchStatus": "portal_linked_research_pending",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
+      "districtIds": [
+        "LAKSHADWEEP"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "MP",
+      "stateUT": "Madhya Pradesh",
+      "stateAgriculturePortal": {
+        "url": "http://mpkrishi.mp.gov.in/",
+        "label": "Madhya Pradesh Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "http://mpkrishi.mp.gov.in/",
+        "label": "Madhya Pradesh farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [],
+      "namedSchemeRecordIds": [],
+      "namedSchemeRecordCount": 0,
+      "researchStatus": "portal_linked_research_pending",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
+      "districtIds": [
+        "AGAR_MALWA",
+        "ALIRAJPUR",
+        "ANUPPUR",
+        "ASHOKNAGAR",
+        "BALAGHAT",
+        "BARWANI",
+        "BETUL",
+        "BHIND",
+        "BHOPAL",
+        "BURHANPUR",
+        "CHHATARPUR",
+        "CHHINDWARA",
+        "DAMOH",
+        "DATIA",
+        "DEWAS",
+        "DHAR",
+        "DINDORI",
+        "GUNA",
+        "GWALIOR",
+        "HARDA",
+        "HOSHANGABAD",
+        "INDORE",
+        "JABALPUR",
+        "JHABUA",
+        "KATNI",
+        "KHANDWA",
+        "KHARGONE",
+        "MANDLA",
+        "MANDSAUR",
+        "MORENA",
+        "NARSINGHPUR",
+        "NEEMUCH",
+        "NIWARI",
+        "PANNA",
+        "RAISEN",
+        "RAJGARH",
+        "RATLAM",
+        "REWA",
+        "SAGAR",
+        "SATNA",
+        "SEHORE",
+        "SEONI",
+        "SHAHDOL",
+        "SHAJAPUR",
+        "SHEOPUR",
+        "SHIVPURI",
+        "SIDHI",
+        "SINGRAULI",
+        "TIKAMGARH",
+        "UJJAIN",
+        "UMARIA",
+        "VIDISHA"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "MH",
+      "stateUT": "Maharashtra",
+      "stateAgriculturePortal": {
+        "url": "http://krishi.maharashtra.gov.in/",
+        "label": "Maharashtra Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "https://mahadbt.maharashtra.gov.in/Farmer/RegistrationLogin/RegistrationLogin",
+        "label": "Maharashtra farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [
+        {
+          "label": "Maharashtra State Agricultural Marketing Board",
+          "url": "https://www.msamb.com/",
+          "status": "discovery_link_only"
+        }
+      ],
+      "namedSchemeRecordIds": [
+        "maharashtra-women-farmer-certificate"
+      ],
+      "namedSchemeRecordCount": 1,
+      "researchStatus": "partial_source_linked",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "partial_source_linked",
+          "recordIds": [
+            "maharashtra-women-farmer-certificate"
+          ],
+          "evidenceUrl": "https://mahakrushi.maharashtra.gov.in/mahila-shetkari-service/",
+          "nextAction": "Confirm current operational guideline, target districts, application window and district-level amount/benefit conditions."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "One or more named State-specific catalogue entries are sourced; this is not a complete State programme inventory.",
+      "districtIds": [
+        "AHMEDNAGAR",
+        "AKOLA",
+        "AMRAVATI",
+        "BEED",
+        "BHANDARA",
+        "BULDHANA",
+        "CHANDRAPUR",
+        "DHULE",
+        "GADCHIROLI",
+        "GONDIA",
+        "HINGOLI",
+        "JALGAON",
+        "JALNA",
+        "KOLHAPUR",
+        "LATUR",
+        "MUMBAI_CITY",
+        "MUMBAI_SUBURBAN",
+        "NAGPUR",
+        "NANDED",
+        "NANDURBAR",
+        "NASHIK",
+        "OSMANABAD",
+        "PALGHAR",
+        "PARBHANI",
+        "PUNE",
+        "RAIGAD",
+        "RATNAGIRI",
+        "SANGLI",
+        "SATARA",
+        "SINDHUDURG",
+        "SOLAPUR",
+        "THANE",
+        "WARDHA",
+        "WASHIM",
+        "YAVATMAL"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "MN",
+      "stateUT": "Manipur",
+      "stateAgriculturePortal": {
+        "url": "https://agrimanipur.mn.gov.in/",
+        "label": "Manipur Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "https://agrimanipur.mn.gov.in/",
+        "label": "Manipur farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [],
+      "namedSchemeRecordIds": [],
+      "namedSchemeRecordCount": 0,
+      "researchStatus": "portal_linked_research_pending",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
+      "districtIds": [
+        "BISHNUPUR",
+        "CHANDEL",
+        "CHURACHANDPUR",
+        "IMPHAL_EAST",
+        "IMPHAL_WEST",
+        "JIRIBAM",
+        "KAKCHING",
+        "KAMJONG",
+        "KANGPOKPI",
+        "NONEY",
+        "PHERZAWL",
+        "SENAPATI",
+        "TAMENGLONG",
+        "TENGNOUPAL",
+        "THOUBAL",
+        "UKHRUL"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "ML",
+      "stateUT": "Meghalaya",
+      "stateAgriculturePortal": {
+        "url": "http://www.megagriculture.gov.in/",
+        "label": "Meghalaya Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "http://www.megagriculture.gov.in/",
+        "label": "Meghalaya farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [],
+      "namedSchemeRecordIds": [],
+      "namedSchemeRecordCount": 0,
+      "researchStatus": "portal_linked_research_pending",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
+      "districtIds": [
+        "EAST_GARO_HILLS",
+        "EAST_JAINTIA_HILLS",
+        "EAST_KHASI_HILLS",
+        "NORTH_GARO_HILLS",
+        "RI_BHOI",
+        "SOUTH_GARO_HILLS",
+        "SOUTH_WEST_GARO_HILLS",
+        "SOUTH_WEST_KHASI_HILLS",
+        "WEST_GARO_HILLS",
+        "WEST_JAINTIA_HILLS",
+        "WEST_KHASI_HILLS",
+        "EASTERN_WEST_KHASI_HILLS"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "MZ",
+      "stateUT": "Mizoram",
+      "stateAgriculturePortal": {
+        "url": "http://agriculturemizoram.nic.in/",
+        "label": "Mizoram Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "http://agriculturemizoram.nic.in/",
+        "label": "Mizoram farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [],
+      "namedSchemeRecordIds": [],
+      "namedSchemeRecordCount": 0,
+      "researchStatus": "portal_linked_research_pending",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
+      "districtIds": [
+        "AIZAWL",
+        "CHAMPHAI",
+        "HNAHTHIAL",
+        "KHAWZAWL",
+        "KOLASIB",
+        "LAWNGTLAI",
+        "LUNGLEI",
+        "MAMIT",
+        "SAITUAL",
+        "SERCHHIP",
+        "SIAHA"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "NL",
+      "stateUT": "Nagaland",
+      "stateAgriculturePortal": {
+        "url": "https://agriculture.nagaland.gov.in/",
+        "label": "Nagaland Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "https://agriculture.nagaland.gov.in/",
+        "label": "Nagaland farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [],
+      "namedSchemeRecordIds": [],
+      "namedSchemeRecordCount": 0,
+      "researchStatus": "portal_linked_research_pending",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
+      "districtIds": [
+        "CHUMOUKEDIMA",
+        "DIMAPUR",
+        "KIPHIRE",
+        "KOHIMA",
+        "LONGLENG",
+        "MOKOKCHUNG",
+        "MON",
+        "NIULAND",
+        "NOKLAK",
+        "PEREN",
+        "PHEK",
+        "SHAMATOR",
+        "TSEMINYU",
+        "TUENSANG",
+        "WOKHA",
+        "ZUNHEBOTO"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "OR",
+      "stateUT": "Odisha",
+      "stateAgriculturePortal": {
+        "url": "http://agriodisha.nic.in/",
+        "label": "Odisha Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "http://agriodisha.nic.in/",
+        "label": "Odisha farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [
+        {
+          "label": "Directorate of Horticulture",
+          "url": "https://agri.odisha.gov.in/",
+          "status": "discovery_link_only"
+        }
+      ],
+      "namedSchemeRecordIds": [
+        "odisha-cm-kisan"
+      ],
+      "namedSchemeRecordCount": 1,
+      "researchStatus": "partial_source_linked",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "partial_source_linked",
+          "recordIds": [
+            "odisha-cm-kisan"
+          ],
+          "evidenceUrl": "https://cmkisan.odisha.gov.in/pdf/CM-KISAN-Guideline.pdf",
+          "nextAction": "Confirm current operational guideline, target districts, application window and district-level amount/benefit conditions."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "One or more named State-specific catalogue entries are sourced; this is not a complete State programme inventory.",
+      "districtIds": [
+        "ANGUL",
+        "BALANGIR",
+        "BALASORE",
+        "BARGARH",
+        "BHADRAK",
+        "BOUDH",
+        "CUTTACK",
+        "DEOGARH",
+        "DHENKANAL",
+        "GAJAPATI",
+        "GANJAM",
+        "JAGATSINGHPUR",
+        "JAJPUR",
+        "JHARSUGUDA",
+        "KALAHANDI",
+        "KANDHAMAL",
+        "KENDRAPARA",
+        "KENDUJHAR",
+        "KHORDHA",
+        "KORAPUT",
+        "MALKANGIRI",
+        "MAYURBHANJ",
+        "NABARANGPUR",
+        "NAYAGARH",
+        "NUAPADA",
+        "PURI",
+        "RAYAGADA",
+        "SAMBALPUR",
+        "SUBARNAPUR",
+        "SUNDARGARH"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "PY",
+      "stateUT": "Puducherry",
+      "stateAgriculturePortal": {
+        "url": "https://agri.py.gov.in/",
+        "label": "Puducherry Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "https://agri.py.gov.in/",
+        "label": "Puducherry farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [],
+      "namedSchemeRecordIds": [],
+      "namedSchemeRecordCount": 0,
+      "researchStatus": "portal_linked_research_pending",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
+      "districtIds": [
+        "KARAIKAL",
+        "MAHE",
+        "PUDUCHERRY",
+        "YANAM"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "PB",
+      "stateUT": "Punjab",
+      "stateAgriculturePortal": {
+        "url": "https://agri.punjab.gov.in/",
+        "label": "Punjab Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "https://agri.punjab.gov.in/",
+        "label": "Punjab farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [
+        {
+          "label": "Punjab Horticulture Department",
+          "url": "https://punjabhorticulture.com/",
+          "status": "discovery_link_only"
+        }
+      ],
+      "namedSchemeRecordIds": [],
+      "namedSchemeRecordCount": 0,
+      "researchStatus": "portal_linked_research_pending",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
+      "districtIds": [
+        "AMRITSAR",
+        "BARNALA",
+        "BATHINDA",
+        "FARIDKOT",
+        "FATEHGARH_SAHIB",
+        "FAZILKA",
+        "FEROZEPUR",
+        "GURDASPUR",
+        "HOSHIARPUR",
+        "JALANDHAR",
+        "KAPURTHALA",
+        "LUDHIANA",
+        "MALERKOTLA",
+        "MANSA",
+        "MOGA",
+        "MUKTSAR",
+        "PATHANKOT",
+        "PATIALA",
+        "RUPNAGAR",
+        "SANGRUR",
+        "SAS_NAGAR",
+        "SBS_NAGAR",
+        "TARN_TARAN"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "RJ",
+      "stateUT": "Rajasthan",
+      "stateAgriculturePortal": {
+        "url": "https://agriculture.rajasthan.gov.in/home",
+        "label": "Rajasthan Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "https://agriculture.rajasthan.gov.in/home",
+        "label": "Rajasthan farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [],
+      "namedSchemeRecordIds": [
+        "rajasthan-cm-kisan-samman"
+      ],
+      "namedSchemeRecordCount": 1,
+      "researchStatus": "partial_source_linked",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "partial_source_linked",
+          "recordIds": [
+            "rajasthan-cm-kisan-samman"
+          ],
+          "evidenceUrl": "https://finance.rajasthan.gov.in/docs/budget/statebudget/2026-2027/Economicreviewe.pdf",
+          "nextAction": "Confirm current operational guideline, target districts, application window and district-level amount/benefit conditions."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "One or more named State-specific catalogue entries are sourced; this is not a complete State programme inventory.",
+      "districtIds": [
+        "AJMER",
+        "ALWAR",
+        "ANUPGARH",
+        "BALOTRA",
+        "BANSWARA",
+        "BARAN",
+        "BARMER",
+        "BEAWAR",
+        "BHARATPUR",
+        "BHILWARA",
+        "BIKANER",
+        "BUNDI",
+        "CHITTORGARH",
+        "CHURU",
+        "DAUSA",
+        "DEEG",
+        "DHOLPUR",
+        "DIDWANA_KUCHAMAN",
+        "DUDU",
+        "DUNGARPUR",
+        "GANGANAGAR",
+        "GANGAPUR_CITY",
+        "HANUMANGARH",
+        "JAIPUR",
+        "JAIPUR_RURAL",
+        "JAISALMER",
+        "JALORE",
+        "JHALAWAR",
+        "JHUNJHUNU",
+        "JODHPUR",
+        "JODHPUR_RURAL",
+        "KARAULI",
+        "KEKRI",
+        "KHAIRTHAL_TIJARA",
+        "KOTA",
+        "KOTPUTLI_BEHROR",
+        "NAGAUR",
+        "NEEM_KA_THANA",
+        "PALI",
+        "PHALODI",
+        "PRATAPGARH",
+        "RAJSAMAND",
+        "SALUMBAR",
+        "SANCHORE",
+        "SAWAI_MADHOPUR",
+        "SHAHPURA",
+        "SIKAR",
+        "SIROHI",
+        "TONK",
+        "UDAIPUR"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "SK",
+      "stateUT": "Sikkim",
+      "stateAgriculturePortal": {
+        "url": "https://agri.sikkim.gov.in/",
+        "label": "Sikkim Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "https://agri.sikkim.gov.in/",
+        "label": "Sikkim farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [],
+      "namedSchemeRecordIds": [],
+      "namedSchemeRecordCount": 0,
+      "researchStatus": "portal_linked_research_pending",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
+      "districtIds": [
+        "EAST_SIKKIM",
+        "NORTH_SIKKIM",
+        "PAKYONG",
+        "SORENG",
+        "SOUTH_SIKKIM",
+        "WEST_SIKKIM"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "TN",
+      "stateUT": "Tamil Nadu",
+      "stateAgriculturePortal": {
+        "url": "https://www.tnagrisnet.tn.gov.in/",
+        "label": "Tamil Nadu Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "https://www.tnagrisnet.tn.gov.in/",
+        "label": "Tamil Nadu farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [
+        {
+          "label": "Horticulture Department",
+          "url": "http://tnhorticulture.tn.gov.in/",
+          "status": "discovery_link_only"
+        }
+      ],
+      "namedSchemeRecordIds": [],
+      "namedSchemeRecordCount": 0,
+      "researchStatus": "portal_linked_research_pending",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
+      "districtIds": [
+        "ARIYALUR",
+        "CHENGALPATTU",
+        "CHENNAI",
+        "COIMBATORE",
+        "CUDDALORE",
+        "DHARMAPURI",
+        "DINDIGUL",
+        "ERODE",
+        "KALLAKURICHI",
+        "KANCHIPURAM",
+        "KANYAKUMARI",
+        "KARUR",
+        "KRISHNAGIRI",
+        "MADURAI",
+        "MAYILADUTHURAI",
+        "NAGAPATTINAM",
+        "NAMAKKAL",
+        "NILGIRIS",
+        "PERAMBALUR",
+        "PUDUKKOTTAI",
+        "RAMANATHAPURAM",
+        "RANIPET",
+        "SALEM",
+        "SIVAGANGA",
+        "TENKASI",
+        "THANJAVUR",
+        "THENI",
+        "THOOTHUKUDI",
+        "TIRUCHIRAPPALLI",
+        "TIRUNELVELI",
+        "TIRUPATHUR",
+        "TIRUPPUR",
+        "TIRUVALLUR",
+        "TIRUVANNAMALAI",
+        "TIRUVARUR",
+        "VELLORE",
+        "VILUPPURAM",
+        "VIRUDHUNAGAR"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "TS",
+      "stateUT": "Telangana",
+      "stateAgriculturePortal": {
+        "url": "http://agri.telangana.gov.in/",
+        "label": "Telangana Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "http://agri.telangana.gov.in/",
+        "label": "Telangana farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [],
+      "namedSchemeRecordIds": [
+        "telangana-rythu-bharosa"
+      ],
+      "namedSchemeRecordCount": 1,
+      "researchStatus": "partial_source_linked",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "partial_source_linked",
+          "recordIds": [
+            "telangana-rythu-bharosa"
+          ],
+          "evidenceUrl": "https://www.telangana.gov.in/news/press-releases/2026/06/honble-chief-minister-sri-a-revanth-reddy-releases-rythu-bharosa-addresses-farmers-at-shilpakala-vedika-hyderabad/",
+          "nextAction": "Confirm current operational guideline, target districts, application window and district-level amount/benefit conditions."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "One or more named State-specific catalogue entries are sourced; this is not a complete State programme inventory.",
+      "districtIds": [
+        "ADILABAD",
+        "BHADRADRI_KOTHAGUDEM",
+        "HYDERABAD",
+        "JAGTIAL",
+        "JANGAON",
+        "JAYASHANKAR_BHUPALPALLY",
+        "JOGULAMBA_GADWAL",
+        "KAMAREDDY",
+        "KARIMNAGAR",
+        "KHAMMAM",
+        "KOMARAM_BHEEM",
+        "MAHABUBABAD",
+        "MAHABUBNAGAR",
+        "MANCHERIAL",
+        "MEDAK",
+        "MEDCHAL_MALKAJGIRI",
+        "MULUGU",
+        "NAGARKURNOOL",
+        "NALGONDA",
+        "NARAYANPET",
+        "NIRMAL",
+        "NIZAMABAD",
+        "PEDDAPALLI",
+        "RAJANNA_SIRCILLA",
+        "RANGAREDDY",
+        "SANGAREDDY",
+        "SIDDIPET",
+        "SURYAPET",
+        "VIKARABAD",
+        "WANAPARTHY",
+        "WARANGAL",
+        "HANAMKONDA",
+        "YADADRI_BHUVANAGIRI"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "TR",
+      "stateUT": "Tripura",
+      "stateAgriculturePortal": {
+        "url": "https://agri.tripura.gov.in/",
+        "label": "Tripura Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "https://agri.tripura.gov.in/",
+        "label": "Tripura farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [],
+      "namedSchemeRecordIds": [],
+      "namedSchemeRecordCount": 0,
+      "researchStatus": "portal_linked_research_pending",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
+      "districtIds": [
+        "DHALAI",
+        "GOMATI",
+        "KHOWAI",
+        "NORTH_TRIPURA",
+        "SEPAHIJALA",
+        "SOUTH_TRIPURA",
+        "UNAKOTI",
+        "WEST_TRIPURA"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "UP",
+      "stateUT": "Uttar Pradesh",
+      "stateAgriculturePortal": {
+        "url": "https://agriculture.up.gov.in/",
+        "label": "Uttar Pradesh Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "https://agriculture.up.gov.in/",
+        "label": "Uttar Pradesh farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [],
+      "namedSchemeRecordIds": [],
+      "namedSchemeRecordCount": 0,
+      "researchStatus": "portal_linked_research_pending",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
+      "districtIds": [
+        "AGRA",
+        "ALIGARH",
+        "AMBEDKAR_NAGAR",
+        "AMETHI",
+        "AMROHA",
+        "AURAIYA",
+        "AYODHYA",
+        "AZAMGARH",
+        "BAGHPAT",
+        "BAHRAICH",
+        "BALLIA",
+        "BALRAMPUR",
+        "BANDA",
+        "BARABANKI",
+        "BAREILLY",
+        "BASTI",
+        "BHADOHI",
+        "BIJNOR",
+        "BUDAUN",
+        "BULANDSHAHR",
+        "CHANDAULI",
+        "CHITRAKOOT",
+        "DEORIA",
+        "ETAH",
+        "ETAWAH",
+        "FARRUKHABAD",
+        "FATEHPUR",
+        "FIROZABAD",
+        "GAUTAM_BUDDHA_NAGAR",
+        "GHAZIABAD",
+        "GHAZIPUR",
+        "GONDA",
+        "GORAKHPUR",
+        "HAMIRPUR",
+        "HAPUR",
+        "HARDOI",
+        "HATHRAS",
+        "JALAUN",
+        "JAUNPUR",
+        "JHANSI",
+        "KANNAUJ",
+        "KANPUR_DEHAT",
+        "KANPUR_NAGAR",
+        "KASGANJ",
+        "KAUSHAMBI",
+        "KHERI",
+        "KUSHINAGAR",
+        "LALITPUR",
+        "LUCKNOW",
+        "MAHARAJGANJ",
+        "MAHOBA",
+        "MAINPURI",
+        "MATHURA",
+        "MAU",
+        "MEERUT",
+        "MIRZAPUR",
+        "MORADABAD",
+        "MUZAFFARNAGAR",
+        "PILIBHIT",
+        "PRATAPGARH",
+        "PRAYAGRAJ",
+        "RAEBARELI",
+        "RAMPUR",
+        "SAHARANPUR",
+        "SAMBHAL",
+        "SANT_KABIR_NAGAR",
+        "SHAHJAHANPUR",
+        "SHAMLI",
+        "SHRAWASTI",
+        "SIDDHARTHNAGAR",
+        "SITAPUR",
+        "SONBHADRA",
+        "SULTANPUR",
+        "UNNAO",
+        "VARANASI"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "UK",
+      "stateUT": "Uttarakhand",
+      "stateAgriculturePortal": {
+        "url": "http://agriculture.uk.gov.in/",
+        "label": "Uttarakhand Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "http://agriculture.uk.gov.in/",
+        "label": "Uttarakhand farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [],
+      "namedSchemeRecordIds": [],
+      "namedSchemeRecordCount": 0,
+      "researchStatus": "portal_linked_research_pending",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "Portal mapping is present but a State-specific programme-by-programme inventory remains pending.",
+      "districtIds": [
+        "ALMORA",
+        "BAGESHWAR",
+        "CHAMOLI",
+        "CHAMPAWAT",
+        "DEHRADUN",
+        "HARIDWAR",
+        "NAINITAL",
+        "PAURI_GARHWAL",
+        "PITHORAGARH",
+        "RUDRAPRAYAG",
+        "TEHRI_GARHWAL",
+        "UDHAM_SINGH_NAGAR",
+        "UTTARKASHI"
+      ],
+      "geographySnapshotOnly": true
+    },
+    {
+      "stateCode": "WB",
+      "stateUT": "West Bengal",
+      "stateAgriculturePortal": {
+        "url": "https://agriculture.wb.gov.in/",
+        "label": "West Bengal Agriculture Department",
+        "status": "portal_linked"
+      },
+      "stateSchemePortal": {
+        "url": "https://agriculture.wb.gov.in/",
+        "label": "West Bengal farmer scheme portal",
+        "status": "portal_linked"
+      },
+      "otherOfficialLinks": [],
+      "namedSchemeRecordIds": [
+        "wb-krishak-bandhu",
+        "wb-death-benefit",
+        "wb-shg-credit",
+        "wb-coop-credit",
+        "wb-farm-mech",
+        "wb-amar-fasal"
+      ],
+      "namedSchemeRecordCount": 6,
+      "researchStatus": "partial_source_linked",
+      "workstreams": [
+        {
+          "id": "farmer_income_support",
+          "label": "Farmer income support / DBT",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "crop_production_support",
+          "label": "Crop inputs, crop diversification and extension",
+          "status": "partial_source_linked",
+          "recordIds": [
+            "wb-krishak-bandhu",
+            "wb-death-benefit",
+            "wb-diversification",
+            "wb-shg-credit",
+            "wb-amar-fasal"
+          ],
+          "evidenceUrl": "https://agriculture.wb.gov.in/krishak-bandhu-natun-",
+          "nextAction": "Confirm current operational guideline, target districts, application window and district-level amount/benefit conditions."
+        },
+        {
+          "id": "mechanisation_irrigation",
+          "label": "Mechanisation, irrigation and water-use efficiency",
+          "status": "partial_source_linked",
+          "recordIds": [
+            "wb-farm-mech"
+          ],
+          "evidenceUrl": "https://bsk.wb.gov.in/scheme_bsk/",
+          "nextAction": "Confirm current operational guideline, target districts, application window and district-level amount/benefit conditions."
+        },
+        {
+          "id": "horticulture",
+          "label": "Horticulture, nurseries and protected cultivation",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "animal_husbandry_fisheries",
+          "label": "Animal husbandry, dairy, livestock and fisheries",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "marketing_procurement",
+          "label": "MSP, procurement, mandi and market infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "cooperative_credit",
+          "label": "State cooperative banks, DCCBs and PACS",
+          "status": "partial_source_linked",
+          "recordIds": [
+            "wb-coop-credit"
+          ],
+          "evidenceUrl": "https://cooperation.wb.gov.in/Short-Term-Cooperative-Credit-Structure",
+          "nextAction": "Confirm current operational guideline, target districts, application window and district-level amount/benefit conditions."
+        },
+        {
+          "id": "tenant_landless_tribal",
+          "label": "Tenant, sharecropper, landless and tribal farmer support",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        },
+        {
+          "id": "enterprise_infrastructure",
+          "label": "FPO, agri-enterprise, processing, storage and infrastructure",
+          "status": "research_pending",
+          "recordIds": [],
+          "evidenceUrl": null,
+          "nextAction": "Research current State Government scheme guidelines, budget orders, beneficiary eligibility, application window and amounts from primary official sources."
+        }
+      ],
+      "sourceReviewDue": "2026-11-30",
+      "notes": "One or more named State-specific catalogue entries are sourced; this is not a complete State programme inventory.",
+      "districtIds": [
+        "ALIPURDUAR",
+        "BANKURA",
+        "BIRBHUM",
+        "COOCH_BEHAR",
+        "DAKSHIN_DINAJPUR",
+        "DARJEELING",
+        "HOOGHLY",
+        "HOWRAH",
+        "JALPAIGURI",
+        "JHARGRAM",
+        "KALIMPONG",
+        "KOLKATA",
+        "MALDA",
+        "MURSHIDABAD",
+        "NADIA",
+        "NORTH_24_PARGANAS",
+        "PASCHIM_BARDHAMAN",
+        "PASCHIM_MEDINIPUR",
+        "PURBA_BARDHAMAN",
+        "PURBA_MEDINIPUR",
+        "PURULIA",
+        "SOUTH_24_PARGANAS",
+        "UTTAR_DINAJPUR"
+      ],
+      "geographySnapshotOnly": true
+    }
+  ]
+}
