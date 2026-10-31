@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://axis591.github.io/Indian-Agri-Loans/sitemap.xml
