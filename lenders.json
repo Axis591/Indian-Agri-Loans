@@ -1,0 +1,803 @@
+[
+  {
+    "id": "sbi-kcc",
+    "name": "State Bank of India",
+    "product": "Kisan Credit Card (KCC) — crop and allied credit",
+    "providerKinds": [
+      "public-bank"
+    ],
+    "states": "all",
+    "scopeLabel": "Public sector bank · check local branch",
+    "borrower": "Owner cultivators, tenant farmers, oral lessees, sharecroppers, eligible SHGs/JLGs",
+    "amount": "Need-based; no universal minimum/maximum",
+    "amountNote": "Calculated from crop pattern, cultivated area and District Level Technical Committee Scale of Finance.",
+    "rate": "SBI page lists concessional rates up to ₹3 lakh subject to Government interest-subvention support; confirm current rate.",
+    "summary": "Revolving cash-credit for cultivation, post-harvest, household consumption, farm-asset maintenance and eligible allied activities.",
+    "purpose": "Crop working capital, post-harvest, farm assets and allied activities.",
+    "eligibility": "Individual/joint owner cultivators; tenant farmers, oral lessees, sharecroppers and eligible farmer SHGs/JLGs; subject to documentation and SOF.",
+    "terms": "SBI page states up to 5 years with 10% annual step-up subject to annual review. Crop-linked repayment applies. Confirm current collateral/security limits.",
+    "documents": [
+      "KYC and bank account details",
+      "Land/cultivation proof or accepted tenant/sharecropper/JLG documentation",
+      "Crop, acreage and allied-activity details",
+      "Additional security/guarantor papers if required by branch"
+    ],
+    "process": [
+      "Check eligibility and current district/crop Scale of Finance.",
+      "Apply through the official SBI KCC route where enabled or visit an SBI agriculture branch.",
+      "Submit KYC, land/cultivation and crop/acreage information.",
+      "Branch verifies cultivation, calculates the limit and completes credit appraisal.",
+      "Review sanction amount, rate, charges and repayment terms before accepting."
+    ],
+    "applyUrl": "https://sbi.bank.in/web/agri-rural/agriculture-banking/crop-loan/kisan-credit-card",
+    "applyLabel": "KCC product / application route",
+    "sourceUrl": "https://sbi.bank.in/web/agri-rural/agriculture-banking/crop-loan/kisan-credit-card",
+    "sources": [
+      {
+        "label": "SBI KCC official product page",
+        "url": "https://sbi.bank.in/web/agri-rural/agriculture-banking/crop-loan/kisan-credit-card"
+      }
+    ],
+    "availability": "Check SBI branch coverage and crop SOF in selected district",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "SBI page last updated 25 Aug 2025; reconfirm rate and security terms.",
+    "caution": "Published rates and collateral thresholds may change. Request current rate card, fees, KFS and security terms from the branch.",
+    "keywords": [
+      "sbi",
+      "kcc",
+      "crop loan",
+      "tenant farmer",
+      "sharecropper",
+      "farm credit"
+    ]
+  },
+  {
+    "id": "bob-kcc",
+    "name": "Bank of Baroda",
+    "product": "Baroda Kisan Credit Card (BKCC)",
+    "providerKinds": [
+      "public-bank"
+    ],
+    "states": "all",
+    "scopeLabel": "Public sector bank · check local branch",
+    "borrower": "Farmers including eligible tenants and sharecroppers",
+    "amount": "₹5,000 minimum; maximum assessed by crop, land and bank appraisal",
+    "amountNote": "The product page publishes a ₹5,000 minimum; no universal maximum is inferred.",
+    "rate": "Product page states 7% p.a. up to ₹3 lakh subject to Government interest subvention; verify current pricing.",
+    "summary": "Digital KCC for production credit and investment credit, subject to current BKCC terms.",
+    "purpose": "Production credit and eligible farm investment.",
+    "eligibility": "Farmers including tenant farmers and sharecroppers, subject to documentation and branch verification.",
+    "terms": "Product page states a 5-year validity. Interest subvention, collateral, fees and renewal must be checked in current MITC.",
+    "documents": [
+      "KYC",
+      "Land/cultivation proof or accepted tenant/sharecropper documentation",
+      "Crop and acreage details",
+      "Bank account information and any documents specified by the branch"
+    ],
+    "process": [
+      "Open the BKCC official product page and choose Apply Online or contact an agri branch.",
+      "Complete the application and provide KYC, land and crop information.",
+      "Bank verifies borrower, crop/area, credit history and security.",
+      "Review sanction terms, interest, charges and repayment before signing."
+    ],
+    "applyUrl": "https://bankofbaroda.bank.in/business-banking/rural-and-agri/loans-and-advances/baroda-kisan-credit-card",
+    "applyLabel": "Apply online / BKCC details",
+    "sourceUrl": "https://bankofbaroda.bank.in/business-banking/rural-and-agri/loans-and-advances/baroda-kisan-credit-card",
+    "sources": [
+      {
+        "label": "Baroda Kisan Credit Card official page",
+        "url": "https://bankofbaroda.bank.in/business-banking/rural-and-agri/loans-and-advances/baroda-kisan-credit-card"
+      }
+    ],
+    "availability": "Subject to branch and appraisal",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "Request current MITC and the latest interest schedule.",
+    "caution": "The 7% rate is conditional on Government interest subvention. It is not a guaranteed rate for every amount or applicant.",
+    "keywords": [
+      "bank of baroda",
+      "bob",
+      "bkcc",
+      "kcc",
+      "public bank"
+    ]
+  },
+  {
+    "id": "canara-agri",
+    "name": "Canara Bank",
+    "product": "KCC and agriculture loan portfolio",
+    "providerKinds": [
+      "public-bank"
+    ],
+    "states": "all",
+    "scopeLabel": "Public sector bank · check local branch",
+    "borrower": "Farmers, tenants/sharecroppers, SHGs/JLGs and agri/allied borrowers depending on product",
+    "amount": "KCC need-based; investment products assessed individually",
+    "amountNote": "KCC crop limits use district SOF; separate limits apply for machinery, storage, dairy, processing and allied projects.",
+    "rate": "Current rate depends on product and borrower; check live rate and charges schedule.",
+    "summary": "Product catalogue includes KCC, SHGs, custom hiring, cold storage, rural godowns, agri-GST, hi-tech agriculture, processing, drone and farm machinery finance.",
+    "purpose": "Crop credit, machinery, storage, dairy/allied activities, food processing and agribusiness investment.",
+    "eligibility": "KCC includes owner farmers, tenant farmers, oral lessees, sharecroppers and eligible farmer SHGs/JLGs. Each investment product has separate criteria.",
+    "terms": "No one universal limit, rate or repayment term; check the selected product's circular and branch appraisal.",
+    "documents": [
+      "KYC and bank account",
+      "Land/cultivation and crop details for KCC",
+      "Quotation/project report for equipment or infrastructure",
+      "FPO/SHG/company registrations and accounts where required"
+    ],
+    "process": [
+      "Choose the relevant Canara scheme from the AgriLoans page.",
+      "Open/download the product terms and review margin, collateral, subsidy and eligible borrower.",
+      "Apply online if a product journey exists or approach a Canara agriculture branch.",
+      "Submit KYC, land/crop or project papers for verification and appraisal.",
+      "Obtain written sanction and confirm rate, charges and repayment schedule."
+    ],
+    "applyUrl": "https://canarites.canarabank.bank.in/QR_CANARA/Home/AgriLoans",
+    "applyLabel": "Agri loan scheme catalogue",
+    "sourceUrl": "https://canarabank.bank.in/pages/kisan-credit-card-scheme",
+    "sources": [
+      {
+        "label": "Canara KCC details",
+        "url": "https://canarabank.bank.in/pages/kisan-credit-card-scheme"
+      },
+      {
+        "label": "Canara AgriLoans catalogue",
+        "url": "https://canarites.canarabank.bank.in/QR_CANARA/Home/AgriLoans"
+      }
+    ],
+    "availability": "Subject to branch and named product",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "The bank page lists separate product sheets; inspect the current one for the selected loan.",
+    "caution": "The catalogue includes different borrowers such as individual farmers, SHGs and enterprises. It is not a single blanket farmer loan.",
+    "keywords": [
+      "canara",
+      "kcc",
+      "tractor",
+      "drone",
+      "machinery",
+      "cold storage",
+      "dairy"
+    ]
+  },
+  {
+    "id": "pnb-agri",
+    "name": "Punjab National Bank",
+    "product": "PNB Agriculture Loan Schemes",
+    "providerKinds": [
+      "public-bank"
+    ],
+    "states": "all",
+    "scopeLabel": "Public sector bank · check local branch",
+    "borrower": "Farmers, SHGs/JLGs, FPOs and agri-enterprises depending on scheme",
+    "amount": "Scheme-specific; KCC crop finance is need-based",
+    "amountNote": "PNB lists separate products for KCC, mechanisation, harvesters, greenhouses, horticulture, dairy, transport, warehouses and agri-enterprises.",
+    "rate": "Product-specific; confirm current rate, margin and processing fees.",
+    "summary": "One catalogue for crop credit and investment loans across machinery, horticulture, dairy, storage, processing, SHGs and agri-business.",
+    "purpose": "Crop finance, machinery, horticulture, dairy, storage, transport, SHG and FPO projects.",
+    "eligibility": "Depends on the specific PNB scheme, crop/area, borrower type, project and security criteria.",
+    "terms": "Each scheme document controls loan limit, margin, interest, security, repayment and subsidy linkage.",
+    "documents": [
+      "KYC and account details",
+      "Land/cultivation records for crop loans",
+      "Machinery/project quotations and report for investment finance",
+      "FPO/SHG documents and statements where relevant"
+    ],
+    "process": [
+      "Open PNB Agriculture Loan Schemes and choose the relevant named product.",
+      "Download and review current scheme terms for limit, margin, collateral, interest and repayment.",
+      "Apply through any linked digital route or visit a PNB agriculture/rural branch.",
+      "Submit scheme-specific documents for verification and appraisal.",
+      "Read the sanction letter/KFS before accepting."
+    ],
+    "applyUrl": "https://pnb.bank.in/agriculture-credit-schemes.html",
+    "applyLabel": "Agriculture loan catalogue",
+    "sourceUrl": "https://pnb.bank.in/agriculture-credit-schemes.html",
+    "sources": [
+      {
+        "label": "PNB official agriculture credit schemes",
+        "url": "https://pnb.bank.in/agriculture-credit-schemes.html"
+      }
+    ],
+    "availability": "Subject to specific PNB scheme and branch",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "The bank page was last updated 29 May 2026 and links individual scheme documents.",
+    "caution": "The catalogue includes farmers, SHGs, FPOs and agri-enterprises. Confirm that the chosen product accepts the applicant type.",
+    "keywords": [
+      "pnb",
+      "farm mechanisation",
+      "dairy",
+      "horticulture",
+      "kcc",
+      "fpo"
+    ]
+  },
+  {
+    "id": "boi-agri",
+    "name": "Bank of India",
+    "product": "Farm Loans — KCC, tractor, agri-allied, gold and FPO finance",
+    "providerKinds": [
+      "public-bank"
+    ],
+    "states": "all",
+    "scopeLabel": "Public sector bank · check local branch",
+    "borrower": "Individual farmers, SHGs, FPO/FPC applicants depending on product",
+    "amount": "Product/project assessed; check each scheme",
+    "amountNote": "Bank lists KCC, gold, SHG, tractor/mechanisation, food/agro, allied activity, agri-clinic, FPO and warehouse receipt finance.",
+    "rate": "Product and borrower specific; request current rate and charges.",
+    "summary": "Broad online farm-loan catalogue covering crop, machinery, allied agriculture, food processing, FPOs and warehouse-backed finance.",
+    "purpose": "Crop finance, mechanisation, allied activity, agro-processing, FPO activity and warehouse receipt finance.",
+    "eligibility": "Separate eligibility rules for farmers, SHGs, FPO/FPCs, agri graduates and enterprise borrowers.",
+    "terms": "Loan quantum, margin, security and repayment are product-specific; no blanket amount is assumed.",
+    "documents": [
+      "KYC and account details",
+      "Land/crop/acreage evidence for crop loans",
+      "Project report and quotations for investment finance",
+      "FPO/FPC/SHG records where applying as a group"
+    ],
+    "process": [
+      "Open the official Farm Loans catalogue and select the intended purpose.",
+      "Review the named product's conditions and online application route.",
+      "Start online where enabled or visit the nearest BOI agri branch.",
+      "Provide KYC and land/crop/project documents for appraisal.",
+      "Confirm rate, fees, collateral and repayment schedule in writing."
+    ],
+    "applyUrl": "https://bankofindia.bank.in/farm-loans",
+    "applyLabel": "Explore / apply for farm loans",
+    "sourceUrl": "https://bankofindia.bank.in/farm-loans",
+    "sources": [
+      {
+        "label": "Bank of India Farm Loans",
+        "url": "https://bankofindia.bank.in/farm-loans"
+      }
+    ],
+    "availability": "Subject to product and branch appraisal",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "Online application offered for selected products; check the exact digital journey.",
+    "caution": "Product family contains both individual and group enterprise credit. Do not use FPO financing as an individual farmer loan.",
+    "keywords": [
+      "bank of india",
+      "boi",
+      "farm loans",
+      "kcc",
+      "tractor",
+      "fpo",
+      "warehouse"
+    ]
+  },
+  {
+    "id": "bom-agri",
+    "name": "Bank of Maharashtra",
+    "product": "Mahabank KCC and agriculturist loan portfolio",
+    "providerKinds": [
+      "public-bank"
+    ],
+    "states": "all",
+    "scopeLabel": "Public sector bank · branch presence varies",
+    "borrower": "Farmers/agriculturists; scheme-specific eligibility for SHGs, land purchasers and agri-enterprises",
+    "amount": "KCC/product-specific; check each scheme",
+    "amountNote": "Products include KCC, all-purpose term loan, agriculture gold loan, irrigation, mechanisation, animal husbandry, horticulture, land purchase and warehouse receipts.",
+    "rate": "Product-specific; obtain current rate schedule.",
+    "summary": "Wide agriculture portfolio for crop finance, term investment, land development, machinery, irrigation, animal husbandry, horticulture and warehouse finance.",
+    "purpose": "Crop working capital and longer-term farm investment.",
+    "eligibility": "Depends on product; KCC, term loan and land purchase use separate landholding, borrower and project criteria.",
+    "terms": "Each product has separate margin, limit, repayment and security. Kisan Tatkal is restricted to eligible existing KCC borrowers.",
+    "documents": [
+      "KYC and bank account",
+      "Land extracts such as 7/12 and 8A where applicable",
+      "Crop, acreage and SOF details for KCC",
+      "Machinery quotations/project report for term finance",
+      "No-dues or other documents where scheme requires"
+    ],
+    "process": [
+      "Open Loan for Agriculturists and select the purpose.",
+      "Review the scheme note or SOP for eligibility, margin, security and documents.",
+      "Apply online through the linked product or visit a Bank of Maharashtra branch.",
+      "Submit KYC, land extracts, crop/project details and any required no-dues certificate.",
+      "Confirm sanction, interest, collateral and repayment terms."
+    ],
+    "applyUrl": "https://bankofmaharashtra.bank.in/loan-for-agriculturists",
+    "applyLabel": "Agriculture loan catalogue",
+    "sourceUrl": "https://bankofmaharashtra.bank.in/agricultures",
+    "sources": [
+      {
+        "label": "Loan for Agriculturists",
+        "url": "https://bankofmaharashtra.bank.in/loan-for-agriculturists"
+      },
+      {
+        "label": "Agriculture Schemes",
+        "url": "https://bankofmaharashtra.bank.in/agricultures"
+      },
+      {
+        "label": "Kisan Tatkal terms",
+        "url": "https://bankofmaharashtra.bank.in/kisan-tatkal-scheme"
+      }
+    ],
+    "availability": "Subject to local branch and product",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "Bank lists a number of named schemes. Open the individual product page for current limit/interest.",
+    "caution": "The Kisan Tatkal page publishes specific conditions and is not an open-to-everyone cash loan. Confirm branch availability.",
+    "keywords": [
+      "bank of maharashtra",
+      "mahabank",
+      "kcc",
+      "gold loan",
+      "irrigation",
+      "horticulture"
+    ]
+  },
+  {
+    "id": "indian-bank-kcc",
+    "name": "Indian Bank",
+    "product": "Digital Kisan Credit Card (KCC)",
+    "providerKinds": [
+      "public-bank"
+    ],
+    "states": "all",
+    "scopeLabel": "Public sector bank · check local branch",
+    "borrower": "Owner cultivators, tenants, oral lessees, sharecroppers and eligible SHGs/JLGs",
+    "amount": "Need-based using district SOF and cultivated area",
+    "amountNote": "The product page describes SOF × cultivated area plus 10% for post-harvest/household needs and 20% for farm-asset repairs/maintenance.",
+    "rate": "Confirm the current rate and fee schedule in Indian Bank's digital KCC product details.",
+    "summary": "Digital fresh/renewal KCC route for cultivation, post-harvest, household and farm-asset working capital.",
+    "purpose": "Crop cultivation, post-harvest, household consumption and farm-asset working capital.",
+    "eligibility": "Owner cultivators, joint borrowers, tenants, oral lessees, sharecroppers and eligible farmer SHGs/JLGs.",
+    "terms": "Limit is calculated by district SOF, cultivated area and eligible additional components. Bank verification remains necessary.",
+    "documents": [
+      "KYC and account details",
+      "Land/cultivation/tenancy or group proof accepted by bank",
+      "Crop, acreage and district SOF details",
+      "Further papers requested in digital/branch verification"
+    ],
+    "process": [
+      "Open the KCC product page and select fresh or renewal digital journey.",
+      "Complete the online form and enter the requested mobile/account details.",
+      "Upload KYC, land/cultivation and crop details.",
+      "Branch checks eligibility and sets the crop-wise limit using district SOF.",
+      "Review sanctioned amount, interest, fees and repayment terms."
+    ],
+    "applyUrl": "https://dlp.indianbank.bank.in/loanPortal/",
+    "applyLabel": "Digital KCC application",
+    "sourceUrl": "https://indianbank.bank.in/en/kisan-credit-card-kcc",
+    "sources": [
+      {
+        "label": "Indian Bank KCC",
+        "url": "https://indianbank.bank.in/en/kisan-credit-card-kcc"
+      },
+      {
+        "label": "Indian Bank agriculture portfolio",
+        "url": "https://indianbank.bank.in/en/agriculture"
+      }
+    ],
+    "availability": "Digital route with branch verification",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "Bank page links its KCC fresh/renewal digital journey.",
+    "caution": "The SOF formula is not a fixed cash entitlement. Sanction depends on crop, area, eligibility and bank appraisal.",
+    "keywords": [
+      "indian bank",
+      "kcc",
+      "digital",
+      "tenant",
+      "sharecropper"
+    ]
+  },
+  {
+    "id": "uco-agri",
+    "name": "UCO Bank",
+    "product": "KCC and UCO Kisan Tatkal Scheme",
+    "providerKinds": [
+      "public-bank"
+    ],
+    "states": "all",
+    "scopeLabel": "Public sector bank · check local branch",
+    "borrower": "Farmers; Kisan Tatkal is only for eligible existing KCC holders",
+    "amount": "KCC need-based; Kisan Tatkal ₹10,000–₹1,00,000 as shown on bank page",
+    "amountNote": "KCC amount uses crop, acreage and district SOF. Kisan Tatkal is a separate emergency term loan with its own eligibility.",
+    "rate": "Kisan Tatkal page states Base Rate without interest subvention; verify current schedule.",
+    "summary": "KCC for crop and allied working capital, plus a separate emergency Kisan Tatkal loan for qualifying existing KCC borrowers.",
+    "purpose": "Crop, post-harvest, marketing and allied working capital; eligible emergency household/farming needs under Kisan Tatkal.",
+    "eligibility": "KCC: owner farmers, tenants, oral lessees, sharecroppers and eligible SHGs/JLGs. Kisan Tatkal: existing KCC holder with satisfactory two-year track record.",
+    "terms": "KCC: bank page states 5-year period with annual review. Kisan Tatkal: single transaction term loan, 3–5 years in half-yearly/annual instalments as stated; confirm current conditions.",
+    "documents": [
+      "KYC and account details",
+      "Land/crop/acreage evidence for KCC",
+      "Existing KCC and repayment history for Kisan Tatkal",
+      "Additional papers requested by the branch"
+    ],
+    "process": [
+      "Open Agriculture Credit and choose KCC or Kisan Tatkal.",
+      "For Kisan Tatkal, confirm eligible existing KCC and repayment history first.",
+      "Apply through the available digital or branch route.",
+      "Branch checks purpose, account conduct, security and repayment capacity.",
+      "Obtain the written current terms before accepting."
+    ],
+    "applyUrl": "https://www.ucobank.com/en/web/guest/agriculture-credit",
+    "applyLabel": "Agriculture credit products",
+    "sourceUrl": "https://www.ucobank.com/en/web/guest/agriculture-credit",
+    "sources": [
+      {
+        "label": "UCO Bank agriculture credit",
+        "url": "https://www.ucobank.com/en/web/guest/agriculture-credit"
+      },
+      {
+        "label": "STP Fresh KCC",
+        "url": "https://www.ucobank.com/stp-fresh-kcc"
+      }
+    ],
+    "availability": "Subject to UCO branch",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "Kisan Tatkal amount shown as published on the UCO Bank product page; recheck current policy.",
+    "caution": "Kisan Tatkal is not open to every farmer. It is a separate product for qualifying existing KCC borrowers.",
+    "keywords": [
+      "uco",
+      "kcc",
+      "kisan tatkal",
+      "emergency farm loan"
+    ]
+  },
+  {
+    "id": "hdfc-rural",
+    "name": "HDFC Bank",
+    "product": "Rural and Agri Loans — tractor, horticulture and gold-backed agri finance",
+    "providerKinds": [
+      "private-bank"
+    ],
+    "states": "all",
+    "scopeLabel": "Private bank · check branch/product coverage",
+    "borrower": "Farmers and rural/agri borrowers depending on named product",
+    "amount": "Tractor finance up to 90% of tractor cost; other products assessed",
+    "amountNote": "The page lists tractor finance up to 90% of tractor cost; horticulture and gold-backed agri facilities have separate terms.",
+    "rate": "Product and borrower specific; ask for current rate and processing fee schedule.",
+    "summary": "Private-bank rural products include tractor finance, horticulture production/investment and agricultural loans against gold security.",
+    "purpose": "Tractor purchase, horticulture production/investment and eligible gold-backed agriculture credit.",
+    "eligibility": "Farmer eligibility, security and margin vary by product, location, credit profile and asset.",
+    "terms": "The up-to-90% figure is specific to the tractor product; do not apply it to other HDFC agri loans.",
+    "documents": [
+      "KYC and bank account",
+      "Land/cultivation or farm activity evidence",
+      "Tractor quotation and margin/down-payment details",
+      "Crop/project details for horticulture",
+      "Gold valuation/security papers where relevant"
+    ],
+    "process": [
+      "Open Rural Loans and choose Tractor, Horticulture or Agri Loan against Gold.",
+      "Use the product Apply Online/Know More route if enabled or contact a branch.",
+      "Submit KYC and product-specific documents.",
+      "Bank completes valuation, verification and credit appraisal.",
+      "Review APR, fees, margin/security and repayment before signing."
+    ],
+    "applyUrl": "https://www.hdfc.bank.in/agri-banking/rural-loans",
+    "applyLabel": "Explore rural / agri loans",
+    "sourceUrl": "https://www.hdfc.bank.in/agri-banking/rural-loans",
+    "sources": [
+      {
+        "label": "HDFC Bank Rural Loans",
+        "url": "https://www.hdfc.bank.in/agri-banking/rural-loans"
+      }
+    ],
+    "availability": "Product/branch coverage dependent",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "The official page lists tractor finance up to 90% of tractor cost.",
+    "caution": "The percentage is for tractor finance only. Obtain product-specific APR, fees, margin and a Key Fact Statement.",
+    "keywords": [
+      "hdfc",
+      "tractor",
+      "horticulture",
+      "gold-backed agri loan",
+      "private bank"
+    ]
+  },
+  {
+    "id": "icici-farmer",
+    "name": "ICICI Bank",
+    "product": "Farmer Finance / Krishi Loan — KCC, overdraft and term finance",
+    "providerKinds": [
+      "private-bank"
+    ],
+    "states": "all",
+    "scopeLabel": "Private bank · check branch coverage",
+    "borrower": "Farmers and eligible allied-activity borrowers; some may approach through an agribusiness cooperative",
+    "amount": "Need-based / bank assessed",
+    "amountNote": "No universal public rupee cap on the farmer-finance page.",
+    "rate": "Product and borrower specific; request current APR/KFS and fees.",
+    "summary": "ICICI lists KCC/Kisan Card, overdraft for cultivation/working capital and term loans for cattle, irrigation equipment and other farm requirements.",
+    "purpose": "Crop working capital, cattle, irrigation equipment and other farm/allied investment.",
+    "eligibility": "Farmers meeting bank KYC/credit/activity criteria; the page also describes an agribusiness cooperative route for eligible produce suppliers.",
+    "terms": "KCC, overdraft and term loans have separate rates, security and repayment schedules.",
+    "documents": [
+      "KYC and account details",
+      "Land/cultivation documents or cooperative supply evidence",
+      "Crop/acreage/working capital estimate",
+      "Cattle/equipment quotation or project details for term finance"
+    ],
+    "process": [
+      "Open ICICI Farmer Finance and identify KCC, overdraft or term loan.",
+      "Use the branch locator or contact the bank; eligible cooperative suppliers may approach through their agribusiness cooperative.",
+      "Submit KYC, land/crop or asset/project documents.",
+      "Complete branch credit appraisal and verification.",
+      "Review written sanction, APR, fees and repayment terms."
+    ],
+    "applyUrl": "https://www.icici.bank.in/rural/loans/farmer-finance",
+    "applyLabel": "Farmer Finance / branch enquiry",
+    "sourceUrl": "https://www.icici.bank.in/rural/loans/farmer-finance",
+    "sources": [
+      {
+        "label": "ICICI Bank Farmer Finance",
+        "url": "https://www.icici.bank.in/rural/loans/farmer-finance"
+      }
+    ],
+    "availability": "Subject to branch/cooperative channel and appraisal",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "Official page describes KCC, overdraft and term finance; no one amount/rate applies to all products.",
+    "caution": "Use the official Farmer Finance page, not generic personal or home-loan descriptions on the wider site.",
+    "keywords": [
+      "icici",
+      "krishi loan",
+      "farmer finance",
+      "kcc",
+      "overdraft",
+      "cattle",
+      "irrigation"
+    ]
+  },
+  {
+    "id": "axis-farmer",
+    "name": "Axis Bank",
+    "product": "Farmer Funding — dairy, farm development and PM-KUSUM",
+    "providerKinds": [
+      "private-bank"
+    ],
+    "states": "all",
+    "scopeLabel": "Private bank · check product/branch coverage",
+    "borrower": "Farmers and animal husbandry applicants matching each product's criteria",
+    "amount": "Dairy: ₹50,000–₹10 lakh under CGFMU cover; Farm Development: min ₹25,001; PM-KUSUM: ₹25,001–₹2.5 crore",
+    "amountNote": "These are product-specific ranges stated by the bank; not a general crop loan ceiling.",
+    "rate": "Product and borrower specific; check the bank's current rate/charge pages.",
+    "summary": "Axis Farmer Funding lists dairy-linked credit, farm-development term loans for land development/fencing/irrigation, and PM-KUSUM farmer contribution finance.",
+    "purpose": "Animal husbandry/dairy, land levelling, fencing, irrigation and eligible PM-KUSUM contribution.",
+    "eligibility": "Depends on product, farm/dairy activity, project documents, credit profile and applicable scheme rules.",
+    "terms": "Published amounts and tenures differ by product. Check moratorium, guarantee cover, repayment and charges on the product page.",
+    "documents": [
+      "KYC and address proof",
+      "Land/cultivation or dairy-unit evidence",
+      "Farm development estimate or PM-KUSUM vendor/project papers",
+      "Bank statements and other documents required for appraisal"
+    ],
+    "process": [
+      "Open Axis Farmer Funding and choose the specific product.",
+      "Check whether the project/activity and district are covered.",
+      "Use Apply Now/Explore More or submit an enquiry on the official page.",
+      "Provide KYC, land/activity/project and repayment details.",
+      "Axis conducts appraisal and issues a product-specific sanction if approved."
+    ],
+    "applyUrl": "https://www.axis.bank.in/agri-and-rural/loans/farmer-funding",
+    "applyLabel": "Explore / apply for Farmer Funding",
+    "sourceUrl": "https://www.axis.bank.in/agri-and-rural/loans/farmer-funding",
+    "sources": [
+      {
+        "label": "Axis Bank Farmer Funding",
+        "url": "https://www.axis.bank.in/agri-and-rural/loans/farmer-funding"
+      }
+    ],
+    "availability": "Product/branch coverage dependent",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "The bank page publishes ranges for selected products; confirm current product sheet and KFS.",
+    "caution": "PM-KUSUM finance is a loan for the eligible contribution/project component, not a grant. Confirm scheme approval and vendor conditions.",
+    "keywords": [
+      "axis bank",
+      "farmer funding",
+      "dairy loan",
+      "pm kusum",
+      "farm development"
+    ]
+  },
+  {
+    "id": "ujjivan-kpc",
+    "name": "Ujjivan Small Finance Bank",
+    "product": "Kisan Pragati Card — crop and allied finance",
+    "providerKinds": [
+      "small-finance-bank"
+    ],
+    "states": "all",
+    "scopeLabel": "Small finance bank · service area must be checked",
+    "borrower": "Small and marginal farmers and other eligible agricultural borrowers",
+    "amount": "Bank assessed; no universal rupee cap on linked page",
+    "amountNote": "Page lists cash credit, overdraft and term loan facilities; amount depends on borrower and activity appraisal.",
+    "rate": "Obtain current product rate, charges and KFS from Ujjivan.",
+    "summary": "KPC covers crop working capital, post-harvest, farm maintenance/development, consumption needs and eligible allied activities.",
+    "purpose": "Crop working capital, post-harvest expense, farm maintenance/development and allied activities.",
+    "eligibility": "Small/marginal farmers meeting Ujjivan product criteria, branch/serviceability and credit verification.",
+    "terms": "Product page states a 1–5 year tenor; renewal applies for cash-credit/OD facilities.",
+    "documents": [
+      "KYC and address proof",
+      "Land/cultivation or accepted farm activity records",
+      "Crop/allied activity and cash-flow details",
+      "Additional documents requested by branch"
+    ],
+    "process": [
+      "Open the Ujjivan Agricultural Loans page and select the KPC product.",
+      "Use Apply/enquiry or contact a nearby Ujjivan branch.",
+      "Submit KYC, farm activity and land/tenancy information as required.",
+      "The bank verifies details and determines cash-credit/OD/term limit.",
+      "Review interest, fees, repayment and security before accepting."
+    ],
+    "applyUrl": "https://www.ujjivansfb.bank.in/personal/loans/agricultural-loans",
+    "applyLabel": "KPC product / enquiry",
+    "sourceUrl": "https://www.ujjivansfb.bank.in/personal/loans/agricultural-loans",
+    "sources": [
+      {
+        "label": "Ujjivan SFB Agricultural Loans",
+        "url": "https://www.ujjivansfb.bank.in/personal/loans/agricultural-loans"
+      }
+    ],
+    "availability": "Verify Ujjivan's current operating district and branch",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "The product page states a 1–5 year tenor; it does not list a universal loan amount.",
+    "caution": "A Small Finance Bank is a bank, not an NBFC. Confirm local serviceability and obtain written terms.",
+    "keywords": [
+      "ujjivan",
+      "small finance bank",
+      "kisan pragati card",
+      "crop loan",
+      "poultry"
+    ]
+  },
+  {
+    "id": "esaf-fig",
+    "name": "ESAF Small Finance Bank",
+    "product": "Farmer Interest Group (FIG) Loan",
+    "providerKinds": [
+      "small-finance-bank"
+    ],
+    "states": "all",
+    "scopeLabel": "Small finance bank · service area must be checked",
+    "borrower": "Small/marginal, landless, tenant and sharecropper farmers; men and women",
+    "amount": "Small-ticket loan; universal cap not published on linked page",
+    "amountNote": "The public product summary does not state a universal principal range.",
+    "rate": "Page states up to MCLR + 5.25%; processing fee 1.5% + GST for loans above ₹25,000. Confirm current rate.",
+    "summary": "Group-based small loan for agriculture and allied agriculture, including eligible landless, tenant and sharecropper farmers.",
+    "purpose": "Small-ticket working capital and productive agriculture/allied-agriculture costs.",
+    "eligibility": "Small/marginal farmers, including landless, tenant and sharecropper farmers. Page says one borrower per family/same residential address.",
+    "terms": "Loan tenure up to 35 months. Product page lists application form, sanction letter/loan schedule, inter-se agreement, statutory declarations, activity proof and KYC.",
+    "documents": [
+      "FIG loan application form",
+      "KYC documents",
+      "Proof of agricultural/allied activities",
+      "Sanction letter and loan schedule",
+      "Inter-se agreement and required declarations"
+    ],
+    "process": [
+      "Contact ESAF via the official product page or branch to confirm FIG availability.",
+      "Complete the FIG application and provide KYC and activity proof.",
+      "Complete group/inter-se agreements and statutory declarations.",
+      "Review current rate, processing fee and repayment schedule.",
+      "Accept the sanction only after understanding total cost and collection/repayment terms."
+    ],
+    "applyUrl": "https://www.esaf.bank.in/products/esaf-farmer-interest-group-loan/",
+    "applyLabel": "Apply online / product details",
+    "sourceUrl": "https://www.esaf.bank.in/products/esaf-farmer-interest-group-loan/",
+    "sources": [
+      {
+        "label": "ESAF Farmer Interest Group Loan",
+        "url": "https://www.esaf.bank.in/products/esaf-farmer-interest-group-loan/"
+      }
+    ],
+    "availability": "Verify ESAF branch/service area and FIG availability",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "Page-published rate, fee and tenure can change; verify latest KFS.",
+    "caution": "ESAF is a Small Finance Bank, not an NBFC. Group/family restrictions apply; compare APR and charges.",
+    "keywords": [
+      "esaf",
+      "fig loan",
+      "tenant farmer",
+      "sharecropper",
+      "small finance bank"
+    ]
+  },
+  {
+    "id": "mahindra-tractor",
+    "name": "Mahindra Finance",
+    "product": "Tractor Loan (NBFC)",
+    "providerKinds": [
+      "regulated-nbfc"
+    ],
+    "states": "all",
+    "scopeLabel": "NBFC · local branch/dealer coverage required",
+    "borrower": "Farmers purchasing a tractor and meeting KYC/income/agricultural land requirements",
+    "amount": "No fixed minimum or maximum; customised to tractor and eligibility",
+    "amountNote": "Official FAQ states no fixed minimum/maximum. Amount depends on tractor price, down payment and lender assessment.",
+    "rate": "Product-specific; check current APR, processing/document/stamp fees and charges.",
+    "summary": "Tractor-purchase finance with online/offline route; application starts with contact details and PIN code, followed by callback and document verification.",
+    "purpose": "Purchase of tractor for agriculture use.",
+    "eligibility": "Applicant must meet KYC, income and agricultural land documentation requirements on the product page. FAQ says land mortgage is not required.",
+    "terms": "Official FAQ states 6-month minimum and 5-year maximum term.",
+    "documents": [
+      "KYC documents",
+      "Proof of income",
+      "Agricultural land ownership document",
+      "Tractor quotation/proforma invoice and margin/down-payment details if requested"
+    ],
+    "process": [
+      "Submit name, mobile number and PIN code through Apply Now or a nearby branch.",
+      "A representative contacts the applicant for details.",
+      "Submit KYC, income and agricultural land documents for eligibility verification.",
+      "Review approved amount, down payment, APR, charges and tenure.",
+      "After loan agreement and approval, funds are disbursed through the lender/dealer process."
+    ],
+    "applyUrl": "https://www.mahindrafinance.com/loans/tractor-loan",
+    "applyLabel": "Apply online for tractor loan",
+    "sourceUrl": "https://www.mahindrafinance.com/loans/tractor-loan",
+    "sources": [
+      {
+        "label": "Mahindra Finance Tractor Loan",
+        "url": "https://www.mahindrafinance.com/loans/tractor-loan"
+      }
+    ],
+    "availability": "Only where the NBFC/dealer services the selected district",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "Product page states no fixed loan cap and a 6-month to 5-year tenure.",
+    "caution": "Mahindra Finance is an NBFC. Compare APR, processing charges, foreclosure charges, insurance add-ons and repossession terms. Never share OTP/PIN.",
+    "keywords": [
+      "mahindra finance",
+      "nbfc",
+      "tractor loan",
+      "farm machinery"
+    ]
+  },
+  {
+    "id": "samunnati-fpo",
+    "name": "Samunnati Finance Private Limited",
+    "product": "Agri value-chain finance — FPO and agri-enterprise working capital",
+    "providerKinds": [
+      "regulated-nbfc"
+    ],
+    "states": "all",
+    "scopeLabel": "NBFC · FPO/agri-enterprise products",
+    "borrower": "FPOs/FPCs, farmer collectives and eligible agri-enterprises; not a standard individual KCC loan",
+    "amount": "FPO instant pre-approved loan page advertises ₹5 lakh working capital; other facilities assessed",
+    "amountNote": "Financial Solutions also lists short-term up to 12 months, medium-term 12–36 months and long-term facilities up to 36 months. Underwriting applies.",
+    "rate": "Quote-based; request APR, charges, security and repayment terms.",
+    "summary": "Agri value-chain finance to fund FPO/collective trade, receivables, short-term liquidity and agri-enterprise investment.",
+    "purpose": "FPO working capital, receivable/trade finance, seasonal liquidity and equipment/infrastructure investment.",
+    "eligibility": "FPO/FPC, farmer collective or agri-enterprise that meets product scope, documentation and credit/underwriting requirements.",
+    "terms": "Page describes short-term (up to 12 months), medium-term (12–36 months) and long-term (up to 36 months) facilities; conditions are product-specific.",
+    "documents": [
+      "FPO/FPC registration and governing documents",
+      "Board resolution and authorised signatory KYC",
+      "Financial statements and bank statements",
+      "Buyer/supplier agreements, receivable and commodity-cycle records",
+      "Project report and asset quotations for term finance"
+    ],
+    "process": [
+      "Select FPO, Agri Enterprise or relevant product in Financial Solutions.",
+      "Submit the official enquiry/Apply for Loan form for the collective/enterprise.",
+      "Samunnati reviews legal entity, commodity value chain, transactions, management and cash flow.",
+      "Submit requested entity, financial, buyer/supplier and project documents.",
+      "Review term sheet, APR, fees, security, covenants and repayment before acceptance."
+    ],
+    "applyUrl": "https://www.samunnati.com/financial-solutions/",
+    "applyLabel": "Apply / enquire for FPO finance",
+    "sourceUrl": "https://www.samunnati.com/financial-solutions/",
+    "sources": [
+      {
+        "label": "Samunnati Financial Solutions",
+        "url": "https://www.samunnati.com/financial-solutions/"
+      },
+      {
+        "label": "Samunnati Finance NBFC profile",
+        "url": "https://www.samunnatifinance.com/"
+      }
+    ],
+    "availability": "For eligible FPOs/agri-enterprises, not individual crop borrowers",
+    "reviewDate": "31 Oct 2026",
+    "reviewNote": "Samunnati Finance describes itself as an NBFC; product page is aimed at FPOs and enterprises.",
+    "caution": "Do not present this as personal KCC/crop credit to an individual farmer. Verify the lender entity's current RBI registration before entering a contract.",
+    "keywords": [
+      "samunnati",
+      "nbfc",
+      "fpo",
+      "fpc",
+      "agri enterprise",
+      "working capital",
+      "farmer collective"
+    ]
+  }
+]
