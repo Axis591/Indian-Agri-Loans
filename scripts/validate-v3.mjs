@@ -93,7 +93,7 @@ check(registerErrors.length===0,registerErrors.slice(0,20).join('; ')||'State po
 // Browser app, routing and static UI contract.
 let appValid=true;try{new Script(readText('app.js'),{filename:'app.js'});}catch(e){appValid=false;errors.push(`app.js syntax: ${e.message}`);}
 check(appValid,'app.js parses successfully.');
-const html=readText('index.html'),nav=[...html.matchAll(/data-view="([^"]+)"/g)].map(m=>m[1]),views=[...html.matchAll(/<section id="view-([^"]+)"/g)].map(m=>m[1]),htmlIds=[...html.matchAll(/\\sid="([^"]+)"/g)].map(m=>m[1]);
+const html=readText('index.html'),nav=[...html.matchAll(/data-view="([^"]+)"/g)].map(m=>m[1]),views=[...html.matchAll(/<section id="view-([^"]+)"/g)].map(m=>m[1]),htmlIds=[...html.matchAll(/\sid="([^"]+)"/g)].map(m=>m[1]);
 check(unique(nav)&&unique(views)&&nav.length===views.length&&nav.every(x=>views.includes(x)),'Every navigation tab maps to one unique page section.');
 check(unique(htmlIds),'HTML IDs are unique.');
 check(['finance','assistant','directory','ngo','market','coverage'].every(v=>views.includes(v)),'All six AgriBridge pages are present.');
