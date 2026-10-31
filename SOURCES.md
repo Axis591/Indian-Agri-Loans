@@ -9,7 +9,7 @@
 | PM-KISAN | https://pmkisan.gov.in/ | ₹6,000 per year in three instalments for eligible landholding farmer families and listed exclusion categories. |
 | Kisan Credit Card | https://financialservices.gov.in/agriculture-credit | KCC purpose and eligibility including owner cultivators, tenant farmers, oral lessees, sharecroppers and SHG/JLGs; allied activity coverage. |
 | Kisan Rin Portal | https://fasalrin.gov.in/ | KCC scheme, eligibility, loan quantum and delivery-channel resources. |
-| KCC interest support / 2025 announcement | https://financialservices.gov.in/beta/sites/default/files/2025-02/budget.pdf | DFS FAQ describes 7% concessional rate and 3% prompt repayment incentive for prior ₹3 lakh ceiling; Budget 2025-26 announcement for ₹5 lakh enhancement. Treat the latter as subject to operative circular confirmation. |
+| KCC interest support / ceiling | https://financialservices.gov.in/agriculture-credit and https://financialservices.gov.in/beta/sites/default/files/2025-02/budget.pdf | The DFS Agriculture Credit page currently describes KCC crop loans up to ₹3 lakh. Budget 2025–26 announced an enhancement of the Modified Interest Subvention Scheme ceiling to ₹5 lakh. AgriBridge does not present ₹5 lakh as a guaranteed universal KCC limit; confirm the operative circular, eligible components and actual bank sanction. |
 | Agriculture Infrastructure Fund | https://agriinfra.dac.gov.in/ and https://agriinfra.dac.gov.in/Documents/Circular/BB3379A9D79A4DF09414E3F1DAE59AFD.pdf | Eligible post-harvest/community farming asset project finance; 3% interest subvention and credit guarantee up to ₹2 crore on eligible loans. |
 | PMFBY | https://pmfby.gov.in/faq | Farmer premium caps: 2% Kharif foodgrain/oilseed, 1.5% Rabi foodgrain/oilseed, 5% annual commercial/horticulture or actuarial rate if lower. District/crop/season notification controls participation. |
 | PM MUDRA Yojana | https://financialservices.gov.in/pradhan-mantri-mudra-yojana-pmmy | Shishu, Kishore, Tarun, Tarun Plus loan categories; eligible allied activities include dairy, poultry and beekeeping. |
@@ -159,3 +159,31 @@ Microfinance pricing can be materially higher than KCC. The product is therefore
 | DPDP Rules 2025 explanatory note | https://www.meity.gov.in/writereaddata/files/Explanatory-Note-DPDP-Rules-2025.pdf | Notes requirements around clear, standalone notices, itemised data/purpose information and user rights / withdrawal. NGO live operations need legal/privacy review before personal-data processing. |
 
 **Verification labels in this release:** PM-KISAN, DFS KCC guidance and PMFBY FAQ are marked as official-source checked on 31 Oct 2026. Other entries are marked source-linked with current-notification / lender-term review required; the assistant must not describe them as officially eligibility-verified.
+
+## V2.5 national programme sources — reviewed 31 October 2026
+
+| Programme | Official source | What the catalogue records / key limitation |
+|---|---|---|
+| SMAM 2026–27 | https://agrimachinery.nic.in/Report/report/reports | DA&FW mechanisation portal contains 2026 implementation material, State Annual Action Plans and State-specific windows. PIB's 11 Aug 2026 release describes 40–50% financial assistance for eligible machinery and separate Custom Hiring Centre support. https://www.pib.gov.in/PressReleasePage.aspx?PRID=2297647&lang=1&reg=1 |
+| Per Drop More Crop (PDMC) | https://pmksy.gov.in/microirrigation/ | Revised PDMC guidelines and State micro-irrigation portals. PIB's 2026 update describes assistance up to 5 hectares, 55% for small/marginal and 45% for other farmers; eligible cost norms and State windows apply. https://www.pib.gov.in/PressReleasePage.aspx?PRID=2304480&lang=2&reg=48 |
+| PM-KUSUM | https://pmkusum.mnre.gov.in/landing-faq.html | MNRE FAQ describes component-wise CFA up to 30% or 50% for eligible solar-pump/solarisation components. State share, farmer contribution, component, vendor and application window vary. |
+| MIDH / NHB | https://nhb.gov.in/online_application_nhb_scheme_2020_21.aspx | NHB page carries 2026–27 amendments and current scheme requirements. MIDH guidelines contain component-specific cost norms and assistance; there is no single universal horticulture subsidy rate. |
+| Agricultural Marketing Infrastructure (AMI) | https://www.cooperation.gov.in/en/convergence-schemes-related-strengthening-pacs-1 | Ministry of Cooperation describes 25–33.33% subsidy for eligible credit-linked marketing infrastructure. PACS-specific revisions were also published by PIB: https://www.pib.gov.in/PressReleasePage.aspx?PRID=2241928&lang=1&reg=1 |
+| Formation and Promotion of 10,000 FPOs | https://www.pib.gov.in/PressReleasePage.aspx?PRID=2296208&lang=1&reg=48 | PIB 7 Aug 2026 describes continued handholding. Published programme support includes management cost, matching equity grant and credit guarantee, routed to eligible FPOs via designated Implementing Agencies/CBBOs; not a universal individual farmer grant. |
+| National Livestock Mission — EDP | https://nlm.udyamimitra.in/ | Official online application. PIB 13 Mar 2026 confirms 50% capital subsidy up to ₹50 lakh for eligible livestock/fodder projects, via State screening, bank appraisal and milestone-based release. https://www.pib.gov.in/PressReleasePage.aspx?PRID=2239420&lang=1&reg=1 |
+| PM-MKSSY | https://nfdp.dof.gov.in/nfdp/index.html | NFDP describes PM-MKSSY components including performance grants, aquaculture insurance, credit facilitation and fisheries cooperative support. Registration is mandatory for relevant benefit components; component and State conditions apply. |
+| FIDF | https://www.pib.gov.in/PressReleasePage.aspx?PRID=2242413&lang=1&reg=1 | PIB 19 Mar 2026 describes a ₹7,522.48 crore fund and interest subvention up to 3% p.a.; eligible project and nodal lending entity conditions apply. |
+| PM-AASHA | https://www.pib.gov.in/PressReleasePage.aspx?PRID=2301814&lang=1&reg=3 | PIB 21 Aug 2026 describes PM-AASHA price support and FY 2026–27 allocation. This is not a personal grant; State/crop/season activation, registration and quality rules apply. |
+| PM-KMY | https://www.myscheme.gov.in/schemes/pmkmdy | myScheme describes the minimum assured pension of ₹3,000/month after age 60 for eligible small/marginal farmers. This is a voluntary contributory pension, not an immediate cash grant. |
+| Soil Health Card | https://www.nic.gov.in/project/soil-health-card-portal/ | NIC describes soil sampling, laboratory testing and local-language nutrient recommendations. This is a public service, not a grant or loan. |
+| PMFME — legacy status | https://msme.maharashtra.gov.in/scheme/pradhan-mantri-formalization-of-micro-food-processing-enterprises-scheme-pmfme/ | Maharashtra Government page shows the approved period as 29 Jun 2020–31 Mar 2026. No FY 2026–27 extension was verified for V2.5; record is excluded from eligibility matching. Historical portal: https://pmfme.mofpi.gov.in/ |
+| AHIDF — continuation status | https://dahd.gov.in/en/schemes/programmes/ahidf | DAHD describes revised outlay through 31 Mar 2026. No post-31 Mar 2026 extension was verified for V2.5; record is excluded from eligibility matching. |
+
+## V2.5 data and verification files
+
+- `coverage-v25.json`: machine-readable State/UT and district research-status register, portal links, RRB mapping, State-specific record IDs and explicit local-service gaps.
+- `COVERAGE_REPORT_V25.md`: human-readable summary of the all-India parallel research status.
+- `DATA_DICTIONARY.md`: scheme, lender, portal and geography field definitions.
+- `scripts/validate-v25.mjs`: repeatable automated data-quality validation.
+- Geography fallback is a community-maintained 36-State/UT and 779-district snapshot. Official administrative reconciliation target: https://lgdirectory.gov.in/ and https://data.gov.in/catalog/local-government-directory-lgd.
+- Current daily mandi price data catalogue: https://data.gov.in/catalog/current-daily-price-various-commodities-various-markets-mandi (the page reports an update on 22 Oct 2026). Use the linked Agmarknet source date, market and unit when displaying price data.
