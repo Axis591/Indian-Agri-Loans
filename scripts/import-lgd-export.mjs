@@ -47,7 +47,7 @@ for (const row of districtRows) {
   const districtCode = field(row, ['districtCode', 'district_code']);
   const districtName = field(row, ['districtNameEnglish', 'districtName', 'district_name_english']);
   if (!stateCode || !stateName || !districtCode || !districtName) throw new Error('District CSV must include stateCode, stateNameEnglish, districtCode and districtNameEnglish.');
-  if (!states.has(stateCode)) states.set(stateCode, { code: stateCode, name: stateName, districts: new Map() });
+  if (!states.has(stateCode)) states.set(stateCode, { code: stateCode, name: stateName, districts: new Map(), localBodies: [] });
   const state = states.get(stateCode);
   if (state.name !== stateName) throw new Error(`Conflicting state name for stateCode ${stateCode}.`);
   if (state.districts.has(districtCode)) throw new Error(`Duplicate LGD district code: ${districtCode}.`);
@@ -64,7 +64,7 @@ for (const row of subdistrictRows) {
   const district = districtByCode.get(districtCode);
   if (!district) continue;
   if (subdistrictsByCode.has(code)) throw new Error(`Duplicate LGD sub-district code: ${code}.`);
-  const item = { code, name, villages: [], localBodies: [] };
+  const item = { code, name, villages: [] };
   district.subdistricts.push(item); subdistrictsByCode.set(code, item);
 }
 const villageCodesBySubdistrict = new Map();
@@ -79,16 +79,15 @@ for (const row of villageRows) {
   const seen = villageCodesBySubdistrict.get(subCode);
   if (!seen.has(code)) { parent.villages.push({ code, name }); seen.add(code); }
 }
+const seenLocalBodies = new Set();
 for (const row of localBodyRows) {
+  const stateCode = field(row, ['stateCode', 'state_code']);
   const code = field(row, ['localBodyCode', 'local_body_code']);
   const name = field(row, ['localBodyNameEnglish', 'localBodyName', 'local_body_name_english']);
-  const districtCode = field(row, ['districtCode', 'district_code']);
-  const subCode = field(row, ['subdistrictCode', 'subDistrictCode', 'sub_district_code']);
-  if (!code || !name) continue;
-  const parentDistrict = districtByCode.get(districtCode);
-  if (parentDistrict) parentDistrict.localBodyCount += 1;
-  const parentSub = subdistrictsByCode.get(subCode);
-  if (parentSub) parentSub.localBodies.push({ code, name });
+  const state = states.get(stateCode);
+  if (!state || !code || seenLocalBodies.has(code)) continue;
+  state.localBodies.push({ code, name: name || 'Name not included in this export' });
+  seenLocalBodies.add(code);
 }
 for (const state of states.values()) {
   for (const district of state.districts.values()) {
@@ -104,10 +103,10 @@ const output = {
   stateCount: states.size, districtCount: [...states.values()].reduce((n, s) => n + s.districts.size, 0),
   subdistrictCount: [...states.values()].reduce((n, s) => n + [...s.districts.values()].reduce((m, d) => m + d.subdistrictCount, 0), 0),
   villageCount: [...states.values()].reduce((n, s) => n + [...s.districts.values()].reduce((m, d) => m + d.villageCount, 0), 0),
-  localBodyCount: [...states.values()].reduce((n, s) => n + [...s.districts.values()].reduce((m, d) => m + d.localBodyCount, 0), 0),
+  localBodyCount: [...states.values()].reduce((n, s) => n + s.localBodies.length, 0),
   completeness: { districts: true, subdistricts: Boolean(args.subdistricts), villages: Boolean(args.villages), localBodies: Boolean(args['local-bodies']) },
   note: 'Official LGD codes imported from downloaded source CSVs. Some villages can be mapped to multiple local bodies; counts are based on distinct village codes per sub-district in this import.',
-  states: [...states.values()].map(s => ({ code: s.code, name: s.name, districts: [...s.districts.values()].sort((a, b) => a.name.localeCompare(b.name)) })).sort((a, b) => a.name.localeCompare(b.name))
+  states: [...states.values()].map(s => ({ code: s.code, name: s.name, districts: [...s.districts.values()].sort((a, b) => a.name.localeCompare(b.name)), localBodies: s.localBodies })).sort((a, b) => a.name.localeCompare(b.name))
 };
 if (output.stateCount < 28 || output.districtCount < 500) throw new Error(`Unexpectedly incomplete LGD export (${output.stateCount} states, ${output.districtCount} districts).`);
 const out = path.resolve(args.out || 'lgd-geography.json');
