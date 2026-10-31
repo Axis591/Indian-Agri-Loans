@@ -410,6 +410,42 @@ function initLoanComparator(){
   renderLoanComparison();
 }
 
+function syncMarketLocation(){
+  const state=$('#market-state'),district=$('#market-district');if(!state||!district||!geography.length)return;
+  const selectedState=stateSelect.value,selectedDistrict=districtSelect.value;
+  setOptions(state,stateNames(),selectedState);
+  setOptions(district,districtsFor(state.value),selectedDistrict);
+}
+function renderMandiPrices(records,meta={}){
+  const node=$('#market-price-results');if(!node)return;
+  if(!records||!records.length){node.innerHTML='<div class="market-price-placeholder">No records were returned for these filters. Try a broader commodity spelling, remove the district filter or open the official AGMARKNET portal.</div>';return;}
+  const sorted=[...records].sort((a,b)=>String(b.arrivalDate||'').localeCompare(String(a.arrivalDate||'')));
+  node.innerHTML='<div class="market-results-top"><b>'+sorted.length+' mandi price records</b><span>Retrieved '+escapeHtml(new Date(meta.retrievedAt||Date.now()).toLocaleString('en-IN'))+'</span></div><div class="market-price-table-wrap"><table class="market-price-table"><thead><tr><th>Market</th><th>Commodity / variety</th><th>Arrival date</th><th>Min (₹/q)</th><th>Modal (₹/q)</th><th>Max (₹/q)</th></tr></thead><tbody>'+sorted.map(x=>'<tr><td><b>'+escapeHtml(x.market)+'</b><small>'+escapeHtml(x.district)+', '+escapeHtml(x.state)+'</small></td><td>'+escapeHtml(x.commodity)+'<small>'+escapeHtml([x.variety,x.grade].filter(Boolean).join(' · '))+'</small></td><td>'+escapeHtml(x.arrivalDate||'—')+'</td><td>'+inrMoney(x.minPrice)+'</td><td><b>'+inrMoney(x.modalPrice)+'</b></td><td>'+inrMoney(x.maxPrice)+'</td></tr>').join('')+'</tbody></table></div>';
+}
+async function loadMandiPrices(event){
+  if(event)event.preventDefault();
+  const status=$('#market-price-status'),button=$('#market-search-button');if(!status)return;
+  const params=new URLSearchParams();
+  const state=$('#market-state')?.value||stateSelect.value,district=$('#market-district')?.value||'',commodity=$('#market-commodity')?.value.trim()||'',limit=$('#market-limit')?.value||'40';
+  if(state)params.set('state',state);if(district)params.set('district',district);if(commodity)params.set('commodity',commodity);params.set('limit',limit);
+  if(button)button.disabled=true;status.textContent='Requesting published daily mandi records from the official OGD dataset…';
+  try{
+    const response=await fetch('/api/market-prices?'+params.toString(),{cache:'no-store'});
+    const data=await response.json().catch(()=>({error:'The market price service returned an unreadable response.'}));
+    if(!response.ok){
+      const detail=data.code==='DATA_GOV_IN_API_KEY_REQUIRED'?'The server-side OGD API key is not configured yet. The key is intentionally not stored in this page. Open the Cloudflare setup guide or use the official source below.':(data.error||'Mandi data is temporarily unavailable.');
+      status.textContent=detail;$('#market-price-results').innerHTML='<div class="market-price-placeholder">Live feed unavailable. Use the official AGMARKNET / OGD source link below or enable the server secret in Cloudflare.</div>';return;
+    }
+    status.textContent='Source: '+(data.source||'Official daily mandi dataset')+' · '+(data.total??data.count??data.records?.length??0)+' matching records in the source response. Not every mandi reports every commodity every day.';
+    renderMandiPrices(data.records||[],data);
+  }catch(error){status.textContent='Could not connect to the mandi data service. Try again later.';}
+  finally{if(button)button.disabled=false;}
+}
+function initMarketPrices(){
+  syncMarketLocation();
+  $('#market-state')?.addEventListener('change',()=>setOptions($('#market-district'),districtsFor($('#market-state').value)));
+}
+
 function scopeRank(r){return r.scope==='district'?0:r.scope==='state'?1:r.scope==='national'?2:3;}
 function showDetails(id){
   const r=records.find(x=>x.id===id);if(!r)return;
