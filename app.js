@@ -336,7 +336,7 @@ function addNGOFollowup(event){
 }
 function exportNGOCSV(){
   const rows=[['Internal reference','State','District','Support route','Status','Date'],...ngoData.followups.map(x=>[x.ref,x.state,x.district,x.support,x.status,x.date])];
-  const quote=x=>'"'+String(x??'').replace(/"/g,'""')+'"';
+  const quote=x=>{let value=String(x??'');if(/^\s*[=+@-]/.test(value))value="'"+value;return '"'+value.replace(/"/g,'""')+'"';};
   const csv=rows.map(row=>row.map(quote).join(',')).join('\r\n');
   const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob);
   const a=document.createElement('a');a.href=url;a.download='agribridge-anonymised-followups.csv';a.click();URL.revokeObjectURL(url);
