@@ -122,7 +122,7 @@ The cooperative catalogue separates the national State Cooperative Bank → DCCB
 
 ## AgriBridge V2 — Farmer assistance and NGO pilot
 
-- **Find My Support:** a browser-side eligibility shortlist that uses selected State/District, applicant type, land/cultivation status, activity and support need. It returns potential matches only; it is not an official eligibility decision or approval.
+- **Find My Support:** a browser-side eligibility shortlist that uses selected State/District, applicant type, land/cultivation status, activity and support need. It returns potential scheme records and profile-matched bank/RRB/cooperative/SFB/NBFC product leads only; it is not an official eligibility decision or approval.
 - **Document checklists:** common scheme-specific documents and source/verification notes appear in scheme detail panels and eligibility results. The latest official notice takes precedence.
 - **NGO Connect (pilot):** local aggregate project metrics and anonymised internal follow-up references. Data is saved only in the current browser using local storage; there is no organisation login, shared database or cloud synchronisation.
 - **Privacy guardrail:** never enter farmer names, mobile numbers, Aadhaar, bank details, OTPs, passwords or identity-document scans in the NGO pilot. Live multi-user case management requires a secure authenticated backend, organisation-level permissions, consent records, encrypted storage, audit logging, retention/deletion controls and a privacy review.
