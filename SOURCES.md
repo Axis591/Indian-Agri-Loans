@@ -49,3 +49,63 @@
 - The PMFBY scheme is notification driven. National scheme eligibility does not prove that a selected crop is insured in a selected district and season.
 - West Bengal public scheme summaries do not publish a fixed FSSM subsidy amount or a universal amount for the diversified cropping programme. Those are shown as “amount not published”.
 - District-level PACS names, specific bank branches, current block-level beneficiary slots, and informal lender licensing are not comprehensively inventoried in this starter release. The Panchayat entry is a contact/facilitation route only, not a standard funding entitlement.
+
+
+## State and district portal directory
+
+| Scope | Source | What it supports |
+|---|---|---|
+| State/UT Agriculture Departments | https://farmerconnect.apeda.gov.in/Home/UsefulLinks | APEDA FarmerConnect official Useful Links listing State/UT Agriculture Departments and some horticulture/marketing departments. State entries in `portals.json` are based on this directory. |
+| Official State/UT agriculture department index | https://www.india.gov.in/category/agriculture-rural-environment/subcategory/research-marketing/details/departments-of-agriculture-of-states-and-union-territories | Use where a direct State/UT application portal is not independently identified. |
+| District websites | https://www.india.gov.in/directory/web-directory/districts | Government of India Web Directory for district websites. The dashboard uses this when a direct selected-district host has not been separately checked; it does not invent district domains. |
+| West Bengal district/local-government directory | https://wb.gov.in/government-district-and-localgovt.aspx | Government of West Bengal district/local-government directory. Direct district links in `portals.json` are based on its published district-site links. Kolkata falls back to the official India.gov district directory in this build. |
+| West Bengal Panchayat & Rural Development | https://prd.wb.gov.in/ | State Panchayat department/local-governance information; not a universal farmer loan. |
+| West Bengal cooperative credit structure | https://cooperation.wb.gov.in/Short-Term-Cooperative-Credit-Structure | Three-tier short-term cooperative credit structure; village PACS and actual availability must be confirmed locally. |
+| Maharashtra MahaDBT Farmer | https://mahadbt.maharashtra.gov.in/Farmer/RegistrationLogin/RegistrationLogin | Farmer scheme registration and applications; active windows and scheme-specific conditions apply. |
+| Gujarat iKhedut | https://ikhedut.gujarat.gov.in/iKhedutPublicScheme/ | Gujarat farmer assistance/registration portal; component and district windows may vary. |
+| Bihar Agriculture DBT | https://dbtagriculture.bihar.gov.in/ | Bihar Agriculture DBT scheme applications and notices. |
+| Kerala Ashraya | https://ashraya.kerala.gov.in/ | Kerala agriculture service gateway and scheme/registry routes. |
+| National Panchayat service gateway | https://egramswaraj.gov.in/ | Panchayat planning, accounting and governance information. It is an access route, not a grant/loan. |
+
+## Public-sector bank products
+
+| Institution / product | Official source | Data shown in lender catalogue |
+|---|---|---|
+| State Bank of India — KCC | https://sbi.bank.in/web/agri-rural/agriculture-banking/crop-loan/kisan-credit-card | Need-based crop/SOF limit; KCC eligibility, tenure and security notes. The linked page's rate information needs current branch confirmation. |
+| Bank of Baroda — BKCC | https://bankofbaroda.bank.in/business-banking/rural-and-agri/loans-and-advances/baroda-kisan-credit-card | Product page states ₹5,000 minimum and a 7% rate up to ₹3 lakh subject to Government interest subvention; five-year validity. |
+| Canara Bank — KCC and AgriLoans | https://canarabank.bank.in/pages/kisan-credit-card-scheme and https://canarites.canarabank.bank.in/QR_CANARA/Home/AgriLoans | KCC eligibility for owners/tenants/sharecroppers/SHGs/JLGs and a catalogue of crop, SHG, machinery, drone, storage and allied products. |
+| Punjab National Bank — Agriculture Loan Schemes | https://pnb.bank.in/agriculture-credit-schemes.html | Product catalogue including crop KCC, machinery, dairy, horticulture, storage, SHG/FPO and other agriculture schemes. |
+| Bank of India — Farm Loans | https://bankofindia.bank.in/farm-loans | KCC, SHG, tractor, allied activity, FPO, agri-processing and warehouse-related products. |
+| Bank of Maharashtra — agriculturist loans | https://bankofmaharashtra.bank.in/loan-for-agriculturists | KCC, irrigation, mechanisation, animal husbandry, horticulture, gold, land purchase and warehouse products. |
+| Bank of Maharashtra — Kisan Tatkal | https://bankofmaharashtra.bank.in/kisan-tatkal-scheme | Separate emergency product for qualifying existing KCC borrowers; not a universal new farmer loan. |
+| Indian Bank — KCC | https://indianbank.bank.in/en/kisan-credit-card-kcc | KCC eligibility and SOF/area-based limit methodology; digital fresh/renewal application link is on the product page. |
+| UCO Bank — Agriculture Credit | https://www.ucobank.com/en/web/guest/agriculture-credit | KCC and Kisan Tatkal product descriptions; confirm current eligibility/rate and repayment directly with UCO. |
+
+## Private bank products
+
+| Institution / product | Official source | Data shown in lender catalogue |
+|---|---|---|
+| HDFC Bank — Rural & Agri Loans | https://www.hdfc.bank.in/agri-banking/rural-loans | Tractor finance page states up to 90% of tractor cost; horticulture and gold-backed agri products have separate terms. |
+| ICICI Bank — Farmer Finance | https://www.icici.bank.in/rural/loans/farmer-finance | Farmer KCC, crop/working-capital overdraft and term-loan options for cattle/irrigation and related farm requirements. |
+| Axis Bank — Farmer Funding | https://www.axis.bank.in/agri-and-rural/loans/farmer-funding | Product-specific dairy, farm-development and PM-KUSUM financing ranges. These are not general-purpose crop loan limits. |
+
+## Small Finance Bank products
+
+| Institution / product | Official source | Data shown in lender catalogue |
+|---|---|---|
+| Ujjivan Small Finance Bank — Kisan Pragati Card | https://www.ujjivansfb.bank.in/personal/loans/agricultural-loans | Crop, farm maintenance/development and allied finance via cash credit/OD/term facilities; amount/rate subject to bank appraisal. |
+| ESAF Small Finance Bank — Farmer Interest Group Loan | https://www.esaf.bank.in/products/esaf-farmer-interest-group-loan/ | FIG-focused farm/allied product; page describes eligible landless/tenant/sharecropper farmers, rate/fee information and up to 35-month tenure. |
+
+## NBFC products
+
+| Institution / product | Official source | Data shown in lender catalogue |
+|---|---|---|
+| Mahindra Finance — Tractor Loan | https://www.mahindrafinance.com/loans/tractor-loan | Tractor-purchase finance; product page describes eligibility, document flow and 6-month to 5-year tenure. |
+| Samunnati Finance — FPO/agri-enterprise products | https://www.samunnati.com/financial-solutions/ and https://www.samunnatifinance.com/ | Collective/FPO/agri-enterprise working capital and term products. Not positioned as an individual farmer KCC substitute. |
+
+## Regulatory and borrowing-safety checks
+
+- RBI NBFC list: https://www.rbi.org.in/Scripts/BS_NBFCList.aspx — verify the named NBFC legal entity and current registration before applying.
+- RBI digital lending safety: https://www.rbi.org.in/commonman/images/FAME202426022024.pdf — verify a digital loan app against the bank/NBFC's own website; compare APR and read the Key Fact Statement; avoid unsolicited links.
+- Kisan Rin Portal: https://fasalrin.gov.in/ — national KCC information and institutional delivery-channel discovery.
+- eGramSwaraj: https://egramswaraj.gov.in/ — Panchayat governance/finance information; not a farmer loan scheme.
