@@ -105,7 +105,7 @@ const output = {
   villageCount: [...states.values()].reduce((n, s) => n + [...s.districts.values()].reduce((m, d) => m + d.villageCount, 0), 0),
   localBodyCount: [...states.values()].reduce((n, s) => n + s.localBodies.length, 0),
   completeness: { districts: true, subdistricts: Boolean(args.subdistricts), villages: Boolean(args.villages), localBodies: Boolean(args['local-bodies']) },
-  note: 'Official LGD codes imported from downloaded source CSVs. Some villages can be mapped partially under more than one Gram Panchayat. Local Bodies may not include district parent fields in the export, so their codes are retained at State level rather than assigned to a district.'
+  note: 'Official LGD codes imported from downloaded source CSVs. Some villages can be mapped partially under more than one Gram Panchayat. Local Bodies may not include district parent fields in the export, so their codes are retained at State level rather than assigned to a district.',
   states: [...states.values()].map(s => ({ code: s.code, name: s.name, districts: [...s.districts.values()].sort((a, b) => a.name.localeCompare(b.name)), localBodies: s.localBodies })).sort((a, b) => a.name.localeCompare(b.name))
 };
 if (output.stateCount < 28 || output.districtCount < 500) throw new Error(`Unexpectedly incomplete LGD export (${output.stateCount} states, ${output.districtCount} districts).`);
