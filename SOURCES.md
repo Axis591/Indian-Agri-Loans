@@ -41,7 +41,7 @@
 ## Geography and administrative hierarchy
 
 - Official Government of India Local Government Directory catalogue: https://data.gov.in/catalog/local-government-directory-lgd (district, sub-district, village and local-body records; monthly updates are described by OGD).
-- Runtime district-list fallback provider: https://github.com/CodingMation/indian-states-districts (community-maintained, not an official government dataset). The dashboard's 36-State/UT selector is local; full district list is loaded from this dataset where available. Cross-check all district names and changes against LGD.
+- Runtime district-list fallback provider: https://github.com/CodingMation/indian-states-districts (community-maintained, not an official government dataset). The dashboard includes a bundled 36-State/UT and 779-district snapshot from this community dataset as a fallback and also attempts to refresh it from the same source at runtime. Cross-check all district names and changes against LGD.
 
 ## Important source limitations
 
