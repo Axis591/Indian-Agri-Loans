@@ -58,17 +58,11 @@ python -m http.server 8000
 
 Open `http://localhost:8000` from this folder.
 
-## Publish to GitHub Pages
+## Public hosting and backup
 
-The repository is already created and the static-site workflow is included at `.github/workflows/pages.yml`.
+**Primary public website:** https://indian-agri-loans.pages.dev/ (Cloudflare Pages, connected to the public GitHub repository). Every push to `main` is expected to trigger a Cloudflare Pages deployment; confirm the latest status in Cloudflare Dashboard → Workers & Pages → indian-agri-loans → Deployments.
 
-1. Open this repository on GitHub: https://github.com/Axis591/Indian-Agri-Loans
-2. Go to **Settings → Pages**.
-3. Under **Build and deployment**, choose **GitHub Actions** as the source.
-4. Open the **Actions** tab and select **Deploy to GitHub Pages**. If the workflow has not started automatically, choose **Run workflow**.
-5. Wait for the workflow to finish with a green check. Then return to **Settings → Pages**; GitHub displays the live website URL there.
-
-Every push to `main` will trigger a new deployment.
+**GitHub Pages backup:** the repository retains `.github/workflows/pages.yml`. To use the backup, open Settings → Pages and select GitHub Actions, then monitor the Deploy to GitHub Pages workflow. GitHub Pages is not the primary public URL.
 
 ## Data model
 
@@ -81,7 +75,7 @@ Each record in `schemes.json` contains:
 - `summary`, `eligibility`, `process[]`
 - `application`, `source`, `sourceLabel`, `sourceDate`, `caution`
 
-A record should not be added as `verified` without a direct official source, the relevant state/district/season scope, a current application route and a date of review. Amounts that depend on bank appraisal must be `assessment`; amounts not stated in an official source must be `not_published`.
+Records use explicit source-verification, amount-disclosure and programme/application-status fields. Do not label a listing as currently open merely because a public portal exists. Amounts that depend on project/bank appraisal must say so; an amount not stated in an official source must be `not_published`.
 
 ## District directory
 
@@ -104,6 +98,10 @@ Use `CONTRIBUTING.md` and the source register in `SOURCES.md`. Priority order: o
 
 ## Additional data files
 
+- `coverage-v25.json`: machine-readable 36-State/UT and 779-district research status, district website map, State-scheme counts, RRBs and last-mile gaps.
+- `DATA_DICTIONARY.md`: field definitions and matching/verification semantics for every data file.
+- `COVERAGE_REPORT_V25.md`: current State/UT, district, scheme and lender coverage report with known limitations.
+- `scripts/validate-v25.mjs`: automated catalogue, source, geography and RRB validation, run by `.github/workflows/validate-v25.yml` on pushes and pull requests.
 - `portals.json`: State/UT department, application, cooperative, Panchayat/local-government and district-website routes. Includes all 36 State/UT names. State Agriculture Department links are sourced from APEDA FarmerConnect's official Useful Links directory. Verified West Bengal district websites are mapped directly; other district websites open India.gov's official district directory until the specific host is checked.
 - `lenders.json`: 46 bank/SFB/RRB/cooperative/NBFC product or institution entries. Each row stores product scope, borrower segment, amount/pricing note, terms, documents, application steps, official product sources, pricing-refresh status and district-branch verification caveat.
 - Lender-category filtering applies to the lender catalogue; scheme type filtering applies to scheme records. A national lender's product page does not prove the bank has a branch in every district.
