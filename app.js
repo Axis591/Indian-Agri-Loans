@@ -609,3 +609,76 @@ $('#detail-dialog').addEventListener('click',e=>{if(e.target===$('#detail-dialog
 $('#eligibility-form')?.addEventListener('submit',runEligibility);
 $('#elig-reset')?.addEventListener('click',resetEligibility);
 $('#coverage-search')?.addEventListener('input',updateCoverageList);
+
+
+/* Language-panel resilience: if an older cached HTML shell is served,
+   render the language selector from the current application bundle. */
+(function ensureAgriBridgeLanguagePanel(){
+  if(document.querySelector('.language-toolbar')) return;
+  const hero=document.querySelector('.main .hero') || document.querySelector('.hero');
+  if(!hero || !hero.parentNode) return;
+
+  const panel=document.createElement('section');
+  panel.className='language-toolbar';
+  panel.setAttribute('aria-label','Website language settings');
+  panel.innerHTML=[
+    '<div class="language-toolbar-copy">',
+    '<strong><span aria-hidden="true">🌐</span> Translate this page</strong>',
+    '<span>Choose a language or let AgriBridge detect your region automatically.</span>',
+    '</div>',
+    '<div class="language-picker">',
+    '<label for="language-select">LANGUAGE</label>',
+    '<select id="language-select" aria-label="Choose website language" title="Automatic mode uses approximate IP-region detection. No GPS location is requested.">',
+    '<option value="auto">Auto · My region</option>',
+    '<option value="en">English</option>',
+    '<option value="hi">हिन्दी · Hindi</option>',
+    '<option value="bn">বাংলা · Bengali</option>',
+    '<option value="gu">ગુજરાતી · Gujarati</option>',
+    '<option value="mr">मराठी · Marathi</option>',
+    '<option value="ta">தமிழ் · Tamil</option>',
+    '<option value="te">తెలుగు · Telugu</option>',
+    '<option value="kn">ಕನ್ನಡ · Kannada</option>',
+    '<option value="ml">മലയാളം · Malayalam</option>',
+    '<option value="pa">ਪੰਜਾਬੀ · Punjabi</option>',
+    '<option value="ur">اردو · Urdu</option>',
+    '<option value="ne">नेपाली · Nepali</option>',
+    '<option value="sd">سنڌي · Sindhi</option>',
+    '</select>',
+    '<small id="language-status" aria-live="polite">Detecting language…</small>',
+    '</div>'
+  ].join('');
+  hero.parentNode.insertBefore(panel,hero);
+
+  if(!document.getElementById('gtranslate_engine')){
+    const engine=document.createElement('div');
+    engine.id='gtranslate_engine';
+    engine.className='gtranslate_wrapper translate-engine';
+    engine.setAttribute('aria-hidden','true');
+    document.body.appendChild(engine);
+  }
+
+  if(!document.querySelector('script[src*="language.js"]')){
+    const script=document.createElement('script');
+    script.src='language.js?v=20261102-language-panel-fallback';
+    script.defer=true;
+    document.body.appendChild(script);
+  }
+
+  if(!document.getElementById('agribridge-language-fallback-style')){
+    const style=document.createElement('style');
+    style.id='agribridge-language-fallback-style';
+    style.textContent=[
+      '.language-toolbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:14px 0 4px;padding:12px 16px;background:#fff;border:1px solid #dfe7dc;border-radius:12px;box-shadow:0 5px 18px rgba(22,52,38,.035)}',
+      '.language-toolbar-copy{display:flex;flex-direction:column;gap:4px;min-width:0}',
+      '.language-toolbar-copy strong{font-size:12px;color:#234b36;display:flex;align-items:center;gap:7px}',
+      '.language-toolbar-copy>span{font-size:9px;color:#7a867f;line-height:1.4}',
+      '.language-toolbar .language-picker{display:flex;flex-direction:column;align-items:flex-start;gap:3px;min-width:200px;flex-shrink:0}',
+      '.language-toolbar .language-picker label{font-size:8px;letter-spacing:1.1px;font-weight:800;color:#68796d}',
+      '.language-toolbar .language-picker select{height:36px;width:100%;max-width:240px;border:1px solid #cfdccc;border-radius:7px;background:#fff;color:#294536;padding:0 25px 0 9px;font:700 11px "DM Sans",sans-serif}',
+      '.language-toolbar .language-picker small{font-size:8px;color:#8a958d;max-width:260px;text-align:left}',
+      '.translate-engine{position:fixed!important;left:-10000px!important;top:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important}',
+      '@media(max-width:620px){.language-toolbar{align-items:flex-start;flex-direction:column;gap:10px;padding:12px}.language-toolbar .language-picker{width:100%;min-width:0}.language-toolbar .language-picker select{max-width:none}.language-toolbar .language-picker small{max-width:none}}'
+    ].join('');
+    document.head.appendChild(style);
+  }
+})();
