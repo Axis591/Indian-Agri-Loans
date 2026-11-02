@@ -143,6 +143,7 @@ function render(){
   renderLocalAccess();
   renderDirectory();
   if(coverageData) renderCoverageDetails(state);
+  window.refreshAgriTranslation?.();
 }
 
 function currentPortal(){
@@ -228,6 +229,7 @@ function renderDirectory(){
   if(p.facilitation) portalItems.splice(2,0,{type:'STATE FACILITATION CENTRE',title:p.facilitation.label,description:p.facilitation.description,url:p.facilitation.url});
   if(p.extra) p.extra.forEach(x=>portalItems.push({type:'ADDITIONAL STATE PORTAL',title:x.label,description:'Official linked State/UT agriculture, horticulture or market institution.',url:x.url}));
   $('#directory-portals').innerHTML=portalItems.map(x=>'<article class="portal-card"><div class="portal-type">'+escapeHtml(x.type)+'</div><h4>'+escapeHtml(x.title)+'</h4><p>'+escapeHtml(x.description)+'</p>'+safeLink('Open official portal',x.url)+'</article>').join('');
+  window.refreshAgriTranslation?.();
 }
 function showLenderDetails(id){
   const l=lenders.find(x=>x.id===id); if(!l) return;
@@ -242,6 +244,7 @@ function showLenderDetails(id){
   const sources=(l.sources||[]).map(s=>'<a href="'+escapeHtml(s.url)+'" target="_blank" rel="noopener noreferrer">'+escapeHtml(s.label)+' ↗</a>').join(' ');
   $('#dialog-body').innerHTML=sponsor+'<div class="detail-section"><h4>Loan amount / facility</h4><p><b>'+escapeHtml(l.amount||'Not published')+'</b><br>'+escapeHtml(l.amountNote||'Final amount depends on lender appraisal and current policy.')+'</p></div><div class="detail-section"><h4>Purpose</h4><p>'+escapeHtml(l.purpose||l.summary)+'</p></div><div class="detail-section"><h4>Eligibility</h4><p>'+escapeHtml(l.eligibility||l.borrower||'Subject to lender policy.')+'</p></div>'+verification+terms+docs+steps+'<div class="detail-caution"><b>Important:</b> '+escapeHtml(l.caution||'Confirm current APR, fees, security, repayment schedule and Key Fact Statement before accepting a loan.')+'</div><div class="dialog-links"><a href="'+escapeHtml(l.applyUrl||l.sourceUrl)+'" target="_blank" rel="noopener noreferrer">Apply / enquire ↗</a><a href="'+escapeHtml(l.sourceUrl)+'" target="_blank" rel="noopener noreferrer">Official product source ↗</a></div><div class="detail-section"><h4>Source register</h4><p>'+sources+'</p></div><p style="font-size:8px;color:#929b94;margin-top:12px">Last reviewed: '+escapeHtml(l.reviewDate||'31 Oct 2026')+'. Rates, eligibility, fees, geography and sanctions can change; verify directly with the provider.</p>';
   $('#detail-dialog').showModal();
+  window.refreshAgriTranslation?.();
 }
 
 
@@ -314,10 +317,12 @@ function runEligibility(event){
   output.querySelectorAll('[data-assistant-details]').forEach(btn=>btn.addEventListener('click',()=>showDetails(btn.dataset.assistantDetails)));
   output.querySelectorAll('[data-lender-details]').forEach(btn=>btn.addEventListener('click',()=>showLenderDetails(btn.dataset.lenderDetails)));
   $('#elig-back-directory')?.addEventListener('click',()=>{switchView('directory');renderDirectory();});
+  window.refreshAgriTranslation?.();
 }
 function resetEligibility(){
   $('#elig-profile').value='owner';$('#elig-land').value='owner';$('#elig-activity').value='crop';$('#elig-need').value='all';
   $('#eligibility-output').innerHTML='<div class="eligibility-empty"><b>Your potential matches will appear here.</b><span>Choose the applicant and farm details, then select Find potential matches.</span></div>';
+  window.refreshAgriTranslation?.();
 }
 const ngoMetricKeys=['farmersReached','counsellingSessions','applicationsSubmitted','applicationsApproved','benefitsReceived','campsHeld','villagesReached'];
 const ngoEmptyMetrics={farmersReached:0,counsellingSessions:0,applicationsSubmitted:0,applicationsApproved:0,benefitsReceived:0,campsHeld:0,villagesReached:0};
@@ -330,6 +335,7 @@ function showNGOStatus(title,message,code=''){
   const setup=code==='NGO_BACKEND_NOT_CONFIGURED'?'<a class="secondary-action" href="CLOUDFLARE_SETUP_V3.md" target="_blank">Open administrator setup guide ↗</a>':'';
   node.innerHTML='<div class="ngo-status-icon">🔐</div><div class="ngo-status-copy"><b>'+escapeHtml(title)+'</b><span>'+escapeHtml(message)+'</span></div><div class="ngo-status-actions">'+signIn+setup+'<button class="primary-action" type="button" id="ngo-status-refresh">Check again</button></div>';
   $('#ngo-status-refresh')?.addEventListener('click',loadNGOWorkspace);
+  window.refreshAgriTranslation?.();
 }
 function populateNGOSelectors(){
   const state=$('#ngo-state'),district=$('#ngo-district');if(!state||!district)return;
@@ -351,9 +357,10 @@ function renderNGOWorkspace(){
   $('#ngo-save-metrics').disabled=readonly;
   $('#ngo-followup-form').querySelectorAll('input,select,button').forEach(el=>el.disabled=readonly);
   const list=$('#ngo-followup-list');
-  if(!ngoData.followups.length){list.innerHTML='<div class="no-directory-results">No references added yet. Use an internal code only. Do not include any person-specific details.</div>';return;}
+  if(!ngoData.followups.length){list.innerHTML='<div class="no-directory-results">No references added yet. Use an internal code only. Do not include any person-specific details.</div>';window.refreshAgriTranslation?.();return;}
   list.innerHTML='<div class="ngo-table-wrap"><table class="ngo-table"><thead><tr><th>Internal reference</th><th>Location</th><th>Support route</th><th>Status</th><th>Date</th><th></th></tr></thead><tbody>'+ngoData.followups.map(x=>'<tr><td><b>'+escapeHtml(x.ref)+'</b></td><td>'+escapeHtml(x.district)+', '+escapeHtml(x.state)+'</td><td>'+escapeHtml(x.support)+'</td><td><span class="ngo-stage">'+escapeHtml(x.status)+'</span></td><td>'+escapeHtml(x.date)+'</td><td>'+(ngoData.role==='admin'?'<button class="ngo-remove" type="button" data-delete-ngo-ref="'+escapeHtml(x.id)+'" aria-label="Delete internal reference">×</button>':'')+'</td></tr>').join('')+'</tbody></table></div>';
   list.querySelectorAll('[data-delete-ngo-ref]').forEach(btn=>btn.addEventListener('click',()=>deleteNGOFollowup(btn.dataset.deleteNgoRef)));
+  window.refreshAgriTranslation?.();
 }
 async function loadNGOWorkspace(){
   showNGOStatus('Checking secure NGO workspace…','Connecting to the protected Cloudflare Access and D1 service.');
@@ -435,11 +442,12 @@ function renderLoanComparison(){
   const principal=Number($('#loan-principal')?.value),months=Number($('#loan-tenure')?.value),method=$('#loan-method')?.value||'reducing';
   const rates=[Number($('#offer-a-rate')?.value),Number($('#offer-b-rate')?.value)],feeRates=[Number($('#offer-a-fee')?.value),Number($('#offer-b-fee')?.value)],otherFees=[Number($('#offer-a-other')?.value),Number($('#offer-b-other')?.value)];
   const output=$('#loan-comparison-output');if(!output)return;
-  if(!(principal>=1000&&principal<=100000000)||!(months>=1&&months<=360)||[...rates,...feeRates,...otherFees].some(x=>!Number.isFinite(x)||x<0)||rates.some(x=>x>60)||feeRates.some(x=>x>20)||feeRates.some((fee,i)=>principal*fee/100+otherFees[i]>=principal)){output.innerHTML='<div class="loan-calc-placeholder error">Enter a principal from ₹1,000 to ₹10 crore, tenure 1–360 months, annual rate 0–60%, processing fee 0–20% and non-negative charges.</div>';return;}
+  if(!(principal>=1000&&principal<=100000000)||!(months>=1&&months<=360)||[...rates,...feeRates,...otherFees].some(x=>!Number.isFinite(x)||x<0)||rates.some(x=>x>60)||feeRates.some(x=>x>20)||feeRates.some((fee,i)=>principal*fee/100+otherFees[i]>=principal)){output.innerHTML='<div class="loan-calc-placeholder error">Enter a principal from ₹1,000 to ₹10 crore, tenure 1–360 months, annual rate 0–60%, processing fee 0–20% and non-negative charges.</div>';window.refreshAgriTranslation?.();return;}
   const offers=[computeLoanOffer(principal,months,method,rates[0],feeRates[0],otherFees[0]),computeLoanOffer(principal,months,method,rates[1],feeRates[1],otherFees[1])];
   const rows=offers.map((o,i)=>'<article class="loan-result-card"><div class="loan-result-head"><b>Offer '+(i?'B':'A')+'</b><span>'+escapeHtml(method==='flat'?'Flat rate':'Reducing balance')+'</span></div><div class="loan-result-emi"><small>ESTIMATED MONTHLY EMI</small><strong>'+inrMoney(o.emi)+'</strong></div><div class="loan-result-lines"><div><span>Net amount credited</span><b>'+inrMoney(o.netReceived)+'</b></div><div><span>Total interest (before fees)</span><b>'+inrMoney(o.totalInterest)+'</b></div><div><span>Upfront fees / charges</span><b>'+inrMoney(o.fees)+'</b></div><div><span>Total repayment</span><b>'+inrMoney(o.repayments)+'</b></div><div><span>All-in financing cost</span><b>'+inrMoney(o.allInCost)+'</b></div><div class="apr-line"><span>Estimated effective annual APR</span><b>'+(o.effectiveApr===null?'Not calculable':o.effectiveApr.toFixed(2)+'%')+'</b></div></div></article>').join('');
   const difference=Math.abs(offers[0].allInCost-offers[1].allInCost),winner=offers[0].allInCost<=offers[1].allInCost?'A':'B';
   output.innerHTML='<div class="loan-results-summary"><b>Comparison result:</b> Offer '+winner+' has the lower estimated all-in financing cost by '+inrMoney(difference)+' over '+months+' months, assuming the entered fees and repayment method.</div><div class="loan-result-grid">'+rows+'</div>';
+  window.refreshAgriTranslation?.();
 }
 function initLoanComparator(){
   $('#calculate-loans')?.addEventListener('click',renderLoanComparison);
@@ -452,9 +460,10 @@ function syncMarketLocation(){
 }
 function renderMandiPrices(records,meta={}){
   const node=$('#market-price-results');if(!node)return;
-  if(!records||!records.length){node.innerHTML='<div class="market-price-placeholder">No records were returned for these filters. Try a broader commodity spelling, remove the district filter or open the official AGMARKNET portal.</div>';return;}
+  if(!records||!records.length){node.innerHTML='<div class="market-price-placeholder">No records were returned for these filters. Try a broader commodity spelling, remove the district filter or open the official AGMARKNET portal.</div>';window.refreshAgriTranslation?.();return;}
   const sorted=[...records].sort((a,b)=>String(b.arrivalDate||'').localeCompare(String(a.arrivalDate||'')));
   node.innerHTML='<div class="market-results-top"><b>'+sorted.length+' mandi price records</b><span>Retrieved '+escapeHtml(new Date(meta.retrievedAt||Date.now()).toLocaleString('en-IN'))+'</span></div><div class="market-price-table-wrap"><table class="market-price-table"><thead><tr><th>Market</th><th>Commodity / variety</th><th>Arrival date</th><th>Min (₹/q)</th><th>Modal (₹/q)</th><th>Max (₹/q)</th></tr></thead><tbody>'+sorted.map(x=>'<tr><td><b>'+escapeHtml(x.market)+'</b><small>'+escapeHtml(x.district)+', '+escapeHtml(x.state)+'</small></td><td>'+escapeHtml(x.commodity)+'<small>'+escapeHtml([x.variety,x.grade].filter(Boolean).join(' · '))+'</small></td><td>'+escapeHtml(x.arrivalDate||'—')+'</td><td>'+(x.minPrice===null||x.minPrice===undefined||x.minPrice===''?'—':inrMoney(x.minPrice))+'</td><td><b>'+(x.modalPrice===null||x.modalPrice===undefined||x.modalPrice===''?'—':inrMoney(x.modalPrice))+'</b></td><td>'+(x.maxPrice===null||x.maxPrice===undefined||x.maxPrice===''?'—':inrMoney(x.maxPrice))+'</td></tr>').join('')+'</tbody></table></div>';
+  window.refreshAgriTranslation?.();
 }
 async function loadMandiPrices(event){
   if(event)event.preventDefault();
@@ -500,6 +509,7 @@ function showDetails(id){
     <div class="dialog-links"><a href="${escapeHtml(r.application)}" target="_blank" rel="noopener">${escapeHtml(r.applicationLabel||'Application / official route')} ↗</a><a href="${escapeHtml(r.source)}" target="_blank" rel="noopener">Source: ${escapeHtml(r.sourceLabel)} ↗</a></div>
     <p style="font-size:8px;color:#929b94;margin-top:12px">Source review: ${escapeHtml(r.sourceDate)} · Final eligibility, loan amount, interest and approval remain with the implementing authority/lender.</p>`;
   $('#detail-dialog').showModal();
+  window.refreshAgriTranslation?.();
 }
 
 function renderStateWorkstreams(stateName){
@@ -517,6 +527,7 @@ function renderStateWorkstreams(stateName){
     return '<article class="state-workstream-card"><div class="state-workstream-card-head"><b>'+escapeHtml(w.label)+'</b><span class="state-workstream-status '+(isLinked?'linked':'pending')+'">'+(isLinked?'PARTIAL · SOURCED':'RESEARCH PENDING')+'</span></div>'+(ids?'<div class="state-workstream-records">'+ids+'</div>':'<p>No named State-specific programme record in this release.</p>')+'<small>'+escapeHtml(w.nextAction)+'</small>'+evidence+'</article>';
   }).join('')+'</div>';
   node.querySelectorAll('[data-workstream-record]').forEach(link=>link.addEventListener('click',e=>{e.preventDefault();showDetails(link.dataset.workstreamRecord);}));
+  window.refreshAgriTranslation?.();
 }
 function renderCoverageDetails(stateName){
   if(!coverageData)return;
@@ -540,6 +551,7 @@ function renderCoverageDetails(stateName){
     stateSelect.value=row.stateUT;populateDistricts(btn.dataset.coverageDistrict);switchView('finance');
   }));
   renderStateWorkstreams(row.stateUT);
+  window.refreshAgriTranslation?.();
 }
 function updateCoverageList(){
   if(!coverageData)return;
@@ -557,6 +569,7 @@ function updateCoverageList(){
   $('#state-coverage-list').querySelectorAll('[data-coverage-state]').forEach(btn=>btn.addEventListener('click',()=>renderCoverageDetails(btn.dataset.coverageState)));
   const selected=rows.find(x=>normalizedName(x.stateUT)===normalizedName(stateSelect.value))||rows[0];
   if(selected)renderCoverageDetails(selected.stateUT);
+  window.refreshAgriTranslation?.();
 }
 function switchView(view){
   selectedView=view;
