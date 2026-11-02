@@ -51,6 +51,14 @@ To report an inaccurate or outdated listing, use the repository's **Issues** tab
 - Coverage tracker that distinguishes verified records from unresearched areas.
 - Responsive layout; no build step or package install required.
 
+## Multilingual access
+
+- A language selector is available in the top bar on every page view. **Auto · My region** estimates the visitor's State/UT from an approximate IP-region lookup and chooses a regional language; if that lookup is unavailable, it falls back to the browser's preferred language. No GPS or precise device location is requested.
+- Manual choices: English, Hindi, Bengali, Gujarati, Marathi, Tamil, Telugu, Kannada, Malayalam, Punjabi, Urdu, Nepali and Sindhi. The choice is remembered in the browser and applies across scheme cards, lender records, detail dialogs, directory filters, finance tools, market results and coverage panels as those are generated.
+- Translation is machine-generated. Always verify scheme conditions, eligibility, rates, fees, application windows and legal/financial terms against the linked official source before acting.
+- The current GTranslate language catalogue does not list Assamese or Odia. States where these are preferred use the Hindi fallback in automatic mode; visitors can manually choose another available language.
+- The GTranslate free version is limited to personal, educational, internal testing, nonprofit or governmental use that does not directly generate revenue. Commercial/revenue-generating use requires an applicable paid subscription. See [GTranslate terms](https://gtranslate.io/terms) and [supported languages](https://wordpress.org/plugins/gtranslate/).
+
 ## Run locally
 
 Use a local web server (do not open `index.html` as a `file://` URL, because browser fetch restrictions can block JSON loading).
