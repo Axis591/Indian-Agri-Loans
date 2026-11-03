@@ -18,13 +18,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261103-presentation-ready" />
+  <link rel="stylesheet" href="styles.css?v=20261103-reference-exact" />
 </head>
 <body data-page="home">
   <div class="app-shell">
     <aside class="sidebar">
       <a class="brand" href="#top" aria-label="Indian Agri Market and Loans home">
-        <span class="brand-mark">🌾</span>
+        <span class="brand-mark"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="assets/agribridge-art.svg#logo-mark"></use></svg></span>
         <span><strong>Agri<span>Bridge</span></strong><small>INDIA · FARMER SUPPORT & FINANCE</small></span>
       </a>
       <div class="side-label">WORKSPACE</div>
@@ -37,7 +37,7 @@
         <button class="nav-item" data-view="market"><span>⌁</span> Market Access</button>
         <button class="nav-item" data-view="coverage"><span>▦</span> Data &amp; Insights</button>
       </nav>
-      <div class="sidebar-farmer-art" id="sidebar-farmer-illustration" aria-hidden="true"></div>
+      <div class="sidebar-farmer-art" id="sidebar-farmer-illustration" data-ready="1" aria-hidden="true"><svg viewBox="0 0 320 360"><use href="assets/agribridge-art.svg#sidebar-farmer-team"></use></svg></div>
       <div class="sidebar-bottom">
         <div class="source-status"><span class="status-dot"></span><div><b>Source-linked records</b><small>Verified links · dated review</small></div></div>
         <div class="side-note">An independent information guide. Final eligibility and sanction are decided by the implementing department or lender.</div>
@@ -61,24 +61,23 @@
               <option value="ne">नेपाली · Nepali</option><option value="sd">سنڌي · Sindhi</option>
             </select><small id="language-status" aria-live="polite">Detecting language…</small>
           </div></div>
-          <span class="review-pill"><i></i> Reviewed 31 Oct 2026</span><span class="avatar">IN</span>
+          <span class="review-pill"><i></i> Reviewed 31 Oct 2026</span><span class="topbar-bell" aria-hidden="true">♧<i></i></span><span class="avatar">IN</span>
         </div>
       </header>
 
       <section id="view-home" class="view active home-view">
       <section class="hero">
         <div class="hero-copy">
-          <div class="eyebrow"><span class="eyebrow-line"></span> THE FARMER FINANCE DIRECTORY</div>
-          <h1>Indian Agri Market<br><em>&amp; Loans</em></h1>
-          <p>Find farmer schemes, grants, crop insurance, farm loans and local support — with eligibility, application steps and official State/District routes.</p>
+          <div class="eyebrow"><span class="eyebrow-line"></span> 🌾 THE FARMER FINANCE DIRECTORY</div>
+          <h1>Indian Agri Market <em>&amp; Loans</em></h1>
+          <p>Discover government schemes, loans, insurance, grants and market access — tailored for Indian farmers, in your language.</p>
           <div class="hero-badges" aria-label="AgriBridge service highlights">
-            <span><i>✓</i><b>Official-source<br>links</b></span>
-            <span><i>📍</i><b>Across<br>India</b></span>
-            <span><i>✦</i><b>Built for<br>farmers</b></span>
+            <span><i>🛡</i><b>Government<br>Verified</b></span>
+            <span><i>📍</i><b>PAN India<br>Coverage</b></span>
+            <span><i>⚡</i><b>Simple &amp;<br>Farmer-Friendly</b></span>
           </div>
         </div>
-        <div class="hero-art hero-art-photo" aria-hidden="true">
-          <div class="hero-farmer-pair" id="hero-farmer-illustration"></div>
+        <div class="hero-art hero-art-photo" aria-hidden="true"><svg class="hero-scene-svg" viewBox="0 0 1600 400" preserveAspectRatio="xMidYMid slice"><use href="assets/agribridge-art.svg#hero-scene"></use></svg>
           <div class="hero-stamp"><strong>01</strong><span>FARMER<br>FIRST</span></div>
         </div>
       </section>
@@ -94,32 +93,32 @@
         </div>
         <div class="quick-path-grid">
           <button type="button" class="quick-path-card quick-schemes" data-quick-action="schemes">
-     <span class="quick-path-icon">🌱</span><span class="quick-path-copy"><span class="quick-path-tag">GOVERNMENT SUPPORT</span><b>Find schemes &amp; subsidies</b><small>Explore grants, benefits, insurance and support programmes.</small><span class="quick-path-link">Explore schemes <i>↗</i></span></span>
+     <span class="quick-path-icon"><svg viewBox="0 0 100 100"><use href="assets/agribridge-art.svg#action-schemes"></use></svg></span><span class="quick-path-copy"><span class="quick-path-tag">GOVERNMENT SUPPORT</span><b>Find schemes &amp; subsidies</b><small>Explore grants, benefits, insurance and support programmes.</small><span class="quick-path-link">Explore schemes <i>↗</i></span></span>
    </button>
           <button type="button" class="quick-path-card quick-loans" data-quick-action="loans">
-     <span class="quick-path-icon">💳</span><span class="quick-path-copy"><span class="quick-path-tag">CREDIT OPTIONS</span><b>Explore farm loans</b><small>See banks, KCC routes, cooperatives and finance providers.</small><span class="quick-path-link">Compare lenders <i>↗</i></span></span>
+     <span class="quick-path-icon"><svg viewBox="0 0 100 100"><use href="assets/agribridge-art.svg#action-loans"></use></svg></span><span class="quick-path-copy"><span class="quick-path-tag">CREDIT OPTIONS</span><b>Explore farm loans</b><small>See banks, KCC routes, cooperatives and finance providers.</small><span class="quick-path-link">Compare lenders <i>↗</i></span></span>
    </button>
           <button type="button" class="quick-path-card quick-calculator" data-quick-action="calculator">
-     <span class="quick-path-icon">🧮</span><span class="quick-path-copy"><span class="quick-path-tag">SMART BORROWING</span><b>Compare loan costs</b><small>Understand EMI, fees and the estimated cost of borrowing.</small><span class="quick-path-link">Open calculator <i>↗</i></span></span>
+     <span class="quick-path-icon"><svg viewBox="0 0 100 100"><use href="assets/agribridge-art.svg#action-calculator"></use></svg></span><span class="quick-path-copy"><span class="quick-path-tag">SMART BORROWING</span><b>Compare loan costs</b><small>Understand EMI, fees and the estimated cost of borrowing.</small><span class="quick-path-link">Open calculator <i>↗</i></span></span>
    </button>
           <button type="button" class="quick-path-card quick-local" data-quick-action="local">
-     <span class="quick-path-icon">🏡</span><span class="quick-path-copy"><span class="quick-path-tag">VILLAGE-LEVEL HELP</span><b>Find local support</b><small>Discover district portals and nearby delivery channels.</small><span class="quick-path-link">Find local routes <i>↗</i></span></span>
+     <span class="quick-path-icon"><svg viewBox="0 0 100 100"><use href="assets/agribridge-art.svg#action-local"></use></svg></span><span class="quick-path-copy"><span class="quick-path-tag">VILLAGE-LEVEL HELP</span><b>Find local support</b><small>Discover district portals and nearby delivery channels.</small><span class="quick-path-link">Find local routes <i>↗</i></span></span>
    </button>
         </div>
       </section>
 
       <section class="metrics" aria-label="Directory summary">
-        <article class="metric metric-green"><span class="metric-icon green">🌾</span><div><small>SCHEME + LENDER RECORDS</small><strong id="metric-records">—</strong><span>Support routes in one place</span></div></article>
-        <article class="metric metric-gold"><span class="metric-icon gold">🗺️</span><div><small>INDIAN STATES &amp; UTs</small><strong>36</strong><span>Choose your local area</span></div></article>
-        <article class="metric metric-blue"><span class="metric-icon blue">🏦</span><div><small>FORMAL FINANCE CATEGORIES</small><strong>6</strong><span>Banks · RRBs · PACS · NBFCs</span></div></article>
-        <article class="metric metric-coral"><span class="metric-icon clay">📊</span><div><small>DATA RELEASE</small><strong>V2.5</strong><span>All-India catalogue</span></div></article>
+        <article class="metric metric-green"><span class="metric-icon green"><svg viewBox="0 0 100 100"><use href="assets/agribridge-art.svg#metric-record"></use></svg></span><div><small>SCHEME + LENDER RECORDS</small><strong id="metric-records">—</strong><span>Support routes in one place</span></div></article>
+        <article class="metric metric-gold"><span class="metric-icon gold"><svg viewBox="0 0 100 100"><use href="assets/agribridge-art.svg#metric-india"></use></svg></span><div><small>INDIAN STATES &amp; UTs</small><strong>36</strong><span>Choose your local area</span></div></article>
+        <article class="metric metric-blue"><span class="metric-icon blue"><svg viewBox="0 0 100 100"><use href="assets/agribridge-art.svg#metric-bank"></use></svg></span><div><small>FORMAL FINANCE CATEGORIES</small><strong>6</strong><span>Banks · RRBs · PACS · NBFCs</span></div></article>
+        <article class="metric metric-coral"><span class="metric-icon clay"><svg viewBox="0 0 100 100"><use href="assets/agribridge-art.svg#metric-data"></use></svg></span><div><small>DATA RELEASE</small><strong>V2.5</strong><span>All-India catalogue</span></div></article>
       </section>
 
       <section class="home-finder-panel" aria-labelledby="home-finder-title">
         <div class="home-finder-heading">
           <div class="home-finder-step">1</div>
           <div><span class="section-kicker">01 / FIND FINANCIAL SUPPORT</span><h2 id="home-finder-title">Where can a farmer get support?</h2><p>Choose your location and farmer profile. AgriBridge will show matching support routes.</p></div>
-          <div class="home-finder-people" id="home-finder-people" aria-hidden="true"></div>
+          <div class="home-finder-people" id="home-finder-people" data-ready="1" aria-hidden="true"><svg viewBox="0 0 420 190"><use href="assets/agribridge-art.svg#support-farmer-team"></use></svg></div>
         </div>
         <form id="home-finder-form" class="home-finder-form">
           <div class="home-finder-progress"><span><b>1</b> 📍 Choose location</span><span><b>2</b> 👩🏽‍🌾 Farmer profile</span><span><b>3</b> 🏦 Support type</span></div>
