@@ -93,10 +93,39 @@
       </section>
 
       <section class="metrics" aria-label="Directory summary">
-        <article class="metric"><span class="metric-icon green">◈</span><div><small>SCHEME + LENDER RECORDS</small><strong id="metric-records">—</strong><span>Scheme catalogue + lender products</span></div></article>
-        <article class="metric"><span class="metric-icon gold">⌂</span><div><small>INDIAN STATES &amp; UTs</small><strong>36</strong><span>Full geography selector</span></div></article>
-        <article class="metric"><span class="metric-icon blue">↗</span><div><small>FORMAL FINANCE CATEGORIES</small><strong>6</strong><span>Public · private · SFB · RRB · PACS · NBFC</span></div></article>
-        <article class="metric"><span class="metric-icon clay">◎</span><div><small>DATA RELEASE</small><strong>V2.5</strong><span>All-India parallel catalogue</span></div></article>
+        <article class="metric metric-green"><span class="metric-icon green">🌾</span><div><small>SCHEME + LENDER RECORDS</small><strong id="metric-records">—</strong><span>Support routes in one place</span></div></article>
+        <article class="metric metric-gold"><span class="metric-icon gold">🗺️</span><div><small>INDIAN STATES &amp; UTs</small><strong>36</strong><span>Choose your local area</span></div></article>
+        <article class="metric metric-blue"><span class="metric-icon blue">🏦</span><div><small>FORMAL FINANCE CATEGORIES</small><strong>6</strong><span>Banks · RRBs · PACS · NBFCs</span></div></article>
+        <article class="metric metric-coral"><span class="metric-icon clay">📊</span><div><small>DATA RELEASE</small><strong>V2.5</strong><span>All-India catalogue</span></div></article>
+      </section>
+
+      <section class="quick-paths" aria-label="Choose a task">
+        <div class="quick-path-heading">
+          <div>
+            <div class="section-kicker">YOUR FARM FINANCE SHORTCUTS</div>
+            <h2>What would you like to do today?</h2>
+            <p>Pick a starting point. We’ll take you to the right part of AgriBridge.</p>
+          </div>
+          <div class="quick-path-mascot" aria-hidden="true"><span>👩🏽‍🌾</span><i>🌱</i></div>
+        </div>
+        <div class="quick-path-grid">
+          <button type="button" class="quick-path-card quick-schemes" data-quick-action="schemes">
+            <span class="quick-path-icon">🌱</span><span class="quick-path-tag">GOVERNMENT SUPPORT</span>
+            <b>Find schemes &amp; subsidies</b><small>Explore grants, benefits, insurance and support programmes.</small><span class="quick-path-link">Explore schemes <i>↗</i></span>
+          </button>
+          <button type="button" class="quick-path-card quick-loans" data-quick-action="loans">
+            <span class="quick-path-icon">💳</span><span class="quick-path-tag">CREDIT OPTIONS</span>
+            <b>Explore farm loans</b><small>See banks, KCC routes, cooperatives and finance providers.</small><span class="quick-path-link">Compare lenders <i>↗</i></span>
+          </button>
+          <button type="button" class="quick-path-card quick-calculator" data-quick-action="calculator">
+            <span class="quick-path-icon">🧮</span><span class="quick-path-tag">SMART BORROWING</span>
+            <b>Compare loan costs</b><small>Understand EMI, fees and the estimated cost of borrowing.</small><span class="quick-path-link">Open calculator <i>↗</i></span>
+          </button>
+          <button type="button" class="quick-path-card quick-local" data-quick-action="local">
+            <span class="quick-path-icon">🏡</span><span class="quick-path-tag">VILLAGE-LEVEL HELP</span>
+            <b>Find local support</b><small>Discover district portals and nearby delivery channels.</small><span class="quick-path-link">Find local routes <i>↗</i></span>
+          </button>
+        </div>
       </section>
 
       <section id="view-finance" class="view active">
@@ -107,6 +136,9 @@
 
         <div class="finder-panel">
           <div class="finder-top"><div><span class="finder-number">01</span><div><b>Choose your location</b><small>State first, then district</small></div></div><span class="live-label"><i></i> LIVE FILTERS</span></div>
+          <div class="finder-progress" aria-label="Three simple steps">
+            <span><b>1</b> 📍 Pick your area</span><span><b>2</b> 👩🏽‍🌾 Choose your profile</span><span><b>3</b> 🌱 Explore matching support</span>
+          </div>
           <div class="filters-grid">
             <label class="filter-field"><span>STATE / UNION TERRITORY</span><select id="state-select"><option value="West Bengal">West Bengal</option></select></label>
             <label class="filter-field"><span>DISTRICT</span><select id="district-select"><option value="Paschim Medinipur">Paschim Medinipur</option></select></label>
@@ -117,7 +149,7 @@
           <div class="finder-foot"><span id="location-summary">Showing national and West Bengal entries for Paschim Medinipur.</span><button class="reset-btn" id="reset-filters">↺ Reset filters</button></div>
         </div>
 
-        <section class="loan-comparator" aria-labelledby="loan-comparator-title">
+        <section id="loan-comparator" class="loan-comparator" aria-labelledby="loan-comparator-title">
           <div class="loan-comparator-head"><div><div class="section-kicker">FINANCE INTELLIGENCE · LOAN COST COMPARISON</div><h3 id="loan-comparator-title">Compare the true cost of two loan offers</h3><p>Compare reducing-balance and flat-rate loans, upfront fees and estimated annualised borrowing cost before accepting a lender's offer.</p></div><span class="scope-label">Illustrative calculator</span></div>
           <div class="loan-calc-inputs">
             <label>Loan principal (₹)<input id="loan-principal" type="number" min="1000" max="100000000" step="1000" value="300000"></label>
@@ -148,7 +180,7 @@
         <div id="results" class="results-grid" aria-live="polite"></div>
         <div id="empty-state" class="empty-state hidden"><div class="empty-icon">⌕</div><h3>No matching entries in this directory yet</h3><p>There may be other local schemes or bank products. Check the state agriculture department, district lead bank and Gram Panchayat/BDO office before deciding.</p><a href="https://www.myscheme.gov.in/" target="_blank" rel="noopener">Search the national myScheme directory ↗</a></div>
 
-        <section class="route-panel">
+        <section id="route-panel" class="route-panel">
           <div><div class="section-kicker">03 / LAST-MILE ACCESS</div><h3>Where to start locally</h3><p>Many farmer benefits are routed through institutions near the village rather than a single central website.</p></div>
           <div class="route-list" id="route-list" aria-live="polite"></div>
         </section>
@@ -288,10 +320,10 @@
   </div>
   <div class="section-heading market-links-heading"><div><div class="section-kicker">02 / SELLING & MARKET ACCESS</div><h2>Trading, procurement and collective marketing</h2><p>Use the official provider route to confirm registration, notified procurement, mandi participation and market fees.</p></div></div>
   <div class="market-grid">
-    <article class="market-card"><div class="market-icon">⇄</div><span class="tag">E-TRADING</span><h3>e-NAM</h3><p>National Agriculture Market connects participating mandis and supports online trade and price discovery.</p><a href="https://enam.gov.in/" target="_blank" rel="noopener">Open e-NAM ↗</a></article>
-    <article class="market-card"><div class="market-icon">⌂</div><span class="tag">PROCUREMENT</span><h3>MSP / procurement</h3><p>Check the current crop-wise MSP announcement and the State procurement agency's open registration window.</p><a href="https://desagri.gov.in/" target="_blank" rel="noopener">Agricultural statistics &amp; MSP ↗</a></article>
-    <article class="market-card"><div class="market-icon">♧</div><span class="tag">COLLECTIVE SELLING</span><h3>FPO / SFAC</h3><p>Explore Farmer Producer Organisation support, aggregation, business planning and market-linkage resources.</p><a href="https://sfacindia.com/" target="_blank" rel="noopener">Open SFAC ↗</a></article>
-    <article class="market-card"><div class="market-icon">₹</div><span class="tag">STATE MARKETING</span><h3>State marketing board</h3><p>Find State mandi regulations, market yards, fees, licences and commodity-specific trading arrangements.</p><a href="https://www.msamb.com/" target="_blank" rel="noopener">Maharashtra State Agricultural Marketing Board ↗</a></article>
+    <article class="market-card market-enam"><div class="market-icon">🛒</div><span class="tag">E-TRADING</span><h3>e-NAM</h3><p>National Agriculture Market connects participating mandis and supports online trade and price discovery.</p><a href="https://enam.gov.in/" target="_blank" rel="noopener">Open e-NAM ↗</a></article>
+    <article class="market-card market-msp"><div class="market-icon">🌾</div><span class="tag">PROCUREMENT</span><h3>MSP / procurement</h3><p>Check the current crop-wise MSP announcement and the State procurement agency's open registration window.</p><a href="https://desagri.gov.in/" target="_blank" rel="noopener">Agricultural statistics &amp; MSP ↗</a></article>
+    <article class="market-card market-fpo"><div class="market-icon">🤝</div><span class="tag">COLLECTIVE SELLING</span><h3>FPO / SFAC</h3><p>Explore Farmer Producer Organisation support, aggregation, business planning and market-linkage resources.</p><a href="https://sfacindia.com/" target="_blank" rel="noopener">Open SFAC ↗</a></article>
+    <article class="market-card market-board"><div class="market-icon">🏬</div><span class="tag">STATE MARKETING</span><h3>State marketing board</h3><p>Find State mandi regulations, market yards, fees, licences and commodity-specific trading arrangements.</p><a href="https://www.msamb.com/" target="_blank" rel="noopener">Maharashtra State Agricultural Marketing Board ↗</a></article>
   </div>
 </section>
 
