@@ -631,6 +631,7 @@ function switchView(view,options={}){
   document.body.dataset.page=view;
   const breadcrumb=$('#breadcrumb-page');
   if(breadcrumb)breadcrumb.textContent=pageRouteTitles[view];
+  document.title=pageRouteTitles[view].replace(/\b\w/g,c=>c.toUpperCase())+' | AgriBridge';
   addPageCharacter(view);
   if(options.push!==false){
     const url=new URL(window.location.href);
