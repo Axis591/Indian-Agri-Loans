@@ -544,3 +544,12 @@ body:before{content:"";position:fixed;z-index:-1;inset:0;pointer-events:none;opa
  .page-character-art{min-width:82px;height:92px;margin-right:-7px}
  .farmer-figure-svg{width:95px;height:91px}
 }
+
+
+/* Keep the home dashboard elements exclusive to the Finance Finder page */
+body[data-page]:not([data-page="finance"]) .main > .hero,
+body[data-page]:not([data-page="finance"]) .main > .metrics,
+body[data-page]:not([data-page="finance"]) .main > .quick-paths{
+  display:none!important;
+}
+body[data-page]:not([data-page="finance"]) .main > .language-toolbar{margin-bottom:18px}
