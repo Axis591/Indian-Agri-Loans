@@ -553,192 +553,29 @@ body[data-page]:not([data-page="finance"]) .main > .quick-paths{
   display:none!important;
 }
 body[data-page]:not([data-page="finance"]) .main > .language-toolbar{margin-bottom:18px}
-
-
-/* REAL FARMER ARTWORK: cropped illustrations from the AgriBridge design concepts */
-.hero{grid-template-columns:1.12fr .88fr;min-height:270px;border-radius:22px;overflow:hidden}
-.hero-copy{padding:36px 40px;z-index:2}
-.hero-art-illustrated{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(135deg,#d7e9c8 0%,#b8d8af 45%,#628d54 100%)}
-
-.hero-art-illustrated:before{content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(90deg,#174532 0%,rgba(23,69,50,.92) 7%,rgba(23,69,50,.35) 35%,rgba(23,69,50,0) 68%)}
-.hero-art-sun{position:absolute;z-index:2;right:12%;top:18px;width:72px;height:72px;border-radius:50%;background:#e3bf69;box-shadow:0 0 0 14px rgba(255,255,255,.12)}
-.hero-stamp{z-index:3}
-.quick-path-mascot{overflow:hidden;border:3px solid rgba(255,255,255,.85);background:#f6e9c4}
-
-.quick-path-mascot i{z-index:2}
-
-.page-character-photo:after{content:"";position:absolute;inset:auto 0 0;height:26px;background:linear-gradient(transparent,rgba(24,53,37,.12));pointer-events:none}
-.page-character-art.page-character-photo>i{z-index:2;top:7px;right:7px}
-.page-character-card{min-height:132px;padding:16px 22px 14px 20px;background:linear-gradient(105deg,#fff 0%,rgba(243,250,239,.97) 66%,rgba(228,242,219,.9) 100%);border-radius:20px;box-shadow:0 10px 26px rgba(28,65,44,.075)}
-.page-character-text>b{font-size:16px}
-.page-character-text>small{font-size:10px;max-width:580px}
-.page-character-assistant{background:linear-gradient(105deg,#fff 0%,#f3f8ff 65%,#e5f1fb 100%)}
-.page-character-directory{background:linear-gradient(105deg,#fff 0%,#fff9ec 65%,#faefd6 100%)}
-.page-character-ngo{background:linear-gradient(105deg,#fff 0%,#f7f2fd 65%,#eee6f8 100%)}
-.page-character-market{background:linear-gradient(105deg,#fff 0%,#fff4ed 65%,#f8e6dc 100%)}
-.page-character-coverage{background:linear-gradient(105deg,#fff 0%,#f1f8f8 65%,#e3f0f0 100%)}
-
-/* Stronger illustrated agricultural backdrop on each independent page */
-.view{position:relative;isolation:isolate;min-height:calc(100vh - 150px);padding:16px 14px 32px;border-radius:24px}
-.view:before{content:"";position:absolute;z-index:-1;right:0;bottom:0;width:210px;height:132px;border-radius:25px 0 20px 0;opacity:.075;background-image:url('/assets/agri-farmer-characters-20261103.webp');background-repeat:no-repeat;background-size:400% 100%;background-position:100% center;pointer-events:none}
-.view.active#view-finance:before{background-position:0% center}
-.view.active#view-assistant:before{background-position:33.333% center}
-.view.active#view-directory:before{background-position:66.667% center}
-.view.active#view-ngo:before{background-position:100% center}
-.view.active#view-market:before{background-position:33.333% center}
-.view.active#view-coverage:before{background-position:66.667% center}
-.view.active#view-finance{background-image:radial-gradient(ellipse at 93% 4%,rgba(208,235,198,.65),transparent 36%),linear-gradient(145deg,rgba(255,255,255,.72),rgba(242,249,237,.86))}
-.view.active#view-assistant{background-image:radial-gradient(ellipse at 95% 5%,rgba(190,220,247,.68),transparent 36%),linear-gradient(145deg,rgba(255,255,255,.78),rgba(234,244,252,.86))}
-.view.active#view-directory{background-image:radial-gradient(ellipse at 95% 5%,rgba(248,220,166,.63),transparent 36%),linear-gradient(145deg,rgba(255,255,255,.78),rgba(255,246,225,.88))}
-.view.active#view-ngo{background-image:radial-gradient(ellipse at 95% 5%,rgba(224,208,244,.65),transparent 36%),linear-gradient(145deg,rgba(255,255,255,.78),rgba(245,239,252,.88))}
-.view.active#view-market{background-image:radial-gradient(ellipse at 95% 5%,rgba(246,211,193,.68),transparent 36%),linear-gradient(145deg,rgba(255,255,255,.78),rgba(255,240,231,.88))}
-.view.active#view-coverage{background-image:radial-gradient(ellipse at 95% 5%,rgba(199,224,229,.7),transparent 36%),linear-gradient(145deg,rgba(255,255,255,.78),rgba(237,247,247,.88))}
-.side-nav .nav-item[aria-current="page"]{background:linear-gradient(100deg,#285b43,#1e4b37);color:#fff;box-shadow:inset 4px 0 #e5bf61,0 7px 18px rgba(8,35,23,.14)}
-@media(max-width:760px){
- .hero{grid-template-columns:1fr;min-height:0}
- .hero-art-illustrated{min-height:190px}
- 
- 
- .page-character-card{min-height:116px;padding:12px 14px}
-}
-@media(max-width:520px){
- .hero-art-illustrated{min-height:160px}
- 
- .page-character-text>b{font-size:13px}
-}
-
-/* FINAL REFERENCE-LED AGRIBRIDGE HOME PAGE */
-:root{--agri-ink:#183b2c;--agri-forest:#0f3929;--agri-leaf:#3f8c4b;--agri-gold:#e9bd51;--agri-blue:#e8f3fc;--agri-paper:#f8faf5}
-body{background:#f7faf5!important;background-image:radial-gradient(ellipse at 9% 7%,rgba(210,236,205,.55),transparent 30%),radial-gradient(ellipse at 95% 13%,rgba(250,230,187,.4),transparent 29%),linear-gradient(180deg,#fbfcf8 0%,#f4f8f1 70%,#fbf7ef 100%)!important;background-attachment:fixed!important}
-.main{max-width:none;width:100%;padding:0 clamp(22px,3vw,46px) 34px!important}
-.language-toolbar{margin:14px 0 18px!important;border-radius:18px!important;padding:14px 22px!important;box-shadow:0 8px 22px rgba(31,67,43,.055)!important}
-.hero{display:grid!important;grid-template-columns:minmax(0,1.05fr) minmax(390px,.95fr)!important;height:288px!important;min-height:288px!important;max-height:288px!important;overflow:hidden!important;border-radius:22px!important;background:linear-gradient(112deg,#164b35 0%,#1d5b40 59%,#d5e9c7 59%,#c1dfa9 100%)!important;box-shadow:0 12px 30px rgba(24,74,49,.12)!important;margin-bottom:18px!important}
-.hero-copy{min-width:0!important;max-width:none!important;padding:32px clamp(28px,4vw,52px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;z-index:4}
-.hero .eyebrow{font-size:9px!important;letter-spacing:1.8px!important;color:#d7e7db!important;margin-bottom:12px!important}
-.hero h1{font-size:clamp(34px,3.2vw,46px)!important;line-height:1.05!important;letter-spacing:-1.9px!important;margin:0 0 12px!important;max-width:650px!important;white-space:normal!important}
-.hero h1 em{color:#e9c36d!important;font-style:normal!important}
-.hero p{max-width:600px!important;font-size:12px!important;line-height:1.65!important;color:rgba(255,255,255,.83)!important;margin:0 0 16px!important}
-.hero-meta{display:flex!important;flex-wrap:wrap!important;gap:10px!important;font-size:9px!important;color:#d7e6d9!important}
-.hero-art-illustrated{position:relative!important;display:block!important;min-width:0!important;height:288px!important;min-height:288px!important;overflow:hidden!important;background:linear-gradient(180deg,#bfe0f1 0%,#dff1e8 56%,#a9cf7b 57%,#578b4e 100%)!important}
-.hero-art-illustrated:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#1d5b40 0%,rgba(29,91,64,.2) 25%,transparent 60%);z-index:1}
-.hero-art-illustrated:after{content:"";position:absolute;left:-8%;right:-6%;bottom:-55px;height:132px;background:repeating-linear-gradient(170deg,rgba(255,255,255,.16) 0 3px,transparent 3px 24px),linear-gradient(180deg,#7eb25c,#3e7e47);border-radius:52% 45% 0 0/45% 48% 0 0;transform:rotate(-4deg);z-index:1}
-.hero-sun{position:absolute;right:17%;top:22px;width:66px;height:66px;border-radius:50%;background:#ffdb7f;box-shadow:0 0 0 14px rgba(255,255,255,.15)}
-.hero-cloud{position:absolute;width:105px;height:25px;background:rgba(255,255,255,.52);border-radius:40px;filter:blur(1px);top:70px}
-.hero-cloud:before,.hero-cloud:after{content:"";position:absolute;bottom:4px;border-radius:50%;background:inherit}
-.hero-cloud:before{left:18px;width:35px;height:35px}.hero-cloud:after{left:47px;width:43px;height:43px}
-.hero-cloud-one{left:16%}.hero-cloud-two{right:7%;top:102px;transform:scale(.68)}
-.hero-mountain{position:absolute;left:-4%;right:-5%;bottom:49px;height:120px;background:linear-gradient(145deg,#9bc681,#699e63);clip-path:polygon(0 87%,18% 25%,30% 70%,49% 8%,68% 73%,82% 20%,100% 77%,100% 100%,0 100%);opacity:.9}
-.hero-field-back{position:absolute;left:-5%;right:-10%;bottom:0;height:84px;background:linear-gradient(180deg,#a4c76d,#6c9b4c);border-radius:50% 50% 0 0/33% 48% 0 0;z-index:1}
-.hero-field-front{position:absolute;left:20%;right:-12%;bottom:-27px;height:84px;background:linear-gradient(180deg,#84b04f,#477e43);border-radius:50% 50% 0 0/35% 42% 0 0;z-index:2}
-.hero-farm-house{position:absolute;right:6%;bottom:46px;width:68px;height:55px;background:#f9edcf;border:3px solid #d5a45c;z-index:2;border-radius:4px 4px 0 0;box-shadow:0 5px 0 rgba(44,94,42,.15)}
-.hero-farm-house:before{content:"";position:absolute;left:-10px;top:-23px;border-left:44px solid transparent;border-right:44px solid transparent;border-bottom:27px solid #a85d3d}
-.hero-farm-house span{position:absolute;bottom:0;left:25px;width:17px;height:31px;background:#94633e;border-radius:8px 8px 0 0}
-.hero-tractor{position:absolute;z-index:3;bottom:32px;right:20%;font-size:42px;filter:drop-shadow(0 4px 3px rgba(24,56,31,.2))}
-.hero-tractor i,.hero-tractor b,.hero-tractor em{display:none}
-.hero-farmer-pair{position:absolute;z-index:4;bottom:0;right:30%;display:flex;align-items:flex-end;gap:-18px;height:255px}
-.hero-character{height:245px;display:flex;align-items:flex-end}
-.hero-character .farmer-figure-svg{height:245px;width:188px;filter:drop-shadow(0 7px 6px rgba(32,58,36,.16))}
-.hero-character-woman{margin-left:-32px;transform:scale(.88);transform-origin:bottom}
-.hero-art-illustrated .hero-stamp{position:absolute;z-index:5;right:6%;top:18px;width:76px;height:76px;border:1px solid rgba(255,255,255,.75);border-radius:50%;background:rgba(238,198,103,.92);display:flex;align-items:center;justify-content:center;gap:5px;color:#fff}
-.metrics{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:13px!important;margin:16px 0 22px!important;align-items:stretch!important}
-.metric{display:flex!important;align-items:center!important;gap:12px!important;min-width:0!important;min-height:104px!important;height:auto!important;max-height:none!important;overflow:visible!important;padding:14px 15px!important;border-radius:18px!important;background:#fff!important;box-shadow:0 6px 16px rgba(33,66,42,.055)!important}
-.metric-green{background:linear-gradient(140deg,#fff,#eef8eb)!important;border-color:#d8ead5!important}
-.metric-gold{background:linear-gradient(140deg,#fff,#fff6df)!important;border-color:#f1e3c5!important}
-.metric-blue{background:linear-gradient(140deg,#fff,#edf5fb)!important;border-color:#dce9f1!important}
-.metric-coral{background:linear-gradient(140deg,#fff,#fff0e9)!important;border-color:#f0ddd4!important}
-.metric-icon{width:46px!important;height:46px!important;flex:0 0 46px!important;border-radius:14px!important;font-size:22px!important}
-.metric>div{min-width:0!important;flex:1!important}
-.metric small{display:block!important;white-space:normal!important;overflow:visible!important;font-size:8px!important;line-height:1.35!important;letter-spacing:.9px!important;overflow-wrap:anywhere!important;margin-bottom:3px!important}
-.metric strong{display:block!important;font-size:25px!important;line-height:1.05!important;color:#1d4631!important}
-.metric span:not(.metric-icon){display:block!important;font-size:9px!important;line-height:1.35!important;white-space:normal!important}
-.quick-paths{margin:0 0 24px!important;padding:9px 0 0!important}
-.quick-path-heading{margin-bottom:13px!important}
-.quick-path-heading h2{font-size:20px!important}
-.quick-path-grid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:13px!important}
-.quick-path-card{min-width:0!important;min-height:162px!important;padding:15px 16px!important;border-radius:18px!important;border:1px solid rgba(80,120,78,.12)!important}
-.quick-path-card>small{font-size:9px!important;line-height:1.5!important}
-.quick-path-card>b{font-size:12px!important;line-height:1.3!important}
-.quick-path-mascot{width:76px!important;height:76px!important;border-radius:20px!important;position:relative!important;overflow:hidden!important}
-.quick-path-mascot>span{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
-.quick-path-mascot .farmer-figure-svg{width:78px;height:74px}
-.quick-path-mascot i{z-index:3}
-.view{background:transparent!important;border-radius:22px!important}
-.view.active#view-finance{background:linear-gradient(180deg,rgba(255,255,255,.34),rgba(243,249,239,.55))!important}
-.page-character-card{border-radius:20px!important;min-height:132px!important;padding:14px 22px!important}
-.page-character-art.page-character-vector{position:relative!important;display:flex!important;align-items:flex-end!important;justify-content:center!important;flex:0 0 170px!important;width:170px!important;min-width:170px!important;height:128px!important;margin:-12px -4px -10px 0!important;border-radius:16px!important;overflow:hidden!important;background:radial-gradient(circle at 50% 25%,#fff8e5,#e2f1dc 72%)!important;border:2px solid rgba(255,255,255,.85)!important;box-shadow:0 8px 18px rgba(31,64,43,.09)!important}
-.page-character-vector .farmer-figure-svg{width:150px;height:128px}
-.page-character-vector>i{z-index:5}
-.page-action-dock{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 19px}
-.page-action-card{display:flex;align-items:center;gap:10px;min-height:61px;text-align:left;padding:11px 14px;background:#fff;border:1px solid #e5ece2;border-radius:14px;box-shadow:0 4px 13px rgba(30,64,40,.04);cursor:pointer;transition:transform .18s,box-shadow .18s}
-.page-action-card:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(30,64,40,.08)}
-.page-action-card>span{width:34px;height:34px;display:grid;place-items:center;flex:0 0 34px;border-radius:10px;background:#edf6e9;font-size:18px}
-.page-action-card>b{font-size:10px;color:#294b36;flex:1;line-height:1.35}
-.page-action-card>i{font-style:normal;color:#77927e}
-.page-action-assistant .page-action-card:nth-child(2){background:#f4f8ff}
-.page-action-directory .page-action-card:nth-child(2){background:#f2f7ff}
-.page-action-market .page-action-card:nth-child(2){background:#fff8e9}
-.page-action-coverage .page-action-card:nth-child(2){background:#f0f7f7}
-.page-target-highlight{animation:agriTargetPulse 1.1s ease}
-@keyframes agriTargetPulse{0%,100%{box-shadow:none}35%{box-shadow:0 0 0 5px rgba(93,151,76,.2)}}
-@media(max-width:1100px){
- .hero{grid-template-columns:1fr .82fr!important}
- .hero-copy{padding:26px 30px!important}
- .hero h1{font-size:36px!important}
- .hero-farmer-pair{right:25%}
- .hero-character .farmer-figure-svg{width:150px}
- .metrics{grid-template-columns:repeat(2,minmax(0,1fr))!important}
- .quick-path-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
-}
-@media(max-width:760px){
- .main{padding:0 16px 28px!important}
- .hero{height:auto!important;min-height:0!important;max-height:none!important;grid-template-columns:1fr!important}
- .hero-copy{min-height:250px!important;padding:25px!important}
- .hero h1{font-size:36px!important}
- .hero-art-illustrated{height:205px!important;min-height:205px!important}
- .hero-farmer-pair{right:26%;height:195px}
- .hero-character{height:190px}
- .hero-character .farmer-figure-svg{height:190px;width:145px}
- .metrics{grid-template-columns:repeat(2,minmax(0,1fr))!important}
- .quick-path-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
- .page-action-dock{grid-template-columns:1fr}
- .page-character-card{min-height:108px!important}
- .page-character-art.page-character-vector{flex-basis:118px!important;width:118px!important;min-width:118px!important;height:104px!important}
- .page-character-vector .farmer-figure-svg{width:115px;height:105px}
-}
-@media(max-width:520px){
- .hero-copy{min-height:230px!important}
- .hero h1{font-size:32px!important}
- .metrics{grid-template-columns:1fr 1fr!important;gap:8px!important}
- .metric{min-height:93px!important;padding:10px!important;gap:8px!important}
- .metric-icon{width:38px!important;height:38px!important;flex-basis:38px!important}
- .metric strong{font-size:22px!important}
- .quick-path-grid{grid-template-columns:1fr 1fr!important;gap:8px!important}
- .quick-path-card{min-height:154px!important;padding:12px!important}
- .page-character-art.page-character-vector{flex-basis:94px!important;width:94px!important;min-width:94px!important;height:91px!important}
-}
-/* Reference-locked AgriBridge Home: farmer illustration, landscape, tiles, statistics and finder. */
-:root{--ab-deep:#073b2c;--ab-green:#17663d;--ab-gold:#e9b94f;--ab-orange:#df620f;--ab-ink:#123d2c}
-html,body{min-height:100%;background:#fbfcf6!important;color:var(--ab-ink)!important}
-body{font-family:'DM Sans',Arial,sans-serif!important}
-.app-shell{width:100%!important;max-width:none!important;min-height:100vh!important;display:grid!important;grid-template-columns:clamp(270px,18.7vw,312px) minmax(0,1fr)!important;background:#fbfcf6!important}
-.sidebar{position:sticky!important;top:0!important;height:100vh!important;min-height:100vh!important;overflow:hidden!important;display:flex!important;flex-direction:column!important;padding:20px 12px 0!important;background:linear-gradient(180deg,#063a2b 0%,#075039 100%)!important;color:white!important}
-.brand{display:flex!important;align-items:center!important;gap:10px!important;margin:0 8px 65px!important;text-decoration:none!important}
-.brand-mark{width:78px!important;height:82px!important;flex:0 0 78px!important;display:block!important;padding:0!important;border-radius:18px!important;overflow:hidden!important;background:#f1c44e!important;font-size:0!important}
+/* AgriBridge Home — faithful recreation of the supplied dashboard reference. */
+:root{--ref-green:#06402e;--ref-green-2:#17613d;--ref-gold:#efc34f;--ref-orange:#e45d0c;--ref-ink:#102d24;--ref-paper:#fbfcf6}
+html,body{min-height:100%;background:var(--ref-paper)!important;color:var(--ref-ink)!important}
+.app-shell{width:100%!important;max-width:none!important;min-height:100vh!important;display:grid!important;grid-template-columns:312px minmax(0,1fr)!important;background:var(--ref-paper)!important}
+.sidebar{position:sticky!important;top:0!important;height:100vh!important;min-height:100vh!important;overflow:hidden!important;display:flex!important;flex-direction:column!important;padding:20px 12px 0!important;background:linear-gradient(180deg,#063b2d 0%,#06442f 100%)!important;color:#fff!important}
+.brand{display:flex!important;align-items:center!important;gap:10px!important;margin:0 8px 64px!important;text-decoration:none!important}
+.brand-mark{width:80px!important;height:82px!important;flex:0 0 80px!important;display:block!important;padding:0!important;border-radius:18px!important;overflow:hidden!important;background:#f1c44e!important;font-size:0!important}
 .brand-mark svg{display:block!important;width:100%!important;height:100%!important}
 .brand strong{display:block!important;font:800 28px/1 Manrope,sans-serif!important;letter-spacing:-1px!important;color:#fff!important}
 .brand strong span{color:#f0c259!important}
 .brand small{display:block!important;max-width:190px!important;margin-top:8px!important;color:#e4eee5!important;font:700 10px/1.45 'DM Sans',sans-serif!important;letter-spacing:1.4px!important}
 .side-label{margin:0 0 12px 10px!important;color:#a7c1b2!important;font-size:9px!important;letter-spacing:1.65px!important}
 .side-nav{display:grid!important;gap:7px!important}
-.nav-item{min-height:50px!important;padding:12px 13px!important;border-radius:11px!important;display:flex!important;align-items:center!important;gap:13px!important;color:#e1eee5!important;font:700 14px 'DM Sans',sans-serif!important;background:transparent!important;border:1px solid transparent!important}
-.nav-item span{width:22px!important;flex:0 0 22px!important;font-size:23px!important;color:#fff!important}
+.nav-item{type:button;min-height:50px!important;padding:12px 13px!important;border-radius:11px!important;display:flex!important;align-items:center!important;gap:13px!important;color:#e1eee5!important;font:700 15px 'DM Sans',sans-serif!important;background:transparent!important;border:1px solid transparent!important;text-align:left!important;cursor:pointer!important;width:100%!important}
+.nav-item span{width:22px!important;flex:0 0 22px!important;display:grid!important;place-items:center!important;font-size:23px!important;color:#fff!important}
+.nav-item span svg{display:block!important;width:23px!important;height:23px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.9!important;stroke-linecap:round!important;stroke-linejoin:round!important}
 .nav-item:hover{background:#174f38!important}
 .nav-item.active{color:#fff!important;background:linear-gradient(100deg,#4e8b47,#5a9345)!important;border:1px solid #e3c359!important;box-shadow:0 5px 14px #022e2044,inset 4px 0 #f1c451!important}
-.sidebar-farmer-art{position:relative!important;display:block!important;flex:1 1 auto!important;min-height:250px!important;height:auto!important;width:calc(100% + 24px)!important;margin:15px -12px 0!important;overflow:hidden!important;background:#0a392b!important}
-.sidebar-farmer-art>svg{display:block!important;width:100%!important;height:100%!important}
+.sidebar-farmer-art{position:relative!important;display:block!important;flex:1 1 auto!important;min-height:300px!important;height:auto!important;width:calc(100% + 24px)!important;margin:12px -12px 0!important;overflow:hidden!important;background-color:#073b2c!important;background-image:url('assets/sidebar-reference.webp')!important;background-repeat:no-repeat!important;background-position:center bottom!important;background-size:100% auto!important}
+.sidebar-farmer-art svg{display:none!important}
 .sidebar-bottom{display:none!important}
-.main{min-width:0!important;width:100%!important;max-width:none!important;padding:0!important;background:#fbfcf6!important;overflow:hidden!important}
-.topbar{min-height:56px!important;height:56px!important;padding:0 24px!important;margin:0!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:14px!important;background:linear-gradient(90deg,#e8f3f8,#f8fbf9)!important;border-bottom:1px solid #dce8e7!important}
+.main{min-width:0!important;width:100%!important;max-width:none!important;padding:0!important;margin:0!important;background:var(--ref-paper)!important;overflow:hidden!important}
+.topbar{min-height:56px!important;height:56px!important;padding:0 24px 0 42px!important;margin:0!important;display:flex!important;align-items:center!important;justify-content:space-between!important;gap:14px!important;background:linear-gradient(90deg,#e8f3f8,#f8fbf9)!important;border-bottom:1px solid #dce8e7!important}
 .breadcrumb{font:800 11px 'DM Sans',sans-serif!important;letter-spacing:1.4px!important;color:#173f33!important}
 .breadcrumb span{padding:0 10px!important;color:#9aada8!important}.breadcrumb strong{color:#123a2d!important}
 .top-right{display:flex!important;align-items:center!important;gap:13px!important}
@@ -750,21 +587,22 @@ body{font-family:'DM Sans',Arial,sans-serif!important}
 .topbar-language .language-picker small{font-size:7px!important;line-height:1!important;color:#7d8c85!important;text-align:right!important}
 .language-toolbar{display:none!important}
 .review-pill{display:flex!important;align-items:center!important;gap:8px!important;color:#5b6a63!important;font-size:10px!important;white-space:nowrap!important}.review-pill i{width:8px!important;height:8px!important;background:#73bb86!important}
-.topbar-bell{position:relative!important;font-size:20px!important;color:#4e6259!important}.topbar-bell i{position:absolute!important;right:-2px!important;top:0!important;width:7px!important;height:7px!important;border-radius:50%!important;background:#f14b4b!important;border:1px solid white!important}
+.topbar-bell{position:relative!important;font-size:20px!important;color:#4e6259!important}.topbar-bell svg{display:block!important;width:22px!important;height:22px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.7!important;stroke-linecap:round!important;stroke-linejoin:round!important}.topbar-bell i{position:absolute!important;right:-2px!important;top:0!important;width:7px!important;height:7px!important;border-radius:50%!important;background:#f14b4b!important;border:1px solid #fff!important}
 .avatar{width:38px!important;height:38px!important;background:#e7ede6!important;color:#1d4533!important;font-weight:800!important}
 .view{display:none!important;min-height:0!important;padding:0!important;background:transparent!important}.view.active{display:block!important}
-#view-home{display:block!important;padding:0 0 34px!important;margin:0!important;background:#fbfcf6!important}
-#view-home .hero{position:relative!important;isolation:isolate!important;display:block!important;height:268px!important;min-height:268px!important;width:100%!important;margin:0!important;padding:0!important;overflow:hidden!important;border:0!important;border-radius:0!important;background:linear-gradient(180deg,#c9e8f4 0%,#e9f4e8 68%,#b7d56d 100%)!important;box-shadow:none!important}
-#view-home .hero-art-photo{position:absolute!important;inset:0!important;z-index:0!important;width:100%!important;height:100%!important;display:block!important;min-height:0!important;overflow:hidden!important;background:transparent!important}
-#view-home .hero-scene-svg{display:block!important;width:100%!important;height:100%!important}
-#view-home .hero-art-photo:before{content:""!important;position:absolute!important;inset:0!important;z-index:1!important;background:linear-gradient(90deg,#e7f4f8 0%,rgba(231,244,248,.98) 35%,rgba(231,244,248,.8) 47%,rgba(231,244,248,.08) 68%,transparent 100%)!important}
-#view-home .hero-copy{position:relative!important;z-index:3!important;width:62%!important;height:100%!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center!important;padding:20px clamp(34px,3.5vw,58px)!important;background:transparent!important}
-#view-home .eyebrow{display:inline-flex!important;align-items:center!important;gap:9px!important;padding:9px 17px!important;border-radius:30px!important;background:rgba(255,255,255,.9)!important;color:#17452f!important;font-size:10px!important;letter-spacing:1px!important;font-weight:800!important;box-shadow:0 2px 7px #294b3710!important}
+#view-home{display:block!important;padding:0 0 34px!important;margin:0!important;background:var(--ref-paper)!important}
+
+/* Hero height, text position and crop are matched to the 1672 × 941 reference. */
+#view-home .hero{position:relative!important;isolation:isolate!important;display:block!important;height:268px!important;min-height:268px!important;width:100%!important;margin:0!important;padding:0!important;overflow:hidden!important;border:0!important;border-radius:0!important;background:linear-gradient(180deg,#c8e7f5 0%,#e8f3e9 78%,#d5eaa2 100%)!important;box-shadow:none!important}
+#view-home .hero-art-photo{position:absolute!important;right:0!important;top:0!important;z-index:0!important;width:51.6%!important;height:100%!important;min-height:0!important;display:block!important;overflow:hidden!important;background-color:#bfe2f2!important;background-image:url('assets/hero-reference.webp')!important;background-repeat:no-repeat!important;background-size:100% 100%!important;background-position:center center!important}
+#view-home .hero-art-photo:before{content:""!important;position:absolute!important;left:-1px!important;top:0!important;bottom:0!important;width:18%!important;background:linear-gradient(90deg,#d8eff8 0%,rgba(216,239,248,.0) 100%)!important}
+#view-home .hero-copy{position:relative!important;z-index:3!important;width:64%!important;height:100%!important;display:flex!important;flex-direction:column!important;align-items:flex-start!important;justify-content:center!important;padding:17px 40px 17px 56px!important;background:linear-gradient(90deg,#e5f2f7 0%,#e5f2f7 70%,rgba(229,242,247,.94) 84%,rgba(229,242,247,0) 100%)!important}
+#view-home .eyebrow{display:inline-flex!important;align-items:center!important;gap:9px!important;padding:9px 17px!important;border-radius:30px!important;background:rgba(255,255,255,.93)!important;color:#17452f!important;font-size:10px!important;letter-spacing:1px!important;font-weight:800!important;box-shadow:0 2px 7px #294b3710!important}
 #view-home .eyebrow-line{display:none!important}
-#view-home .hero h1{max-width:none!important;margin:13px 0 7px!important;white-space:nowrap!important;color:#06442f!important;font:800 clamp(34px,3vw,48px)/1.08 Manrope,sans-serif!important;letter-spacing:-1.9px!important;text-shadow:0 1px 0 #ffffff66!important}
-#view-home .hero h1 em{font-style:normal!important;color:#dc5c0d!important}
-#view-home .hero p{max-width:560px!important;margin:0!important;color:#192e2a!important;font:500 15px/1.42 'DM Sans',sans-serif!important}
-#view-home .hero-badges{display:flex!important;align-items:center!important;flex-wrap:nowrap!important;width:max-content!important;max-width:100%!important;margin-top:11px!important;padding:5px 9px!important;border-radius:30px!important;border:1px solid #e6eee7!important;background:rgba(255,255,255,.94)!important;box-shadow:0 4px 10px #193d2c15!important;color:#172c24!important}
+#view-home .hero h1{max-width:none!important;margin:12px 0 7px!important;white-space:nowrap!important;color:#06442f!important;font:800 clamp(38px,3.0vw,49px)/1.05 Manrope,sans-serif!important;letter-spacing:-1.8px!important;text-shadow:0 1px 0 #ffffff66!important}
+#view-home .hero h1 em{font-style:normal!important;color:#df5d0b!important}
+#view-home .hero p{max-width:570px!important;margin:0!important;color:#162f28!important;font:500 15px/1.42 'DM Sans',sans-serif!important}
+#view-home .hero-badges{display:flex!important;align-items:center!important;flex-wrap:nowrap!important;width:max-content!important;max-width:100%!important;margin-top:11px!important;padding:5px 9px!important;border-radius:30px!important;border:1px solid #e6eee7!important;background:rgba(255,255,255,.96)!important;box-shadow:0 4px 10px #193d2c15!important;color:#172c24!important}
 #view-home .hero-badges>span{display:flex!important;align-items:center!important;gap:8px!important;padding:5px 13px!important}
 #view-home .hero-badges>span+span{border-left:1px solid #e3e8e1!important}
 #view-home .hero-badges i{font-style:normal!important;font-size:22px!important;color:#239447!important}
@@ -773,44 +611,51 @@ body{font-family:'DM Sans',Arial,sans-serif!important}
 #view-home .hero-stamp{position:absolute!important;z-index:5!important;right:22px!important;top:20px!important;width:76px!important;height:76px!important;border:2px solid rgba(255,255,255,.82)!important;border-radius:50%!important;background:#efc45a!important;color:#fff!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:4px!important;box-shadow:0 5px 15px #25472c26!important}
 #view-home .hero-stamp strong{font:800 26px Manrope!important}#view-home .hero-stamp span{font:700 7px/1.2 'DM Sans',sans-serif!important;letter-spacing:.45px!important}
 #view-home .hero-farmer-pair{display:none!important}
-#view-home .quick-paths{margin:12px 24px 13px!important;padding:0!important}#view-home .quick-path-heading{display:none!important}
+
+/* Four bright destination tiles retain their data-quick-action behaviour. */
+#view-home .quick-paths{margin:12px 25px 19px!important;padding:0!important}#view-home .quick-path-heading{display:none!important}
 #view-home .quick-path-grid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:13px!important;margin:0!important;padding:0!important}
-#view-home .quick-path-card{position:relative!important;display:flex!important;align-items:center!important;justify-content:flex-start!important;flex-direction:row!important;gap:13px!important;min-width:0!important;min-height:108px!important;height:108px!important;padding:12px 15px!important;border:1px solid transparent!important;border-radius:19px!important;text-align:left!important;box-shadow:0 4px 11px #163c2708!important;cursor:pointer!important;transition:transform .16s ease,box-shadow .16s ease!important}
+#view-home .quick-path-card{position:relative!important;display:flex!important;align-items:center!important;justify-content:flex-start!important;flex-direction:row!important;gap:12px!important;min-width:0!important;min-height:108px!important;height:108px!important;padding:10px 14px!important;border:1px solid transparent!important;border-radius:19px!important;text-align:left!important;box-shadow:0 4px 11px #163c2708!important;cursor:pointer!important;transition:transform .16s ease,box-shadow .16s ease!important}
 #view-home .quick-path-card:hover{transform:translateY(-2px)!important;box-shadow:0 8px 17px #163c271c!important}
-#view-home .quick-path-icon{width:80px!important;height:80px!important;flex:0 0 80px!important;display:grid!important;place-items:center!important;margin:0!important;border-radius:12px!important;background:transparent!important;overflow:hidden!important}
+#view-home .quick-path-card:focus-visible{outline:3px solid #39834e!important;outline-offset:2px!important}
+#view-home .quick-path-icon{width:72px!important;height:78px!important;flex:0 0 72px!important;display:grid!important;place-items:center!important;margin:0!important;border-radius:12px!important;background:transparent!important;overflow:hidden!important}
 #view-home .quick-path-icon svg{display:block!important;width:100%!important;height:100%!important}
 #view-home .quick-path-copy{display:flex!important;flex:1 1 auto!important;min-width:0!important;flex-direction:column!important;align-items:flex-start!important;gap:3px!important;text-align:left!important}
 #view-home .quick-path-copy .quick-path-tag{display:none!important}
 #view-home .quick-path-copy>b{display:block!important;margin:0!important;color:#18231d!important;font:800 16px/1.12 Manrope,sans-serif!important;letter-spacing:-.35px!important}
 #view-home .quick-path-copy>small{display:block!important;color:#263d32!important;font:500 12px/1.28 'DM Sans',sans-serif!important}
 #view-home .quick-path-copy .quick-path-link{display:none!important}
-#view-home .quick-path-card:after{content:"→"!important;display:grid!important;place-items:center!important;flex:0 0 34px!important;width:34px!important;height:34px!important;border-radius:50%!important;background:#ffffffbf!important;color:#1d4e30!important;font-size:21px!important}
+#view-home .quick-path-card:after{content:"→"!important;display:grid!important;place-items:center!important;flex:0 0 32px!important;width:32px!important;height:32px!important;border-radius:50%!important;background:#ffffffbf!important;color:#1d4e30!important;font-size:21px!important}
 #view-home .quick-schemes{background:linear-gradient(110deg,#e6f5dc,#d9edcf)!important;border-color:#d6e9cc!important}
 #view-home .quick-loans{background:linear-gradient(110deg,#e2f2ff,#d5eafb)!important;border-color:#d1e6f5!important}
 #view-home .quick-calculator{background:linear-gradient(110deg,#fff3d1,#ffebad)!important;border-color:#f0e1b7!important}
 #view-home .quick-local{background:linear-gradient(110deg,#fbe8ef,#f6dce8)!important;border-color:#efdbe4!important}
-#view-home .metrics{position:relative!important;isolation:isolate!important;display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:0!important;margin:0 24px 14px!important;padding:8px 166px!important;min-height:116px!important;border:1px solid #e6dfc7!important;border-radius:23px!important;background:linear-gradient(90deg,#fffef9,#fff)!important;box-shadow:0 3px 12px #23492b0a!important;overflow:hidden!important}
+
+/* Four compact KPIs with decorative agricultural end-caps. */
+#view-home .metrics{position:relative!important;isolation:isolate!important;display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:0!important;margin:0 25px 14px!important;padding:8px 115px 8px 185px!important;min-height:116px!important;border:1px solid #e6dfc7!important;border-radius:23px!important;background:linear-gradient(90deg,#fffef9,#fff)!important;box-shadow:0 3px 12px #23492b0a!important;overflow:hidden!important}
 #view-home .metrics:before,#view-home .metrics:after{content:""!important;position:absolute!important;z-index:-1!important;top:0!important;bottom:0!important;width:150px!important;pointer-events:none!important}
 #view-home .metrics:before{left:0!important;background:radial-gradient(ellipse at 35% 70%,#a6c46b 0 13%,transparent 14%),radial-gradient(ellipse at 27% 48%,#67a84f 0 18%,transparent 19%),linear-gradient(160deg,transparent 45%,#f7edbd 46%,#f7edbd 50%,transparent 51%)!important}
 #view-home .metrics:after{right:0!important;background:radial-gradient(ellipse at 82% 23%,#e9bd4c 0 5%,transparent 6%),linear-gradient(72deg,transparent 45%,#9fc24d 46% 49%,transparent 50%),linear-gradient(105deg,transparent 58%,#e5b64a 59% 62%,transparent 63%)!important}
-#view-home .metric{display:flex!important;align-items:center!important;gap:12px!important;min-width:0!important;min-height:93px!important;padding:8px 17px!important;background:transparent!important;border:0!important;border-right:1px solid #e5e5d9!important;border-radius:0!important;box-shadow:none!important}
+#view-home .metric{display:flex!important;align-items:center!important;gap:11px!important;min-width:0!important;min-height:93px!important;padding:8px 13px!important;background:transparent!important;border:0!important;border-right:1px solid #e5e5d9!important;border-radius:0!important;box-shadow:none!important}
 #view-home .metric:last-child{border-right:0!important}
-#view-home .metric-icon{flex:0 0 66px!important;width:66px!important;height:66px!important;margin:0!important;display:grid!important;place-items:center!important;border-radius:50%!important;background:transparent!important;overflow:hidden!important}
+#view-home .metric-icon{flex:0 0 62px!important;width:62px!important;height:62px!important;margin:0!important;display:grid!important;place-items:center!important;border-radius:50%!important;background:transparent!important;overflow:hidden!important}
 #view-home .metric-icon svg{width:100%!important;height:100%!important;display:block!important}
 #view-home .metric small{display:block!important;color:#819289!important;font-size:9px!important;font-weight:800!important;letter-spacing:.9px!important;line-height:1.25!important;white-space:normal!important;margin:0 0 3px!important}
 #view-home .metric strong{display:block!important;margin:0!important;color:#183f2c!important;font:800 29px/1.08 Manrope,sans-serif!important;letter-spacing:-.7px!important}
 #view-home .metric div>span{display:block!important;margin-top:2px!important;color:#485f53!important;font-size:11px!important;line-height:1.24!important}
-#view-home .home-finder-panel{position:relative!important;margin:0 24px!important;padding:0!important;border:0!important;border-radius:0!important;overflow:visible!important;background:transparent!important;box-shadow:none!important}
-#view-home .home-finder-heading{position:relative!important;display:flex!important;align-items:center!important;gap:14px!important;min-height:125px!important;padding:9px 20px 11px!important;border:0!important;background:transparent!important}
+
+/* Support illustration is the exact farmer-and-woman crop from the reference. */
+#view-home .home-finder-panel{position:relative!important;margin:0 25px!important;padding:0!important;border:0!important;border-radius:0!important;overflow:visible!important;background:transparent!important;box-shadow:none!important}
+#view-home .home-finder-heading{position:relative!important;display:flex!important;align-items:center!important;gap:14px!important;min-height:145px!important;padding:26px 20px 11px!important;border:0!important;background:transparent!important}
 #view-home .home-finder-step{display:none!important}
-#view-home .home-finder-heading>div:nth-child(2){position:relative!important;z-index:2!important;max-width:600px!important}
+#view-home .home-finder-heading>div:nth-child(2){position:relative!important;z-index:2!important;max-width:650px!important}
 #view-home .home-finder-heading .section-kicker{display:flex!important;align-items:center!important;gap:12px!important;color:#315a43!important;font-size:10px!important;letter-spacing:1.4px!important}
 #view-home .home-finder-heading .section-kicker:before{content:""!important;width:35px!important;height:2px!important;background:#f18a24!important}
-#view-home .home-finder-heading h2{display:block!important;position:relative!important;width:max-content!important;max-width:100%!important;margin:11px 0 8px!important;color:#102e24!important;font:800 33px/1.1 Manrope,sans-serif!important;letter-spacing:-1.1px!important}
+#view-home .home-finder-heading h2{display:block!important;position:relative!important;width:max-content!important;max-width:100%!important;margin:11px 0 8px!important;color:#102e24!important;font:800 34px/1.1 Manrope,sans-serif!important;letter-spacing:-1.1px!important}
 #view-home .home-finder-heading h2:after{content:""!important;position:absolute!important;right:-8px!important;bottom:-4px!important;width:33%!important;height:9px!important;border-radius:8px!important;background:#ffda38!important;z-index:-1!important}
 #view-home .home-finder-heading p{margin:0!important;color:#4e6258!important;font-size:14px!important;line-height:1.4!important}
-#view-home .home-finder-people{display:block!important;position:absolute!important;right:0!important;top:0!important;bottom:0!important;width:370px!important;height:148px!important;margin:auto 0!important;overflow:visible!important;z-index:1!important}
-#view-home .home-finder-people svg{display:block!important;width:100%!important;height:100%!important}
+#view-home .home-finder-people{display:block!important;position:absolute!important;right:0!important;top:0!important;bottom:0!important;width:375px!important;height:170px!important;margin:auto 0!important;overflow:hidden!important;z-index:1!important;background-image:url('assets/finder-reference.webp')!important;background-repeat:no-repeat!important;background-position:center center!important;background-size:contain!important}
+#view-home .home-finder-people svg{display:none!important}
 #view-home .home-finder-form{position:relative!important;z-index:2!important;margin:0 28px!important;padding:13px 20px 17px!important;border:2px solid #f3e5c5!important;border-radius:24px!important;background:linear-gradient(120deg,#fffefa,#fff)!important;box-shadow:0 6px 18px #28502e0c!important}
 #view-home .home-finder-progress{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;align-items:center!important;gap:0!important;padding:0 10px 12px!important;border-bottom:1px solid #e6e8dd!important}
 #view-home .home-finder-progress span{display:flex!important;align-items:center!important;gap:9px!important;min-width:0!important;padding:0 13px!important;color:#1f3027!important;font:800 15px/1.15 Manrope,sans-serif!important}
@@ -823,30 +668,34 @@ body{font-family:'DM Sans',Arial,sans-serif!important}
 #view-home .home-finder-submit{display:flex!important;align-items:center!important;justify-content:center!important;gap:9px!important;min-width:172px!important;height:44px!important;padding:0 15px!important;border:0!important;border-radius:22px!important;background:linear-gradient(110deg,#257f29,#176426)!important;color:#fff!important;box-shadow:0 4px 10px #1d6b2933!important;font:800 12px 'DM Sans',sans-serif!important;cursor:pointer!important}
 #view-home .home-finder-submit:hover{filter:brightness(1.08)!important;transform:translateY(-1px)!important}
 #view-home .home-finder-submit b{display:none!important}
+
+/* All secondary routes remain distinct and the sidebar stays live on every route. */
 #view-finance,#view-assistant,#view-directory,#view-ngo,#view-market,#view-coverage{margin:0!important;padding:22px 25px 30px!important;border:0!important;border-radius:0!important;background:linear-gradient(150deg,#fbfcf6,#f4f8f1)!important}
-#view-finance .finder-panel,#view-assistant .assistant-card,#view-directory .directory-panel,#view-market .market-card,#view-coverage .coverage-card{border-radius:15px!important}
 .page-character-card{border-radius:17px!important;box-shadow:0 7px 18px #234a2c0c!important}
+.nav-item:focus-visible{outline:3px solid #f1c451!important;outline-offset:2px!important}
 @media(max-width:1250px){
- .app-shell{grid-template-columns:270px minmax(0,1fr)!important}.brand{margin-bottom:42px!important}.brand-mark{width:65px!important;height:68px!important;flex-basis:65px!important}.brand strong{font-size:23px!important}.nav-item{min-height:46px!important;font-size:12px!important}
+ .app-shell{grid-template-columns:270px minmax(0,1fr)!important}
+ .brand{margin-bottom:42px!important}.brand-mark{width:65px!important;height:68px!important;flex-basis:65px!important}.brand strong{font-size:23px!important}.nav-item{min-height:46px!important;font-size:12px!important}
  #view-home .hero-copy{width:66%!important;padding-left:35px!important}#view-home .hero h1{font-size:clamp(32px,3vw,40px)!important}#view-home .hero p{font-size:12px!important}
  #view-home .quick-paths,#view-home .metrics,#view-home .home-finder-panel{margin-left:17px!important;margin-right:17px!important}
  #view-home .quick-path-card{padding:9px!important;gap:8px!important}#view-home .quick-path-icon{width:60px!important;height:65px!important;flex-basis:60px!important}
  #view-home .quick-path-copy>b{font-size:12px!important}#view-home .quick-path-copy>small{font-size:9px!important}
- #view-home .metrics{padding-left:110px!important;padding-right:110px!important}#view-home .metric{padding:8px 10px!important;gap:8px!important}#view-home .metric-icon{width:52px!important;height:52px!important;flex-basis:52px!important}
+ #view-home .metrics{padding-left:95px!important;padding-right:95px!important}#view-home .metric{padding:8px 9px!important;gap:7px!important}#view-home .metric-icon{width:48px!important;height:48px!important;flex-basis:48px!important}
  #view-home .home-finder-form{margin:0 14px!important}#view-home .home-finder-fields{grid-template-columns:repeat(2,minmax(0,1fr))!important}#view-home .home-finder-submit{grid-column:1/-1!important}
 }
 @media(max-width:900px){
- .app-shell{grid-template-columns:1fr!important}.sidebar{position:relative!important;top:auto!important;width:100%!important;height:auto!important;min-height:0!important;padding:9px 14px!important}
+ .app-shell{grid-template-columns:1fr!important}
+ .sidebar{position:relative!important;top:auto!important;width:100%!important;height:auto!important;min-height:0!important;padding:9px 14px!important}
  .brand{margin:0 0 7px!important}.brand-mark{width:42px!important;height:44px!important;flex-basis:42px!important}.brand strong{font-size:18px!important}.brand small{font-size:7px!important;margin-top:3px!important}
  .side-label,.sidebar-farmer-art,.sidebar-bottom{display:none!important}.side-nav{display:flex!important;overflow-x:auto!important;gap:4px!important;padding:2px 0 4px!important}
- .nav-item{min-height:36px!important;flex:0 0 auto!important;padding:7px 9px!important;font-size:10px!important;white-space:nowrap!important}.nav-item span{font-size:14px!important;width:16px!important;flex-basis:16px!important}
+ .nav-item{min-height:36px!important;flex:0 0 auto!important;padding:7px 9px!important;font-size:10px!important;white-space:nowrap!important;width:auto!important}.nav-item span{font-size:14px!important;width:16px!important;flex-basis:16px!important}
  .main{padding:0!important}.topbar{height:52px!important;min-height:52px!important;padding:0 14px!important}
  #view-home .hero{height:236px!important;min-height:236px!important}#view-home .hero-copy{width:70%!important;padding:18px 25px!important}
  #view-home .hero h1{font-size:clamp(29px,4.1vw,38px)!important}#view-home .hero-badges b{font-size:9px!important}
  #view-home .quick-paths,#view-home .metrics,#view-home .home-finder-panel{margin-left:14px!important;margin-right:14px!important}
  #view-home .quick-path-grid{gap:8px!important}#view-home .quick-path-card{height:96px!important;min-height:96px!important}
  #view-home .quick-path-icon{width:48px!important;height:55px!important;flex-basis:48px!important}#view-home .quick-path-card:after{display:none!important}
- #view-home .metrics{padding-left:65px!important;padding-right:65px!important}#view-home .metric{padding:7px!important}#view-home .metric-icon{width:42px!important;height:42px!important;flex-basis:42px!important}
+ #view-home .metrics{padding-left:45px!important;padding-right:45px!important}#view-home .metric{padding:7px!important}#view-home .metric-icon{width:42px!important;height:42px!important;flex-basis:42px!important}
  #view-home .metric strong{font-size:22px!important}#view-home .home-finder-people{width:280px!important;height:112px!important}#view-home .home-finder-heading{min-height:110px!important}#view-home .home-finder-heading h2{font-size:27px!important}
 }
 @media(max-width:640px){
@@ -875,19 +724,4 @@ body{font-family:'DM Sans',Arial,sans-serif!important}
  #view-home .home-finder-fields{grid-template-columns:1fr 1fr!important;gap:8px!important;padding:10px 0 0!important}#view-home .home-finder-fields label>span{font-size:7px!important}#view-home .home-finder-fields select{height:38px!important;font-size:9px!important}
  #view-home .home-finder-submit{grid-column:1/-1!important;width:100%!important}
  #view-finance,#view-assistant,#view-directory,#view-ngo,#view-market,#view-coverage{padding:14px 11px 22px!important}
-}
-
-/* Final geometry calibration to match the supplied 1672 × 941 reference. */
-@media(min-width:1251px){
- .brand{margin-bottom:73px!important}
- .side-label{display:none!important}
- .nav-item{font-size:15px!important;min-height:50px!important}
- .nav-item span{display:grid!important;place-items:center!important}
- .nav-item span svg{display:block!important;width:23px!important;height:23px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.9!important;stroke-linecap:round!important;stroke-linejoin:round!important}
- .topbar-bell svg{display:block!important;width:22px!important;height:22px!important;fill:none!important;stroke:currentColor!important;stroke-width:1.7!important;stroke-linecap:round!important;stroke-linejoin:round!important}
- #view-home .quick-paths{margin-bottom:19px!important}
- #view-home .metrics{padding:8px 120px 8px 190px!important;margin-bottom:14px!important}
- #view-home .home-finder-heading{min-height:145px!important;padding:28px 20px 11px!important}
- #view-home .home-finder-heading h2{font-size:35px!important}
- #view-home .home-finder-form{margin:0 18px!important}
 }

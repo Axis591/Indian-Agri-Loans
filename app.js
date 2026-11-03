@@ -622,7 +622,7 @@ function addPageCharacter(view){
     banner.innerHTML='<div class="page-character-text"><span>'+item.eyebrow+'</span><b>'+item.title+'</b><small>'+item.copy+'</small></div><div class="page-character-art page-character-vector">'+farmerFigureSvg(view==='assistant'?'woman':view==='ngo'?'ngo':view==='market'?'market':view==='coverage'?'data':view==='directory'?'banker':'farmer')+'<i aria-hidden="true">✦</i></div>';
     node.insertAdjacentElement('afterend',banner);
   }
-  addPageActionDock(view,node.parentElement);
+  addPageActionDock(view,node.parentElement,node);
   window.refreshAgriTranslation?.();
 }
 const pageActionItems={
@@ -632,15 +632,16 @@ const pageActionItems={
   market:[['💹','Mandi price search','#market-price-form'],['🛒','Market price results','#market-price-results'],['🤝','Selling channels','#market-links-heading']],
   coverage:[['🗺️','State directory','#state-coverage-list'],['📚','Research workstreams','#state-workstream-register'],['📍','Selected district','#coverage-selected-detail']]
 };
-function addPageActionDock(view,parent){
+function addPageActionDock(view,parent,anchor){
   if(!parent||parent.querySelector(':scope > .page-action-dock'))return;
   const items=pageActionItems[view];
-  if(!items)return;
+  if(!items||!anchor)return;
   const dock=document.createElement('div');
   dock.className='page-action-dock page-action-'+view;
   dock.innerHTML=items.map(([icon,label,target])=>'<button type="button" class="page-action-card" data-page-target="'+target+'"><span>'+icon+'</span><b>'+label+'</b><i>↘</i></button>').join('');
   const banner=parent.querySelector(':scope > .page-character-card');
-  (banner||node).insertAdjacentElement('afterend',dock);
+  const insertionPoint=banner||anchor;
+  insertionPoint.insertAdjacentElement('afterend',dock);
   dock.querySelectorAll('[data-page-target]').forEach(button=>button.addEventListener('click',()=>{
     const target=button.dataset.pageTarget;
     const el=target.startsWith('#')?document.querySelector(target):null;
@@ -675,12 +676,13 @@ function switchView(view,options={}){
   const breadcrumb=$('#breadcrumb-page');
   if(breadcrumb)breadcrumb.textContent=pageRouteTitles[view];
   document.title=pageRouteTitles[view].replace(/\b\w/g,c=>c.toUpperCase())+' | AgriBridge';
-  addPageCharacter(view);
   if(options.push!==false){
     const url=new URL(window.location.href);
     url.searchParams.set('page',pageRouteSlugs[view]);
     window.history.pushState({page:view},'',url);
   }
+  // A decorative banner must never be able to block a real page navigation.
+  try{addPageCharacter(view);}catch(error){console.error('AgriBridge page decoration failed:',error);}
   if(options.scroll!==false)window.scrollTo({top:0,behavior:'smooth'});
 }
 
@@ -710,7 +712,16 @@ sortSelect.addEventListener('change',render);
 $('#directory-type')?.addEventListener('change',renderDirectory);
 $('#directory-provider')?.addEventListener('change',renderDirectory);
 $('#reset-filters').addEventListener('click',()=>{stateSelect.value='West Bengal';profileSelect.value='all';typeSelect.value='all';providerSelect.value='all';sortSelect.value='relevance';populateDistricts('Paschim Medinipur');});
-document.querySelectorAll('.nav-item').forEach(btn=>btn.addEventListener('click',()=>{switchView(btn.dataset.view);if(btn.dataset.view==='directory')renderDirectory();if(btn.dataset.view==='assistant'||btn.dataset.view==='ngo')updateAssistantLocation();}));
+const sideNavigation=document.querySelector('.side-nav');
+sideNavigation?.addEventListener('click',event=>{
+  const btn=event.target.closest('.nav-item[data-view]');
+  if(!btn||!sideNavigation.contains(btn))return;
+  event.preventDefault();
+  const destination=btn.dataset.view;
+  switchView(destination);
+  if(destination==='directory')renderDirectory();
+  if(destination==='assistant'||destination==='ngo')updateAssistantLocation();
+});
 $('#dialog-close').addEventListener('click',()=>$('#detail-dialog').close());
 $('#detail-dialog').addEventListener('click',e=>{if(e.target===$('#detail-dialog'))$('#detail-dialog').close();});
 

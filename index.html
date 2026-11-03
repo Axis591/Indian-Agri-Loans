@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20261103-reference-100" />
+  <link rel="stylesheet" href="styles.css?v=20261103-reference-exact-functional" />
 </head>
 <body data-page="home">
   <div class="app-shell">
@@ -29,7 +29,7 @@
       </a>
       <div class="side-label">WORKSPACE</div>
       <nav class="side-nav" aria-label="Main navigation">
-        <button class="nav-item active" data-view="home"><span><svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5M5.5 10v10h13V10M9.5 20v-6h5v6"/></svg></span> Home</button>
+        <button type="button" class="nav-item active" data-view="home"><span><svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5M5.5 10v10h13V10M9.5 20v-6h5v6"/></svg></span> Home</button>
         <button class="nav-item" data-view="finance"><span><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg></span> Finance Finder</button>
         <button class="nav-item" data-view="assistant"><span><svg viewBox="0 0 24 24"><path d="M2.5 12.5 7 8l4 2 3.5-2.5 7 5-4 5-4-2-3 2-5-3z"/><path d="m7 8 3.5 4 3-2.5M2.5 12.5l-1 2 4 3 2-1M21.5 12.5l1 2-4 4-2-1"/></svg></span> My Support</button>
         <button class="nav-item" data-view="directory"><span><svg viewBox="0 0 24 24"><path d="M3 9h18L12 4zM5 10v9m4-9v9m6-9v9m4-9v9M3 21h18"/></svg></span> Schemes &amp; Lenders</button>
@@ -37,7 +37,7 @@
         <button class="nav-item" data-view="market"><span><svg viewBox="0 0 24 24"><path d="M3 4h2l2.2 11.2a2 2 0 0 0 2 1.6h8.7a2 2 0 0 0 1.9-1.4L22 8H6"/><circle cx="10" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg></span> Market Access</button>
         <button class="nav-item" data-view="coverage"><span><svg viewBox="0 0 24 24"><path d="M3 20V4m0 16h19M7 16v-5h3v5M13 16V7h3v9M19 16V3h3v13"/></svg></span> Data &amp; Insights</button>
       </nav>
-      <div class="sidebar-farmer-art" id="sidebar-farmer-illustration" data-ready="1" aria-hidden="true"><svg viewBox="0 0 320 360"><use href="assets/agribridge-art.svg#sidebar-farmer-team"></use></svg></div>
+      <div class="sidebar-farmer-art" id="sidebar-farmer-illustration" data-ready="1" aria-hidden="true"></div>
       <div class="sidebar-bottom">
         <div class="source-status"><span class="status-dot"></span><div><b>Source-linked records</b><small>Verified links · dated review</small></div></div>
         <div class="side-note">An independent information guide. Final eligibility and sanction are decided by the implementing department or lender.</div>
@@ -77,7 +77,7 @@
             <span><i>⚡</i><b>Simple &amp;<br>Farmer-Friendly</b></span>
           </div>
         </div>
-        <div class="hero-art hero-art-photo" aria-hidden="true"><svg class="hero-scene-svg" viewBox="0 0 1600 400" preserveAspectRatio="xMidYMid slice"><use href="assets/agribridge-art.svg#hero-scene"></use></svg>
+        <div class="hero-art hero-art-photo" aria-hidden="true">
           <div class="hero-stamp"><strong>01</strong><span>FARMER<br>FIRST</span></div>
         </div>
       </section>
@@ -93,16 +93,16 @@
         </div>
         <div class="quick-path-grid">
           <button type="button" class="quick-path-card quick-schemes" data-quick-action="schemes">
-     <span class="quick-path-icon"><svg viewBox="0 0 100 100"><use href="assets/agribridge-art.svg#action-schemes"></use></svg></span><span class="quick-path-copy"><span class="quick-path-tag">GOVERNMENT SUPPORT</span><b>Find schemes &amp; subsidies</b><small>Explore grants, benefits, insurance and support programmes.</small><span class="quick-path-link">Explore schemes <i>↗</i></span></span>
+     <span class="quick-path-icon"><svg viewBox="0 0 100 100"><use href="assets/agribridge-art.svg#action-schemes"></use></svg></span><span class="quick-path-copy"><span class="quick-path-tag">GOVERNMENT SUPPORT</span><b>Schemes &amp; Subsidies</b><small>Explore grants, benefits, insurance and support programmes.</small><span class="quick-path-link">Explore schemes <i>↗</i></span></span>
    </button>
           <button type="button" class="quick-path-card quick-loans" data-quick-action="loans">
-     <span class="quick-path-icon"><svg viewBox="0 0 100 100"><use href="assets/agribridge-art.svg#action-loans"></use></svg></span><span class="quick-path-copy"><span class="quick-path-tag">CREDIT OPTIONS</span><b>Explore farm loans</b><small>See banks, KCC routes, cooperatives and finance providers.</small><span class="quick-path-link">Compare lenders <i>↗</i></span></span>
+     <span class="quick-path-icon"><svg viewBox="0 0 100 100"><use href="assets/agribridge-art.svg#action-loans"></use></svg></span><span class="quick-path-copy"><span class="quick-path-tag">CREDIT OPTIONS</span><b>Farm Loans</b><small>See banks, KCC routes, cooperatives and finance providers.</small><span class="quick-path-link">Compare lenders <i>↗</i></span></span>
    </button>
           <button type="button" class="quick-path-card quick-calculator" data-quick-action="calculator">
-     <span class="quick-path-icon"><svg viewBox="0 0 100 100"><use href="assets/agribridge-art.svg#action-calculator"></use></svg></span><span class="quick-path-copy"><span class="quick-path-tag">SMART BORROWING</span><b>Compare loan costs</b><small>Understand EMI, fees and the estimated cost of borrowing.</small><span class="quick-path-link">Open calculator <i>↗</i></span></span>
+     <span class="quick-path-icon"><svg viewBox="0 0 100 100"><use href="assets/agribridge-art.svg#action-calculator"></use></svg></span><span class="quick-path-copy"><span class="quick-path-tag">SMART BORROWING</span><b>Loan Calculator</b><small>Understand EMI, fees and the estimated cost of borrowing.</small><span class="quick-path-link">Open calculator <i>↗</i></span></span>
    </button>
           <button type="button" class="quick-path-card quick-local" data-quick-action="local">
-     <span class="quick-path-icon"><svg viewBox="0 0 100 100"><use href="assets/agribridge-art.svg#action-local"></use></svg></span><span class="quick-path-copy"><span class="quick-path-tag">VILLAGE-LEVEL HELP</span><b>Find local support</b><small>Discover district portals and nearby delivery channels.</small><span class="quick-path-link">Find local routes <i>↗</i></span></span>
+     <span class="quick-path-icon"><svg viewBox="0 0 100 100"><use href="assets/agribridge-art.svg#action-local"></use></svg></span><span class="quick-path-copy"><span class="quick-path-tag">VILLAGE-LEVEL HELP</span><b>Local Assistance</b><small>Discover district portals and nearby delivery channels.</small><span class="quick-path-link">Find local routes <i>↗</i></span></span>
    </button>
         </div>
       </section>
@@ -118,7 +118,7 @@
         <div class="home-finder-heading">
           <div class="home-finder-step">1</div>
           <div><span class="section-kicker">01 / FIND FINANCIAL SUPPORT</span><h2 id="home-finder-title">Where can a farmer get support?</h2><p>Choose your location and farmer profile. AgriBridge will show matching support routes.</p></div>
-          <div class="home-finder-people" id="home-finder-people" data-ready="1" aria-hidden="true"><svg viewBox="0 0 420 190"><use href="assets/agribridge-art.svg#support-farmer-team"></use></svg></div>
+          <div class="home-finder-people" id="home-finder-people" data-ready="1" aria-hidden="true"></div>
         </div>
         <form id="home-finder-form" class="home-finder-form">
           <div class="home-finder-progress"><span><b>1</b> 📍 Choose location</span><span><b>2</b> 👩🏽‍🌾 Farmer profile</span><span><b>3</b> 🏦 Support type</span></div>
@@ -387,6 +387,6 @@
   <dialog id="detail-dialog" class="detail-dialog"><div class="dialog-head"><div><span class="section-kicker" id="dialog-kicker">SCHEME DETAILS</span><h2 id="dialog-title">Details</h2></div><button id="dialog-close" class="dialog-close" aria-label="Close">×</button></div><div id="dialog-body"></div></dialog>
   <div id="gtranslate_engine" class="gtranslate_wrapper translate-engine" aria-hidden="true"></div>
   <script src="language.js?v=20261102-language-panel"></script>
-  <script src="app.js?v=20261103-dashboard-final"></script>
+  <script src="app.js?v=20261103-sidebar-route-fix"></script>
 </body>
 </html>
