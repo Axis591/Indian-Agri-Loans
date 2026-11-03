@@ -108,9 +108,11 @@ function card(record){
   const scope=record.scope==='national'?'PAN INDIA':record.scope==='district'?'DISTRICT MATCH':record.scope==='local'?'LOCAL CHANNEL':'STATE SCHEME';
   const amount=escapeHtml(record.amount);
   const programmeStatus=record.programmeStatusLabel?'<span class="programme-status '+escapeHtml(record.programmeStatus||'')+'">'+escapeHtml(record.programmeStatusLabel)+'</span>':'';
+  const typeEmoji={grant:'🌾',loan:'💳',subsidy:'🌱',insurance:'🛡️',pension:'👩🏽‍🌾',informal:'⚠️',institution:'🏡'}[record.type]||'🌿';
   const applyLabel=escapeHtml(record.applicationLabel||'Official link');
   const rate=record.rate?`<div class="meta-cell"><small>INTEREST / SUPPORT</small><span>${escapeHtml(record.rate)}</span></div>`:'';
-  return `<article class="scheme-card">
+  return `<article class="scheme-card scheme-${typeClass(record.type)}">
+    <div class="scheme-card-visual"><span class="scheme-card-emoji" aria-hidden="true">${typeEmoji}</span><span class="scheme-card-kicker">FARMER SUPPORT</span><span class="scheme-card-scope">${scope}</span></div>
     <div class="card-top"><div class="card-category"><span class="pill ${typeClass(record.type)}">${typeLabel(record.type)}</span><span class="pill">${escapeHtml(record.category)}</span><span class="pill provider-pill">${escapeHtml(providerLabel(record.providerKinds))}</span></div><span class="scope-mini">${scope}</span></div>${programmeStatus}
     <h4>${escapeHtml(record.name)}</h4><p class="scheme-summary">${escapeHtml(record.summary)}</p>
     <div class="amount-row"><small>AMOUNT / CREDIT QUANTUM</small><strong>${amount}</strong><em>${escapeHtml(record.amountNote)}</em></div>
@@ -189,7 +191,7 @@ function lenderCard(l){
   const amount=escapeHtml(l.amount||'Not published — confirm with lender');
   const price=escapeHtml(l.rate||'Rate not published on linked page');
   const cats=(l.providerKinds||[]).map(x=>providerLabel([x])).join(' · ');
-  return '<article class="lender-card"><div class="card-category"><span class="pill">'+cats+'</span><span class="pill">'+escapeHtml(l.scopeLabel||'PAN INDIA')+'</span></div><h4>'+escapeHtml(l.name)+'</h4><div class="lender-product">'+escapeHtml(l.product||'Agriculture finance')+'</div>'+(l.sponsorBank?'<div class="lender-sponsor">Sponsor bank: '+escapeHtml(l.sponsorBank)+'</div>':'')+'<p>'+escapeHtml(l.summary)+'</p>'+(l.verificationNote?'<div class="lender-verification-note">'+escapeHtml(l.verificationNote)+'</div>':'')+(l.matchRules?.mustVerify?.length?'<div class="lender-match-note">Check: '+escapeHtml(l.matchRules.mustVerify[0])+'</div>':'')+'<div class="lender-facts"><div class="lender-fact"><small>AMOUNT / LIMIT</small><b>'+amount+'</b></div><div class="lender-fact"><small>INTEREST / PRICING</small><b>'+price+'</b></div><div class="lender-fact"><small>ELIGIBLE BORROWER</small><b>'+escapeHtml(l.borrower||'Subject to product criteria')+'</b></div><div class="lender-fact"><small>AVAILABILITY</small><b>'+escapeHtml(l.availability||'Branch and appraisal dependent')+'</b></div></div><div class="lender-footer"><small>'+escapeHtml(l.reviewNote||'Check the product page for current terms.')+'</small><div class="lender-buttons"><button class="details-btn" data-lender-details="'+escapeHtml(l.id)+'">Process & documents</button><a class="apply-btn" href="'+escapeHtml(l.applyUrl||l.sourceUrl)+'" target="_blank" rel="noopener noreferrer">'+escapeHtml(l.applyLabel||'Apply / enquire')+' ↗</a></div></div></article>';
+  return '<article class="lender-card"><div class="lender-card-visual"><span class="lender-card-emoji" aria-hidden="true">🏦</span><span class="lender-card-kicker">FINANCE PARTNER</span><span class="lender-card-mark" aria-hidden="true">₹</span></div><div class="card-category"><span class="pill">'+cats+'</span><span class="pill">'+escapeHtml(l.scopeLabel||'PAN INDIA')+'</span></div><h4>'+escapeHtml(l.name)+'</h4><div class="lender-product">'+escapeHtml(l.product||'Agriculture finance')+'</div>'+(l.sponsorBank?'<div class="lender-sponsor">Sponsor bank: '+escapeHtml(l.sponsorBank)+'</div>':'')+'<p>'+escapeHtml(l.summary)+'</p>'+(l.verificationNote?'<div class="lender-verification-note">'+escapeHtml(l.verificationNote)+'</div>':'')+(l.matchRules?.mustVerify?.length?'<div class="lender-match-note">Check: '+escapeHtml(l.matchRules.mustVerify[0])+'</div>':'')+'<div class="lender-facts"><div class="lender-fact"><small>AMOUNT / LIMIT</small><b>'+amount+'</b></div><div class="lender-fact"><small>INTEREST / PRICING</small><b>'+price+'</b></div><div class="lender-fact"><small>ELIGIBLE BORROWER</small><b>'+escapeHtml(l.borrower||'Subject to product criteria')+'</b></div><div class="lender-fact"><small>AVAILABILITY</small><b>'+escapeHtml(l.availability||'Branch and appraisal dependent')+'</b></div></div><div class="lender-footer"><small>'+escapeHtml(l.reviewNote||'Check the product page for current terms.')+'</small><div class="lender-buttons"><button class="details-btn" data-lender-details="'+escapeHtml(l.id)+'">Process & documents</button><a class="apply-btn" href="'+escapeHtml(l.applyUrl||l.sourceUrl)+'" target="_blank" rel="noopener noreferrer">'+escapeHtml(l.applyLabel||'Apply / enquire')+' ↗</a></div></div></article>';
 }
 function renderDirectory(){
   if(!$('#directory-schemes')) return;
@@ -228,7 +230,10 @@ function renderDirectory(){
   ];
   if(p.facilitation) portalItems.splice(2,0,{type:'STATE FACILITATION CENTRE',title:p.facilitation.label,description:p.facilitation.description,url:p.facilitation.url});
   if(p.extra) p.extra.forEach(x=>portalItems.push({type:'ADDITIONAL STATE PORTAL',title:x.label,description:'Official linked State/UT agriculture, horticulture or market institution.',url:x.url}));
-  $('#directory-portals').innerHTML=portalItems.map(x=>'<article class="portal-card"><div class="portal-type">'+escapeHtml(x.type)+'</div><h4>'+escapeHtml(x.title)+'</h4><p>'+escapeHtml(x.description)+'</p>'+safeLink('Open official portal',x.url)+'</article>').join('');
+  $('#directory-portals').innerHTML=portalItems.map(x=>{
+    const icon=x.type.includes('DISTRICT')?'📍':x.type.includes('BANK')||x.type.includes('RURAL')?'🏦':x.type.includes('PANCHAYAT')?'🏡':x.type.includes('COOPERATIVE')?'🤝':x.type.includes('SCHEME')?'🌱':x.type.includes('FACILITATION')?'🧑🏽‍💼':'🌾';
+    return '<article class="portal-card"><div class="portal-card-top"><span class="portal-icon" aria-hidden="true">'+icon+'</span><div class="portal-type">'+escapeHtml(x.type)+'</div></div><h4>'+escapeHtml(x.title)+'</h4><p>'+escapeHtml(x.description)+'</p>'+safeLink('Open official portal',x.url)+'</article>';
+  }).join('');
   window.refreshAgriTranslation?.();
 }
 function showLenderDetails(id){
@@ -682,3 +687,23 @@ $('#coverage-search')?.addEventListener('input',updateCoverageList);
     document.head.appendChild(style);
   }
 })();
+
+document.querySelectorAll('[data-quick-action]').forEach(button=>button.addEventListener('click',()=>{
+  const action=button.dataset.quickAction;
+  if(action==='schemes'){
+    switchView('directory');
+    if($('#directory-type'))$('#directory-type').value='all';
+    renderDirectory();
+    $('#directory-schemes')?.scrollIntoView({behavior:'smooth',block:'start'});
+  }else if(action==='loans'){
+    switchView('directory');
+    renderDirectory();
+    $('#lender-grid')?.scrollIntoView({behavior:'smooth',block:'start'});
+  }else if(action==='calculator'){
+    switchView('finance');
+    $('#loan-comparator')?.scrollIntoView({behavior:'smooth',block:'start'});
+  }else if(action==='local'){
+    switchView('finance');
+    $('#route-panel')?.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+}));
