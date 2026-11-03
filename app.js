@@ -576,12 +576,70 @@ function updateCoverageList(){
   if(selected)renderCoverageDetails(selected.stateUT);
   window.refreshAgriTranslation?.();
 }
-function switchView(view){
+const pageRouteSlugs={finance:'finance',assistant:'support',directory:'schemes',ngo:'ngo',market:'market',coverage:'insights'};
+const pageRouteTitles={finance:'FARM FINANCE FINDER',assistant:'FIND MY SUPPORT',directory:'SCHEMES & LENDERS',ngo:'NGO CONNECT',market:'MARKET ACCESS',coverage:'DATA & INSIGHTS'};
+const pageRouteLookup=Object.fromEntries(Object.entries(pageRouteSlugs).map(([view,slug])=>[slug,view]));
+function currentPageFromUrl(){
+  const requested=new URLSearchParams(window.location.search).get('page');
+  return pageRouteLookup[requested] || (Object.prototype.hasOwnProperty.call(pageRouteSlugs,requested)?requested:'finance');
+}
+function farmerFigureSvg(kind){
+  const palettes={
+    farmer:{shirt:'#3e8555',cloth:'#e4b956',scarf:'#d86e4d',skin:'#b96f4d',head:'#e8c66f',prop:'leaf'},
+    woman:{shirt:'#2d805d',cloth:'#d88b44',scarf:'#e2a34e',skin:'#a96549',head:'#263c2d',prop:'basket'},
+    banker:{shirt:'#4b7892',cloth:'#e8c36a',scarf:'#d77b5b',skin:'#b87655',head:'#e3c47c',prop:'file'},
+    ngo:{shirt:'#5a8c64',cloth:'#e8c36a',scarf:'#d77b5b',skin:'#b87655',head:'#2d4638',prop:'clipboard'},
+    market:{shirt:'#40845a',cloth:'#e6bd58',scarf:'#df8a4f',skin:'#a9684d',head:'#dcb45d',prop:'basket'},
+    data:{shirt:'#517b92',cloth:'#e1b952',scarf:'#d77b5b',skin:'#b87655',head:'#e7c477',prop:'clipboard'}
+  };
+  const p=palettes[kind]||palettes.farmer;
+  const headgear=kind==='woman'?'<path d="M49 38 Q58 8 93 18 Q111 28 105 52 Q92 34 72 34 Q59 47 49 38Z" fill="'+p.head+'"/><path d="M97 43 Q119 64 104 105" fill="none" stroke="'+p.head+'" stroke-width="7" stroke-linecap="round"/>':'<path d="M43 38 Q48 12 88 13 Q117 15 122 34 Q99 25 79 29 Q59 41 43 38Z" fill="'+p.head+'"/><path d="M44 36 Q79 24 121 36" fill="none" stroke="'+p.cloth+'" stroke-width="7" stroke-linecap="round"/>';
+  const prop=p.prop==='leaf'
+    ?'<path d="M126 119 Q143 87 147 59" stroke="#5b9856" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M141 82 Q120 58 108 72 Q117 87 141 82Z" fill="#77b85e"/><path d="M145 69 Q163 47 168 61 Q162 76 145 69Z" fill="#9acb6c"/>'
+    :p.prop==='basket'
+    ?'<path d="M121 102 Q142 90 158 103 L153 134 Q135 141 117 132Z" fill="#c88942" stroke="#9f6935" stroke-width="3"/><path d="M121 103 Q138 77 155 102" stroke="#a06c39" stroke-width="5" fill="none"/><path d="M124 101 Q119 78 134 82 Q146 89 138 101Z M138 99 Q139 72 154 82 Q158 94 145 101Z" fill="#6da65c"/>'
+    :'<rect x="120" y="76" width="31" height="43" rx="5" fill="#f7f2e6" stroke="#6c9775" stroke-width="3"/><path d="M127 87 H143 M127 96 H143 M127 105 H139" stroke="#6c9775" stroke-width="3" stroke-linecap="round"/>';
+  const clothing=kind==='woman'
+    ?'<path d="M54 81 Q78 65 100 82 L124 143 H28Z" fill="'+p.shirt+'"/><path d="M82 78 Q112 84 129 126 L116 137 Q95 113 78 104Z" fill="'+p.scarf+'"/><path d="M48 91 Q26 106 26 141 H59Z" fill="'+p.cloth+'"/>'
+    :'<path d="M57 78 Q81 68 105 80 L124 145 H27Z" fill="'+p.shirt+'"/><path d="M54 81 L78 105 L93 81 L103 87 L86 116 L71 116 L47 90Z" fill="'+p.scarf+'"/><path d="M31 139 Q57 127 80 139 L80 146 H28Z" fill="'+p.cloth+'"/>';
+  return '<svg class="farmer-figure-svg" viewBox="0 0 180 155" aria-hidden="true" focusable="false"><ellipse cx="90" cy="146" rx="67" ry="7" fill="#193e2b" opacity=".11"/><path d="M27 145 Q33 117 51 101 Q71 88 96 95 Q120 100 132 145Z" fill="'+p.shirt+'" opacity=".12"/>'+prop+clothing+'<path d="M56 83 Q42 95 40 113" stroke="'+p.skin+'" stroke-width="12" stroke-linecap="round" fill="none"/><path d="M100 84 Q117 95 124 109" stroke="'+p.skin+'" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="79" cy="50" r="25" fill="'+p.skin+'"/>'+headgear+'<path d="M58 53 Q65 67 82 67 Q97 66 103 53" fill="none" stroke="#7c4a38" stroke-width="2.5" stroke-linecap="round"/><circle cx="70" cy="49" r="2.1" fill="#27372c"/><circle cx="89" cy="49" r="2.1" fill="#27372c"/><path d="M73 60 Q81 66 90 59" stroke="#713d31" stroke-width="2.3" fill="none" stroke-linecap="round"/><path d="M61 41 Q75 31 94 39" stroke="#48352d" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M65 80 Q82 92 100 80" stroke="'+p.cloth+'" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M38 117 Q58 111 70 126" stroke="'+p.skin+'" stroke-width="10" fill="none" stroke-linecap="round"/><circle cx="70" cy="126" r="6" fill="'+p.skin+'"/></svg>';
+}
+const pageCharacterContent={
+  finance:{kind:'farmer',eyebrow:'FARMER-FIRST DISCOVERY',title:'Your next step starts with your farm',copy:'Choose your district and farmer profile to explore support routes that may fit.'},
+  assistant:{kind:'woman',eyebrow:'PERSONALISED SUPPORT',title:'A clearer path through the options',copy:'Tell us about the farm, then review potential matches and what to verify.'},
+  directory:{kind:'banker',eyebrow:'SCHEMES & FINANCE PARTNERS',title:'Compare support with confidence',copy:'Explore benefits, lenders, application steps, documents and official sources.'},
+  ngo:{kind:'ngo',eyebrow:'FIELD TEAMS & COMMUNITY PARTNERS',title:'Stronger support, village by village',copy:'Track aggregate programme progress and coordinate practical follow-up routes.'},
+  market:{kind:'market',eyebrow:'SELL SMARTER',title:'Bring market information closer to the farm',copy:'Review published mandi prices and official trading and procurement channels.'},
+  coverage:{kind:'data',eyebrow:'TRANSPARENCY & COVERAGE',title:'Know what is mapped — and what needs checking',copy:'Explore source coverage, State research and local information gaps.'}
+};
+function addPageCharacter(view){
+  const node=document.querySelector('#view-'+view+' .section-heading');
+  if(!node||node.parentElement.querySelector(':scope > .page-character-card'))return;
+  const item=pageCharacterContent[view];if(!item)return;
+  const banner=document.createElement('aside');
+  banner.className='page-character-card page-character-'+view;
+  banner.innerHTML='<div class="page-character-text"><span>'+item.eyebrow+'</span><b>'+item.title+'</b><small>'+item.copy+'</small></div><div class="page-character-art">'+farmerFigureSvg(item.kind)+'<i aria-hidden="true">✦</i></div>';
+  node.insertAdjacentElement('afterend',banner);
+  window.refreshAgriTranslation?.();
+}
+function switchView(view,options={}){
+  if(!pageRouteSlugs[view]||!$('#view-'+view))view='finance';
   selectedView=view;
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
-  $(`#view-${view}`).classList.add('active');
+  $('#view-'+view).classList.add('active');
   document.querySelectorAll('.nav-item').forEach(b=>b.classList.toggle('active',b.dataset.view===view));
+  document.body.dataset.page=view;
+  const breadcrumb=$('#breadcrumb-page');
+  if(breadcrumb)breadcrumb.textContent=pageRouteTitles[view];
+  addPageCharacter(view);
+  if(options.push!==false){
+    const url=new URL(window.location.href);
+    url.searchParams.set('page',pageRouteSlugs[view]);
+    window.history.pushState({page:view},'',url);
+  }
+  if(options.scroll!==false)window.scrollTo({top:0,behavior:'smooth'});
 }
+
 
 Promise.all([recordsPromise,lendersPromise,portalsPromise,loadGeography()]).then(([data,lenderData,portalData])=>{
   records=data;
@@ -707,3 +765,13 @@ document.querySelectorAll('[data-quick-action]').forEach(button=>button.addEvent
     $('#route-panel')?.scrollIntoView({behavior:'smooth',block:'start'});
   }
 }));
+
+/* Each sidebar destination has its own addressable page route. */
+window.addEventListener('popstate',()=>switchView(currentPageFromUrl(),{push:false,scroll:false}));
+const firstPage=currentPageFromUrl();
+switchView(firstPage,{push:false,scroll:false});
+if(!new URLSearchParams(window.location.search).has('page')){
+  const canonicalUrl=new URL(window.location.href);
+  canonicalUrl.searchParams.set('page',pageRouteSlugs[firstPage]);
+  window.history.replaceState({page:firstPage},'',canonicalUrl);
+}
