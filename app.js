@@ -664,8 +664,12 @@ function renderHomeIllustrations(){
 function switchView(view,options={}){
   if(!pageRouteSlugs[view]||!$('#view-'+view))view='home';
   selectedView=view;
-  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
-  $('#view-'+view).classList.add('active');
+  document.querySelectorAll('.view').forEach(v=>{
+    const isActive=v.id==='view-'+view;
+    v.classList.toggle('active',isActive);
+    v.hidden=!isActive;
+    v.setAttribute('aria-hidden',String(!isActive));
+  });
   document.querySelectorAll('.nav-item').forEach(b=>{
     const active=b.dataset.view===view;
     b.classList.toggle('active',active);

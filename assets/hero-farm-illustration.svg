@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-label="Indian farmer standing beside green crop fields and a village farm">
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#9fd8f1"/><stop offset=".68" stop-color="#e7f5ed"/><stop offset="1" stop-color="#f8f5d9"/></linearGradient>
+    <linearGradient id="field" x2="0" y2="1"><stop stop-color="#a9ce59"/><stop offset=".55" stop-color="#7fae3f"/><stop offset="1" stop-color="#477d35"/></linearGradient>
+    <linearGradient id="goldfield" x2="0" y2="1"><stop stop-color="#f5db72"/><stop offset="1" stop-color="#d5a83e"/></linearGradient>
+    <linearGradient id="shirt" x2="0" y2="1"><stop stop-color="#fffdf1"/><stop offset="1" stop-color="#d9e5d2"/></linearGradient>
+    <linearGradient id="scarf" x2="1" y2="1"><stop stop-color="#e66f58"/><stop offset="1" stop-color="#b83e37"/></linearGradient>
+    <linearGradient id="turban" x2="0" y2="1"><stop stop-color="#fffdf2"/><stop offset="1" stop-color="#cbd7c9"/></linearGradient>
+    <filter id="softshadow" x="-30%" y="-30%" width="160%" height="180%"><feGaussianBlur stdDeviation="8"/></filter>
+    <clipPath id="scene"><rect width="1200" height="520"/></clipPath>
+  </defs>
+  <g clip-path="url(#scene)">
+    <rect width="1200" height="520" fill="url(#sky)"/>
+    <circle cx="940" cy="102" r="48" fill="#ffe18b" opacity=".8"/>
+    <g fill="#fff" opacity=".55">
+      <path d="M90 116c26-34 62-35 89-7 33-28 79-9 83 24H64c2-10 11-17 26-17z"/>
+      <path d="M650 73c22-28 52-28 74-5 26-22 61-8 64 19H629c2-7 9-12 21-14z"/>
+    </g>
+    <path d="M0 255 125 180l83 50 144-119 125 119 103-76 119 96 121-88 117 86 112-96 151 113v125H0Z" fill="#94b6aa" opacity=".65"/>
+    <path d="m0 281 151-98 112 87 120-130 131 119 116-84 120 104 121-82 123 85 126-105 180 119v119H0Z" fill="#7aa89a" opacity=".58"/>
+    <path d="M0 300c124-46 235-34 336 8 110-50 217-45 336 3 119-45 238-41 349 4 69-20 124-18 179-2v207H0Z" fill="#c8df85"/>
+    <path d="M0 347c152-52 275-45 407 8 126-54 251-44 375 4 142-44 279-39 418-2v163H0Z" fill="url(#goldfield)"/>
+    <path d="M0 390c184-45 334-34 490 16 156-43 301-42 451 1 96-25 177-27 259-8v121H0Z" fill="url(#field)"/>
+    <g fill="none" stroke="#f4df83" stroke-width="5" opacity=".62">
+      <path d="M0 410c155-47 305-41 466 7s306 45 466 6 197-31 268-17"/>
+      <path d="M0 447c172-39 311-28 472 15s304 39 460 2 201-28 268-14"/>
+      <path d="M0 483c162-32 302-20 458 16s306 31 477 0 198-18 265-5"/>
+    </g>
+    <g transform="translate(820 206)">
+      <path d="M-18 92 71 22l111 68v102H-18Z" fill="#f3e8d4" stroke="#9a7b50" stroke-width="5"/>
+      <path d="M-30 94 71 13l123 83-11 15L71 37-18 108Z" fill="#a95d37" stroke="#82442d" stroke-width="5"/>
+      <path d="M40 118h35v76H40z" fill="#80553a"/><path d="M101 111h43v36h-43z" fill="#9fd4e1" stroke="#8b744f" stroke-width="5"/>
+      <path d="M105 115h35m-18-1v28" stroke="#fff" stroke-width="3"/>
+      <path d="M-1 188h166" stroke="#926f40" stroke-width="7"/>
+      <path d="M95 57h45l24 20H75z" fill="#477d9b"/><path d="m104 59 19 16m-7-18 19 18m-34-2h47" stroke="#d4ebef" stroke-width="3"/>
+    </g>
+    <g transform="translate(1070 146)">
+      <path d="M55 156V41" stroke="#795330" stroke-width="18" stroke-linecap="round"/>
+      <path d="M45 77C-5 53 2 2 40 4 57 6 68 28 59 44 72-7 125-14 137 27 145 52 119 76 93 79 127 76 153 99 137 127 119 157 73 146 64 117 59 140 32 160 11 146-12 129 5 96 45 77Z" fill="#4f963f"/>
+      <path d="M55 71 15 35m45 52 47-59m-43 70 67 2" stroke="#a6c96d" stroke-width="4" opacity=".7"/>
+    </g>
+    <g transform="translate(635 330)">
+      <ellipse cx="95" cy="112" rx="124" ry="17" fill="#315b39" opacity=".2" filter="url(#softshadow)"/>
+      <circle cx="55" cy="107" r="39" fill="#263b32" stroke="#e9d4a1" stroke-width="7"/>
+      <circle cx="55" cy="107" r="16" fill="#b7c5b5"/>
+      <circle cx="174" cy="116" r="23" fill="#263b32" stroke="#e9d4a1" stroke-width="6"/>
+      <circle cx="174" cy="116" r="9" fill="#b7c5b5"/>
+      <path d="M21 65h144l28 29H7Z" fill="#e7a62e" stroke="#8e6126" stroke-width="5"/>
+      <path d="M79 29h65l27 38H68Z" fill="#f2bd49" stroke="#8e6126" stroke-width="5"/>
+      <path d="M91 29V6h53v23" fill="none" stroke="#365d46" stroke-width="8"/>
+      <path d="M93 6h51" stroke="#365d46" stroke-width="7"/>
+      <rect x="12" y="49" width="52" height="29" rx="5" fill="#f6c955" stroke="#8e6126" stroke-width="4"/>
+      <path d="M115 43h29v20h-29z" fill="#a9d7e5" stroke="#56735e" stroke-width="3"/>
+      <path d="M6 78h195" stroke="#84592b" stroke-width="5"/>
+    </g>
+    <g transform="translate(245 82)">
+      <ellipse cx="151" cy="411" rx="122" ry="18" fill="#214f32" opacity=".22" filter="url(#softshadow)"/>
+      <path d="M79 180c28-31 113-35 151 3l56 183H26Z" fill="url(#shirt)" stroke="#728e72" stroke-width="4"/>
+      <path d="M90 178 130 228l42-50 48 17-58 94h-62l-48-93Z" fill="url(#scarf)" stroke="#a94d3f" stroke-width="4"/>
+      <path d="M102 265 55 365h58l42-95 45 95h54l-49-102Z" fill="#e9eee0"/>
+      <path d="M82 190 28 269l36 27 46-60m117-39 41 85-35 20-48-69" fill="url(#shirt)" stroke="#728e72" stroke-width="4"/>
+      <path d="M49 271c-10-4-24-1-30 8l-9 19c-3 8 3 17 12 17h100c15 0 22-15 12-26l-22-24Z" fill="#b97555" stroke="#8e563e" stroke-width="4"/>
+      <path d="M237 282c13-8 30-3 36 10l8 17c4 9-2 17-12 17h-99c-15 0-21-16-10-26l22-18Z" fill="#b97555" stroke="#8e563e" stroke-width="4"/>
+      <path d="M80 153c-4 31 6 47 28 56 28 12 57 9 79-5 19-12 25-31 18-54Z" fill="#b97555"/>
+      <path d="M67 81c4-39 42-59 82-49 31 8 50 37 42 77l-12 35c-10 26-33 39-62 35-28-4-51-28-54-58Z" fill="#ba7858" stroke="#89533c" stroke-width="4"/>
+      <path d="M82 103c12-8 25-7 34 0m36 0c11-8 23-8 33 0" stroke="#3d332c" stroke-width="7" stroke-linecap="round"/>
+      <path d="M119 111c8 6 17 6 24 0" stroke="#7b4437" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <path d="M121 142c16 10 34 9 48-3" fill="none" stroke="#fff0d4" stroke-width="7" stroke-linecap="round"/>
+      <path d="M92 129c-4 12 2 20 12 22m89-23c4 12-2 20-12 22" stroke="#754834" stroke-width="3" fill="none"/>
+      <path d="M58 82c1-37 20-65 63-70 46-5 82 20 89 58-25-12-50-19-80-14-28 4-48 18-72 26Z" fill="url(#turban)" stroke="#91a99a" stroke-width="4"/>
+      <path d="M64 66c42-23 91-27 142-9m-147 19c47-22 101-23 148-7m-142 21c41-13 89-16 133-5" stroke="#aebfb2" stroke-width="5" fill="none" stroke-linecap="round"/>
+      <path d="M35 363h224l-8 52H27Z" fill="#e3b04e" opacity=".95"/>
+      <path d="M34 367h222" stroke="#fff0be" stroke-width="5"/>
+    </g>
+    <g fill="#4f8b3e">
+      <path d="M0 520q15-116 31-144 14 85 8 144m4 0q7-96 29-133 8 78 0 133m12 0q3-104 35-150 3 85-9 150"/>
+      <path d="M1160 520q6-95 31-137 9 82 2 137m-31 0q-3-87-22-119-10 74 1 119"/>
+    </g>
+    <g stroke="#c6d96b" stroke-width="4" fill="none" opacity=".85">
+      <path d="M0 520q17-77 37-106m-1 106q20-91 48-122m1049 122q15-84 42-118"/>
+    </g>
+  </g>
+</svg>
