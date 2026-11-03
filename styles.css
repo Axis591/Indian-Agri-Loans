@@ -741,3 +741,26 @@ html,body{min-height:100%;background:var(--ref-paper)!important;color:var(--ref-
   #view-home .home-finder-form{margin:0!important}
   #view-home .home-finder-heading{padding-left:5px!important;padding-right:5px!important}
 }
+
+
+/* Exact banner supplied by the site owner. Keep the source image's 2048:397 ratio. */
+#view-home .hero.hero-user-image-banner{
+  position:relative!important;isolation:isolate!important;display:block!important;
+  width:100%!important;height:auto!important;min-height:0!important;
+  aspect-ratio:2048 / 397!important;margin:0!important;padding:0!important;
+  overflow:hidden!important;border:0!important;border-radius:0!important;
+  background:#dff0f7 url('assets/hero-farm-illustration.svg') center/cover no-repeat!important;
+  box-shadow:none!important;
+}
+#view-home .hero-user-image-banner>.hero-user-banner-img{
+  position:absolute!important;inset:0!important;z-index:2!important;
+  display:block!important;width:100%!important;height:100%!important;
+  max-width:none!important;object-fit:fill!important;object-position:center!important;
+}
+#view-home .hero-user-image-banner>.hero-copy,
+#view-home .hero-user-image-banner>.hero-art-photo{display:none!important}
+@media(max-width:640px){
+  #view-home .hero.hero-user-image-banner{
+    aspect-ratio:2048 / 397!important;min-height:0!important;height:auto!important;
+  }
+}
