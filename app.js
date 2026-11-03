@@ -20,7 +20,7 @@ let stateProgrammeData = null;
 let geographySourceLabel = 'COMMUNITY SNAPSHOT';
 let geography = [];
 let geographyLive = false;
-let selectedView = 'finance';
+let selectedView = 'home';
 
 const wbFallbackDistricts = [
   'Alipurduar','Bankura','Birbhum','Cooch Behar','Dakshin Dinajpur','Darjeeling','Hooghly','Howrah','Jalpaiguri','Jhargram','Kalimpong','Kolkata','Malda','Murshidabad','Nadia','North 24 Parganas','Paschim Bardhaman','Paschim Medinipur','Purba Bardhaman','Purba Medinipur','Purulia','South 24 Parganas','Uttar Dinajpur'
@@ -576,12 +576,12 @@ function updateCoverageList(){
   if(selected)renderCoverageDetails(selected.stateUT);
   window.refreshAgriTranslation?.();
 }
-const pageRouteSlugs={finance:'finance',assistant:'support',directory:'schemes',ngo:'ngo',market:'market',coverage:'insights'};
-const pageRouteTitles={finance:'FARM FINANCE FINDER',assistant:'FIND MY SUPPORT',directory:'SCHEMES & LENDERS',ngo:'NGO CONNECT',market:'MARKET ACCESS',coverage:'DATA & INSIGHTS'};
+const pageRouteSlugs={home:'home',finance:'finance',assistant:'support',directory:'schemes',ngo:'ngo',market:'market',coverage:'insights'};
+const pageRouteTitles={home:'AGRI FINANCE HOME',finance:'FARM FINANCE FINDER',assistant:'MY SUPPORT',directory:'SCHEMES & LENDERS',ngo:'NGO CONNECT',market:'MARKET ACCESS',coverage:'DATA & INSIGHTS'};
 const pageRouteLookup=Object.fromEntries(Object.entries(pageRouteSlugs).map(([view,slug])=>[slug,view]));
 function currentPageFromUrl(){
   const requested=new URLSearchParams(window.location.search).get('page');
-  return pageRouteLookup[requested] || (Object.prototype.hasOwnProperty.call(pageRouteSlugs,requested)?requested:'finance');
+  return pageRouteLookup[requested] || (Object.prototype.hasOwnProperty.call(pageRouteSlugs,requested)?requested:'home');
 }
 function farmerFigureSvg(kind){
   const palettes={
@@ -654,13 +654,14 @@ function renderHomeIllustrations(){
     hero.dataset.ready='1';
   }
   const shortcut=$('#quick-path-farmer');
-  if(shortcut&&!shortcut.dataset.ready){
-    shortcut.innerHTML=farmerFigureSvg('woman');
-    shortcut.dataset.ready='1';
-  }
+  if(shortcut&&!shortcut.dataset.ready){shortcut.innerHTML=farmerFigureSvg('woman');shortcut.dataset.ready='1';}
+  const side=$('#sidebar-farmer-illustration');
+  if(side&&!side.dataset.ready){side.innerHTML='<div class="sidebar-farmer-one">'+farmerFigureSvg('farmer')+'</div><div class="sidebar-farmer-two">'+farmerFigureSvg('woman')+'</div>';side.dataset.ready='1';}
+  const people=$('#home-finder-people');
+  if(people&&!people.dataset.ready){people.innerHTML=farmerFigureSvg('farmer')+farmerFigureSvg('woman');people.dataset.ready='1';}
 }
 function switchView(view,options={}){
-  if(!pageRouteSlugs[view]||!$('#view-'+view))view='finance';
+  if(!pageRouteSlugs[view]||!$('#view-'+view))view='home';
   selectedView=view;
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
   $('#view-'+view).classList.add('active');
@@ -690,6 +691,7 @@ Promise.all([recordsPromise,lendersPromise,portalsPromise,loadGeography()]).then
   portals=portalData;
   initNGOWorkspace();
   render();
+  initHomeFinder();
   initLoanComparator();
   initMarketPrices();
   coveragePromise.then(data=>{coverageData=data;updateCoverageList();}).catch(error=>console.warn('Coverage register could not be loaded',error));
@@ -720,7 +722,7 @@ $('#coverage-search')?.addEventListener('input',updateCoverageList);
 /* Language-panel resilience: if an older cached HTML shell is served,
    render the language selector from the current application bundle. */
 (function ensureAgriBridgeLanguagePanel(){
-  if(document.querySelector('.language-toolbar')) return;
+  if(document.getElementById('language-select')) return;
   const hero=document.querySelector('.main .hero') || document.querySelector('.hero');
   if(!hero || !hero.parentNode) return;
 
@@ -817,4 +819,36 @@ if(!new URLSearchParams(window.location.search).has('page')){
   const canonicalUrl=new URL(window.location.href);
   canonicalUrl.searchParams.set('page',pageRouteSlugs[firstPage]);
   window.history.replaceState({page:firstPage},'',canonicalUrl);
+}
+
+
+function initHomeFinder(){
+  const form=$('#home-finder-form');
+  const hs=$('#home-state-select'), hd=$('#home-district-select');
+  const hp=$('#home-profile-select'), ht=$('#home-type-select');
+  if(!form||!hs||!hd)return;
+  function fill(select,values,preferred){
+    const list=Array.from(new Set(values||[])).filter(Boolean);
+    select.replaceChildren(...list.map(value=>new Option(value,value)));
+    if(preferred&&list.includes(preferred))select.value=preferred;
+  }
+  fill(hs,stateNames(),stateSelect.value||'West Bengal');
+  function fillDistricts(preferred){
+    const list=districtsFor(hs.value);
+    fill(hd,list,preferred||districtSelect.value);
+  }
+  fillDistricts(districtSelect.value);
+  hs.addEventListener('change',()=>fillDistricts(''));
+  form.addEventListener('submit',event=>{
+    event.preventDefault();
+    stateSelect.value=hs.value;
+    profileSelect.value=hp.value;
+    typeSelect.value=ht.value;
+    providerSelect.value='all';
+    if(sortSelect)sortSelect.value='relevance';
+    populateDistricts(hd.value);
+    resetEligibility();
+    switchView('finance');
+    document.querySelector('#finder-panel')?.scrollIntoView({behavior:'smooth',block:'start'});
+  });
 }

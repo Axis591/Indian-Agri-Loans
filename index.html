@@ -20,7 +20,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=20261103-dashboard-final" />
 </head>
-<body data-page="finance">
+<body data-page="home">
   <div class="app-shell">
     <aside class="sidebar">
       <a class="brand" href="#top" aria-label="Indian Agri Market and Loans home">
@@ -29,13 +29,15 @@
       </a>
       <div class="side-label">WORKSPACE</div>
       <nav class="side-nav" aria-label="Main navigation">
-        <button class="nav-item active" data-view="finance"><span>◫</span> Finance finder</button>
-        <button class="nav-item" data-view="assistant"><span>⌕</span> Find my support</button>
-        <button class="nav-item" data-view="directory"><span>▤</span> Schemes &amp; lenders</button>
+        <button class="nav-item active" data-view="home"><span>⌂</span> Home</button>
+        <button class="nav-item" data-view="finance"><span>⌕</span> Finance Finder</button>
+        <button class="nav-item" data-view="assistant"><span>✦</span> My Support</button>
+        <button class="nav-item" data-view="directory"><span>▤</span> Schemes &amp; Lenders</button>
         <button class="nav-item" data-view="ngo"><span>♧</span> NGO Connect</button>
-        <button class="nav-item" data-view="market"><span>⌁</span> Market access</button>
-        <button class="nav-item" data-view="coverage"><span>▦</span> Data coverage</button>
+        <button class="nav-item" data-view="market"><span>⌁</span> Market Access</button>
+        <button class="nav-item" data-view="coverage"><span>▦</span> Data &amp; Insights</button>
       </nav>
+      <div class="sidebar-farmer-art" id="sidebar-farmer-illustration" aria-hidden="true"></div>
       <div class="sidebar-bottom">
         <div class="source-status"><span class="status-dot"></span><div><b>Source-linked records</b><small>Verified links · dated review</small></div></div>
         <div class="side-note">An independent information guide. Final eligibility and sanction are decided by the implementing department or lender.</div>
@@ -45,39 +47,25 @@
 
     <main class="main" id="top">
       <header class="topbar">
-        <div class="breadcrumb">INDIA <span>/</span> <strong id="breadcrumb-page">FARM FINANCE INTELLIGENCE</strong></div>
+        <div class="breadcrumb">INDIA <span>/</span> <strong id="breadcrumb-page">AGRI FINANCE HOME</strong></div>
         <div class="top-right">
+          <div class="topbar-language"><span class="topbar-language-label">🌐 Language / भाषा</span><div class="language-picker">
+            <label for="language-select" class="sr-only">LANGUAGE</label>
+            <select id="language-select" aria-label="Choose website language" title="Auto mode uses approximate IP-region detection, not GPS.">
+              <option value="auto">Auto · My region</option><option value="en">English</option>
+              <option value="hi">हिन्दी · Hindi</option><option value="bn">বাংলা · Bengali</option>
+              <option value="gu">ગુજરાતી · Gujarati</option><option value="mr">मराठी · Marathi</option>
+              <option value="ta">தமிழ் · Tamil</option><option value="te">తెలుగు · Telugu</option>
+              <option value="kn">ಕನ್ನಡ · Kannada</option><option value="ml">മലയാളം · Malayalam</option>
+              <option value="pa">ਪੰਜਾਬੀ · Punjabi</option><option value="ur">اردو · Urdu</option>
+              <option value="ne">नेपाली · Nepali</option><option value="sd">سنڌي · Sindhi</option>
+            </select><small id="language-status" aria-live="polite">Detecting language…</small>
+          </div></div>
           <span class="review-pill"><i></i> Reviewed 31 Oct 2026</span><span class="avatar">IN</span>
         </div>
       </header>
 
-      <section class="language-toolbar" aria-label="Website language settings">
-        <div class="language-toolbar-copy">
-          <strong><span aria-hidden="true">🌐</span> Translate this page</strong>
-          <span>Choose a language or let AgriBridge detect your region automatically.</span>
-        </div>
-        <div class="language-picker">
-            <label for="language-select">LANGUAGE</label>
-            <select id="language-select" aria-label="Choose website language" title="Automatic mode uses an approximate IP-region lookup. No precise GPS location is requested.">
-              <option value="auto">Auto · My region</option>
-              <option value="en">English</option>
-              <option value="hi">हिन्दी · Hindi</option>
-              <option value="bn">বাংলা · Bengali</option>
-              <option value="gu">ગુજરાતી · Gujarati</option>
-              <option value="mr">मराठी · Marathi</option>
-              <option value="ta">தமிழ் · Tamil</option>
-              <option value="te">తెలుగు · Telugu</option>
-              <option value="kn">ಕನ್ನಡ · Kannada</option>
-              <option value="ml">മലയാളം · Malayalam</option>
-              <option value="pa">ਪੰਜਾਬੀ · Punjabi</option>
-              <option value="ur">اردو · Urdu</option>
-              <option value="ne">नेपाली · Nepali</option>
-              <option value="sd">سنڌي · Sindhi</option>
-            </select>
-            <small id="language-status" aria-live="polite">Detecting language…</small>
-        </div>
-      </section>
-
+      <section id="view-home" class="view active home-view">
       <section class="hero">
         <div class="hero-copy">
           <div class="eyebrow"><span class="eyebrow-line"></span> THE FARMER FINANCE DIRECTORY</div>
@@ -85,20 +73,10 @@
           <p>Discover farmer benefits, grants, insurance, agricultural finance and market access — with source-linked amounts, eligibility, application steps and State/District routes.</p>
           <div class="hero-meta"><span>36 States &amp; UTs</span><b>·</b><span>District-led discovery</span><b>·</b><span>Source-first records</span></div>
         </div>
-        <div class="hero-art hero-art-illustrated" aria-hidden="true">
-          <div class="hero-sun"></div><div class="hero-cloud hero-cloud-one"></div><div class="hero-cloud hero-cloud-two"></div>
-          <div class="hero-mountain"></div><div class="hero-field-back"></div><div class="hero-field-front"></div>
-          <div class="hero-farm-house"><span></span></div><div class="hero-tractor"><i></i><b></b><em></em></div>
+        <div class="hero-art hero-art-photo" aria-hidden="true">
           <div class="hero-farmer-pair" id="hero-farmer-illustration"></div>
           <div class="hero-stamp"><strong>01</strong><span>FARMER<br>FIRST</span></div>
         </div>
-      </section>
-
-      <section class="metrics" aria-label="Directory summary">
-        <article class="metric metric-green"><span class="metric-icon green">🌾</span><div><small>SCHEME + LENDER RECORDS</small><strong id="metric-records">—</strong><span>Support routes in one place</span></div></article>
-        <article class="metric metric-gold"><span class="metric-icon gold">🗺️</span><div><small>INDIAN STATES &amp; UTs</small><strong>36</strong><span>Choose your local area</span></div></article>
-        <article class="metric metric-blue"><span class="metric-icon blue">🏦</span><div><small>FORMAL FINANCE CATEGORIES</small><strong>6</strong><span>Banks · RRBs · PACS · NBFCs</span></div></article>
-        <article class="metric metric-coral"><span class="metric-icon clay">📊</span><div><small>DATA RELEASE</small><strong>V2.5</strong><span>All-India catalogue</span></div></article>
       </section>
 
       <section class="quick-paths" aria-label="Choose a task">
@@ -130,7 +108,36 @@
         </div>
       </section>
 
-      <section id="view-finance" class="view active">
+      <section class="metrics" aria-label="Directory summary">
+        <article class="metric metric-green"><span class="metric-icon green">🌾</span><div><small>SCHEME + LENDER RECORDS</small><strong id="metric-records">—</strong><span>Support routes in one place</span></div></article>
+        <article class="metric metric-gold"><span class="metric-icon gold">🗺️</span><div><small>INDIAN STATES &amp; UTs</small><strong>36</strong><span>Choose your local area</span></div></article>
+        <article class="metric metric-blue"><span class="metric-icon blue">🏦</span><div><small>FORMAL FINANCE CATEGORIES</small><strong>6</strong><span>Banks · RRBs · PACS · NBFCs</span></div></article>
+        <article class="metric metric-coral"><span class="metric-icon clay">📊</span><div><small>DATA RELEASE</small><strong>V2.5</strong><span>All-India catalogue</span></div></article>
+      </section>
+
+      <section class="home-finder-panel" aria-labelledby="home-finder-title">
+        <div class="home-finder-heading">
+          <div class="home-finder-step">1</div>
+          <div><span class="section-kicker">01 / FIND FINANCIAL SUPPORT</span><h2 id="home-finder-title">Where can a farmer get support?</h2><p>Choose your location and farmer profile. AgriBridge will show matching support routes.</p></div>
+          <div class="home-finder-people" id="home-finder-people" aria-hidden="true"></div>
+        </div>
+        <form id="home-finder-form" class="home-finder-form">
+          <div class="home-finder-progress"><span><b>1</b> 📍 Choose location</span><span><b>2</b> 👩🏽‍🌾 Farmer profile</span><span><b>3</b> 🏦 Support type</span></div>
+          <div class="home-finder-fields">
+            <label><span>STATE / UNION TERRITORY</span><select id="home-state-select" required><option value="">Loading States…</option></select></label>
+            <label><span>DISTRICT</span><select id="home-district-select" required><option value="">Choose district</option></select></label>
+            <label><span>FARMER PROFILE</span><select id="home-profile-select">
+              <option value="all">All farmer profiles</option><option value="owner">Owner cultivator</option><option value="tenant">Tenant / sharecropper</option><option value="women_shg">Women SHG member</option><option value="mixed_shg">Male / mixed SHG</option><option value="fpo">FPO / cooperative / group</option><option value="allied">Dairy / poultry / fisheries / allied</option><option value="entrepreneur">Agri entrepreneur</option><option value="women_farmer">Women farmer</option>
+            </select></label>
+            <label><span>FINANCE TYPE</span><select id="home-type-select">
+              <option value="all">All support types</option><option value="grant">Grant / direct benefit</option><option value="loan">Loan / credit</option><option value="subsidy">Subsidy / interest support</option><option value="insurance">Crop insurance</option><option value="pension">Farmer pension / social security</option><option value="institution">Institution / access point</option>
+            </select></label>
+            <button type="submit" class="home-finder-submit">⌕ <span>Find Support</span> <b>→</b></button>
+          </div>
+        </form>
+      </section>      </section>
+
+      <section id="view-finance" class="view">
         <div class="section-heading">
           <div><div class="section-kicker">01 / FIND FINANCIAL SUPPORT</div><h2>Where can a farmer get support?</h2><p>Select a location and farmer profile to narrow the available options.</p></div>
           <div class="scope-label"><span class="scope-dot"></span> National + local records</div>
