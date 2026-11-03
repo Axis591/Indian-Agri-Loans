@@ -553,3 +553,56 @@ body[data-page]:not([data-page="finance"]) .main > .quick-paths{
   display:none!important;
 }
 body[data-page]:not([data-page="finance"]) .main > .language-toolbar{margin-bottom:18px}
+
+
+/* REAL FARMER ARTWORK: cropped illustrations from the AgriBridge design concepts */
+.hero{grid-template-columns:1.12fr .88fr;min-height:270px;border-radius:22px;overflow:hidden}
+.hero-copy{padding:36px 40px;z-index:2}
+.hero-art-illustrated{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(135deg,#d7e9c8 0%,#b8d8af 45%,#628d54 100%)}
+.hero-farmer-photo{position:absolute;inset:0 0 0 auto;width:88%;background-image:url('/assets/agri-farmer-characters-20261103.webp');background-repeat:no-repeat;background-size:400% 100%;background-position:100% center;filter:saturate(1.08);transform:scale(1.02);transform-origin:right center}
+.hero-art-illustrated:before{content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(90deg,#174532 0%,rgba(23,69,50,.92) 7%,rgba(23,69,50,.35) 35%,rgba(23,69,50,0) 68%)}
+.hero-art-sun{position:absolute;z-index:2;right:12%;top:18px;width:72px;height:72px;border-radius:50%;background:#e3bf69;box-shadow:0 0 0 14px rgba(255,255,255,.12)}
+.hero-stamp{z-index:3}
+.quick-path-mascot{overflow:hidden;border:3px solid rgba(255,255,255,.85);background:#f6e9c4}
+.quick-path-mascot-photo{position:absolute;inset:0;display:block;background-image:url('/assets/agri-farmer-characters-20261103.webp');background-size:400% 100%;background-position:66.667% center;background-repeat:no-repeat}
+.quick-path-mascot i{z-index:2}
+.page-character-art.page-character-photo{position:relative;z-index:1;display:block;flex:0 0 172px;width:172px;height:126px;min-width:172px;align-self:stretch;margin:-12px -4px -9px 0;border:4px solid rgba(255,255,255,.9);border-radius:16px;background-color:#eaf2e4;background-image:url('/assets/agri-farmer-characters-20261103.webp');background-size:400% 100%;background-position:var(--farmer-frame,0%) center;background-repeat:no-repeat;box-shadow:0 8px 18px rgba(31,64,43,.13);overflow:hidden}
+.page-character-photo:after{content:"";position:absolute;inset:auto 0 0;height:26px;background:linear-gradient(transparent,rgba(24,53,37,.12));pointer-events:none}
+.page-character-art.page-character-photo>i{z-index:2;top:7px;right:7px}
+.page-character-card{min-height:132px;padding:16px 22px 14px 20px;background:linear-gradient(105deg,#fff 0%,rgba(243,250,239,.97) 66%,rgba(228,242,219,.9) 100%);border-radius:20px;box-shadow:0 10px 26px rgba(28,65,44,.075)}
+.page-character-text>b{font-size:16px}
+.page-character-text>small{font-size:10px;max-width:580px}
+.page-character-assistant{background:linear-gradient(105deg,#fff 0%,#f3f8ff 65%,#e5f1fb 100%)}
+.page-character-directory{background:linear-gradient(105deg,#fff 0%,#fff9ec 65%,#faefd6 100%)}
+.page-character-ngo{background:linear-gradient(105deg,#fff 0%,#f7f2fd 65%,#eee6f8 100%)}
+.page-character-market{background:linear-gradient(105deg,#fff 0%,#fff4ed 65%,#f8e6dc 100%)}
+.page-character-coverage{background:linear-gradient(105deg,#fff 0%,#f1f8f8 65%,#e3f0f0 100%)}
+
+/* Stronger illustrated agricultural backdrop on each independent page */
+.view{position:relative;isolation:isolate;min-height:calc(100vh - 150px);padding:16px 14px 32px;border-radius:24px}
+.view:before{content:"";position:absolute;z-index:-1;right:0;bottom:0;width:210px;height:132px;border-radius:25px 0 20px 0;opacity:.075;background-image:url('/assets/agri-farmer-characters-20261103.webp');background-repeat:no-repeat;background-size:400% 100%;background-position:100% center;pointer-events:none}
+.view.active#view-finance:before{background-position:0% center}
+.view.active#view-assistant:before{background-position:33.333% center}
+.view.active#view-directory:before{background-position:66.667% center}
+.view.active#view-ngo:before{background-position:100% center}
+.view.active#view-market:before{background-position:33.333% center}
+.view.active#view-coverage:before{background-position:66.667% center}
+.view.active#view-finance{background-image:radial-gradient(ellipse at 93% 4%,rgba(208,235,198,.65),transparent 36%),linear-gradient(145deg,rgba(255,255,255,.72),rgba(242,249,237,.86))}
+.view.active#view-assistant{background-image:radial-gradient(ellipse at 95% 5%,rgba(190,220,247,.68),transparent 36%),linear-gradient(145deg,rgba(255,255,255,.78),rgba(234,244,252,.86))}
+.view.active#view-directory{background-image:radial-gradient(ellipse at 95% 5%,rgba(248,220,166,.63),transparent 36%),linear-gradient(145deg,rgba(255,255,255,.78),rgba(255,246,225,.88))}
+.view.active#view-ngo{background-image:radial-gradient(ellipse at 95% 5%,rgba(224,208,244,.65),transparent 36%),linear-gradient(145deg,rgba(255,255,255,.78),rgba(245,239,252,.88))}
+.view.active#view-market{background-image:radial-gradient(ellipse at 95% 5%,rgba(246,211,193,.68),transparent 36%),linear-gradient(145deg,rgba(255,255,255,.78),rgba(255,240,231,.88))}
+.view.active#view-coverage{background-image:radial-gradient(ellipse at 95% 5%,rgba(199,224,229,.7),transparent 36%),linear-gradient(145deg,rgba(255,255,255,.78),rgba(237,247,247,.88))}
+.side-nav .nav-item[aria-current="page"]{background:linear-gradient(100deg,#285b43,#1e4b37);color:#fff;box-shadow:inset 4px 0 #e5bf61,0 7px 18px rgba(8,35,23,.14)}
+@media(max-width:760px){
+ .hero{grid-template-columns:1fr;min-height:0}
+ .hero-art-illustrated{min-height:190px}
+ .hero-farmer-photo{width:76%}
+ .page-character-art.page-character-photo{flex-basis:132px;width:132px;min-width:132px;height:112px}
+ .page-character-card{min-height:116px;padding:12px 14px}
+}
+@media(max-width:520px){
+ .hero-art-illustrated{min-height:160px}
+ .page-character-art.page-character-photo{flex-basis:104px;width:104px;min-width:104px;height:96px;border-width:3px}
+ .page-character-text>b{font-size:13px}
+}

@@ -605,12 +605,12 @@ function farmerFigureSvg(kind){
   return '<svg class="farmer-figure-svg" viewBox="0 0 180 155" aria-hidden="true" focusable="false"><ellipse cx="90" cy="146" rx="67" ry="7" fill="#193e2b" opacity=".11"/><path d="M27 145 Q33 117 51 101 Q71 88 96 95 Q120 100 132 145Z" fill="'+p.shirt+'" opacity=".12"/>'+prop+clothing+'<path d="M56 83 Q42 95 40 113" stroke="'+p.skin+'" stroke-width="12" stroke-linecap="round" fill="none"/><path d="M100 84 Q117 95 124 109" stroke="'+p.skin+'" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="79" cy="50" r="25" fill="'+p.skin+'"/>'+headgear+'<path d="M58 53 Q65 67 82 67 Q97 66 103 53" fill="none" stroke="#7c4a38" stroke-width="2.5" stroke-linecap="round"/><circle cx="70" cy="49" r="2.1" fill="#27372c"/><circle cx="89" cy="49" r="2.1" fill="#27372c"/><path d="M73 60 Q81 66 90 59" stroke="#713d31" stroke-width="2.3" fill="none" stroke-linecap="round"/><path d="M61 41 Q75 31 94 39" stroke="#48352d" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M65 80 Q82 92 100 80" stroke="'+p.cloth+'" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M38 117 Q58 111 70 126" stroke="'+p.skin+'" stroke-width="10" fill="none" stroke-linecap="round"/><circle cx="70" cy="126" r="6" fill="'+p.skin+'"/></svg>';
 }
 const pageCharacterContent={
-  finance:{kind:'farmer',eyebrow:'FARMER-FIRST DISCOVERY',title:'Your next step starts with your farm',copy:'Choose your district and farmer profile to explore support routes that may fit.'},
-  assistant:{kind:'woman',eyebrow:'PERSONALISED SUPPORT',title:'A clearer path through the options',copy:'Tell us about the farm, then review potential matches and what to verify.'},
-  directory:{kind:'banker',eyebrow:'SCHEMES & FINANCE PARTNERS',title:'Compare support with confidence',copy:'Explore benefits, lenders, application steps, documents and official sources.'},
-  ngo:{kind:'ngo',eyebrow:'FIELD TEAMS & COMMUNITY PARTNERS',title:'Stronger support, village by village',copy:'Track aggregate programme progress and coordinate practical follow-up routes.'},
-  market:{kind:'market',eyebrow:'SELL SMARTER',title:'Bring market information closer to the farm',copy:'Review published mandi prices and official trading and procurement channels.'},
-  coverage:{kind:'data',eyebrow:'TRANSPARENCY & COVERAGE',title:'Know what is mapped — and what needs checking',copy:'Explore source coverage, State research and local information gaps.'}
+  finance:{position:'0%',eyebrow:'FARMER-FIRST DISCOVERY',title:'Your next step starts with your farm',copy:'Choose your district and farmer profile to explore support routes that may fit.'},
+  assistant:{position:'33.333%',eyebrow:'PERSONALISED SUPPORT',title:'A clearer path through the options',copy:'Tell us about the farm, then review potential matches and what to verify.'},
+  directory:{position:'66.667%',eyebrow:'SCHEMES & FINANCE PARTNERS',title:'Compare support with confidence',copy:'Explore benefits, lenders, application steps, documents and official sources.'},
+  ngo:{position:'100%',eyebrow:'FIELD TEAMS & COMMUNITY PARTNERS',title:'Stronger support, village by village',copy:'Track aggregate programme progress and coordinate practical follow-up routes.'},
+  market:{position:'33.333%',eyebrow:'SELL SMARTER',title:'Bring market information closer to the farm',copy:'Review published mandi prices and official trading and procurement channels.'},
+  coverage:{position:'66.667%',eyebrow:'TRANSPARENCY & COVERAGE',title:'Know what is mapped — and what needs checking',copy:'Explore source coverage, State research and local information gaps.'}
 };
 function addPageCharacter(view){
   const node=document.querySelector('#view-'+view+' .section-heading');
@@ -618,7 +618,7 @@ function addPageCharacter(view){
   const item=pageCharacterContent[view];if(!item)return;
   const banner=document.createElement('aside');
   banner.className='page-character-card page-character-'+view;
-  banner.innerHTML='<div class="page-character-text"><span>'+item.eyebrow+'</span><b>'+item.title+'</b><small>'+item.copy+'</small></div><div class="page-character-art">'+farmerFigureSvg(item.kind)+'<i aria-hidden="true">✦</i></div>';
+  banner.innerHTML='<div class="page-character-text"><span>'+item.eyebrow+'</span><b>'+item.title+'</b><small>'+item.copy+'</small></div><div class="page-character-art page-character-photo" role="img" aria-label="Illustrated Indian farmer" style="--farmer-frame:'+item.position+'"><i aria-hidden="true">✦</i></div>';
   node.insertAdjacentElement('afterend',banner);
   window.refreshAgriTranslation?.();
 }
@@ -627,7 +627,11 @@ function switchView(view,options={}){
   selectedView=view;
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
   $('#view-'+view).classList.add('active');
-  document.querySelectorAll('.nav-item').forEach(b=>b.classList.toggle('active',b.dataset.view===view));
+  document.querySelectorAll('.nav-item').forEach(b=>{
+    const active=b.dataset.view===view;
+    b.classList.toggle('active',active);
+    if(active)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');
+  });
   document.body.dataset.page=view;
   const breadcrumb=$('#breadcrumb-page');
   if(breadcrumb)breadcrumb.textContent=pageRouteTitles[view];

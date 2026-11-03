@@ -12,3 +12,6 @@
 
 /styles.css
   Cache-Control: no-cache, no-store, must-revalidate
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
