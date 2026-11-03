@@ -614,13 +614,50 @@ const pageCharacterContent={
 };
 function addPageCharacter(view){
   const node=document.querySelector('#view-'+view+' .section-heading');
-  if(!node||node.parentElement.querySelector(':scope > .page-character-card'))return;
+  if(!node)return;
   const item=pageCharacterContent[view];if(!item)return;
-  const banner=document.createElement('aside');
-  banner.className='page-character-card page-character-'+view;
-  banner.innerHTML='<div class="page-character-text"><span>'+item.eyebrow+'</span><b>'+item.title+'</b><small>'+item.copy+'</small></div><div class="page-character-art page-character-photo" role="img" aria-label="Illustrated Indian farmer" style="--farmer-frame:'+item.position+'"><i aria-hidden="true">✦</i></div>';
-  node.insertAdjacentElement('afterend',banner);
+  if(!node.parentElement.querySelector(':scope > .page-character-card')){
+    const banner=document.createElement('aside');
+    banner.className='page-character-card page-character-'+view;
+    banner.innerHTML='<div class="page-character-text"><span>'+item.eyebrow+'</span><b>'+item.title+'</b><small>'+item.copy+'</small></div><div class="page-character-art page-character-vector">'+farmerFigureSvg(view==='assistant'?'woman':view==='ngo'?'ngo':view==='market'?'market':view==='coverage'?'data':view==='directory'?'banker':'farmer')+'<i aria-hidden="true">✦</i></div>';
+    node.insertAdjacentElement('afterend',banner);
+  }
+  addPageActionDock(view,node.parentElement);
   window.refreshAgriTranslation?.();
+}
+const pageActionItems={
+  assistant:[['📍','Choose farm location','#assistant-location'],['🧑🏽‍🌾','Farmer profile','#eligibility-form'],['✅','Review matches','#eligibility-output']],
+  directory:[['🌱','Browse schemes','#directory-schemes'],['🏦','Compare lenders','#lender-grid'],['🔎','Search catalogue','#directory-search']],
+  ngo:[['🛡️','Privacy & workspace','#view-ngo .ngo-safety'],['📋','Programme monitoring','#ngo-workspace'],['📈','Outcome summary','#ngo-metrics']],
+  market:[['💹','Mandi price search','#market-price-form'],['🛒','Market price results','#market-price-results'],['🤝','Selling channels','#market-links-heading']],
+  coverage:[['🗺️','State directory','#state-coverage-list'],['📚','Research workstreams','#state-workstream-register'],['📍','Selected district','#coverage-selected-detail']]
+};
+function addPageActionDock(view,parent){
+  if(!parent||parent.querySelector(':scope > .page-action-dock'))return;
+  const items=pageActionItems[view];
+  if(!items)return;
+  const dock=document.createElement('div');
+  dock.className='page-action-dock page-action-'+view;
+  dock.innerHTML=items.map(([icon,label,target])=>'<button type="button" class="page-action-card" data-page-target="'+target+'"><span>'+icon+'</span><b>'+label+'</b><i>↘</i></button>').join('');
+  const banner=parent.querySelector(':scope > .page-character-card');
+  (banner||node).insertAdjacentElement('afterend',dock);
+  dock.querySelectorAll('[data-page-target]').forEach(button=>button.addEventListener('click',()=>{
+    const target=button.dataset.pageTarget;
+    const el=target.startsWith('#')?document.querySelector(target):null;
+    if(el){el.scrollIntoView({behavior:'smooth',block:'start'});el.classList.add('page-target-highlight');setTimeout(()=>el.classList.remove('page-target-highlight'),1200);}
+  }));
+}
+function renderHomeIllustrations(){
+  const hero=$('#hero-farmer-illustration');
+  if(hero&&!hero.dataset.ready){
+    hero.innerHTML='<div class="hero-character hero-character-man">'+farmerFigureSvg('farmer')+'</div><div class="hero-character hero-character-woman">'+farmerFigureSvg('woman')+'</div>';
+    hero.dataset.ready='1';
+  }
+  const shortcut=$('#quick-path-farmer');
+  if(shortcut&&!shortcut.dataset.ready){
+    shortcut.innerHTML=farmerFigureSvg('woman');
+    shortcut.dataset.ready='1';
+  }
 }
 function switchView(view,options={}){
   if(!pageRouteSlugs[view]||!$('#view-'+view))view='finance';
@@ -633,6 +670,7 @@ function switchView(view,options={}){
     if(active)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');
   });
   document.body.dataset.page=view;
+  renderHomeIllustrations();
   const breadcrumb=$('#breadcrumb-page');
   if(breadcrumb)breadcrumb.textContent=pageRouteTitles[view];
   document.title=pageRouteTitles[view].replace(/\b\w/g,c=>c.toUpperCase())+' | AgriBridge';
