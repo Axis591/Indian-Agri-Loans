@@ -60,7 +60,7 @@ export async function onRequestPatch(context) {
       !["acre","hectare"].includes(landAreaUnit) ||
       (landArea !== null && (!Number.isFinite(landArea) || landArea <= 0 || landArea > 10000)) ||
       !validSeasons.has(season) || !validIrrigation.has(irrigation) || v.consent !== true ||
-      /(aadhaar|uid|pan|phone|mobile|bank|account|ifsc|passport|voter|@)/i.test(cropName) || /\d{10,}/.test(cropName)) {
+      /(aadhaar|uid|pan|phone|mobile|bank|account|ifsc|passport|voter|@)/i.test(cropName) || /(?:\d[\s-]?){10,}/.test(cropName)) {
     return jsonResponse({ error: "Check the characteristics and confirm farmer consent again. Use only an anonymous case reference; no direct identifiers are accepted." }, 400);
   }
   try {
