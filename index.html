@@ -343,6 +343,15 @@
         <label class="ngo-consent-check"><input type="checkbox" id="ngo-farmer-consent" required><span>I confirm that the farmer has been informed in a language they understand about this profile, scheme matching and optional document storage, and has freely agreed. I have not entered direct identifiers. *</span></label>
         <div class="ngo-actions"><button type="submit" class="primary-action" id="ngo-farmer-submit">Save farmer profile &amp; find schemes →</button><button type="button" class="secondary-action" id="ngo-farmer-cancel-edit" hidden>Cancel edit</button><span id="ngo-farmer-status" class="ngo-save-status" aria-live="polite">No farmer profile submitted.</span></div>
       </form>
+      <div class="ngo-csv-import">
+        <div class="ngo-csv-import-head"><div><div class="section-kicker">OPTIONAL BULK DATA IMPORT</div><h4>Upload farmer characteristics CSV</h4><p>Import up to 100 pseudonymous farmer profiles in one file. The browser validates the rows and sends only the structured profile fields; the original CSV is not saved.</p></div><a href="assets/ngo-farmer-import-template.csv" download class="secondary-action">Download CSV template ↓</a></div>
+        <form id="ngo-farmer-import-form" class="ngo-csv-import-form">
+          <label>Choose CSV file<input id="ngo-farmer-csv" type="file" accept=".csv,text/csv" required></label>
+          <label class="ngo-consent-check"><input id="ngo-farmer-csv-consent" type="checkbox" required><span>I confirm that every row represents a farmer who has understood and agreed to this data use, and that the CSV contains no farmer names, phone numbers, Aadhaar, PAN, bank details, emails or other direct identifiers. *</span></label>
+          <button type="submit" class="primary-action" id="ngo-farmer-import-submit">Validate &amp; import farmer rows →</button>
+          <span id="ngo-farmer-import-status" class="ngo-save-status" aria-live="polite">CSV stays in this browser; only validated farmer characteristics are saved to your organisation workspace.</span>
+        </form>
+      </div>
       <div class="ngo-farmer-list-head"><b>Saved farmer cases</b><span id="ngo-farmer-count">0 profiles</span></div>
       <div id="ngo-farmer-list" class="ngo-farmer-list"><div class="no-directory-results">No farmer profiles have been created.</div></div>
       <div id="ngo-farmer-recommendations" class="ngo-farmer-recommendations"></div>
