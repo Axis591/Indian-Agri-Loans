@@ -62,73 +62,15 @@ If OGD enables the District resource API for your account, obtain its resource I
 
 Redeploy. `/api/geography` returns `configured: true` only when it receives a usable official dataset with State and District codes. If the resource API is unavailable, the site uses the downloaded CSV import or the community fallback and labels the source accordingly.
 
-## 4. Enable the secure NGO workspace
+## 4. Enable NGO Helping Hand
 
-Do this only if the organisation is ready to administer member access and retention. Until all steps are completed, the NGO page stays disabled and stores no NGO data in the browser.
+The original V3 section described the aggregate-only NGO workspace. It has since been expanded with mandatory organisation onboarding, administrator approval, approved NGO sign-in, consent-based pseudonymous farmer profiles, scheme recommendations, private supporting files and a manual scheme-application tracker.
 
-### 4.1 Create a D1 database
+**Use the current, complete deployment runbook:** [NGO_HELPING_HAND_SETUP.md](NGO_HELPING_HAND_SETUP.md).
 
-From a terminal authenticated to the Cloudflare account:
+The new setup requires D1 migration `0002_ngo_helping_hand.sql` after migration 0001, a private R2 binding named `NGO_DOCS`, Turnstile site/secret keys, `NGO_JOIN_RATE_LIMIT_SALT`, `NGO_PLATFORM_ADMIN_EMAILS`, and the existing Cloudflare Access configuration. The feature remains unavailable until the site owner finishes these dashboard steps and redeploys.
 
-```bash
-npx wrangler login
-npx wrangler d1 create agribridge-ngo
-```
-
-Keep the database name and ID private in your administration notes. Apply the checked-in migration:
-
-```bash
-npx wrangler d1 migrations apply agribridge-ngo --remote
-```
-
-Alternatively use the Cloudflare D1 dashboard SQL editor to apply `migrations/0001_ngo_secure.sql` exactly once. Confirm that the tables `ngo_users`, `ngo_metrics`, `ngo_followups` and `ngo_audit` exist.
-
-### 4.2 Bind D1 to Pages
-
-1. Open Cloudflare Dashboard → Workers & Pages → **indian-agri-loans**.
-2. Go to **Settings → Bindings → Add → D1 database binding**.
-3. Set the variable name to exactly `NGO_DB` and select the `agribridge-ngo` database.
-4. Add the binding to Production. Configure Preview only if you have a separate test database.
-5. Save changes and redeploy.
-
-Pages Functions read this binding from `context.env.NGO_DB`. The database binding must be present before the API can read or write records.
-
-### 4.3 Create a Cloudflare Access application
-
-1. Open Cloudflare Zero Trust → **Access controls → Applications**.
-2. Add a **Self-hosted** application for your Pages host `indian-agri-loans.pages.dev`.
-3. Restrict the application to path `/api/ngo/*` (do not protect the public farmer directory).
-4. Create a deny-by-default Allow policy limited to the specific organisation email addresses or identity-provider group that should access the workspace. Do not allow everyone.
-5. Save the application and copy its **Application Audience (AUD) Tag** from Additional settings.
-6. Use the Access team domain shown by your Cloudflare Zero Trust account, in the form `https://<your-team-name>.cloudflareaccess.com`.
-
-### 4.4 Add Access configuration to Pages
-
-Under Workers & Pages → indian-agri-loans → Settings → Variables and Secrets, add these Production variables:
-
-| Variable | Value |
-|---|---|
-| `ACCESS_TEAM_DOMAIN` | Exact Cloudflare Zero Trust team domain, including `https://`, no trailing slash. |
-| `ACCESS_AUD` | Application Audience (AUD) Tag copied from the Access application. |
-
-Save and redeploy. The NGO API validates `Cf-Access-Jwt-Assertion` against Cloudflare's signing keys, issuer, audience and expiry. Do not replace this with a browser-supplied email or an unverified identity header.
-
-### 4.5 Provision your first organisation administrator
-
-Only after the Access application and D1 schema are ready, provision the first authorised member using the D1 console. Replace the placeholders with an actual email and organisation slug chosen by your organisation:
-
-```sql
-INSERT INTO ngo_users (email, org_id, role, active)
-VALUES ('<authorised-admin-email>', '<organisation-slug>', 'admin', 1);
-```
-
-Then add any other approved members with roles `editor` or `viewer`. Use the same `org_id` for members of the same organisation. Different organisations must use different `org_id` values. Never commit real member emails, group names or account data to GitHub.
-
-Roles:
-
-- `admin`: view workspace, edit aggregate metrics, add follow-ups and delete follow-ups.
-- `editor`: view workspace, edit aggregate metrics and add follow-ups.
-- `viewer`: read and export the organisation's records; cannot edit or delete.
+Review [NGO_PRIVACY_NOTICE.md](NGO_PRIVACY_NOTICE.md) before accepting organisation applications or farmer profiles. Uploaded files are redacted support evidence for human review only; the matching system reads structured profile fields and does not OCR or automatically verify uploads.
 
 ## 5. Test the secured endpoints
 
