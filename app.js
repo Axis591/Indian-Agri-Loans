@@ -662,10 +662,24 @@ function renderNGOFarmerList(){
   node.querySelectorAll('[data-farmer-upload]').forEach(b=>b.addEventListener('click',()=>openFarmerDocuments(b.dataset.farmerUpload)));
   node.querySelectorAll('[data-farmer-delete]').forEach(b=>b.addEventListener('click',()=>deleteNGOFarmer(b.dataset.farmerDelete)));
 }
+function farmerSchemeRelevance(record,farmer){
+  const sourceText=normalizedName([record.name,record.category,record.summary,record.eligibility,(record.keywords||[]).join(' '),(record.activityTags||[]).join(' '),record.amountNote].join(' '));
+  let score=0;
+  const cropTokens=normalizedName(farmer.crop_name||'').split(/[^a-z0-9]+/).filter(token=>token.length>2);
+  for(const token of cropTokens)if(sourceText.includes(token))score+=3;
+  if(farmer.season&&farmer.season!=='unknown'){
+    if(sourceText.includes(farmer.season))score+=2;
+    if(record.programmeStatus==='seasonal_notification_required')score+=1;
+  }
+  if(farmer.irrigation&&farmer.irrigation!=='unknown'&&(record.activityTags||[]).some(tag=>['irrigation','water','machinery'].includes(tag)))score+=1;
+  if(farmer.land_area&&sourceText.includes('per acre'))score+=1;
+  return score;
+}
 function showFarmerRecommendations(farmerId){
   const farmer=(ngoData.farmers||[]).find(x=>x.id===farmerId);if(!farmer)return;
   const node=$('#ngo-farmer-recommendations');
-  const matches=potentialMatches(farmer.profile_type,farmer.land_status,farmer.activity,farmer.support_need,{state:farmer.state_name,district:farmer.district_name});
+  const matches=potentialMatches(farmer.profile_type,farmer.land_status,farmer.activity,farmer.support_need,{state:farmer.state_name,district:farmer.district_name})
+    .sort((a,b)=>farmerSchemeRelevance(b,farmer)-farmerSchemeRelevance(a,farmer)||scopeRank(a)-scopeRank(b));
   node.innerHTML='<div class="eligibility-results-head"><div><div class="section-kicker">POTENTIAL MATCHES · '+escapeHtml(farmer.state_name.toUpperCase())+'</div><h3>Scheme shortlist for '+escapeHtml(farmer.farmer_ref)+'</h3><p>Based on entered profile characteristics and the selected district. Verify each scheme with its implementing authority.</p></div><span class="ngo-local-tag">'+matches.length+' potential matches</span></div>'+(matches.length?'<div class="eligibility-results-grid">'+matches.map(r=>'<article class="eligibility-card"><div class="eligibility-card-top"><span class="pill '+typeClass(r.type)+'">'+typeLabel(r.type)+'</span><span class="match-status">'+escapeHtml(r.scope==='national'?'National programme':'Location-scoped record')+'</span></div><h3>'+escapeHtml(r.name)+'</h3><p>'+escapeHtml(r.summary)+'</p><div class="eligibility-amount"><small>FINANCIAL SUPPORT / FACILITY</small><b>'+escapeHtml(r.amount)+'</b><span>'+escapeHtml(r.amountNote||'Confirm the current scheme order and local target.')+'</span></div><div class="eligibility-two-col"><div><h4>Why it appears</h4><p>'+escapeHtml(r.matchRules?.status||'The profile fields match the catalogue tags for this scheme.')+'</p></div><div><h4>Verify before proceeding</h4><ul>'+(r.matchRules?.mustVerify||[]).slice(0,4).map(x=>'<li>'+escapeHtml(x)+'</li>').join('')+'</ul></div></div><div class="eligibility-card-foot"><small>Source review: '+escapeHtml(r.verification?.lastChecked||r.sourceDate||'Check source')+'</small><div><button type="button" class="details-btn" data-farmer-scheme-details="'+escapeHtml(r.id)+'">Full process</button><button type="button" class="secondary-action" data-start-manual="'+escapeHtml(r.id)+'" data-start-farmer="'+escapeHtml(farmer.id)+'">Add to tracker &amp; open application</button><a class="apply-btn" href="'+escapeHtml(r.application)+'" target="_blank" rel="noopener noreferrer">Official application ↗</a></div></div></article>').join('')+'</div>':'<div class="eligibility-empty"><b>No catalogue matches were found for this profile.</b><span>Try reviewing the farmer characteristics or browse the complete scheme directory. An empty match list does not mean no support exists.</span></div>')+'<div class="ngo-help">Matching uses structured profile fields and the current scheme catalogue. Uploaded files are not automatically read; use them for authorised human review and update the structured fields after checking them.</div>';
   node.querySelectorAll('[data-farmer-scheme-details]').forEach(b=>b.addEventListener('click',()=>showDetails(b.dataset.farmerSchemeDetails)));
   node.querySelectorAll('[data-start-manual]').forEach(b=>b.addEventListener('click',()=>startManualSchemeApplication(b.dataset.startFarmer,b.dataset.startManual)));
