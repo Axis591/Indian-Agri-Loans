@@ -718,7 +718,7 @@ function updateNGOManualSchemeOptions(){
   const farmer=(ngoData.farmers||[]).find(f=>f.id===farmerId);
   select.replaceChildren(new Option(farmer?'Choose a catalogue scheme':'Select a farmer case first',''));
   if(!farmer)return;
-  const choices=records.filter(r=>r.type!=='informal'&&applicable(r,farmer.state_name,farmer.district_name)).sort((a,b)=>a.name.localeCompare(b.name));
+  const choices=records.filter(r=>r.type!=='informal'&&!r.matchRules?.excludeFromAssistant&&applicable(r,farmer.state_name,farmer.district_name)).sort((a,b)=>a.name.localeCompare(b.name));
   choices.forEach(r=>select.append(new Option(r.name+' · '+r.category,r.id)));
   if(!choices.length)select.append(new Option('No location-scoped catalogue entries are listed',''));
 }
