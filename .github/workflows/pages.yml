@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Optional GitHub Pages backup
 
 on:
   push:
@@ -16,6 +16,7 @@ concurrency:
 
 jobs:
   build:
+    if: ${{ vars.ENABLE_GITHUB_PAGES == 'true' }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -27,6 +28,7 @@ jobs:
         with:
           path: .
   deploy:
+    if: ${{ vars.ENABLE_GITHUB_PAGES == 'true' }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
