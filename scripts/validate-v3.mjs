@@ -104,7 +104,6 @@ check(html.includes('value="women_farmer"'),'Women farmer applicant profile is s
 check(html.includes('NGO_HELPING_HAND_SETUP.md')&&html.includes('NGO_PRIVACY_NOTICE.md'),'Current NGO Helping Hand setup and privacy notices are linked in the public page.');
 check(html.includes('https://indian-agri-loans.pages.dev/'),'Cloudflare public canonical host is retained.');
 check(html.includes('data-ngo-portal="false"')&&html.includes('https://agribridge-ngo-portal.pages.dev/?page=ngo'),'Public AgriBridge keeps its public access and links approved members to the separate NGO portal.');
-check(app.includes("document.documentElement.dataset.ngoPortal==='true'")&&app.includes('Open secure NGO portal'),'The public app does not call private NGO APIs and directs members to the Access-protected portal.');
 const portalHtml=readText('ngo-portal/index.html'),portalApp=readText('ngo-portal/app.js');
 check(portalHtml.includes('data-ngo-portal="true"')&&portalHtml.includes('noindex,nofollow,noarchive'),'Separate NGO portal is marked as the protected, non-indexed application.');
 check(portalHtml.includes('ngo-admin-review-toggle')&&portalHtml.includes('ngo-farmer-form')&&portalHtml.includes('ngo-manual-apply-form')&&portalHtml.includes('ngo-doc-form'),'Separate portal contains admin review, farmer, document and manual scheme UI.');
@@ -114,6 +113,7 @@ const portalRoutes=readJSON('ngo-portal/_routes.json');
 check(portalRoutes.version===1&&portalRoutes.include.includes('/api/*'),'Portal Pages Functions are routed under /api/*.');
 
 const app=readText('app.js');
+check(app.includes("document.documentElement.dataset.ngoPortal==='true'")&&app.includes('Open secure NGO portal'),'The public app does not call private NGO APIs and directs members to the Access-protected portal.');
 check(!app.includes('localStorage'),'Public app does not store NGO data in browser localStorage.');
 check(app.includes('submitNGOJoin')&&app.includes('loadNGOAdminApplications')&&app.includes('reviewNGOApplication'),'NGO membership application and platform review UI logic exist.');
 check(app.includes('addNGOFarmer')&&app.includes('importNGOFarmerCSV')&&app.includes('parseNGOFarmerCSV')&&app.includes('editNGOFarmer')&&app.includes('showFarmerRecommendations')&&app.includes('startManualSchemeApplication')&&app.includes('submitManualSchemeApplication')&&app.includes('updateNGOManualSchemeOptions'),'Consent-based single and CSV farmer profiles, document-informed edits, recommendations and manual scheme selection exist.');
