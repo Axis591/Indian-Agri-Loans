@@ -101,7 +101,7 @@ check(['loan-principal','loan-tenure','loan-method','offer-a-rate','offer-b-rate
 check(['market-price-form','market-state','market-district','market-commodity','market-price-status','market-price-results'].every(id=>html.includes(`id="${id}"`)),'Daily mandi search form and results container exist.');
 check(['ngo-workspace-status','ngo-workspace-ready','ngo-save-metrics','ngo-followup-form','ngo-join-form','ngo-join-submit','ngo-admin-panel','ngo-farmer-form','ngo-farmer-import-form','ngo-farmer-csv','ngo-farmer-csv-consent','ngo-farmer-list','ngo-farmer-recommendations','ngo-doc-form','ngo-scheme-application-list','ngo-manual-apply-form','ngo-manual-farmer','ngo-manual-scheme'].every(id=>html.includes(`id="${id}"`)),'NGO Helping Hand membership, farmer and application UI elements exist.');
 check(html.includes('value="women_farmer"'),'Women farmer applicant profile is selectable.');
-check(html.includes('NGO_HELPING_HAND_SETUP.md')&&html.includes('NGO_PRIVACY_NOTICE.md'),'Current NGO Helping Hand setup and privacy notices are linked in the public page.');
+check(html.includes('NGO_PORTAL_NO_DOMAIN_SETUP.md')&&html.includes('NGO_PRIVACY_NOTICE.md'),'Current no-domain NGO portal setup and privacy notices are linked in the public page.');
 check(html.includes('https://indian-agri-loans.pages.dev/'),'Cloudflare public canonical host is retained.');
 check(html.includes('data-ngo-portal="false"')&&html.includes('https://agribridge-ngo-portal.pages.dev/?page=ngo'),'Public AgriBridge keeps its public access and links approved members to the separate NGO portal.');
 const portalHtml=readText('ngo-portal/index.html'),portalApp=readText('ngo-portal/app.js');
