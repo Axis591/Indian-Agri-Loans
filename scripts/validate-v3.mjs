@@ -101,7 +101,7 @@ check(['loan-principal','loan-tenure','loan-method','offer-a-rate','offer-b-rate
 check(['market-price-form','market-state','market-district','market-commodity','market-price-status','market-price-results'].every(id=>html.includes(`id="${id}"`)),'Daily mandi search form and results container exist.');
 check(['ngo-workspace-status','ngo-workspace-ready','ngo-save-metrics','ngo-followup-form','ngo-join-form','ngo-join-submit','ngo-admin-panel','ngo-farmer-form','ngo-farmer-list','ngo-farmer-recommendations','ngo-doc-form','ngo-scheme-application-list','ngo-manual-apply-form','ngo-manual-farmer','ngo-manual-scheme'].every(id=>html.includes(`id="${id}"`)),'NGO Helping Hand membership, farmer and application UI elements exist.');
 check(html.includes('value="women_farmer"'),'Women farmer applicant profile is selectable.');
-check(html.includes('CLOUDFLARE_SETUP_V3.md'),'Secure backend setup guide is linked in the public NGO page.');
+check(html.includes('NGO_HELPING_HAND_SETUP.md')&&html.includes('NGO_PRIVACY_NOTICE.md'),'Current NGO Helping Hand setup and privacy notices are linked in the public page.');
 check(html.includes('https://indian-agri-loans.pages.dev/'),'Cloudflare public canonical host is retained.');
 const app=readText('app.js');
 check(!app.includes('localStorage'),'Public app does not store NGO data in browser localStorage.');
@@ -129,7 +129,7 @@ const helpingHand=readText('migrations/0002_ngo_helping_hand.sql');
 check(helpingHand.includes('ngo_applications')&&helpingHand.includes('ngo_organisations')&&helpingHand.includes('ngo_farmers')&&helpingHand.includes('ngo_farmer_documents')&&helpingHand.includes('ngo_scheme_applications'),'NGO Helping Hand migration includes membership, farmer, document and application tables.');
 check(helpingHand.includes('consent_at')&&helpingHand.includes('consent_version')&&!/farmer_name|aadhaar|bank_account/i.test(helpingHand),'Farmer profile schema records consent and does not add direct identity or bank fields.');
 const joinEndpoint=readText('functions/api/ngo-join.js');
-check(joinEndpoint.includes('challenges.cloudflare.com/turnstile/v0/siteverify')&&joinEndpoint.includes('NGO_JOIN_RATE_LIMIT_SALT'),'Public NGO applications use server-verified Turnstile and salted rate limiting.');
+check(joinEndpoint.includes('challenges.cloudflare.com/turnstile/v0/siteverify')&&joinEndpoint.includes('NGO_JOIN_RATE_LIMIT_SALT')&&joinEndpoint.includes('NGO_DOCS')&&joinEndpoint.includes('ACCESS_AUD'),'Public NGO applications require server-verified Turnstile, D1, private R2 and Access setup.');
 check(joinEndpoint.includes('tracking_token_hash')&&joinEndpoint.includes('NGO_JOIN_TURNSTILE_SECRET'),'Membership tracking tokens are stored as hashes and Turnstile secret is server-side.');
 const docsEndpoint=readText('functions/api/ngo/farmers/[id]/documents.js');
 check(docsEndpoint.includes('NGO_DOCS')&&docsEndpoint.includes('MAX_BYTES')&&docsEndpoint.includes('detectedType'),'Supporting files use private R2 binding, size cap and file signature checks.');
