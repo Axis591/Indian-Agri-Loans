@@ -20,7 +20,7 @@ export async function onRequestPatch(context) {
   if (!application) return jsonResponse({ error: "Pending application not found or already reviewed." }, 404);
 
   if (status === "approved") {
-    const existingUser = await db.prepare("SELECT email FROM ngo_users WHERE email = ? LIMIT 1").bind(application.contact_email).first();
+    const existingUser = await db.prepare("SELECT email FROM ngo_users WHERE lower(email) = lower(?) LIMIT 1").bind(application.contact_email).first();
     if (existingUser) return jsonResponse({ error: "The applicant email is already assigned to an organisation. Resolve membership manually before approving." }, 409);
     const orgId = slugify(application.org_name) + "-" + id.slice(0, 8);
     const statements = [
