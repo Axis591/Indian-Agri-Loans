@@ -31,5 +31,5 @@ jobs:
           while IFS= read -r file; do
             echo "Checking ${file}"
             node --input-type=module --check < "${file}"
-          done < <(find functions -type f -name '*.js' -print | sort)
+          done < <(find functions ngo-portal/functions -type f -name '*.js' -print | sort)
           node --check scripts/import-lgd-export.mjs
