@@ -1,0 +1,1421 @@
+{
+  "Andaman and Nicobar Islands": {
+    "state": "Andaman and Nicobar Islands",
+    "agriculture": {
+      "label": "Andaman and Nicobar Islands Agriculture Department",
+      "url": "https://agri.andamannicobar.gov.in/",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Andaman and Nicobar Islands farmer scheme portal",
+      "url": "https://agri.andamannicobar.gov.in/",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [],
+    "districts": {}
+  },
+  "Andhra Pradesh": {
+    "state": "Andhra Pradesh",
+    "agriculture": {
+      "label": "Andhra Pradesh Agriculture Department",
+      "url": "https://www.apagrisnet.gov.in/",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Andhra Pradesh farmer scheme portal",
+      "url": "https://www.apagrisnet.gov.in/",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [
+      {
+        "label": "Department of Horticulture",
+        "url": "https://horticulturedept.ap.gov.in/Horticulture/Newhome.aspx"
+      },
+      {
+        "label": "Agricultural Marketing Department",
+        "url": "http://market.ap.nic.in/"
+      }
+    ],
+    "districts": {},
+    "rrb": {
+      "name": "Andhra Pradesh Grameena Bank",
+      "url": "https://apgb.bank.in/",
+      "sponsor": "Union Bank of India",
+      "description": "Andhra Pradesh Grameena Bank is the Government-listed Regional Rural Bank for Andhra Pradesh. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
+  },
+  "Arunachal Pradesh": {
+    "state": "Arunachal Pradesh",
+    "agriculture": {
+      "label": "Arunachal Pradesh Agriculture Department",
+      "url": "https://www.agri.arunachal.gov.in/",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Arunachal Pradesh farmer scheme portal",
+      "url": "https://www.agri.arunachal.gov.in/",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [],
+    "districts": {},
+    "rrb": {
+      "name": "Arunachal Pradesh Rural Bank",
+      "url": "https://aprb.bank.in/",
+      "sponsor": "State Bank of India",
+      "description": "Arunachal Pradesh Rural Bank is the Government-listed Regional Rural Bank for Arunachal Pradesh. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
+  },
+  "Assam": {
+    "state": "Assam",
+    "agriculture": {
+      "label": "Assam Agriculture Department",
+      "url": "https://agri-horti.assam.gov.in/",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Assam farmer scheme portal",
+      "url": "https://agri-horti.assam.gov.in/",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [],
+    "districts": {},
+    "rrb": {
+      "name": "Assam Gramin Bank",
+      "url": "https://www.agvb.bank.in/",
+      "sponsor": "Punjab National Bank",
+      "description": "Assam Gramin Bank is the Government-listed Regional Rural Bank for Assam. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
+  },
+  "Bihar": {
+    "state": "Bihar",
+    "agriculture": {
+      "label": "Bihar Agriculture Department",
+      "url": "https://dbtagriculture.bihar.gov.in/",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Bihar farmer scheme portal",
+      "url": "https://dbtagriculture.bihar.gov.in/",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [],
+    "districts": {},
+    "rrb": {
+      "name": "Bihar Gramin Bank",
+      "url": "https://bgb.bank.in/",
+      "sponsor": "Punjab National Bank",
+      "description": "Bihar Gramin Bank is the Government-listed Regional Rural Bank for Bihar. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
+  },
+  "Chandigarh": {
+    "state": "Chandigarh",
+    "agriculture": {
+      "label": "Chandigarh Agriculture Department",
+      "url": "https://agri.punjab.gov.in/",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Chandigarh farmer scheme portal",
+      "url": "https://agri.punjab.gov.in/",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [
+      {
+        "label": "Chandigarh Market Committee",
+        "url": "http://chdmktcommittee.gov.in/"
+      }
+    ],
+    "districts": {}
+  },
+  "Chhattisgarh": {
+    "state": "Chhattisgarh",
+    "agriculture": {
+      "label": "Chhattisgarh Agriculture Department",
+      "url": "https://agriportal.cg.nic.in/horticulture/HortiEn/Default.aspx",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Chhattisgarh farmer scheme portal",
+      "url": "https://agriportal.cg.nic.in/horticulture/HortiEn/Default.aspx",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [],
+    "districts": {},
+    "rrb": {
+      "name": "Chhattisgarh Gramin Bank",
+      "url": "https://www.crgb.bank.in/",
+      "sponsor": "State Bank of India",
+      "description": "Chhattisgarh Gramin Bank is the Government-listed Regional Rural Bank for Chhattisgarh. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
+  },
+  "Dadra and Nagar Haveli and Daman and Diu": {
+    "state": "Dadra and Nagar Haveli and Daman and Diu",
+    "agriculture": {
+      "label": "Dadra and Nagar Haveli and Daman and Diu Agriculture Department",
+      "url": "https://ddd.gov.in/Departments/Agriculture.aspx",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Dadra and Nagar Haveli and Daman and Diu farmer scheme portal",
+      "url": "https://ddd.gov.in/Departments/Agriculture.aspx",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [],
+    "districts": {}
+  },
+  "Delhi": {
+    "state": "Delhi",
+    "agriculture": {
+      "label": "Delhi Agriculture Department",
+      "url": "https://delhi.gov.in/",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "State Agriculture Department directory",
+      "url": "https://www.india.gov.in/category/agriculture-rural-environment/subcategory/research-marketing/details/departments-of-agriculture-of-states-and-union-territories",
+      "description": "Choose Delhi in the official State/UT Agriculture Department directory."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [],
+    "districts": {}
+  },
+  "Goa": {
+    "state": "Goa",
+    "agriculture": {
+      "label": "Goa Agriculture Department",
+      "url": "http://agri.goa.gov.in/",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Goa farmer scheme portal",
+      "url": "http://agri.goa.gov.in/",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [],
+    "districts": {}
+  },
+  "Gujarat": {
+    "state": "Gujarat",
+    "agriculture": {
+      "label": "Gujarat Agriculture Department",
+      "url": "https://agri.gujarat.gov.in/",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Gujarat farmer scheme portal",
+      "url": "https://ikhedut.gujarat.gov.in/iKhedutPublicScheme/",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [],
+    "districts": {},
+    "rrb": {
+      "name": "Gujarat Gramin Bank",
+      "url": "https://www.ggb.bank.in/",
+      "sponsor": "Bank of Baroda",
+      "description": "Gujarat Gramin Bank is the Government-listed Regional Rural Bank for Gujarat. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
+  },
+  "Haryana": {
+    "state": "Haryana",
+    "agriculture": {
+      "label": "Haryana Agriculture Department",
+      "url": "http://agriharyana.gov.in/",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Haryana farmer scheme portal",
+      "url": "http://agriharyana.gov.in/",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [],
+    "districts": {},
+    "rrb": {
+      "name": "Haryana Gramin Bank",
+      "url": "https://shgb.bank.in/",
+      "sponsor": "Punjab National Bank",
+      "description": "Haryana Gramin Bank is the Government-listed Regional Rural Bank for Haryana. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
+  },
+  "Himachal Pradesh": {
+    "state": "Himachal Pradesh",
+    "agriculture": {
+      "label": "Himachal Pradesh Agriculture Department",
+      "url": "https://agriculture.hp.gov.in/en/",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Himachal Pradesh farmer scheme portal",
+      "url": "https://agriculture.hp.gov.in/en/scheme_category/state-en/",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [],
+    "districts": {},
+    "rrb": {
+      "name": "Himachal Pradesh Gramin Bank",
+      "url": "https://www.hpgb.bank.in/",
+      "sponsor": "Punjab National Bank",
+      "description": "Himachal Pradesh Gramin Bank is the Government-listed Regional Rural Bank for Himachal Pradesh. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
+  },
+  "Jammu and Kashmir": {
+    "state": "Jammu and Kashmir",
+    "agriculture": {
+      "label": "Jammu and Kashmir Agriculture Department",
+      "url": "https://apd.jk.gov.in/index.html",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Jammu and Kashmir farmer scheme portal",
+      "url": "https://apd.jk.gov.in/index.html",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [],
+    "districts": {},
+    "rrb": {
+      "name": "Jammu and Kashmir Grameen Bank",
+      "url": "https://www.jkgrameen.bank.in/",
+      "sponsor": "Jammu & Kashmir Bank",
+      "description": "Jammu and Kashmir Grameen Bank is the Government-listed Regional Rural Bank for Jammu and Kashmir. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
+  },
+  "Jharkhand": {
+    "state": "Jharkhand",
+    "agriculture": {
+      "label": "Jharkhand Agriculture Department",
+      "url": "https://www.jharkhand.gov.in/agriculture",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Jharkhand farmer scheme portal",
+      "url": "https://www.jharkhand.gov.in/agriculture",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [],
+    "districts": {},
+    "rrb": {
+      "name": "Jharkhand Gramin Bank",
+      "url": "https://www.jrgbank.bank.in/",
+      "sponsor": "State Bank of India",
+      "description": "Jharkhand Gramin Bank is the Government-listed Regional Rural Bank for Jharkhand. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
+  },
+  "Karnataka": {
+    "state": "Karnataka",
+    "agriculture": {
+      "label": "Karnataka Agriculture Department",
+      "url": "https://karnataka.mygov.in/en",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Karnataka farmer scheme portal",
+      "url": "https://karnataka.mygov.in/en",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [
+      {
+        "label": "Department of Horticulture",
+        "url": "https://www.karnataka.gov.in/horticulture/Pages/home.aspx"
+      }
+    ],
+    "districts": {},
+    "rrb": {
+      "name": "Karnataka Grameena Bank",
+      "url": "https://karnatakagb.bank.in/",
+      "sponsor": "Canara Bank",
+      "description": "Karnataka Grameena Bank is the Government-listed Regional Rural Bank for Karnataka. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
+  },
+  "Kerala": {
+    "state": "Kerala",
+    "agriculture": {
+      "label": "Kerala Agriculture Department",
+      "url": "https://ashraya.kerala.gov.in/",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Kerala farmer scheme portal",
+      "url": "https://ashraya.kerala.gov.in/",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [
+      {
+        "label": "Agriculture Department",
+        "url": "http://www.keralaagriculture.gov.in/"
+      }
+    ],
+    "districts": {},
+    "rrb": {
+      "name": "Kerala Grameena Bank",
+      "url": "https://kgb.bank.in/",
+      "sponsor": "Canara Bank",
+      "description": "Kerala Grameena Bank is the Government-listed Regional Rural Bank for Kerala. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
+  },
+  "Ladakh": {
+    "state": "Ladakh",
+    "agriculture": {
+      "label": "Ladakh Agriculture Department",
+      "url": "https://ladakh.gov.in/",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Official Agriculture Department directory",
+      "url": "https://www.india.gov.in/category/agriculture-rural-environment/subcategory/research-marketing/details/departments-of-agriculture-of-states-and-union-territories",
+      "description": "Choose Ladakh in the official State/UT Agriculture Department directory."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [],
+    "districts": {}
+  },
+  "Lakshadweep": {
+    "state": "Lakshadweep",
+    "agriculture": {
+      "label": "Lakshadweep Agriculture Department",
+      "url": "https://lakshadweep.gov.in/departments/agriculture/",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Lakshadweep farmer scheme portal",
+      "url": "https://lakshadweep.gov.in/departments/agriculture/",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [],
+    "districts": {}
+  },
+  "Madhya Pradesh": {
+    "state": "Madhya Pradesh",
+    "agriculture": {
+      "label": "Madhya Pradesh Agriculture Department",
+      "url": "http://mpkrishi.mp.gov.in/",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Madhya Pradesh farmer scheme portal",
+      "url": "http://mpkrishi.mp.gov.in/",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [],
+    "districts": {},
+    "rrb": {
+      "name": "Madhya Pradesh Gramin Bank",
+      "url": "https://mpgb.bank.in/",
+      "sponsor": "Bank of India",
+      "description": "Madhya Pradesh Gramin Bank is the Government-listed Regional Rural Bank for Madhya Pradesh. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
+  },
+  "Maharashtra": {
+    "state": "Maharashtra",
+    "agriculture": {
+      "label": "Maharashtra Agriculture Department",
+      "url": "http://krishi.maharashtra.gov.in/",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Maharashtra farmer scheme portal",
+      "url": "https://mahadbt.maharashtra.gov.in/Farmer/RegistrationLogin/RegistrationLogin",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [
+      {
+        "label": "Maharashtra State Agricultural Marketing Board",
+        "url": "https://www.msamb.com/"
+      }
+    ],
+    "districts": {},
+    "rrb": {
+      "name": "Maharashtra Gramin Bank",
+      "url": "https://www.mahagramin.bank.in/",
+      "sponsor": "Bank of Maharashtra",
+      "description": "Maharashtra Gramin Bank is the Government-listed Regional Rural Bank for Maharashtra. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
+  },
+  "Manipur": {
+    "state": "Manipur",
+    "agriculture": {
+      "label": "Manipur Agriculture Department",
+      "url": "https://agrimanipur.mn.gov.in/",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Manipur farmer scheme portal",
+      "url": "https://agrimanipur.mn.gov.in/",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [],
+    "districts": {},
+    "rrb": {
+      "name": "Manipur Rural Bank",
+      "url": "https://manipurrural.bank.in/",
+      "sponsor": "Punjab National Bank",
+      "description": "Manipur Rural Bank is the Government-listed Regional Rural Bank for Manipur. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
+  },
+  "Meghalaya": {
+    "state": "Meghalaya",
+    "agriculture": {
+      "label": "Meghalaya Agriculture Department",
+      "url": "http://www.megagriculture.gov.in/",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Meghalaya farmer scheme portal",
+      "url": "http://www.megagriculture.gov.in/",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [],
+    "districts": {},
+    "rrb": {
+      "name": "Meghalaya Rural Bank",
+      "url": "https://meghalayaruralbank.bank.in/",
+      "sponsor": "State Bank of India",
+      "description": "Meghalaya Rural Bank is the Government-listed Regional Rural Bank for Meghalaya. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
+  },
+  "Mizoram": {
+    "state": "Mizoram",
+    "agriculture": {
+      "label": "Mizoram Agriculture Department",
+      "url": "http://agriculturemizoram.nic.in/",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Mizoram farmer scheme portal",
+      "url": "http://agriculturemizoram.nic.in/",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [],
+    "districts": {},
+    "rrb": {
+      "name": "Mizoram Rural Bank",
+      "url": "https://mrb.bank.in/",
+      "sponsor": "State Bank of India",
+      "description": "Mizoram Rural Bank is the Government-listed Regional Rural Bank for Mizoram. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
+  },
+  "Nagaland": {
+    "state": "Nagaland",
+    "agriculture": {
+      "label": "Nagaland Agriculture Department",
+      "url": "https://agriculture.nagaland.gov.in/",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Nagaland farmer scheme portal",
+      "url": "https://agriculture.nagaland.gov.in/",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [],
+    "districts": {},
+    "rrb": {
+      "name": "Nagaland Rural Bank",
+      "url": "https://www.nrb.bank.in/",
+      "sponsor": "State Bank of India",
+      "description": "Nagaland Rural Bank is the Government-listed Regional Rural Bank for Nagaland. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
+  },
+  "Odisha": {
+    "state": "Odisha",
+    "agriculture": {
+      "label": "Odisha Agriculture Department",
+      "url": "http://agriodisha.nic.in/",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Odisha farmer scheme portal",
+      "url": "http://agriodisha.nic.in/",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [
+      {
+        "label": "Directorate of Horticulture",
+        "url": "https://agri.odisha.gov.in/"
+      }
+    ],
+    "districts": {},
+    "rrb": {
+      "name": "Odisha Grameen Bank",
+      "url": "https://odishabank.in/",
+      "sponsor": "Indian Overseas Bank",
+      "description": "Odisha Grameen Bank is the Government-listed Regional Rural Bank for Odisha. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
+  },
+  "Puducherry": {
+    "state": "Puducherry",
+    "agriculture": {
+      "label": "Puducherry Agriculture Department",
+      "url": "https://agri.py.gov.in/",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Puducherry farmer scheme portal",
+      "url": "https://agri.py.gov.in/",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [],
+    "districts": {},
+    "rrb": {
+      "name": "Puducherry Grama Bank",
+      "url": "https://pygb.bank.in/",
+      "sponsor": "Indian Bank",
+      "description": "Puducherry Grama Bank is the Government-listed Regional Rural Bank for Puducherry. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
+  },
+  "Punjab": {
+    "state": "Punjab",
+    "agriculture": {
+      "label": "Punjab Agriculture Department",
+      "url": "https://agri.punjab.gov.in/",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Punjab farmer scheme portal",
+      "url": "https://agri.punjab.gov.in/",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [
+      {
+        "label": "Punjab Horticulture Department",
+        "url": "https://punjabhorticulture.com/"
+      }
+    ],
+    "districts": {},
+    "rrb": {
+      "name": "Punjab Gramin Bank",
+      "url": "https://pgb.bank.in/",
+      "sponsor": "Punjab National Bank",
+      "description": "Punjab Gramin Bank is the Government-listed Regional Rural Bank for Punjab. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
+  },
+  "Rajasthan": {
+    "state": "Rajasthan",
+    "agriculture": {
+      "label": "Rajasthan Agriculture Department",
+      "url": "https://agriculture.rajasthan.gov.in/home",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Rajasthan farmer scheme portal",
+      "url": "https://agriculture.rajasthan.gov.in/home",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [],
+    "districts": {},
+    "rrb": {
+      "name": "Rajasthan Gramin Bank",
+      "url": "https://rgb.bank.in/",
+      "sponsor": "State Bank of India",
+      "description": "Rajasthan Gramin Bank is the Government-listed Regional Rural Bank for Rajasthan. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
+  },
+  "Sikkim": {
+    "state": "Sikkim",
+    "agriculture": {
+      "label": "Sikkim Agriculture Department",
+      "url": "https://agri.sikkim.gov.in/",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Sikkim farmer scheme portal",
+      "url": "https://agri.sikkim.gov.in/",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [],
+    "districts": {}
+  },
+  "Tamil Nadu": {
+    "state": "Tamil Nadu",
+    "agriculture": {
+      "label": "Tamil Nadu Agriculture Department",
+      "url": "https://www.tnagrisnet.tn.gov.in/",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Tamil Nadu farmer scheme portal",
+      "url": "https://www.tnagrisnet.tn.gov.in/",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [
+      {
+        "label": "Horticulture Department",
+        "url": "http://tnhorticulture.tn.gov.in/"
+      }
+    ],
+    "districts": {},
+    "rrb": {
+      "name": "Tamil Nadu Grama Bank",
+      "url": "https://tngb.bank.in/",
+      "sponsor": "Indian Bank",
+      "description": "Tamil Nadu Grama Bank is the Government-listed Regional Rural Bank for Tamil Nadu. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
+  },
+  "Telangana": {
+    "state": "Telangana",
+    "agriculture": {
+      "label": "Telangana Agriculture Department",
+      "url": "http://agri.telangana.gov.in/",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Telangana farmer scheme portal",
+      "url": "http://agri.telangana.gov.in/",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [],
+    "districts": {},
+    "rrb": {
+      "name": "Telangana Grameena Bank",
+      "url": "https://tgbhyd.in/",
+      "sponsor": "State Bank of India",
+      "description": "Telangana Grameena Bank is the Government-listed Regional Rural Bank for Telangana. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
+  },
+  "Tripura": {
+    "state": "Tripura",
+    "agriculture": {
+      "label": "Tripura Agriculture Department",
+      "url": "https://agri.tripura.gov.in/",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Tripura farmer scheme portal",
+      "url": "https://agri.tripura.gov.in/",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [],
+    "districts": {},
+    "rrb": {
+      "name": "Tripura Gramin Bank",
+      "url": "https://tripuragramin.bank.in/",
+      "sponsor": "Punjab National Bank",
+      "description": "Tripura Gramin Bank is the Government-listed Regional Rural Bank for Tripura. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
+  },
+  "Uttar Pradesh": {
+    "state": "Uttar Pradesh",
+    "agriculture": {
+      "label": "Uttar Pradesh Agriculture Department",
+      "url": "https://agriculture.up.gov.in/",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Uttar Pradesh farmer scheme portal",
+      "url": "https://agriculture.up.gov.in/",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [],
+    "districts": {},
+    "rrb": {
+      "name": "Uttar Pradesh Gramin Bank",
+      "url": "https://upgb.bank.in/",
+      "sponsor": "Bank of Baroda",
+      "description": "Uttar Pradesh Gramin Bank is the Government-listed Regional Rural Bank for Uttar Pradesh. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
+  },
+  "Uttarakhand": {
+    "state": "Uttarakhand",
+    "agriculture": {
+      "label": "Uttarakhand Agriculture Department",
+      "url": "http://agriculture.uk.gov.in/",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "Uttarakhand farmer scheme portal",
+      "url": "http://agriculture.uk.gov.in/",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "Panchayat / Block / local government directory",
+      "description": "Use eGramSwaraj and the district website directory to identify the Gram Panchayat, block/BDO and local department contact for the selected district. A Panchayat is not a standard all-India loan provider.",
+      "url": "https://egramswaraj.gov.in/",
+      "linkLabel": "Open eGramSwaraj"
+    },
+    "cooperative": {
+      "label": "Cooperative / PACS / RRB credit discovery",
+      "description": "Use the Kisan Rin Portal to explore participating commercial, rural and cooperative bank channels; then confirm the local PACS/branch and current credit terms.",
+      "url": "https://fasalrin.gov.in/",
+      "linkLabel": "Open Kisan Rin Portal"
+    },
+    "facilitation": null,
+    "extra": [],
+    "districts": {},
+    "rrb": {
+      "name": "Uttarakhand Gramin Bank",
+      "url": "https://www.ukgb.bank.in/",
+      "sponsor": "State Bank of India",
+      "description": "Uttarakhand Gramin Bank is the Government-listed Regional Rural Bank for Uttarakhand. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
+  },
+  "West Bengal": {
+    "state": "West Bengal",
+    "agriculture": {
+      "label": "West Bengal Agriculture Department",
+      "url": "https://agriculture.wb.gov.in/",
+      "description": "Official State/UT agriculture department information and scheme notices. Application windows and beneficiary components may be seasonal."
+    },
+    "scheme": {
+      "label": "West Bengal farmer scheme portal",
+      "url": "https://agriculture.wb.gov.in/",
+      "description": "Use the official State/UT portal to check notices, eligibility, application forms and current scheme windows. A department homepage may not accept applications for every scheme."
+    },
+    "districtDirectory": {
+      "label": "India.gov — district website directory",
+      "url": "https://www.india.gov.in/directory/web-directory/districts"
+    },
+    "localGovernance": {
+      "label": "West Bengal Panchayat & Rural Development Department",
+      "description": "Use the Panchayat & Rural Development Department to identify Gram Panchayat/block services and local notices. Panchayat is not a uniform lending agency.",
+      "url": "https://prd.wb.gov.in/",
+      "linkLabel": "Open Panchayat department"
+    },
+    "cooperative": {
+      "label": "West Bengal short-term cooperative credit structure",
+      "description": "Official state cooperative credit structure. Confirm the actual village PACS, membership, scale of finance and loan availability locally.",
+      "url": "https://cooperation.wb.gov.in/Short-Term-Cooperative-Credit-Structure",
+      "linkLabel": "Open cooperative credit structure"
+    },
+    "facilitation": {
+      "label": "Bangla Sahayata Kendra",
+      "url": "https://bsk.wb.gov.in/",
+      "description": "State single-window facilitation for selected West Bengal services; check the current scheme and window before applying."
+    },
+    "extra": [],
+    "districts": {
+      "Alipurduar": "https://alipurduar.gov.in/",
+      "Bankura": "https://bankura.gov.in/",
+      "Birbhum": "https://birbhum.gov.in/",
+      "Cooch Behar": "https://coochbehar.gov.in/",
+      "Dakshin Dinajpur": "https://ddinajpur.nic.in/",
+      "Darjeeling": "https://darjeeling.gov.in/",
+      "Hooghly": "https://hooghly.nic.in/",
+      "Howrah": "https://howrah.gov.in/",
+      "Jalpaiguri": "https://jalpaiguri.gov.in/",
+      "Jhargram": "https://jhargram.gov.in/",
+      "Kalimpong": "https://kalimpong.gov.in/",
+      "Malda": "https://www.malda.gov.in/",
+      "Murshidabad": "https://murshidabad.gov.in/",
+      "Nadia": "https://nadia.gov.in/",
+      "North 24 Parganas": "https://north24parganas.gov.in/",
+      "Paschim Bardhaman": "https://paschimbardhaman.gov.in/",
+      "Paschim Medinipur": "https://www.paschimmedinipur.gov.in/",
+      "Purba Bardhaman": "https://purbabardhaman.nic.in/",
+      "Purba Medinipur": "https://purbamedinipur.gov.in/",
+      "Purulia": "https://purulia.gov.in/",
+      "South 24 Parganas": "https://s24pgs.gov.in/",
+      "Uttar Dinajpur": "https://uttardinajpur.gov.in/"
+    },
+    "rrb": {
+      "name": "West Bengal Gramin Bank",
+      "url": "https://www.wbgb.bank.in/",
+      "sponsor": "Punjab National Bank",
+      "description": "West Bengal Gramin Bank is the Government-listed Regional Rural Bank for West Bengal. Check its current branch/service area and named agriculture/KCC products on the official site.",
+      "source": "https://financialservices.gov.in/list-rrbs-functioning-country"
+    }
+  }
+}
