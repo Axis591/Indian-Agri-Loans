@@ -9,7 +9,7 @@ const randomHex = (bytes = 24) => {
 };
 
 export async function onRequestGet({ env }) {
-  let ready = Boolean(env.NGO_DB && env.NGO_DOCS && env.ACCESS_TEAM_DOMAIN && env.ACCESS_AUD && env.NGO_PLATFORM_ADMIN_EMAILS && env.NGO_JOIN_TURNSTILE_SITE_KEY && env.NGO_JOIN_TURNSTILE_SECRET && env.NGO_JOIN_RATE_LIMIT_SALT);
+  let ready = Boolean(env.NGO_DB && env.NGO_DOCS && env.NGO_PLATFORM_ADMIN_EMAILS && env.NGO_JOIN_TURNSTILE_SITE_KEY && env.NGO_JOIN_TURNSTILE_SECRET && env.NGO_JOIN_RATE_LIMIT_SALT);
   if (ready) {
     try {
       const requiredTables = ["ngo_users","ngo_metrics","ngo_followups","ngo_audit","ngo_applications","ngo_organisations","ngo_join_rate_limits","ngo_farmers","ngo_farmer_documents","ngo_scheme_applications"];
