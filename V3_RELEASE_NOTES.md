@@ -1,12 +1,12 @@
 # AgriBridge V3 — Release Notes
 
-Release: 31 October 2026
+Release: 07 November 2026 · CRM catalogue update
 
 V3 is the integrated all-India farmer support and finance release. The programme/benefit and finance workstreams remain equal product priorities.
 
 ## Added in V3
 
-- Scheme/benefit/service catalogue expanded from 31 to 37 records. Six additional State records were added for Odisha, Andhra Pradesh, Telangana, Rajasthan, Maharashtra and Assam.
+- Scheme/benefit/service catalogue expanded from 31 to 38 records. Six additional State records were added for Odisha, Andhra Pradesh, Telangana, Rajasthan, Maharashtra and Assam.
 - State/UT research register now covers all 36 States/UTs and nine workstreams per State: income support, crop support, mechanisation/irrigation, horticulture, livestock/fisheries, marketing/procurement, cooperatives, tenant/landless/tribal and enterprise/infrastructure.
 - Twelve named State-scope scheme/service records now span seven States/UTs. The other 29 State/UT inventories remain explicitly research-pending; a portal link is not counted as a researched scheme.
 - Loan-cost comparison supports reducing-balance and flat-rate monthly instalments, processing fees, other upfront charges, total repayment, total financing cost and estimated annualised cash-flow APR.
@@ -21,7 +21,7 @@ V3 is the integrated all-India farmer support and finance release. The programme
 
 | Dataset | Count |
 |---|---:|
-| Scheme / benefit / public-service records | 37 |
+| Scheme / benefit / public-service records | 38 |
 | Lender / finance entries | 46 |
 | States / UTs in portal register | 36 |
 | State-specific programme records | 12 across 7 States/UTs |
@@ -46,4 +46,10 @@ Follow `CLOUDFLARE_SETUP_V3.md` to activate the server secret, D1 binding, Cloud
 
 `scripts/validate-v3.mjs` checks JSON schema and record versions, State/UT coverage, State research register reconciliation, lender/source fields, extension-unverified exclusions, app syntax, navigation, data routes, Pages Function files and privacy controls.
 
-Last updated: 31 October 2026.
+### 07 November 2026 — Crop Residue Management addition
+
+- Added the national CRM scheme as a structured catalogue record, with current implementation-State limits, individual/CHC/supply-chain assistance tracks, application guidance, document checklist and official source links.
+- Added it to the searchable scheme directory and the My Support matcher through the existing data-driven catalogue; no layout or navigation changes were required.
+- Updated the catalogue/coverage record count to 38. The application window remains State- and district-notification dependent.
+
+Last updated: 07 November 2026.
