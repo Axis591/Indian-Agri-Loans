@@ -9,7 +9,7 @@ const randomHex = (bytes = 24) => {
 };
 
 export async function onRequestGet({ env }) {
-  const ready = Boolean(env.NGO_DB && env.NGO_JOIN_TURNSTILE_SITE_KEY && env.NGO_JOIN_TURNSTILE_SECRET && env.NGO_JOIN_RATE_LIMIT_SALT);
+  const ready = Boolean(env.NGO_DB && env.ACCESS_TEAM_DOMAIN && env.ACCESS_AUD && env.NGO_PLATFORM_ADMIN_EMAILS && env.NGO_JOIN_TURNSTILE_SITE_KEY && env.NGO_JOIN_TURNSTILE_SECRET && env.NGO_JOIN_RATE_LIMIT_SALT);
   return jsonResponse({
     enabled: ready,
     siteKey: ready ? String(env.NGO_JOIN_TURNSTILE_SITE_KEY) : "",
