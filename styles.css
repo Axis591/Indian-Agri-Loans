@@ -863,3 +863,17 @@ html,body{min-height:100%;background:var(--ref-paper)!important;color:var(--ref-
 .ngo-manual-apply-form span{grid-column:1/-1}
 @media(max-width:820px){.ngo-manual-apply-form{grid-template-columns:1fr 1fr}.ngo-manual-apply-form button{grid-column:1/-1}}
 @media(max-width:520px){.ngo-manual-apply-form{grid-template-columns:1fr}.ngo-manual-apply-form button,.ngo-manual-apply-form span{grid-column:auto}}
+
+
+.ngo-csv-import{margin-top:14px;border:1px dashed #d9e3d6;background:#f8fbf6;border-radius:11px;padding:13px}
+.ngo-csv-import-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.ngo-csv-import-head h4{font:800 12px Manrope;color:#35583f;margin:5px 0}
+.ngo-csv-import-head p{font-size:8px;line-height:1.55;color:#7d8b80;margin:0;max-width:600px}
+.ngo-csv-import-head a{white-space:nowrap;text-decoration:none;font-size:8px}
+.ngo-csv-import-form{display:grid;grid-template-columns:minmax(180px,.8fr) minmax(260px,1.4fr) auto;gap:9px;align-items:end;margin-top:12px}
+.ngo-csv-import-form>label:first-child{display:grid;gap:6px;font-size:8px;font-weight:700;color:#617466}
+.ngo-csv-import-form input[type=file]{width:100%;min-width:0;border:1px solid #e1e8df;background:#fff;border-radius:7px;padding:8px;font:600 8px 'DM Sans',sans-serif;color:#30483a}
+.ngo-csv-import-form .ngo-consent-check{margin:0}
+.ngo-csv-import-form button{height:38px;white-space:nowrap}
+@media(max-width:820px){.ngo-csv-import-form{grid-template-columns:1fr 1fr}.ngo-csv-import-form button{grid-column:1/-1}}
+@media(max-width:520px){.ngo-csv-import-head{display:grid}.ngo-csv-import-form{grid-template-columns:1fr}.ngo-csv-import-form button{grid-column:auto}}
