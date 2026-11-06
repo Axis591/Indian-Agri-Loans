@@ -268,7 +268,7 @@
     <div class="ngo-help-hero-art" aria-hidden="true"><span>🤝</span><span>🌾</span><span>📋</span></div>
   </aside>
 
-  <div class="ngo-safety"><b>Privacy-first workflow:</b> create a profile only after the farmer has understood and agreed to the purpose. Use a random case code; do not enter farmer names, phone numbers, Aadhaar, PAN, bank details, OTPs or unredacted identity documents. Supporting files are optional, private and limited to 5 MB. The structured characteristics drive scheme matching; uploaded files are stored for authorised staff review and are not automatically OCR-read or verified.</div>
+  <div class="ngo-safety"><b>Privacy-first workflow:</b> create a profile only after the farmer has understood and agreed to the purpose. Use a random case code; do not enter farmer names, phone numbers, Aadhaar, PAN, bank details, OTPs or unredacted identity documents. Supporting files are optional, private and limited to 5 MB. The structured characteristics drive scheme matching; uploaded files are stored for authorised staff review and are not automatically OCR-read or verified. Read the <a href="NGO_PRIVACY_NOTICE.md" target="_blank" rel="noopener">NGO Helping Hand privacy notice</a> before applying.</div>
 
   <div class="ngo-public-entry">
     <div class="ngo-public-entry-head"><div><div class="section-kicker">01 / JOIN THE NETWORK</div><h3>Apply to join NGO Helping Hand</h3><p>Every organisation must submit the registration form. AgriBridge administrators manually verify applications before an organisation account is enabled.</p></div><div class="ngo-join-mark">NGO<br><b>+</b></div></div>
@@ -293,7 +293,7 @@
       </div>
       <label class="ngo-honeypot" aria-hidden="true">Leave this field empty<input id="ngo-join-website-field" tabindex="-1" autocomplete="off"></label>
       <div class="ngo-join-notice"><b>How approval works</b><ol><li>Submit the organisation details and privacy declaration.</li><li>AgriBridge reviews the organisation and may request additional evidence through an independently verified contact channel.</li><li>On approval, the submitted official email is provisioned as the first organisation administrator. The person signs in using the configured Cloudflare Access identity method.</li><li>Additional staff are provisioned with organisation-specific roles by the organisation administrator/platform operator.</li></ol></div>
-      <label class="ngo-consent-check"><input id="ngo-join-privacy" type="checkbox" required><span>I have read the privacy notice and agree that AgriBridge may use the organisation contact details in this application to review and administer this membership request. *</span></label>
+      <label class="ngo-consent-check"><input id="ngo-join-privacy" type="checkbox" required><span>I have read the <a href="NGO_PRIVACY_NOTICE.md" target="_blank" rel="noopener">privacy notice</a> and agree that AgriBridge may use the organisation contact details in this application to review and administer this membership request. *</span></label>
       <label class="ngo-consent-check"><input id="ngo-join-accuracy" type="checkbox" required><span>I confirm that I am authorised to submit this application and that the organisation information is accurate to the best of my knowledge. *</span></label>
       <div id="ngo-join-captcha" class="ngo-turnstile" aria-label="Anti-spam verification"></div>
       <div class="ngo-actions"><button type="submit" class="primary-action" id="ngo-join-submit" disabled>Submit organisation application <span>→</span></button><span id="ngo-join-status" class="ngo-save-status" aria-live="polite">Secure application service is checking configuration…</span></div>
@@ -394,7 +394,7 @@
   </div>
 
   <div class="ngo-next-phase">
-    <b>Administrator deployment:</b> configure Cloudflare Access, the <code>NGO_DB</code> D1 binding, private <code>NGO_DOCS</code> R2 bucket, Turnstile site/secret keys, <code>NGO_JOIN_RATE_LIMIT_SALT</code> and <code>NGO_PLATFORM_ADMIN_EMAILS</code>. Apply <code>migrations/0002_ngo_helping_hand.sql</code> after migration 0001. See <a href="CLOUDFLARE_SETUP_V3.md" target="_blank">Cloudflare NGO Helping Hand setup guide ↗</a>.
+    <b>Administrator deployment:</b> configure Cloudflare Access, the <code>NGO_DB</code> D1 binding, private <code>NGO_DOCS</code> R2 bucket, Turnstile site/secret keys, <code>NGO_JOIN_RATE_LIMIT_SALT</code> and <code>NGO_PLATFORM_ADMIN_EMAILS</code>. Apply <code>migrations/0002_ngo_helping_hand.sql</code> after migration 0001. See <a href="NGO_HELPING_HAND_SETUP.md" target="_blank">Cloudflare NGO Helping Hand setup guide ↗</a>.
   </div>
 </section>
 <section id="view-market" class="view">
