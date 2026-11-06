@@ -1,4 +1,4 @@
-import { jsonResponse, readJsonBody, requirePlatformAdmin, requireSameOrigin } from "../../../_lib/ngo.js";
+import { jsonResponse, readJsonBody, requirePlatformAdmin, requireSameOrigin } from "../../../../_lib/ngo.js";
 
 const slugify = value => String(value || "ngo").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 36) || "ngo";
 
