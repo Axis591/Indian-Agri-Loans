@@ -99,7 +99,7 @@ check(unique(htmlIds),'HTML IDs are unique.');
 check(['finance','assistant','directory','ngo','market','coverage'].every(v=>views.includes(v)),'All six AgriBridge pages are present.');
 check(['loan-principal','loan-tenure','loan-method','offer-a-rate','offer-b-rate','calculate-loans','loan-comparison-output'].every(id=>html.includes(`id="${id}"`)),'Loan comparison inputs and result container exist.');
 check(['market-price-form','market-state','market-district','market-commodity','market-price-status','market-price-results'].every(id=>html.includes(`id="${id}"`)),'Daily mandi search form and results container exist.');
-check(['ngo-workspace-status','ngo-workspace-ready','ngo-save-metrics','ngo-followup-form','ngo-join-form','ngo-join-submit','ngo-admin-panel','ngo-farmer-form','ngo-farmer-list','ngo-farmer-recommendations','ngo-doc-form','ngo-scheme-application-list'].every(id=>html.includes(`id="${id}"`)),'NGO Helping Hand membership, farmer and application UI elements exist.');
+check(['ngo-workspace-status','ngo-workspace-ready','ngo-save-metrics','ngo-followup-form','ngo-join-form','ngo-join-submit','ngo-admin-panel','ngo-farmer-form','ngo-farmer-list','ngo-farmer-recommendations','ngo-doc-form','ngo-scheme-application-list','ngo-manual-apply-form','ngo-manual-farmer','ngo-manual-scheme'].every(id=>html.includes(`id="${id}"`)),'NGO Helping Hand membership, farmer and application UI elements exist.');
 check(html.includes('value="women_farmer"'),'Women farmer applicant profile is selectable.');
 check(html.includes('CLOUDFLARE_SETUP_V3.md'),'Secure backend setup guide is linked in the public NGO page.');
 check(html.includes('https://indian-agri-loans.pages.dev/'),'Cloudflare public canonical host is retained.');
