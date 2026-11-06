@@ -14,7 +14,7 @@ export async function onRequestPatch(context) {
   const v = body.value || {};
   const status = clean(v.status,30), internalReference = clean(v.internalReference,40), notes = clean(v.notes,500);
   if (!statuses.has(status) || (internalReference && !auditSafeRef(internalReference)) ||
-      /\d{10,}|[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i.test(notes)) {
+      /(aadhaar|uid|pan|phone|mobile|bank|account|ifsc|passport|voter|address|\d(?:[\s-]?\d){9,}|[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,})/i.test(notes)) {
     return jsonResponse({ error: "Choose a valid status. Do not put personal identifiers in notes or references." },400);
   }
   const result = await context.env.NGO_DB.prepare(
