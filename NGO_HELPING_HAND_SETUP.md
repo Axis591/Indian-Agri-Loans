@@ -142,7 +142,7 @@ A farmer case profile stores:
 - season and irrigation status;
 - consent timestamp and consent-notice version.
 
-The profile form has a required consent confirmation. The NGO is responsible for explaining the purpose in a language the farmer understands and recording valid permission. Maintain any mapping between the internal case code and a farmer's identity outside AgriBridge.
+Profiles can be created one at a time or imported in a CSV file using `assets/ngo-farmer-import-template.csv`. The CSV parser runs in the browser, validates State/District values and allowed characteristic fields, accepts up to 100 rows per file, and sends only the structured profile rows to D1; it does not upload or retain the original CSV. A batch consent checkbox is mandatory and the NGO is responsible for explaining the purpose in a language each farmer understands and recording valid permission for every row. Maintain any mapping between the internal case code and a farmer's identity outside AgriBridge.
 
 The recommendation engine uses structured characteristics and the source-linked records in `schemes.json`. It applies the catalogue's profile, land status, activity, location and support-needs rules. Crop/commodity, season, irrigation and area details can improve relevance ordering when the catalogue descriptions contain corresponding keywords or tags. It does not read document contents. If a supporting document changes a farmer characteristic, an authorised NGO admin/editor can mark the file reviewed, use **Edit profile**, confirm consent again, update the structured fields and rerun the shortlist.
 
