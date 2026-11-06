@@ -1,0 +1,1410 @@
+const $ = (selector) => document.querySelector(selector);
+const stateSelect = $('#state-select');
+const districtSelect = $('#district-select');
+const profileSelect = $('#profile-select');
+const typeSelect = $('#type-select');
+const providerSelect = $('#provider-select');
+const sortSelect = $('#sort-select');
+const recordsPromise = fetch('schemes.json').then(r => { if(!r.ok) throw new Error('Could not load scheme data'); return r.json(); });
+const lendersPromise = fetch('lenders.json').then(r => { if(!r.ok) throw new Error('Could not load lender data'); return r.json(); });
+const portalsPromise = fetch('portals.json').then(r => { if(!r.ok) throw new Error('Could not load portal data'); return r.json(); });
+const coveragePromise = fetch('coverage-v25.json').then(r => { if(!r.ok) throw new Error('Could not load V2.5 coverage register'); return r.json(); });
+const fallbackStatesPromise = fetch('geography-fallback.json').then(r => r.json());
+const lgdStaticPromise = fetch('lgd-geography.json').then(r => { if(!r.ok) throw new Error('No static LGD export'); return r.json(); });
+const stateProgrammePromise = fetch('state-programme-register.json').then(r => { if(!r.ok) throw new Error('Could not load State programme research register'); return r.json(); });
+let records = [];
+let lenders = [];
+let portals = {};
+let coverageData = null;
+let stateProgrammeData = null;
+let geographySourceLabel = 'COMMUNITY SNAPSHOT';
+let geography = [];
+let geographyLive = false;
+let selectedView = 'home';
+
+const wbFallbackDistricts = [
+  'Alipurduar','Bankura','Birbhum','Cooch Behar','Dakshin Dinajpur','Darjeeling','Hooghly','Howrah','Jalpaiguri','Jhargram','Kalimpong','Kolkata','Malda','Murshidabad','Nadia','North 24 Parganas','Paschim Bardhaman','Paschim Medinipur','Purba Bardhaman','Purba Medinipur','Purulia','South 24 Parganas','Uttar Dinajpur'
+];
+
+function normalizedName(s){ return String(s||'').toLowerCase().replace(/&/g,'and').replace(/[().']/g,'').replace(/\s+/g,' ').trim(); }
+function stateNames(){ return geography.map(s => s.name).sort((a,b)=>a.localeCompare(b)); }
+function stateEntry(name){ return geography.find(s=>normalizedName(s.name)===normalizedName(name)); }
+function districtsFor(name){
+  if(normalizedName(name)==='west bengal') return (stateEntry(name)?.districts||[]).map(d=>typeof d==='string'?d:d.name);
+  const hit=stateEntry(name);
+  return (hit?.districts||[]).map(d=>typeof d==='string'?d:d.name).sort((a,b)=>a.localeCompare(b));
+}
+function option(label,value){ const el=document.createElement('option');el.value=value;el.textContent=label;return el; }
+function setOptions(node,values,selected){
+  node.replaceChildren();
+  values.forEach(value=>node.append(option(value,value)));
+  if(selected && values.includes(selected)) node.value=selected;
+  else if(values.length) node.value=values[0];
+}
+
+async function loadGeography(){
+  const normalizeStates = (states) => (states||[]).map(s=>({code:s.code,name:s.name,districts:Array.isArray(s.districts)?s.districts:[]})).filter(s=>s.name&&s.districts.length);
+  try{
+    const response=await fetch('/api/geography',{cache:'no-store'});
+    if(response.ok){
+      const data=await response.json();
+      if(data.configured&&Array.isArray(data.states)&&data.states.length>=28){
+        geography=normalizeStates(data.states);geographySourceLabel='OFFICIAL LGD API';geographyLive=true;
+      }
+    }
+  }catch(error){console.info('Official LGD API is not configured; checking downloaded LGD export.',error);}
+  if(!geography.length){
+    try{
+      const data=await lgdStaticPromise;
+      if(Array.isArray(data.states)&&data.states.length>=28){geography=normalizeStates(data.states);geographySourceLabel='OFFICIAL LGD CSV IMPORT';geographyLive=true;}
+    }catch(error){console.info('No imported official LGD snapshot found; using the bundled community snapshot.',error);}
+  }
+  if(!geography.length){
+    const states=await fallbackStatesPromise;
+    geography=normalizeStates(states);
+    const wb=geography.find(s=>s.code==='WB');
+    if(wb&&!wb.districts.length)wb.districts=wbFallbackDistricts.map(name=>({name}));
+    geographySourceLabel='COMMUNITY SNAPSHOT · LGD CHECK PENDING';geographyLive=false;
+  }
+  const liveLabel=document.querySelector('.live-label');
+  if(liveLabel) liveLabel.innerHTML='<i></i> '+geographySourceLabel;
+  const alertNode=$('#coverage-methodology-alert');
+  if(alertNode&&geographyLive)alertNode.innerHTML='<b>Geography status:</b> '+escapeHtml(geographySourceLabel)+'. District and State codes were loaded from an official LGD-sourced dataset. Sub-district, village and local-body completeness depends on the imported resource set.';
+  populateStates();
+  updateCoverageList();
+}
+function populateStates(){
+  const names=stateNames();
+  const westBengal=names.find(n=>normalizedName(n)==='west bengal')||'West Bengal';
+  setOptions(stateSelect,names,westBengal);
+  populateDistricts('Paschim Medinipur');
+}
+function populateDistricts(preferred){
+  const selectedState=stateSelect.value;
+  const d=districtsFor(selectedState);
+  const defaultName=(d.find(x=>normalizedName(x)==='paschim medinipur')||d[0]||'Select district');
+  const selected=d.find(x=>normalizedName(x)===normalizedName(preferred))||defaultName;
+  setOptions(districtSelect,d,selected);
+  districtSelect.disabled=d.length===0;
+  if(!d.length){districtSelect.replaceChildren(option('District list unavailable', ''));}
+  render();
+}
+function applicable(record,state,district){
+  const stateMatch=record.states==='all'||(Array.isArray(record.states)&&record.states.some(x=>normalizedName(x)===normalizedName(state)));
+  if(!stateMatch) return false;
+  if(record.scope==='district') return Array.isArray(record.districts)&&record.districts.some(x=>normalizedName(x)===normalizedName(district));
+  if(record.districts==='all') return true;
+  if(Array.isArray(record.districts)) return record.districts.some(x=>normalizedName(x)===normalizedName(district));
+  return true;
+}
+function profileMatch(record,profile){ if(profile==='all')return true; if(record.profiles.includes(profile))return true; if(profile==='women_farmer')return record.profiles.some(x=>['owner','tenant','allied'].includes(x)); return false; }
+function typeClass(type){return type==='grant'?'grant':type==='loan'?'loan':type==='insurance'?'insurance':type==='pension'?'pension':type==='informal'?'informal':type==='institution'?'institution':'subsidy';}
+function typeLabel(type){return ({grant:'GRANT / DBT',loan:'LOAN / CREDIT',subsidy:'SUBSIDY / INTEREST SUPPORT',insurance:'INSURANCE',pension:'PENSION / SOCIAL SECURITY',informal:'INFORMAL · RISK',institution:'SERVICE / MARKET ACCESS'})[type]||type.toUpperCase();}
+function providerLabel(kinds=[]){const labels={'central-government':'CENTRAL GOVT','state-government':'STATE GOVT','public-bank':'PUBLIC BANK','private-bank':'PRIVATE BANK','small-finance-bank':'SMALL FINANCE BANK','rrb':'RRB','cooperative':'COOPERATIVE / PACS','regulated-nbfc':'REGULATED NBFC','local-body':'PANCHAYAT / BLOCK','informal':'INFORMAL'};return [...new Set(kinds)].map(k=>labels[k]||k.toUpperCase()).join(' · ')||'PROVIDER NOT TAGGED';}
+function escapeHtml(value){return String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function card(record){
+  const state=stateSelect.value;
+  const district=districtSelect.value;
+  const scope=record.scope==='national'?'PAN INDIA':record.scope==='district'?'DISTRICT MATCH':record.scope==='local'?'LOCAL CHANNEL':'STATE SCHEME';
+  const amount=escapeHtml(record.amount);
+  const programmeStatus=record.programmeStatusLabel?'<span class="programme-status '+escapeHtml(record.programmeStatus||'')+'">'+escapeHtml(record.programmeStatusLabel)+'</span>':'';
+  const typeEmoji={grant:'🌾',loan:'💳',subsidy:'🌱',insurance:'🛡️',pension:'👩🏽‍🌾',informal:'⚠️',institution:'🏡'}[record.type]||'🌿';
+  const applyLabel=escapeHtml(record.applicationLabel||'Official link');
+  const rate=record.rate?`<div class="meta-cell"><small>INTEREST / SUPPORT</small><span>${escapeHtml(record.rate)}</span></div>`:'';
+  return `<article class="scheme-card scheme-${typeClass(record.type)}">
+    <div class="scheme-card-visual"><span class="scheme-card-emoji" aria-hidden="true">${typeEmoji}</span><span class="scheme-card-kicker">FARMER SUPPORT</span><span class="scheme-card-scope">${scope}</span></div>
+    <div class="card-top"><div class="card-category"><span class="pill ${typeClass(record.type)}">${typeLabel(record.type)}</span><span class="pill">${escapeHtml(record.category)}</span><span class="pill provider-pill">${escapeHtml(providerLabel(record.providerKinds))}</span></div><span class="scope-mini">${scope}</span></div>${programmeStatus}
+    <h4>${escapeHtml(record.name)}</h4><p class="scheme-summary">${escapeHtml(record.summary)}</p>
+    <div class="amount-row"><small>AMOUNT / CREDIT QUANTUM</small><strong>${amount}</strong><em>${escapeHtml(record.amountNote)}</em></div>
+    <div class="card-meta"><div class="meta-cell"><small>WHO MAY QUALIFY</small><span>${escapeHtml(record.eligibility.split('.')[0])}</span></div><div class="meta-cell"><small>APPLICATION ROUTE</small><span>${escapeHtml(record.process[0])}</span></div>${rate}</div>
+    <div class="card-actions"><span class="evidence">${escapeHtml(["official_portal_checked","official_dfs_guidance_checked","official_faq_checked_seasonal_notice_required","official_source_checked","official_source_checked_budget_implementation_caveat"].includes(record.verification?.status)?"Official source checked":"Source linked · recheck current rules")}</span><button class="details-btn" data-details="${record.id}">View process</button><a class="apply-btn" href="${escapeHtml(record.application)}" target="_blank" rel="noopener">${applyLabel} ↗</a></div>
+  </article>`;
+}
+function render(){
+  if(!records.length)return;
+  const state=stateSelect.value;
+  const district=districtSelect.value;
+  const profile=profileSelect.value;
+  const type=typeSelect.value;
+  const provider=providerSelect.value;
+  let matched=records.filter(r=>applicable(r,state,district)&&profileMatch(r,profile)&&(type==='all'||r.type===type)&&(provider==='all'||(r.providerKinds||[]).includes(provider)));
+  if(sortSelect.value==='alpha') matched.sort((a,b)=>a.name.localeCompare(b.name));
+  else if(sortSelect.value==='amount') matched.sort((a,b)=>(a.amountStatus==='published'?0:1)-(b.amountStatus==='published'?0:1));
+  else matched.sort((a,b)=>scopeRank(a)-scopeRank(b));
+  $('#results').innerHTML=matched.map(card).join('');
+  $('#results-count').textContent=matched.length;
+  $('#metric-records').textContent=records.length+lenders.length;
+  $('#empty-state').classList.toggle('hidden',matched.length!==0);
+  $('#coverage-warning').classList.toggle('hidden',normalizedName(state)==='west bengal');
+  if(normalizedName(state)!=='west bengal'){
+    $('#coverage-warning').innerHTML=`<b>Coverage note for ${escapeHtml(state)}:</b> state portal links are listed below; state-specific scheme records and district notifications are still being independently curated. Lender products remain subject to branch availability and appraisal. An empty local list does not mean no scheme exists.`;
+  }
+  $('#location-summary').textContent=`Showing national and ${state} entries for ${district||'the selected district'}.`;
+  updateAssistantLocation();
+  $('#results').querySelectorAll('[data-details]').forEach(btn=>btn.addEventListener('click',()=>showDetails(btn.dataset.details)));
+  renderLocalAccess();
+  renderDirectory();
+  if(coverageData) renderCoverageDetails(state);
+  window.refreshAgriTranslation?.();
+}
+
+function currentPortal(){
+  return portals[stateSelect.value] || {
+    state:stateSelect.value,
+    agriculture:{label:'Official State Agriculture Department directory',url:'https://www.india.gov.in/category/agriculture-rural-environment/subcategory/research-marketing/details/departments-of-agriculture-of-states-and-union-territories',description:'Choose the selected State/UT to open its Agriculture Department website.'},
+    scheme:{label:'myScheme State/UT finder',url:'https://www.myscheme.gov.in/',description:'Filter government schemes by State/UT, category and eligibility.'},
+    districtDirectory:{label:'Official district website directory',url:'https://www.india.gov.in/directory/web-directory/districts'},
+    localGovernance:{label:'eGramSwaraj / Panchayat directory',url:'https://egramswaraj.gov.in/'},
+    cooperative:{label:'Kisan Rin Portal — cooperative and bank channels',url:'https://fasalrin.gov.in/'}
+  };
+}
+function currentDistrictPortal(){
+  const p=currentPortal();
+  const direct=(p.districts||{})[districtSelect.value];
+  if(direct) return {label:districtSelect.value+' District Administration',url:direct,description:'Direct district administration website listed by the State Government.'};
+  return {label:districtSelect.value+' — official district website directory',url:p.districtDirectory?.url||'https://www.india.gov.in/directory/web-directory/districts',description:'Open the Government of India district web directory and choose '+districtSelect.value+' under '+stateSelect.value+'. This district host has not been separately validated in this register.'};
+}
+function safeLink(label,url){
+  return '<a href="'+escapeHtml(url)+'" target="_blank" rel="noopener noreferrer">'+escapeHtml(label)+' ↗</a>';
+}
+function renderLocalAccess(){
+  const node=$('#route-list');
+  if(!node) return;
+  const p=currentPortal();
+  const d=currentDistrictPortal();
+  const steps=[
+    {title:'State Agriculture Department — '+stateSelect.value,copy:p.agriculture?.description||'Official department information and current scheme notices for the selected State/UT.',label:p.agriculture?.label||'Open state department',url:p.agriculture?.url},
+    {title:'District Administration — '+districtSelect.value,copy:d.description,label:d.label,url:d.url},
+    {title:(p.localGovernance?.label||'Panchayat / Block / local government')+' — '+districtSelect.value,copy:p.localGovernance?.description||'Use the local-government directory to identify the Gram Panchayat, block/BDO and local department contact. Panchayats do not offer one universal all-India farmer loan.',label:p.localGovernance?.linkLabel||'Open Panchayat portal',url:p.localGovernance?.url||'https://egramswaraj.gov.in/'},
+    {title:p.cooperative?.label||'PACS / Cooperative bank / RRB — '+stateSelect.value,copy:p.cooperative?.description||'Use the State Cooperation Department or Kisan Rin Portal to identify banks and PACS. Confirm membership and local credit terms.',label:p.cooperative?.linkLabel||'Find credit channels',url:p.cooperative?.url||'https://fasalrin.gov.in/'},
+    {title:p.scheme?.label||'State scheme application portal',copy:p.scheme?.description||'Check current application windows, eligibility, documents and district notifications.',label:p.scheme?.linkLabel||'Open scheme portal',url:p.scheme?.url||'https://www.myscheme.gov.in/'},
+    {title:p.rrb?p.rrb.name+' — Regional Rural Bank':'RRB / rural bank discovery',copy:p.rrb?p.rrb.description:'No RRB is separately listed for this State/UT in the current DFS list. Use the national Kisan Rin Portal to identify eligible rural-bank channels.',label:p.rrb?'Open '+p.rrb.name:'Search rural-bank channels',url:p.rrb?p.rrb.url:'https://fasalrin.gov.in/'},
+    {title:'KCC / commercial banks / regulated finance providers',copy:'Compare KCC, crop, allied and investment credit. Verify NBFC registration, APR, fees and Key Fact Statement before signing.',label:'Open Kisan Rin Portal',url:'https://fasalrin.gov.in/'}
+  ];
+  if(p.facilitation) steps.splice(4,0,{title:p.facilitation.label,copy:p.facilitation.description,label:'Open facilitation portal',url:p.facilitation.url});
+  node.innerHTML=steps.map((s,i)=>'<div class="route-step"><span>'+String(i+1).padStart(2,'0')+'</span><div><b>'+escapeHtml(s.title)+'</b><small>'+escapeHtml(s.copy)+'</small></div>'+safeLink(s.label,s.url)+'</div>').join('');
+}
+function matchesLenderState(lender){
+  return lender.states==='all'||(Array.isArray(lender.states)&&lender.states.some(s=>normalizedName(s)===normalizedName(stateSelect.value)));
+}
+function lenderCard(l){
+  const amount=escapeHtml(l.amount||'Not published — confirm with lender');
+  const price=escapeHtml(l.rate||'Rate not published on linked page');
+  const cats=(l.providerKinds||[]).map(x=>providerLabel([x])).join(' · ');
+  return '<article class="lender-card"><div class="lender-card-visual"><span class="lender-card-emoji" aria-hidden="true">🏦</span><span class="lender-card-kicker">FINANCE PARTNER</span><span class="lender-card-mark" aria-hidden="true">₹</span></div><div class="card-category"><span class="pill">'+cats+'</span><span class="pill">'+escapeHtml(l.scopeLabel||'PAN INDIA')+'</span></div><h4>'+escapeHtml(l.name)+'</h4><div class="lender-product">'+escapeHtml(l.product||'Agriculture finance')+'</div>'+(l.sponsorBank?'<div class="lender-sponsor">Sponsor bank: '+escapeHtml(l.sponsorBank)+'</div>':'')+'<p>'+escapeHtml(l.summary)+'</p>'+(l.verificationNote?'<div class="lender-verification-note">'+escapeHtml(l.verificationNote)+'</div>':'')+(l.matchRules?.mustVerify?.length?'<div class="lender-match-note">Check: '+escapeHtml(l.matchRules.mustVerify[0])+'</div>':'')+'<div class="lender-facts"><div class="lender-fact"><small>AMOUNT / LIMIT</small><b>'+amount+'</b></div><div class="lender-fact"><small>INTEREST / PRICING</small><b>'+price+'</b></div><div class="lender-fact"><small>ELIGIBLE BORROWER</small><b>'+escapeHtml(l.borrower||'Subject to product criteria')+'</b></div><div class="lender-fact"><small>AVAILABILITY</small><b>'+escapeHtml(l.availability||'Branch and appraisal dependent')+'</b></div></div><div class="lender-footer"><small>'+escapeHtml(l.reviewNote||'Check the product page for current terms.')+'</small><div class="lender-buttons"><button class="details-btn" data-lender-details="'+escapeHtml(l.id)+'">Process & documents</button><a class="apply-btn" href="'+escapeHtml(l.applyUrl||l.sourceUrl)+'" target="_blank" rel="noopener noreferrer">'+escapeHtml(l.applyLabel||'Apply / enquire')+' ↗</a></div></div></article>';
+}
+function renderDirectory(){
+  if(!$('#directory-schemes')) return;
+  const state=stateSelect.value, district=districtSelect.value;
+  const query=normalizedName($('#directory-search')?.value||'');
+  const type=$('#directory-type')?.value||'all';
+  const provider=$('#directory-provider')?.value||'all';
+  const schemeHits=records.filter(r=>{
+    if(!applicable(r,state,district)||!profileMatch(r,profileSelect.value)) return false;
+    if(type!=='all'&&r.type!==type) return false;
+    if(!query) return true;
+    return normalizedName([r.name,r.category,r.summary,r.eligibility,r.amount,(r.keywords||[]).join(' ')].join(' ')).includes(query);
+  });
+  $('#directory-location').textContent='Currently showing '+district+', '+state+'. National records are included where applicable; state/district entries are restricted to their stated coverage.';
+  $('#directory-scheme-count').textContent=schemeHits.length;
+  $('#directory-schemes').innerHTML=schemeHits.length?schemeHits.map(card).join(''):'<div class="no-directory-results">No matching scheme records are catalogued for this location yet. Open the State/District portals below to check current notices.</div>';
+  $('#directory-schemes').querySelectorAll('[data-details]').forEach(btn=>btn.addEventListener('click',()=>showDetails(btn.dataset.details)));
+  const lenderHits=lenders.filter(l=>{
+    if(!matchesLenderState(l)) return false;
+    if(provider!=='all'&&!(l.providerKinds||[]).includes(provider)) return false;
+    if(!query) return true;
+    return normalizedName([l.name,l.product,l.summary,l.borrower,l.purpose,(l.keywords||[]).join(' ')].join(' ')).includes(query);
+  });
+  $('#directory-lender-count').textContent=lenderHits.length;
+  $('#lender-grid').innerHTML=lenderHits.length?lenderHits.map(lenderCard).join(''):'<div class="no-directory-results">No lender products match those filters. Try another provider category or search term.</div>';
+  $('#lender-grid').querySelectorAll('[data-lender-details]').forEach(btn=>btn.addEventListener('click',()=>showLenderDetails(btn.dataset.lenderDetails)));
+  const p=currentPortal(), d=currentDistrictPortal();
+  const portalItems=[
+    {type:'STATE AGRICULTURE DEPARTMENT',title:p.agriculture?.label||'Agriculture Department — '+state,description:p.agriculture?.description||'Official agriculture department portal for the selected State/UT.',url:p.agriculture?.url},
+    {type:'STATE SCHEME / APPLY PORTAL',title:p.scheme?.label||'State scheme discovery',description:p.scheme?.description||'Current state applications, scheme windows and supporting documents.',url:p.scheme?.url},
+    {type:'DISTRICT ADMINISTRATION',title:d.label,description:d.description,url:d.url},
+    {type:'PANCHAYAT / BLOCK',title:p.localGovernance?.label||'Panchayat / Block directory',description:p.localGovernance?.description||'Find the local government office, Panchayat and BDO services for '+district+'.',url:p.localGovernance?.url||'https://egramswaraj.gov.in/'},
+    {type:'REGIONAL RURAL BANK',title:p.rrb?.name||'No separately listed RRB for '+state,description:p.rrb?.description||'The current DFS list does not separately list an RRB for this State/UT. Use Kisan Rin Portal to identify other eligible bank/cooperative KCC channels.',url:p.rrb?.url||'https://fasalrin.gov.in/'},
+    {type:'COOPERATIVE / PACS CREDIT',title:p.cooperative?.label||'Cooperative and KCC delivery channels',description:p.cooperative?.description||'Use the official bank/credit portal and confirm local PACS membership and credit terms.',url:p.cooperative?.url||'https://fasalrin.gov.in/'},
+    {type:'NATIONAL SCHEME DISCOVERY',title:'myScheme — '+state,description:'Search Central and State/UT schemes by location, category and eligibility.',url:'https://www.myscheme.gov.in/'}
+  ];
+  if(p.facilitation) portalItems.splice(2,0,{type:'STATE FACILITATION CENTRE',title:p.facilitation.label,description:p.facilitation.description,url:p.facilitation.url});
+  if(p.extra) p.extra.forEach(x=>portalItems.push({type:'ADDITIONAL STATE PORTAL',title:x.label,description:'Official linked State/UT agriculture, horticulture or market institution.',url:x.url}));
+  $('#directory-portals').innerHTML=portalItems.map(x=>{
+    const icon=x.type.includes('DISTRICT')?'📍':x.type.includes('BANK')||x.type.includes('RURAL')?'🏦':x.type.includes('PANCHAYAT')?'🏡':x.type.includes('COOPERATIVE')?'🤝':x.type.includes('SCHEME')?'🌱':x.type.includes('FACILITATION')?'🧑🏽‍💼':'🌾';
+    return '<article class="portal-card"><div class="portal-card-top"><span class="portal-icon" aria-hidden="true">'+icon+'</span><div class="portal-type">'+escapeHtml(x.type)+'</div></div><h4>'+escapeHtml(x.title)+'</h4><p>'+escapeHtml(x.description)+'</p>'+safeLink('Open official portal',x.url)+'</article>';
+  }).join('');
+  window.refreshAgriTranslation?.();
+}
+function showLenderDetails(id){
+  const l=lenders.find(x=>x.id===id); if(!l) return;
+  $('#dialog-kicker').textContent=(l.providerKinds||[]).map(x=>providerLabel([x])).join(' · ')+' · '+(l.product||'AGRICULTURE FINANCE');
+  $('#dialog-title').textContent=l.name+' — '+l.product;
+  const makeList=items=>Array.isArray(items)?items.map(x=>'<li>'+escapeHtml(x)+'</li>').join(''):'';
+  const sponsor=l.sponsorBank?'<div class="detail-section"><h4>RRB sponsor bank</h4><p>'+escapeHtml(l.sponsorBank)+'</p></div>':'';
+  const verification='<div class="detail-section"><h4>Product / geography verification</h4><p>'+escapeHtml(l.verificationNote||'Confirm the current product terms and local service area directly with the institution.')+'</p><p><b>Pricing:</b> '+escapeHtml(l.pricingStatus||'Reconfirm with lender')+'<br><b>District branch:</b> '+escapeHtml(l.branchCoverageStatus||'Not district verified')+'<br><b>Last reviewed:</b> '+escapeHtml(l.lastReviewed||l.reviewDate||'Not stated')+'</p></div>';
+  const terms=l.terms?'<div class="detail-section"><h4>Loan terms</h4><p>'+escapeHtml(l.terms)+'</p></div>':'';
+  const docs=l.documents?.length?'<div class="detail-section"><h4>Typical documents</h4><ul>'+makeList(l.documents)+'</ul></div>':'';
+  const steps=l.process?.length?'<div class="detail-section"><h4>How to apply</h4><ol>'+makeList(l.process)+'</ol></div>':'';
+  const sources=(l.sources||[]).map(s=>'<a href="'+escapeHtml(s.url)+'" target="_blank" rel="noopener noreferrer">'+escapeHtml(s.label)+' ↗</a>').join(' ');
+  $('#dialog-body').innerHTML=sponsor+'<div class="detail-section"><h4>Loan amount / facility</h4><p><b>'+escapeHtml(l.amount||'Not published')+'</b><br>'+escapeHtml(l.amountNote||'Final amount depends on lender appraisal and current policy.')+'</p></div><div class="detail-section"><h4>Purpose</h4><p>'+escapeHtml(l.purpose||l.summary)+'</p></div><div class="detail-section"><h4>Eligibility</h4><p>'+escapeHtml(l.eligibility||l.borrower||'Subject to lender policy.')+'</p></div>'+verification+terms+docs+steps+'<div class="detail-caution"><b>Important:</b> '+escapeHtml(l.caution||'Confirm current APR, fees, security, repayment schedule and Key Fact Statement before accepting a loan.')+'</div><div class="dialog-links"><a href="'+escapeHtml(l.applyUrl||l.sourceUrl)+'" target="_blank" rel="noopener noreferrer">Apply / enquire ↗</a><a href="'+escapeHtml(l.sourceUrl)+'" target="_blank" rel="noopener noreferrer">Official product source ↗</a></div><div class="detail-section"><h4>Source register</h4><p>'+sources+'</p></div><p style="font-size:8px;color:#929b94;margin-top:12px">Last reviewed: '+escapeHtml(l.reviewDate||'31 Oct 2026')+'. Rates, eligibility, fees, geography and sanctions can change; verify directly with the provider.</p>';
+  $('#detail-dialog').showModal();
+  window.refreshAgriTranslation?.();
+}
+
+
+function updateAssistantLocation(){
+  const node=$('#assistant-location');
+  if(node) node.textContent=stateSelect.value+' · '+districtSelect.value;
+  const ns=$('#ngo-state'),nd=$('#ngo-district');
+  if(ns&&geography.length)setOptions(ns,stateNames(),stateSelect.value);
+  if(nd&&geography.length)setOptions(nd,districtsFor(stateSelect.value),districtSelect.value);
+  if(typeof syncMarketLocation==='function')syncMarketLocation();
+}
+function potentialMatches(profile,land,activity,need,location=null){
+  const targetState=location?.state||stateSelect.value;
+  const targetDistrict=location?.district||districtSelect.value;
+  return records.filter(r=>{
+    if(!applicable(r,targetState,targetDistrict) || r.type==='informal' || r.matchRules?.excludeFromAssistant) return false;
+    const rules=r.matchRules||{};
+    const allowed=rules.profiles||r.profiles||[];
+    const womenLandMatch=profile==='women_farmer'&&((land==='owner'&&allowed.includes('owner'))||((land==='tenant'||land==='sharecropper')&&allowed.includes('tenant'))||(land==='landless'&&allowed.includes('allied')));
+    if(!allowed.includes(profile)&&!womenLandMatch) return false;
+    if(Array.isArray(rules.landStatus) && !rules.landStatus.includes(land)) return false;
+    if(activity!=='any' && Array.isArray(rules.activities) && !rules.activities.includes(activity)) return false;
+    if(need!=='all' && Array.isArray(rules.supportNeeds) && !rules.supportNeeds.includes(need)) return false;
+    return true;
+  }).sort((a,b)=>scopeRank(a)-scopeRank(b));
+}
+function renderEligibilityCard(r){
+  const docs=(r.documents||[]).map(x=>'<li>'+escapeHtml(x)+'</li>').join('');
+  const checks=(r.matchRules?.mustVerify||['Check the latest official notification, applicant definition and district/season coverage']).map(x=>'<li>'+escapeHtml(x)+'</li>').join('');
+  const verified=['official_portal_checked','official_dfs_guidance_checked','official_faq_checked_seasonal_notice_required','official_source_checked','official_source_checked_budget_implementation_caveat'].includes(r.verification?.status);
+  const status=verified?'Official source checked':'Source linked · recheck current rules';
+  const sourceDate=r.verification?.lastChecked||'Review required';
+  return '<article class="eligibility-card"><div class="eligibility-card-top"><span class="pill '+typeClass(r.type)+'">'+typeLabel(r.type)+'</span><span class="match-status">'+status+'</span></div><h3>'+escapeHtml(r.name)+'</h3><p>'+escapeHtml(r.summary)+'</p><div class="eligibility-amount"><small>FINANCIAL SUPPORT</small><b>'+escapeHtml(r.amount)+'</b><span>'+escapeHtml(r.amountNote||'Final value depends on current scheme rules or lender assessment.')+'</span></div><div class="eligibility-two-col"><div><h4>Match note</h4><p>'+escapeHtml(r.matchRules?.status||'Applicant profile and selected location appear in the catalogue coverage.')+'</p></div><div><h4>Verify before applying</h4><ul>'+checks+'</ul></div></div><details class="checklist-details"><summary>View document checklist ('+(r.documents||[]).length+')</summary><ul>'+docs+'</ul></details><div class="eligibility-card-foot"><small>Source review: '+escapeHtml(sourceDate)+'</small><div><button class="details-btn" data-assistant-details="'+escapeHtml(r.id)+'">Full process</button><a class="apply-btn" href="'+escapeHtml(r.application)+'" target="_blank" rel="noopener noreferrer">Official application ↗</a></div></div></article>';
+}
+function potentialLenders(profile,land,activity,need){
+  if(need!=='all'&&need!=='loan') return [];
+  return lenders.filter(l=>{
+    if(!matchesLenderState(l)) return false;
+    const rules=l.matchRules||{};
+    const allowed=rules.profiles||[];
+    const womenLandMatch=profile==='women_farmer'&&(
+      (land==='owner'&&allowed.includes('owner'))||
+      ((land==='tenant'||land==='sharecropper')&&allowed.includes('tenant'))||
+      (land==='landless'&&allowed.includes('allied'))
+    );
+    if(!allowed.includes(profile)&&!womenLandMatch) return false;
+    if(Array.isArray(rules.landStatus)&&!rules.landStatus.includes(land)) return false;
+    if(activity!=='any'&&Array.isArray(rules.activities)&&!rules.activities.includes(activity)) return false;
+    return true;
+  });
+}
+function runEligibility(event){
+  if(event) event.preventDefault();
+  const profile=$('#elig-profile').value;
+  const land=$('#elig-land').value;
+  const activity=$('#elig-activity').value;
+  const need=$('#elig-need').value;
+  const matches=potentialMatches(profile,land,activity,need);
+  const lenderMatches=potentialLenders(profile,land,activity,need);
+  const output=$('#eligibility-output');
+  let content='<div class="eligibility-results-head"><div><div class="section-kicker">POTENTIAL MATCHES · '+escapeHtml(stateSelect.value.toUpperCase())+'</div><h3>'+(matches.length+lenderMatches.length)+' possible support routes</h3><p>For '+escapeHtml(districtSelect.value)+'. These are catalogue matches, not approval or an official eligibility determination.</p></div><button type="button" class="secondary-action" id="elig-back-directory">Browse full directory</button></div>';
+  if(matches.length){
+    content+='<div class="eligibility-subhead"><div class="section-kicker">GOVERNMENT & INSTITUTIONAL SCHEME RECORDS</div></div><div class="eligibility-results-grid">'+matches.map(renderEligibilityCard).join('')+'</div>';
+  }
+  if(lenderMatches.length){
+    content+='<div class="eligibility-subhead"><div class="section-kicker">BANK, RRB, COOPERATIVE, SFB & NBFC CREDIT ROUTES</div><p>These products are lender leads only. Verify branch availability, the exact product, rates, fees and your accepted borrower documents.</p></div><div class="lender-grid">'+lenderMatches.map(lenderCard).join('')+'</div>';
+  }
+  if(!matches.length&&!lenderMatches.length){
+    content+='<div class="eligibility-empty"><b>No catalogue matches for this combination yet.</b><span>Try “Show all potential support”, or check the full State/District portal list. An empty result does not prove that no scheme or lender exists.</span></div>';
+  }
+  output.innerHTML=content;
+  output.querySelectorAll('[data-assistant-details]').forEach(btn=>btn.addEventListener('click',()=>showDetails(btn.dataset.assistantDetails)));
+  output.querySelectorAll('[data-lender-details]').forEach(btn=>btn.addEventListener('click',()=>showLenderDetails(btn.dataset.lenderDetails)));
+  $('#elig-back-directory')?.addEventListener('click',()=>{switchView('directory');renderDirectory();});
+  window.refreshAgriTranslation?.();
+}
+function resetEligibility(){
+  $('#elig-profile').value='owner';$('#elig-land').value='owner';$('#elig-activity').value='crop';$('#elig-need').value='all';
+  $('#eligibility-output').innerHTML='<div class="eligibility-empty"><b>Your potential matches will appear here.</b><span>Choose the applicant and farm details, then select Find potential matches.</span></div>';
+  window.refreshAgriTranslation?.();
+}
+const ngoMetricKeys=['farmersReached','counsellingSessions','applicationsSubmitted','applicationsApproved','benefitsReceived','campsHeld','villagesReached'];
+const ngoEmptyMetrics={farmersReached:0,counsellingSessions:0,applicationsSubmitted:0,applicationsApproved:0,benefitsReceived:0,campsHeld:0,villagesReached:0};
+let ngoData={organisation:'',role:'',metrics:{...ngoEmptyMetrics},followups:[],farmers:[],applications:[]};
+let ngoFarmerEditingId=null;
+let ngoBackendReady=false;
+function showNGOStatus(title,message,code=''){
+  const node=$('#ngo-workspace-status');if(!node)return;
+  node.hidden=false;
+  const signIn=['ACCESS_SIGN_IN_REQUIRED','NGO_USER_NOT_PROVISIONED','ACCESS_ASSERTION_INVALID'].includes(code)?'<a class="secondary-action" href="/api/ngo/login" rel="noopener">Open secure sign-in ↗</a>':'';
+  const setup=code==='NGO_BACKEND_NOT_CONFIGURED'?'<a class="secondary-action" href="CLOUDFLARE_SETUP_V3.md" target="_blank">Open administrator setup guide ↗</a>':'';
+  node.innerHTML='<div class="ngo-status-icon">🔐</div><div class="ngo-status-copy"><b>'+escapeHtml(title)+'</b><span>'+escapeHtml(message)+'</span></div><div class="ngo-status-actions">'+signIn+setup+'<button class="primary-action" type="button" id="ngo-status-refresh">Check again</button></div>';
+  $('#ngo-status-refresh')?.addEventListener('click',loadNGOWorkspace);
+  window.refreshAgriTranslation?.();
+}
+function populateNGOSelectors(){
+  const state=$('#ngo-state'),district=$('#ngo-district');if(!state||!district)return;
+  setOptions(state,stateNames(),stateSelect.value);setOptions(district,districtsFor(state.value),districtSelect.value);
+  state.addEventListener('change',()=>setOptions(district,districtsFor(state.value)));
+}
+function renderNGOWorkspace(){
+  const ready=$('#ngo-workspace-ready');if(!ready)return;ready.hidden=!ngoBackendReady;if(!ngoBackendReady)return;
+  const m=ngoData.metrics||ngoEmptyMetrics;
+  ngoMetricKeys.forEach(k=>{const el=document.querySelector('[data-ngo-metric="'+k+'"]');if(el)el.value=Number(m[k])||0;});
+  $('#ngo-reached-total').textContent=Number(m.farmersReached)||0;
+  $('#ngo-app-total').textContent=Number(m.applicationsSubmitted)||0;
+  $('#ngo-approval-rate').textContent=m.applicationsSubmitted?Math.round((m.applicationsApproved/m.applicationsSubmitted)*100)+'%':'—';
+  $('#ngo-benefit-total').textContent=Number(m.benefitsReceived)||0;
+  $('#ngo-org-label').textContent='Organisation: '+ngoData.organisation;
+  $('#ngo-role-label').textContent='Role: '+ngoData.role;
+  $('#ngo-sync-label').textContent=m.updatedAt?'Last saved '+new Date(m.updatedAt).toLocaleString('en-IN'):'Connected to secure database';
+  const readonly=ngoData.role==='viewer';
+  document.querySelectorAll('[data-ngo-metric]').forEach(el=>el.disabled=readonly);
+  $('#ngo-save-metrics').disabled=readonly;
+  $('#ngo-followup-form').querySelectorAll('input,select,button').forEach(el=>el.disabled=readonly);
+  $('#ngo-farmer-form')?.querySelectorAll('input,select,textarea,button').forEach(el=>el.disabled=readonly);
+  $('#ngo-farmer-import-form')?.querySelectorAll('input,button').forEach(el=>el.disabled=readonly);
+  $('#ngo-manual-apply-form')?.querySelectorAll('select,button').forEach(el=>el.disabled=readonly);
+  const docsForm=$('#ngo-doc-form');if(docsForm)docsForm.querySelectorAll('input,select,button').forEach(el=>el.disabled=readonly);
+  const list=$('#ngo-followup-list');
+  if(!ngoData.followups.length){
+    list.innerHTML='<div class="no-directory-results">No references added yet. Use an internal code only. Do not include any person-specific details.</div>';
+  }else{
+    list.innerHTML='<div class="ngo-table-wrap"><table class="ngo-table"><thead><tr><th>Internal reference</th><th>Location</th><th>Support route</th><th>Status</th><th>Date</th><th></th></tr></thead><tbody>'+ngoData.followups.map(x=>'<tr><td><b>'+escapeHtml(x.ref)+'</b></td><td>'+escapeHtml(x.district)+', '+escapeHtml(x.state)+'</td><td>'+escapeHtml(x.support)+'</td><td><span class="ngo-stage">'+escapeHtml(x.status)+'</span></td><td>'+escapeHtml(x.date)+'</td><td>'+(ngoData.role==='admin'?'<button class="ngo-remove" type="button" data-delete-ngo-ref="'+escapeHtml(x.id)+'" aria-label="Delete internal reference">×</button>':'')+'</td></tr>').join('')+'</tbody></table></div>';
+    list.querySelectorAll('[data-delete-ngo-ref]').forEach(btn=>btn.addEventListener('click',()=>deleteNGOFollowup(btn.dataset.deleteNgoRef)));
+  }
+  renderNGOFarmerList();
+  renderNGOSchemeApplications();
+  window.refreshAgriTranslation?.();
+}
+async function loadNGOWorkspace(){
+  showNGOStatus('Checking secure NGO workspace…','Connecting to the protected organisation database.');
+  try{
+    const response=await fetch('/api/ngo/workspace',{credentials:'same-origin',cache:'no-store'});
+    const contentType=response.headers.get('content-type')||'';
+    const data=contentType.includes('application/json')?await response.json().catch(()=>({error:'The secure workspace returned invalid JSON.'})):{};
+    if(!response.ok||!contentType.includes('application/json')){
+      ngoBackendReady=false;$('#ngo-workspace-ready').hidden=true;
+      const code=data.code||(response.status===401?'ACCESS_SIGN_IN_REQUIRED':'NGO_API_UNAVAILABLE');
+      const title=code==='NGO_BACKEND_NOT_CONFIGURED'?'Secure workspace needs administrator setup':response.status===401?'Sign in with your approved organisation email':response.status===403?'Access is restricted to approved NGO members':'Secure workspace unavailable';
+      const detail=code==='NGO_BACKEND_NOT_CONFIGURED'?'The database and Access settings are not configured. Required: '+(data.required||[]).join(' · '):(data.error||'The request could not be authorised.');
+      showNGOStatus(title,detail,code);return;
+    }
+    ngoData={organisation:data.organisation,role:data.role,metrics:{...ngoEmptyMetrics,...(data.metrics||{})},followups:Array.isArray(data.followups)?data.followups:[],farmers:[],applications:[]};
+    ngoBackendReady=true;$('#ngo-workspace-status').hidden=true;
+    await loadNGOCaseData();
+    renderNGOWorkspace();
+  }catch(error){
+    ngoBackendReady=false;$('#ngo-workspace-ready').hidden=true;
+    showNGOStatus('Could not connect to secure workspace','Check the connection and try again. Private NGO records are not stored in browser local storage.');
+  }
+}
+async function saveNGOMetrics(){
+  if(!ngoBackendReady||ngoData.role==='viewer')return;
+  const payload={};ngoMetricKeys.forEach(k=>{const el=document.querySelector('[data-ngo-metric="'+k+'"]');payload[k]=Math.max(0,Math.min(10000000,Math.floor(Number(el?.value)||0)));});
+  if(payload.applicationsApproved>payload.applicationsSubmitted){$('#ngo-save-status').textContent='Approved applications cannot exceed submitted applications.';return;}
+  const button=$('#ngo-save-metrics');button.disabled=true;$('#ngo-save-status').textContent='Saving securely…';
+  try{const response=await fetch('/api/ngo/metrics',{method:'PUT',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const data=await response.json().catch(()=>({}));if(!response.ok)throw new Error(data.error||'Could not save the metrics.');$('#ngo-save-status').textContent=data.message||'Saved to organisation database.';await loadNGOWorkspace();}
+  catch(error){$('#ngo-save-status').textContent=error.message;}
+  finally{button.disabled=false;}
+}
+async function addNGOFollowup(event){
+  event.preventDefault();if(!ngoBackendReady||ngoData.role==='viewer')return;
+  const ref=$('#ngo-ref').value.trim().replace(/[^A-Za-z0-9_-]/g,'-').replace(/-+/g,'-').slice(0,40);
+  const payload={ref,state:$('#ngo-state').value,district:$('#ngo-district').value,support:$('#ngo-support').value,status:$('#ngo-case-status').value};
+  if(!/^[A-Za-z0-9][A-Za-z0-9_-]{2,39}$/.test(ref)){$('#ngo-save-status').textContent='Use 3–40 characters: letters, numbers, hyphens or underscores.';return;}
+  const button=$('#ngo-followup-form button[type="submit"]');button.disabled=true;
+  try{const response=await fetch('/api/ngo/followups',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const data=await response.json().catch(()=>({}));if(!response.ok)throw new Error(data.error||'Could not add the follow-up reference.');$('#ngo-ref').value='';$('#ngo-save-status').textContent='Reference saved in the organisation database.';await loadNGOWorkspace();}
+  catch(error){$('#ngo-save-status').textContent=error.message;}
+  finally{button.disabled=false;}
+}
+async function deleteNGOFollowup(id){
+  if(!ngoBackendReady||ngoData.role!=='admin'||!confirm('Delete this internal follow-up reference from the organisation database?'))return;
+  try{const response=await fetch('/api/ngo/followups/'+encodeURIComponent(id),{method:'DELETE',credentials:'same-origin'});const data=await response.json().catch(()=>({}));if(!response.ok)throw new Error(data.error||'Delete failed.');await loadNGOWorkspace();}
+  catch(error){$('#ngo-save-status').textContent=error.message;}
+}
+function exportNGOCSV(){
+  if(!ngoBackendReady)return;
+  const rows=[['Internal reference','State','District','Support route','Status','Date'],...ngoData.followups.map(x=>[x.ref,x.state,x.district,x.support,x.status,x.date])];
+  const quote=x=>{let value=String(x??'');if(/^\s*[=+@-]/.test(value))value="'"+value;return '"'+value.replace(/"/g,'""')+'"';};
+  const csv=rows.map(row=>row.map(quote).join(',')).join('\r\n');
+  const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob);
+  const link=document.createElement('a');link.href=url;link.download='agribridge-organisation-followups.csv';link.click();URL.revokeObjectURL(url);
+}
+
+async function loadNGOCaseData(){
+  if(!ngoBackendReady)return;
+  try{
+    const [farmerResponse,applicationResponse]=await Promise.all([
+      fetch('/api/ngo/farmers',{credentials:'same-origin',cache:'no-store'}),
+      fetch('/api/ngo/scheme-applications',{credentials:'same-origin',cache:'no-store'})
+    ]);
+    const farmerData=await farmerResponse.json().catch(()=>({}));
+    const applicationData=await applicationResponse.json().catch(()=>({}));
+    if(!farmerResponse.ok)throw new Error(farmerData.error||'Could not load farmer profiles.');
+    if(!applicationResponse.ok)throw new Error(applicationData.error||'Could not load the scheme application tracker.');
+    ngoData.farmers=Array.isArray(farmerData.farmers)?farmerData.farmers:[];
+    ngoData.applications=Array.isArray(applicationData.applications)?applicationData.applications:[];
+    renderNGOFarmerList();
+    populateNGOManualApplySelectors();
+    renderNGOSchemeApplications();
+  }catch(error){
+    const node=$('#ngo-farmer-status');if(node)node.textContent=error.message;
+  }
+}
+function populateNGOJoinAndFarmerSelectors(){
+  const states=stateNames();
+  const joinState=$('#ngo-join-state'),joinDistrict=$('#ngo-join-district');
+  const farmerState=$('#ngo-farmer-state'),farmerDistrict=$('#ngo-farmer-district');
+  if(joinState&&joinDistrict){
+    setOptions(joinState,states,stateSelect.value);
+    setOptions(joinDistrict,districtsFor(joinState.value),districtSelect.value);
+    joinState.addEventListener('change',()=>setOptions(joinDistrict,districtsFor(joinState.value)));
+  }
+  if(farmerState&&farmerDistrict){
+    setOptions(farmerState,states,stateSelect.value);
+    setOptions(farmerDistrict,districtsFor(farmerState.value),districtSelect.value);
+    farmerState.addEventListener('change',()=>setOptions(farmerDistrict,districtsFor(farmerState.value)));
+  }
+}
+let ngoJoinConfigLoaded=false;
+function initNGOJoin(){
+  const registrationYear=$('#ngo-join-reg-year');
+  if(registrationYear)registrationYear.max=String(new Date().getFullYear());
+  $('#ngo-open-join-form')?.addEventListener('click',()=>{
+    const form=$('#ngo-join-form');form.hidden=!form.hidden;
+    if(!form.hidden){
+      form.scrollIntoView({behavior:'smooth',block:'start'});
+      if(!ngoJoinConfigLoaded)loadNGOJoinConfig();
+    }
+  });
+  $('#ngo-join-form')?.addEventListener('submit',submitNGOJoin);
+  $('#ngo-join-status-form')?.addEventListener('submit',checkNGOJoinStatus);
+}
+async function loadNGOJoinConfig(){
+  if(ngoJoinConfigLoaded)return;
+  const status=$('#ngo-join-status'),submit=$('#ngo-join-submit');
+  try{
+    const response=await fetch('/api/ngo-join',{cache:'no-store'});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok||!data.enabled||!data.siteKey){
+      if(status)status.textContent=data.message||'Membership applications are not yet enabled by the administrator.';
+      if(submit)submit.disabled=true;
+      return;
+    }
+    ngoJoinConfigLoaded=true;
+    const renderCaptcha=()=>{
+      if(!window.turnstile||window.ngoJoinCaptchaWidget!==undefined)return;
+      window.ngoJoinCaptchaWidget=window.turnstile.render('#ngo-join-captcha',{
+        sitekey:data.siteKey,action:'ngo_join',
+        callback:token=>{window.ngoJoinCaptchaToken=token;if(submit)submit.disabled=false;if(status)status.textContent='Verification complete. You can submit the application.';},
+        'expired-callback':()=>{window.ngoJoinCaptchaToken='';if(submit)submit.disabled=true;if(status)status.textContent='Verification expired. Please verify again.';},
+        'error-callback':()=>{window.ngoJoinCaptchaToken='';if(submit)submit.disabled=true;if(status)status.textContent='Verification failed. Reload the page and try again.';}
+      });
+    };
+    if(window.turnstile){renderCaptcha();return;}
+    if(!document.getElementById('ngo-turnstile-script')){
+      const script=document.createElement('script');script.id='ngo-turnstile-script';script.src='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';script.async=true;script.defer=true;
+      script.onload=renderCaptcha;script.onerror=()=>{ngoJoinConfigLoaded=false;if(status)status.textContent='Anti-spam verification did not load. Refresh the page and reopen the form to retry.';};
+      document.head.appendChild(script);
+    }else{
+      const existing=document.getElementById('ngo-turnstile-script');
+      existing.addEventListener('load',renderCaptcha,{once:true});
+    }
+    if(status)status.textContent='Loading secure anti-spam verification…';
+  }catch(error){
+    if(status)status.textContent='The membership application service is not reachable. Please retry later.';
+    if(submit)submit.disabled=true;
+  }
+}
+async function submitNGOJoin(event){
+  event.preventDefault();
+  const button=$('#ngo-join-submit'),status=$('#ngo-join-status');
+  if(!window.ngoJoinCaptchaToken){if(status)status.textContent='Complete the anti-spam verification first.';return;}
+  const payload={
+    orgName:$('#ngo-join-org-name').value,orgType:$('#ngo-join-org-type').value,
+    registrationNumber:$('#ngo-join-reg-number').value,registrationYear:$('#ngo-join-reg-year').value,
+    state:$('#ngo-join-state').value,district:$('#ngo-join-district').value,
+    districtsServed:$('#ngo-join-districts').value,website:$('#ngo-join-website').value,
+    contactName:$('#ngo-join-contact-name').value,contactRole:$('#ngo-join-contact-role').value,
+    contactEmail:$('#ngo-join-email').value,contactPhone:$('#ngo-join-phone').value,
+    workSummary:$('#ngo-join-work').value,privacyAccepted:$('#ngo-join-privacy').checked,
+    accuracyAccepted:$('#ngo-join-accuracy').checked,captchaToken:window.ngoJoinCaptchaToken,
+    websiteField:$('#ngo-join-website-field').value
+  };
+  button.disabled=true;if(status)status.textContent='Submitting securely…';
+  try{
+    const response=await fetch('/api/ngo-join',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(data.error||'The application could not be submitted.');
+    const result=$('#ngo-join-result');
+    result.hidden=false;
+    result.innerHTML='<b>Application received for manual review.</b><p>'+escapeHtml(data.message||'Save these credentials now.')+'</p><div>Application code</div><span class="ngo-token-value">'+escapeHtml(data.applicationCode)+'</span><div>Private tracking token — shown once</div><span class="ngo-token-value">'+escapeHtml(data.trackingToken)+'</span><button type="button" class="secondary-action" id="ngo-copy-tracking">Copy tracking credentials</button>';
+    $('#ngo-copy-tracking')?.addEventListener('click',()=>{
+      const text=data.applicationCode+'\n'+data.trackingToken;
+      if(navigator.clipboard?.writeText)navigator.clipboard.writeText(text).then(()=>{status.textContent='Tracking credentials copied.';}).catch(()=>{status.textContent='Select and copy the credentials above.';});
+      else status.textContent='Select and copy the credentials above.';
+    });
+    status.textContent='Application submitted. Keep your tracking code and private token safe.';
+    window.ngoJoinCaptchaToken='';
+    if(window.turnstile&&window.ngoJoinCaptchaWidget!==undefined)window.turnstile.reset(window.ngoJoinCaptchaWidget);
+    $('#ngo-status-code').value=data.applicationCode;
+    $('#ngo-status-token').value='';
+    result.scrollIntoView({behavior:'smooth',block:'center'});
+  }catch(error){
+    if(status)status.textContent=error.message+' Please complete the verification again before retrying.';
+    window.ngoJoinCaptchaToken='';
+    if(window.turnstile&&window.ngoJoinCaptchaWidget!==undefined)window.turnstile.reset(window.ngoJoinCaptchaWidget);
+    button.disabled=true;
+  }
+}
+async function checkNGOJoinStatus(event){
+  event.preventDefault();
+  const node=$('#ngo-join-status-result');node.textContent='Checking application status…';
+  try{
+    const response=await fetch('/api/ngo-join-status',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({applicationCode:$('#ngo-status-code').value,trackingToken:$('#ngo-status-token').value})});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(data.error||'Could not check this application.');
+    const labels={pending:'Pending manual review',needs_info:'More information requested',approved:'Approved — sign in with the submitted contact email',rejected:'Not approved'};
+    node.textContent='Organisation: '+data.organisation+' · Status: '+(labels[data.status]||data.status)+(data.reviewNote?' · Review note: '+data.reviewNote:'');
+  }catch(error){node.textContent=error.message;}
+}
+async function loadNGOAdminApplications(){
+  const status=$('#ngo-admin-status'),node=$('#ngo-admin-applications');
+  status.textContent='Loading platform review queue…';
+  try{
+    const response=await fetch('/api/ngo/admin/applications',{credentials:'same-origin',cache:'no-store'});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(data.error||'Administrator access could not be verified.');
+    const rows=data.applications||[];
+    status.textContent=rows.length+' applications awaiting review.';
+    if(!rows.length){node.innerHTML='<div class="no-directory-results">No pending applications.</div>';return;}
+    node.innerHTML=rows.map(a=>'<article class="ngo-admin-application" data-ngo-application="'+escapeHtml(a.id)+'"><h4>'+escapeHtml(a.org_name)+' · '+escapeHtml(a.org_type)+'</h4><p><b>Registration:</b> '+escapeHtml(a.registration_number)+(a.registration_year?' ('+escapeHtml(a.registration_year)+')':'')+'<br><b>Location:</b> '+escapeHtml(a.district_name)+', '+escapeHtml(a.state_name)+'<br><b>Areas served:</b> '+escapeHtml(a.districts_served)+'<br><b>Contact:</b> '+escapeHtml(a.contact_name)+' · '+escapeHtml(a.contact_role)+' · '+escapeHtml(a.contact_email)+' · '+escapeHtml(a.contact_phone)+'<br><b>Website:</b> '+(a.website?'<a href="'+escapeHtml(a.website)+'" target="_blank" rel="noopener">Open ↗</a>':'Not supplied')+'<br><b>Work summary:</b> '+escapeHtml(a.work_summary)+'<br><b>Submitted:</b> '+escapeHtml(a.created_at)+'</p><label>Review note<textarea data-review-note rows="2" maxlength="1000" placeholder="Internal review note or information request"></textarea></label><div class="ngo-admin-actions"><button class="primary-action" type="button" data-admin-decision="approved">Approve &amp; provision admin</button><button class="secondary-action" type="button" data-admin-decision="needs_info">Request information</button><button class="secondary-action" type="button" data-admin-decision="rejected">Reject</button></div></article>').join('');
+    node.querySelectorAll('[data-admin-decision]').forEach(button=>button.addEventListener('click',()=>reviewNGOApplication(button.closest('[data-ngo-application]').dataset.ngoApplication,button.dataset.adminDecision)));
+  }catch(error){status.textContent=error.message;node.innerHTML='<div class="no-directory-results">Only configured platform administrators can open the review queue. '+escapeHtml(error.message)+'</div>';}
+}
+async function reviewNGOApplication(id,statusValue){
+  const card=document.querySelector('[data-ngo-application="'+CSS.escape(id)+'"]');
+  const note=card?.querySelector('[data-review-note]')?.value||'';
+  if(statusValue==='approved'&&!confirm('Approve this organisation and create its first admin membership?'))return;
+  try{
+    const response=await fetch('/api/ngo/admin/applications/'+encodeURIComponent(id),{method:'PATCH',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify({status:statusValue,reviewNote:note})});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(data.error||'Could not update the application.');
+    $('#ngo-admin-status').textContent=statusValue==='approved'?'Approved. First organisation administrator provisioned: '+(data.memberEmail||'approved contact email')+'.':('Application status updated: '+statusValue+'.');
+    await loadNGOAdminApplications();
+  }catch(error){$('#ngo-admin-status').textContent=error.message;}
+}
+function parseNGOFarmerCSV(source){
+  const rows=[];let row=[],field='',quoted=false;
+  for(let i=0;i<source.length;i++){
+    const char=source[i];
+    if(quoted){
+      if(char==='"'&&source[i+1]==='"'){field+='"';i++;}
+      else if(char==='"')quoted=false;
+      else field+=char;
+    }else if(char==='"'&&field.length===0)quoted=true;
+    else if(char===','){row.push(field);field='';}
+    else if(char==='\n'||char==='\r'){
+      if(char==='\r'&&source[i+1]==='\n')i++;
+      row.push(field);field='';
+      if(row.some(cell=>String(cell).trim()!==''))rows.push(row);
+      row=[];
+    }else field+=char;
+  }
+  if(quoted)throw new Error('The CSV has an unclosed quotation mark.');
+  row.push(field);
+  if(row.some(cell=>String(cell).trim()!==''))rows.push(row);
+  return rows;
+}
+async function importNGOFarmerCSV(event){
+  event.preventDefault();
+  if(!ngoBackendReady||ngoData.role==='viewer')return;
+  const file=$('#ngo-farmer-csv').files?.[0],status=$('#ngo-farmer-import-status'),button=$('#ngo-farmer-import-submit');
+  if(!file){status.textContent='Choose a CSV file first.';return;}
+  if(file.size>1024*1024){status.textContent='The CSV must be 1 MB or smaller.';return;}
+  if(!/\.csv$/i.test(file.name)){status.textContent='Choose a .csv file using the AgriBridge template.';return;}
+  if(!$('#ngo-farmer-csv-consent').checked){status.textContent='Confirm that every farmer has agreed before importing.';return;}
+  button.disabled=true;status.textContent='Reading and validating the CSV in this browser…';
+  try{
+    const rows=parseNGOFarmerCSV((await file.text()).replace(/^\uFEFF/,''));
+    if(rows.length<2)throw new Error('The CSV must contain a header and at least one farmer row.');
+    const headers=rows[0].map(x=>String(x).trim().toLowerCase().replace(/[\s_-]/g,''));
+    const allowed=['farmerref','state','district','profiletype','landstatus','activity','supportneed','cropname','landarea','landareaunit','season','irrigation'];
+    const required=['farmerref','state','district','profiletype','landstatus','activity','supportneed'];
+    if(new Set(headers).size!==headers.length)throw new Error('The CSV contains duplicate column headings.');
+    const unknown=headers.filter(h=>!allowed.includes(h));
+    const missing=required.filter(h=>!headers.includes(h));
+    if(unknown.length)throw new Error('Unsupported columns: '+unknown.join(', ')+'. Use the sample template and do not include identity or contact columns.');
+    if(missing.length)throw new Error('Required columns are missing: '+missing.join(', ')+'.');
+    const col=name=>headers.indexOf(name);
+    const value=(row,name)=>col(name)<0?'':String(row[col(name)]??'').trim();
+    const dataRows=rows.slice(1);
+    if(dataRows.length>100)throw new Error('Import up to 100 farmer rows at a time. Split larger files into separate CSVs.');
+    const choices={
+      profiles:new Set(['owner','tenant','women_farmer','women_shg','mixed_shg','fpo','entrepreneur','allied']),
+      lands:new Set(['owner','tenant','sharecropper','group','landless']),
+      activities:new Set(['crop','dairy','fisheries','poultry','horticulture','machinery','irrigation','storage','processing','allied','agri-enterprise','group-business']),
+      needs:new Set(['all','grant','subsidy','loan','insurance','institution']),
+      seasons:new Set(['kharif','rabi','zaid','perennial','unknown']),
+      irrigation:new Set(['irrigated','rainfed','mixed','unknown'])
+    };
+    const valid=[],errors=[];
+    dataRows.forEach((row,index)=>{
+      const rowNumber=index+2;
+      if(row.length!==headers.length){errors.push('Row '+rowNumber+': number of columns does not match the header.');return;}
+      const farmerRef=value(row,'farmerref');
+      const rawState=value(row,'state'),rawDistrict=value(row,'district');
+      const state=stateNames().find(x=>normalizedName(x)===normalizedName(rawState));
+      const district=state?districtsFor(state).find(x=>normalizedName(x)===normalizedName(rawDistrict)):null;
+      const profileType=value(row,'profiletype').toLowerCase(),landStatus=value(row,'landstatus').toLowerCase();
+      const activity=value(row,'activity').toLowerCase(),supportNeed=value(row,'supportneed').toLowerCase();
+      const cropName=value(row,'cropname');
+      const rawArea=value(row,'landarea'),landArea=rawArea===''?null:Number(rawArea);
+      const landAreaUnit=(value(row,'landareaunit')||'acre').toLowerCase();
+      const season=(value(row,'season')||'unknown').toLowerCase(),irrigation=(value(row,'irrigation')||'unknown').toLowerCase();
+      const pii=/aadhaar|uid|pan|phone|mobile|bank|account|ifsc|passport|voter|@/i;
+      if(!/^[A-Za-z0-9][A-Za-z0-9_-]{2,39}$/.test(farmerRef)||/(?:\d[\s-]?){10,}/.test(farmerRef)||pii.test(farmerRef)){
+        errors.push('Row '+rowNumber+': use a random anonymous case code, not a person name, phone or identity number.');return;
+      }
+      if(!state||!district){errors.push('Row '+rowNumber+': State or District is not in the current location list.');return;}
+      if(!choices.profiles.has(profileType)||!choices.lands.has(landStatus)||!choices.activities.has(activity)||!choices.needs.has(supportNeed)){
+        errors.push('Row '+rowNumber+': profile, land status, activity or support need is invalid.');return;
+      }
+      if(!choices.seasons.has(season)||!choices.irrigation.has(irrigation)||!['acre','hectare'].includes(landAreaUnit)||
+        (landArea!==null&&(!Number.isFinite(landArea)||landArea<=0||landArea>10000))){
+        errors.push('Row '+rowNumber+': check area, area unit, season or irrigation value.');return;
+      }
+      if(pii.test(cropName)||/(?:\d[\s-]?){10,}/.test(cropName)){
+        errors.push('Row '+rowNumber+': cropName must contain a crop or commodity only, not personal information.');return;
+      }
+      valid.push({rowNumber,payload:{
+        farmerRef,state,district,profileType,landStatus,activity,supportNeed,cropName,
+        landArea,landAreaUnit,season,irrigation,consent:true
+      }});
+    });
+    if(!valid.length)throw new Error('No valid rows to import. '+errors.slice(0,4).join(' '));
+    let imported=0;const importedIds=[];
+    for(const item of valid){
+      const response=await fetch('/api/ngo/farmers',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify(item.payload)});
+      const data=await response.json().catch(()=>({}));
+      if(response.ok){imported++;if(data.id)importedIds.push(data.id);}
+      else errors.push('Row '+item.rowNumber+': '+(data.error||'Could not save this profile.'));
+    }
+    await loadNGOCaseData();
+    const firstError=errors.slice(0,8).join(' ');
+    status.textContent=imported+' farmer profile(s) imported. '+errors.length+' row(s) need correction.'+(firstError?' Details: '+firstError:'');
+    $('#ngo-farmer-import-form').reset();
+    if(importedIds.length)showFarmerRecommendations(importedIds[0]);
+  }catch(error){status.textContent=error.message;}
+  finally{button.disabled=false;}
+}
+async function addNGOFarmer(event){
+  event.preventDefault();if(!ngoBackendReady||ngoData.role==='viewer')return;
+  const status=$('#ngo-farmer-status'),button=$('#ngo-farmer-submit');
+  const rawArea=$('#ngo-farmer-area').value;
+  const payload={
+    farmerRef:$('#ngo-farmer-ref').value,state:$('#ngo-farmer-state').value,district:$('#ngo-farmer-district').value,
+    profileType:$('#ngo-farmer-profile').value,landStatus:$('#ngo-farmer-land').value,
+    activity:$('#ngo-farmer-activity').value,supportNeed:$('#ngo-farmer-need').value,
+    cropName:$('#ngo-farmer-crop').value,landArea:rawArea===''?null:Number(rawArea),
+    landAreaUnit:$('#ngo-farmer-area-unit').value,season:$('#ngo-farmer-season').value,
+    irrigation:$('#ngo-farmer-irrigation').value,consent:$('#ngo-farmer-consent').checked
+  };
+  const editingId=ngoFarmerEditingId;
+  const endpoint=editingId?'/api/ngo/farmers/'+encodeURIComponent(editingId):'/api/ngo/farmers';
+  button.disabled=true;status.textContent=editingId?'Updating the consented farmer profile…':'Saving the consent-based profile…';
+  try{
+    const response=await fetch(endpoint,{method:editingId?'PATCH':'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(data.error||'Could not save the farmer profile.');
+    status.textContent=editingId?'Profile updated. Rechecking potential scheme matches…':'Profile saved. Checking potential scheme matches…';
+    ngoFarmerEditingId=null;
+    $('#ngo-farmer-form').reset();
+    $('#ngo-farmer-submit').textContent='Save farmer profile & find schemes →';
+    $('#ngo-farmer-cancel-edit').hidden=true;
+    await loadNGOCaseData();
+    showFarmerRecommendations(data.id||editingId);
+  }catch(error){status.textContent=error.message;}
+  finally{button.disabled=false;}
+}
+function editNGOFarmer(farmerId){
+  const f=(ngoData.farmers||[]).find(x=>x.id===farmerId);if(!f||ngoData.role==='viewer')return;
+  ngoFarmerEditingId=farmerId;
+  $('#ngo-farmer-ref').value=f.farmer_ref||'';
+  $('#ngo-farmer-state').value=f.state_name||'';
+  setOptions($('#ngo-farmer-district'),districtsFor(f.state_name),f.district_name);
+  $('#ngo-farmer-profile').value=f.profile_type;
+  $('#ngo-farmer-land').value=f.land_status;
+  $('#ngo-farmer-activity').value=f.activity;
+  $('#ngo-farmer-need').value=f.support_need;
+  $('#ngo-farmer-crop').value=f.crop_name||'';
+  $('#ngo-farmer-area').value=f.land_area??'';
+  $('#ngo-farmer-area-unit').value=f.land_area_unit||'acre';
+  $('#ngo-farmer-season').value=f.season||'unknown';
+  $('#ngo-farmer-irrigation').value=f.irrigation||'unknown';
+  $('#ngo-farmer-consent').checked=false;
+  $('#ngo-farmer-submit').textContent='Update profile & recalculate matches →';
+  $('#ngo-farmer-cancel-edit').hidden=false;
+  $('#ngo-farmer-status').textContent='Review the profile fields against the supporting evidence. Confirm the farmer still agrees before saving changes.';
+  $('#ngo-farmer-form').scrollIntoView({behavior:'smooth',block:'center'});
+}
+function cancelNGOFarmerEdit(){
+  ngoFarmerEditingId=null;
+  $('#ngo-farmer-form').reset();
+  $('#ngo-farmer-submit').textContent='Save farmer profile & find schemes →';
+  $('#ngo-farmer-cancel-edit').hidden=true;
+  $('#ngo-farmer-status').textContent='Profile editing cancelled.';
+}
+function renderNGOFarmerList(){
+  const node=$('#ngo-farmer-list');if(!node)return;
+  const farmers=ngoData.farmers||[];
+  $('#ngo-farmer-count').textContent=farmers.length+' profiles';
+  if(!farmers.length){node.innerHTML='<div class="no-directory-results">No farmer profiles have been created yet. Add a consented pseudonymous profile above.</div>';return;}
+  const canEdit=ngoData.role!=='viewer';
+  node.innerHTML=farmers.map(f=>'<article class="ngo-farmer-case"><strong>'+escapeHtml(f.farmer_ref)+'</strong><p>'+escapeHtml(f.district_name)+', '+escapeHtml(f.state_name)+' · '+escapeHtml(f.profile_type)+' · '+escapeHtml(f.land_status)+'<br>Activity: '+escapeHtml(f.activity)+' · Need: '+escapeHtml(f.support_need)+'<br>Crop: '+escapeHtml(f.crop_name||'Not specified')+' · Area: '+(f.land_area?escapeHtml(f.land_area)+' '+escapeHtml(f.land_area_unit):'Not stated')+' · Season: '+escapeHtml(f.season||'unknown')+' · Irrigation: '+escapeHtml(f.irrigation||'unknown')+' · Supporting files: '+escapeHtml(f.document_count||0)+'</p><div class="ngo-farmer-case-actions"><button type="button" class="primary-action" data-farmer-recommend="'+escapeHtml(f.id)+'">Find potential schemes</button>'+(canEdit?'<button type="button" class="secondary-action" data-farmer-edit="'+escapeHtml(f.id)+'">Edit profile</button><button type="button" class="secondary-action" data-farmer-upload="'+escapeHtml(f.id)+'">Documents / upload</button>':'')+(ngoData.role==='admin'?'<button type="button" class="secondary-action" data-farmer-delete="'+escapeHtml(f.id)+'">Delete profile</button>':'')+'</div></article>').join('');
+  node.querySelectorAll('[data-farmer-recommend]').forEach(b=>b.addEventListener('click',()=>showFarmerRecommendations(b.dataset.farmerRecommend)));
+  node.querySelectorAll('[data-farmer-edit]').forEach(b=>b.addEventListener('click',()=>editNGOFarmer(b.dataset.farmerEdit)));
+  node.querySelectorAll('[data-farmer-upload]').forEach(b=>b.addEventListener('click',()=>openFarmerDocuments(b.dataset.farmerUpload)));
+  node.querySelectorAll('[data-farmer-delete]').forEach(b=>b.addEventListener('click',()=>deleteNGOFarmer(b.dataset.farmerDelete)));
+}
+function farmerSchemeRelevance(record,farmer){
+  const sourceText=normalizedName([record.name,record.category,record.summary,record.eligibility,(record.keywords||[]).join(' '),(record.activityTags||[]).join(' '),record.amountNote].join(' '));
+  let score=0;
+  const cropTokens=normalizedName(farmer.crop_name||'').split(/[^a-z0-9]+/).filter(token=>token.length>2);
+  for(const token of cropTokens)if(sourceText.includes(token))score+=3;
+  if(farmer.season&&farmer.season!=='unknown'){
+    if(sourceText.includes(farmer.season))score+=2;
+    if(record.programmeStatus==='seasonal_notification_required')score+=1;
+  }
+  if(farmer.irrigation&&farmer.irrigation!=='unknown'&&(record.activityTags||[]).some(tag=>['irrigation','water','machinery'].includes(tag)))score+=1;
+  if(farmer.land_area&&sourceText.includes('per acre'))score+=1;
+  return score;
+}
+function showFarmerRecommendations(farmerId){
+  const farmer=(ngoData.farmers||[]).find(x=>x.id===farmerId);if(!farmer)return;
+  const node=$('#ngo-farmer-recommendations');
+  const matches=potentialMatches(farmer.profile_type,farmer.land_status,farmer.activity,farmer.support_need,{state:farmer.state_name,district:farmer.district_name})
+    .sort((a,b)=>farmerSchemeRelevance(b,farmer)-farmerSchemeRelevance(a,farmer)||scopeRank(a)-scopeRank(b));
+  node.innerHTML='<div class="eligibility-results-head"><div><div class="section-kicker">POTENTIAL MATCHES · '+escapeHtml(farmer.state_name.toUpperCase())+'</div><h3>Scheme shortlist for '+escapeHtml(farmer.farmer_ref)+'</h3><p>Based on entered profile characteristics and the selected district. Verify each scheme with its implementing authority.</p></div><span class="ngo-local-tag">'+matches.length+' potential matches</span></div>'+(matches.length?'<div class="eligibility-results-grid">'+matches.map(r=>'<article class="eligibility-card"><div class="eligibility-card-top"><span class="pill '+typeClass(r.type)+'">'+typeLabel(r.type)+'</span><span class="match-status">'+escapeHtml(r.scope==='national'?'National programme':'Location-scoped record')+'</span></div><h3>'+escapeHtml(r.name)+'</h3><p>'+escapeHtml(r.summary)+'</p><div class="eligibility-amount"><small>FINANCIAL SUPPORT / FACILITY</small><b>'+escapeHtml(r.amount)+'</b><span>'+escapeHtml(r.amountNote||'Confirm the current scheme order and local target.')+'</span></div><div class="eligibility-two-col"><div><h4>Why it appears</h4><p>'+escapeHtml(r.matchRules?.status||'The profile fields match the catalogue tags for this scheme.')+'</p></div><div><h4>Verify before proceeding</h4><ul>'+(r.matchRules?.mustVerify||[]).slice(0,4).map(x=>'<li>'+escapeHtml(x)+'</li>').join('')+'</ul></div></div><div class="eligibility-card-foot"><small>Source review: '+escapeHtml(r.verification?.lastChecked||r.sourceDate||'Check source')+'</small><div><button type="button" class="details-btn" data-farmer-scheme-details="'+escapeHtml(r.id)+'">Full process</button><button type="button" class="secondary-action" data-start-manual="'+escapeHtml(r.id)+'" data-start-farmer="'+escapeHtml(farmer.id)+'">Add to tracker &amp; open application</button><a class="apply-btn" href="'+escapeHtml(r.application)+'" target="_blank" rel="noopener noreferrer">Official application ↗</a></div></div></article>').join('')+'</div>':'<div class="eligibility-empty"><b>No catalogue matches were found for this profile.</b><span>Try reviewing the farmer characteristics or browse the complete scheme directory. An empty match list does not mean no support exists.</span></div>')+'<div class="ngo-help">Matching uses structured profile fields and the current scheme catalogue. Uploaded files are not automatically read; use them for authorised human review and update the structured fields after checking them.</div>';
+  node.querySelectorAll('[data-farmer-scheme-details]').forEach(b=>b.addEventListener('click',()=>showDetails(b.dataset.farmerSchemeDetails)));
+  node.querySelectorAll('[data-start-manual]').forEach(b=>b.addEventListener('click',()=>startManualSchemeApplication(b.dataset.startFarmer,b.dataset.startManual)));
+  node.scrollIntoView({behavior:'smooth',block:'start'});
+  window.refreshAgriTranslation?.();
+}
+async function startManualSchemeApplication(farmerId,schemeId){
+  const farmer=(ngoData.farmers||[]).find(x=>x.id===farmerId);
+  const scheme=records.find(x=>x.id===schemeId);
+  if(!farmer||!scheme||ngoData.role==='viewer')return;
+  const opened=window.open(scheme.application,'_blank','noopener,noreferrer');
+  const node=$('#ngo-farmer-status');node.textContent='Creating manual application tracker record…';
+  try{
+    const response=await fetch('/api/ngo/scheme-applications',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify({farmerId,schemeId,status:'preparing'})});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(data.error||'Could not create the tracker record.');
+    node.textContent='Manual application tracker created for '+farmer.farmer_ref+'. Complete the official application with the department/portal.';
+    await loadNGOCaseData();
+    return true;
+  }catch(error){if(opened)opened.close();node.textContent=error.message;return false;}
+}
+function populateNGOManualApplySelectors(){
+  const farmerSelect=$('#ngo-manual-farmer'),schemeSelect=$('#ngo-manual-scheme');
+  if(!farmerSelect||!schemeSelect)return;
+  const previous=farmerSelect.value;
+  farmerSelect.replaceChildren(new Option('Choose a saved farmer case',''));
+  (ngoData.farmers||[]).forEach(f=>farmerSelect.append(new Option(f.farmer_ref+' · '+f.district_name+', '+f.state_name,f.id)));
+  if(previous&&(ngoData.farmers||[]).some(f=>f.id===previous))farmerSelect.value=previous;
+  updateNGOManualSchemeOptions();
+}
+function updateNGOManualSchemeOptions(){
+  const farmerId=$('#ngo-manual-farmer')?.value;
+  const select=$('#ngo-manual-scheme');if(!select)return;
+  const farmer=(ngoData.farmers||[]).find(f=>f.id===farmerId);
+  select.replaceChildren(new Option(farmer?'Choose a catalogue scheme':'Select a farmer case first',''));
+  if(!farmer)return;
+  const choices=records.filter(r=>r.type!=='informal'&&!r.matchRules?.excludeFromAssistant&&applicable(r,farmer.state_name,farmer.district_name)).sort((a,b)=>a.name.localeCompare(b.name));
+  choices.forEach(r=>select.append(new Option(r.name+' · '+r.category,r.id)));
+  if(!choices.length)select.append(new Option('No location-scoped catalogue entries are listed',''));
+}
+async function submitManualSchemeApplication(event){
+  event.preventDefault();
+  if(!ngoBackendReady||ngoData.role==='viewer')return;
+  const farmerId=$('#ngo-manual-farmer').value,schemeId=$('#ngo-manual-scheme').value;
+  if(!farmerId||!schemeId){$('#ngo-manual-apply-status').textContent='Choose both a farmer case and a scheme.';return;}
+  $('#ngo-manual-apply-submit').disabled=true;
+  $('#ngo-manual-apply-status').textContent='Creating tracker record and opening the official route…';
+  try{
+    const saved=await startManualSchemeApplication(farmerId,schemeId);
+    $('#ngo-manual-apply-status').textContent=saved?'The manual application has been added to the tracker. Complete the official process with the department or portal.':($('#ngo-farmer-status').textContent||'The manual application could not be added.');
+  }finally{$('#ngo-manual-apply-submit').disabled=false;}
+}
+function renderNGOSchemeApplications(){
+  const node=$('#ngo-scheme-application-list');if(!node)return;
+  const applications=ngoData.applications||[];
+  if(!applications.length){node.innerHTML='<div class="no-directory-results">No scheme applications are being tracked yet. Select a scheme match and choose “Add to tracker & open application”.</div>';return;}
+  const statusOptions=[['identified','Identified'],['preparing','Preparing'],['documents_pending','Documents pending'],['ready_to_submit','Ready to submit'],['submitted','Submitted'],['approved','Approved'],['rejected','Rejected'],['benefit_received','Benefit received'],['closed','Closed']];
+  node.innerHTML=applications.map(a=>{
+    const scheme=records.find(r=>r.id===a.scheme_id),name=scheme?.name||a.scheme_id;
+    const opts=statusOptions.map(([value,label])=>'<option value="'+value+'"'+(a.status===value?' selected':'')+'>'+label+'</option>').join('');
+    return '<article class="ngo-scheme-application" data-scheme-application="'+escapeHtml(a.id)+'"><h4>'+escapeHtml(name)+'</h4><p>Case: '+escapeHtml(a.farmer_ref)+' · '+escapeHtml(a.district_name)+', '+escapeHtml(a.state_name)+'<br>Last updated: '+escapeHtml(a.updated_at)+'</p><div class="ngo-scheme-app-form"><label>Status<select data-app-status>'+opts+'</select></label><label>Official application reference<input data-app-reference maxlength="40" value="'+escapeHtml(a.internal_reference||'')+'" placeholder="Optional, non-personal reference"></label></div><label>Progress note<textarea data-app-notes rows="2" maxlength="500" placeholder="Do not include farmer names, phone numbers or identifiers">'+escapeHtml(a.notes||'')+'</textarea></label><div class="ngo-scheme-app-actions">'+(scheme?'<a class="secondary-action" href="'+escapeHtml(scheme.application)+'" target="_blank" rel="noopener noreferrer">Open official application ↗</a>':'')+'<button class="primary-action" type="button" data-save-scheme-application>Save progress</button></div></article>';
+  }).join('');
+  node.querySelectorAll('[data-save-scheme-application]').forEach(b=>b.addEventListener('click',()=>saveSchemeApplication(b.closest('[data-scheme-application]').dataset.schemeApplication)));
+}
+async function saveSchemeApplication(id){
+  const card=document.querySelector('[data-scheme-application="'+CSS.escape(id)+'"]');if(!card||ngoData.role==='viewer')return;
+  const payload={status:card.querySelector('[data-app-status]').value,internalReference:card.querySelector('[data-app-reference]').value,notes:card.querySelector('[data-app-notes]').value};
+  try{
+    const response=await fetch('/api/ngo/scheme-applications/'+encodeURIComponent(id),{method:'PATCH',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(data.error||'Could not update application progress.');
+    $('#ngo-save-status').textContent='Manual application progress updated.';
+    await loadNGOCaseData();
+  }catch(error){$('#ngo-save-status').textContent=error.message;}
+}
+async function openFarmerDocuments(farmerId){
+  const farmer=(ngoData.farmers||[]).find(x=>x.id===farmerId);if(!farmer)return;
+  $('#ngo-doc-farmer-id').value=farmerId;
+  $('#ngo-doc-upload-panel').hidden=false;
+  $('#ngo-doc-status').textContent='Loading private document register for '+farmer.farmer_ref+'…';
+  await loadFarmerDocuments(farmerId);
+  $('#ngo-doc-upload-panel').scrollIntoView({behavior:'smooth',block:'center'});
+}
+async function loadFarmerDocuments(farmerId){
+  const node=$('#ngo-doc-list');node.innerHTML='';
+  try{
+    const response=await fetch('/api/ngo/farmers/'+encodeURIComponent(farmerId)+'/documents',{credentials:'same-origin',cache:'no-store'});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(data.error||'Could not load document list.');
+    const docs=data.documents||[];
+    if(!docs.length){node.innerHTML='<div class="no-directory-results">No supporting files uploaded.</div>';return;}
+    node.innerHTML=docs.map(d=>'<div class="ngo-doc-row"><span>'+escapeHtml(d.doc_type.replaceAll('_',' '))+' · '+escapeHtml(d.file_name)+' · '+Math.ceil(d.size_bytes/1024)+' KB · '+escapeHtml(d.review_status)+'</span><span><a class="secondary-action" href="/api/ngo/documents/'+encodeURIComponent(d.id)+'">Download</a>'+(ngoData.role==='admin'?'<button type="button" class="secondary-action" data-review-doc="'+escapeHtml(d.id)+'" data-review-status="'+(d.review_status==='reviewed'?'rejected':'reviewed')+'">'+(d.review_status==='reviewed'?'Mark rejected':'Mark staff-reviewed')+'</button><button type="button" class="secondary-action" data-delete-doc="'+escapeHtml(d.id)+'">Delete</button>':'')+'</span></div>').join('');
+    node.querySelectorAll('[data-delete-doc]').forEach(b=>b.addEventListener('click',()=>deleteNGOFarmerDocument(b.dataset.deleteDoc,farmerId)));
+    node.querySelectorAll('[data-review-doc]').forEach(b=>b.addEventListener('click',()=>reviewNGOFarmerDocument(b.dataset.reviewDoc,b.dataset.reviewStatus,farmerId)));
+    $('#ngo-doc-status').textContent='Files are private to this organisation and marked for manual review.';
+  }catch(error){$('#ngo-doc-status').textContent=error.message;}
+}
+async function uploadNGOFarmerDocument(event){
+  event.preventDefault();if(!ngoBackendReady||ngoData.role==='viewer')return;
+  const farmerId=$('#ngo-doc-farmer-id').value,file=$('#ngo-doc-file').files?.[0];
+  if(!farmerId||!file){$('#ngo-doc-status').textContent='Choose a file for the selected farmer case.';return;}
+  if(file.size>5*1024*1024){$('#ngo-doc-status').textContent='The file must be 5 MB or smaller.';return;}
+  const form=new FormData();form.append('file',file);form.append('docType',$('#ngo-doc-type').value);
+  const button=$('#ngo-doc-submit');button.disabled=true;$('#ngo-doc-status').textContent='Uploading to private document storage…';
+  try{
+    const response=await fetch('/api/ngo/farmers/'+encodeURIComponent(farmerId)+'/documents',{method:'POST',credentials:'same-origin',body:form});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(data.error||'The file could not be uploaded.');
+    $('#ngo-doc-form').reset();$('#ngo-doc-status').textContent='Uploaded securely. The file is pending authorised staff review.';
+    await loadFarmerDocuments(farmerId);await loadNGOCaseData();
+  }catch(error){$('#ngo-doc-status').textContent=error.message;}
+  finally{button.disabled=false;}
+}
+async function reviewNGOFarmerDocument(documentId,reviewStatus,farmerId){
+  if(ngoData.role!=='admin')return;
+  try{
+    const response=await fetch('/api/ngo/documents/'+encodeURIComponent(documentId),{method:'PATCH',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify({reviewStatus})});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(data.error||'Could not update document review status.');
+    await loadFarmerDocuments(farmerId);await loadNGOCaseData();
+  }catch(error){$('#ngo-doc-status').textContent=error.message;}
+}
+async function deleteNGOFarmerDocument(documentId,farmerId){
+  if(ngoData.role!=='admin'||!confirm('Permanently delete this private supporting file?'))return;
+  try{
+    const response=await fetch('/api/ngo/documents/'+encodeURIComponent(documentId),{method:'DELETE',credentials:'same-origin'});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(data.error||'Could not delete the document.');
+    await loadFarmerDocuments(farmerId);await loadNGOCaseData();
+  }catch(error){$('#ngo-doc-status').textContent=error.message;}
+}
+async function deleteNGOFarmer(farmerId){
+  if(ngoData.role!=='admin'||!confirm('Delete this pseudonymous farmer profile, its uploaded documents and its scheme tracker records?'))return;
+  try{
+    const response=await fetch('/api/ngo/farmers/'+encodeURIComponent(farmerId),{method:'DELETE',credentials:'same-origin'});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(data.error||'Could not delete farmer profile.');
+    $('#ngo-farmer-recommendations').innerHTML='';$('#ngo-doc-upload-panel').hidden=true;
+    await loadNGOCaseData();
+  }catch(error){$('#ngo-farmer-status').textContent=error.message;}
+}
+
+function initNGOWorkspace(){
+  populateNGOSelectors();
+  populateNGOJoinAndFarmerSelectors();
+  initNGOJoin();
+  $('#ngo-save-metrics')?.addEventListener('click',saveNGOMetrics);
+  $('#ngo-followup-form')?.addEventListener('submit',addNGOFollowup);
+  $('#ngo-export')?.addEventListener('click',exportNGOCSV);
+  $('#ngo-refresh')?.addEventListener('click',loadNGOWorkspace);
+  $('#ngo-farmer-form')?.addEventListener('submit',addNGOFarmer);
+  $('#ngo-farmer-import-form')?.addEventListener('submit',importNGOFarmerCSV);
+  $('#ngo-farmer-cancel-edit')?.addEventListener('click',cancelNGOFarmerEdit);
+  $('#ngo-manual-farmer')?.addEventListener('change',updateNGOManualSchemeOptions);
+  $('#ngo-manual-apply-form')?.addEventListener('submit',submitManualSchemeApplication);
+  $('#ngo-doc-form')?.addEventListener('submit',uploadNGOFarmerDocument);
+  $('#ngo-doc-close')?.addEventListener('click',()=>{$('#ngo-doc-upload-panel').hidden=true;});
+  $('#ngo-applications-refresh')?.addEventListener('click',loadNGOCaseData);
+  $('#ngo-admin-review-toggle')?.addEventListener('click',()=>{
+    const panel=$('#ngo-admin-panel');panel.hidden=!panel.hidden;
+    if(!panel.hidden)loadNGOAdminApplications();
+  });
+  $('#ngo-admin-refresh')?.addEventListener('click',loadNGOAdminApplications);
+  if(document.documentElement.dataset.ngoPortal==='true'){
+    loadNGOWorkspace();
+  }else{
+    const securePanel=$('#ngo-workspace-ready');
+    if(securePanel)securePanel.hidden=true;
+    const status=$('#ngo-workspace-status');
+    if(status){
+      status.hidden=false;
+      status.innerHTML='<div class="ngo-status-icon">🔐</div><div class="ngo-status-copy"><b>Approved NGO members: use the secure Helping Hand portal</b><span>Organisation sign-in, farmer records, scheme recommendations, document review and application tracking are hosted on a separate Cloudflare Access-protected portal. The public AgriBridge directory remains open to everyone.</span></div><div class="ngo-status-actions"><a class="primary-action" href="https://agribridge-ngo-portal.pages.dev/?page=ngo" rel="noopener">Open secure NGO portal ↗</a></div>';
+    }
+    const adminPanel=$('#ngo-admin-panel');if(adminPanel)adminPanel.hidden=true;
+  }
+}
+
+const inrMoney=value=>new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:0}).format(Number(value)||0);
+function calculateMonthlyIrr(netReceived,emi,months){
+  if(!(netReceived>0)||!(emi>=0)||!(months>0))return null;
+  const npv=rate=>{let value=netReceived;for(let month=1;month<=months;month++)value-=emi/Math.pow(1+rate,month);return value;};
+  if(Math.abs(npv(0))<0.0001)return 0;
+  let low=0,high=1;while(npv(high)<0&&high<100)high*=2;if(npv(high)<0)return null;
+  for(let i=0;i<100;i++){const mid=(low+high)/2;if(npv(mid)>0)high=mid;else low=mid;}
+  return (1+(low+high)/2)**12-1;
+}
+function computeLoanOffer(principal,months,method,annualRate,feePercent,otherFees){
+  const monthlyRate=annualRate/1200;let emi=0,totalInterest=0;
+  if(method==='flat'){totalInterest=principal*(annualRate/100)*(months/12);emi=(principal+totalInterest)/months;}
+  else if(monthlyRate===0){emi=principal/months;}
+  else{const factor=Math.pow(1+monthlyRate,months);emi=principal*monthlyRate*factor/(factor-1);totalInterest=emi*months-principal;}
+  const processingFee=principal*feePercent/100,fees=processingFee+otherFees,netReceived=principal-fees,repayments=emi*months;
+  const effectiveRate=calculateMonthlyIrr(netReceived,emi,months);
+  return {emi,totalInterest,processingFee,fees,netReceived,repayments,allInCost:repayments+fees-principal,effectiveApr:effectiveRate===null?null:effectiveRate*100};
+}
+function renderLoanComparison(){
+  const principal=Number($('#loan-principal')?.value),months=Number($('#loan-tenure')?.value),method=$('#loan-method')?.value||'reducing';
+  const rates=[Number($('#offer-a-rate')?.value),Number($('#offer-b-rate')?.value)],feeRates=[Number($('#offer-a-fee')?.value),Number($('#offer-b-fee')?.value)],otherFees=[Number($('#offer-a-other')?.value),Number($('#offer-b-other')?.value)];
+  const output=$('#loan-comparison-output');if(!output)return;
+  if(!(principal>=1000&&principal<=100000000)||!(months>=1&&months<=360)||[...rates,...feeRates,...otherFees].some(x=>!Number.isFinite(x)||x<0)||rates.some(x=>x>60)||feeRates.some(x=>x>20)||feeRates.some((fee,i)=>principal*fee/100+otherFees[i]>=principal)){output.innerHTML='<div class="loan-calc-placeholder error">Enter a principal from ₹1,000 to ₹10 crore, tenure 1–360 months, annual rate 0–60%, processing fee 0–20% and non-negative charges.</div>';window.refreshAgriTranslation?.();return;}
+  const offers=[computeLoanOffer(principal,months,method,rates[0],feeRates[0],otherFees[0]),computeLoanOffer(principal,months,method,rates[1],feeRates[1],otherFees[1])];
+  const rows=offers.map((o,i)=>'<article class="loan-result-card"><div class="loan-result-head"><b>Offer '+(i?'B':'A')+'</b><span>'+escapeHtml(method==='flat'?'Flat rate':'Reducing balance')+'</span></div><div class="loan-result-emi"><small>ESTIMATED MONTHLY EMI</small><strong>'+inrMoney(o.emi)+'</strong></div><div class="loan-result-lines"><div><span>Net amount credited</span><b>'+inrMoney(o.netReceived)+'</b></div><div><span>Total interest (before fees)</span><b>'+inrMoney(o.totalInterest)+'</b></div><div><span>Upfront fees / charges</span><b>'+inrMoney(o.fees)+'</b></div><div><span>Total repayment</span><b>'+inrMoney(o.repayments)+'</b></div><div><span>All-in financing cost</span><b>'+inrMoney(o.allInCost)+'</b></div><div class="apr-line"><span>Estimated effective annual APR</span><b>'+(o.effectiveApr===null?'Not calculable':o.effectiveApr.toFixed(2)+'%')+'</b></div></div></article>').join('');
+  const difference=Math.abs(offers[0].allInCost-offers[1].allInCost),winner=offers[0].allInCost<=offers[1].allInCost?'A':'B';
+  output.innerHTML='<div class="loan-results-summary"><b>Comparison result:</b> Offer '+winner+' has the lower estimated all-in financing cost by '+inrMoney(difference)+' over '+months+' months, assuming the entered fees and repayment method.</div><div class="loan-result-grid">'+rows+'</div>';
+  window.refreshAgriTranslation?.();
+}
+function initLoanComparator(){
+  $('#calculate-loans')?.addEventListener('click',renderLoanComparison);
+  ['loan-principal','loan-tenure','loan-method','offer-a-rate','offer-a-fee','offer-a-other','offer-b-rate','offer-b-fee','offer-b-other'].forEach(id=>$('#'+id)?.addEventListener('change',renderLoanComparison));
+  renderLoanComparison();
+}
+function syncMarketLocation(){
+  const state=$('#market-state'),district=$('#market-district');if(!state||!district||!geography.length)return;
+  setOptions(state,stateNames(),stateSelect.value);setOptions(district,districtsFor(state.value),districtSelect.value);
+}
+function renderMandiPrices(records,meta={}){
+  const node=$('#market-price-results');if(!node)return;
+  if(!records||!records.length){node.innerHTML='<div class="market-price-placeholder">No records were returned for these filters. Try a broader commodity spelling, remove the district filter or open the official AGMARKNET portal.</div>';window.refreshAgriTranslation?.();return;}
+  const sorted=[...records].sort((a,b)=>String(b.arrivalDate||'').localeCompare(String(a.arrivalDate||'')));
+  node.innerHTML='<div class="market-results-top"><b>'+sorted.length+' mandi price records</b><span>Retrieved '+escapeHtml(new Date(meta.retrievedAt||Date.now()).toLocaleString('en-IN'))+'</span></div><div class="market-price-table-wrap"><table class="market-price-table"><thead><tr><th>Market</th><th>Commodity / variety</th><th>Arrival date</th><th>Min (₹/q)</th><th>Modal (₹/q)</th><th>Max (₹/q)</th></tr></thead><tbody>'+sorted.map(x=>'<tr><td><b>'+escapeHtml(x.market)+'</b><small>'+escapeHtml(x.district)+', '+escapeHtml(x.state)+'</small></td><td>'+escapeHtml(x.commodity)+'<small>'+escapeHtml([x.variety,x.grade].filter(Boolean).join(' · '))+'</small></td><td>'+escapeHtml(x.arrivalDate||'—')+'</td><td>'+(x.minPrice===null||x.minPrice===undefined||x.minPrice===''?'—':inrMoney(x.minPrice))+'</td><td><b>'+(x.modalPrice===null||x.modalPrice===undefined||x.modalPrice===''?'—':inrMoney(x.modalPrice))+'</b></td><td>'+(x.maxPrice===null||x.maxPrice===undefined||x.maxPrice===''?'—':inrMoney(x.maxPrice))+'</td></tr>').join('')+'</tbody></table></div>';
+  window.refreshAgriTranslation?.();
+}
+async function loadMandiPrices(event){
+  if(event)event.preventDefault();
+  const status=$('#market-price-status'),button=$('#market-search-button');if(!status)return;
+  const params=new URLSearchParams(),state=$('#market-state')?.value||stateSelect.value,district=$('#market-district')?.value||'',commodity=$('#market-commodity')?.value.trim()||'',limit=$('#market-limit')?.value||'40';
+  if(state)params.set('state',state);if(district)params.set('district',district);if(commodity)params.set('commodity',commodity);params.set('limit',limit);
+  if(button)button.disabled=true;status.textContent='Requesting published daily mandi records from the official OGD dataset…';
+  try{
+    const response=await fetch('/api/market-prices?'+params.toString(),{cache:'no-store'});
+    const data=await response.json().catch(()=>({error:'The market price service returned an unreadable response.'}));
+    if(!response.ok){const detail=data.code==='DATA_GOV_IN_API_KEY_REQUIRED'?'The server-side OGD API key is not configured yet. The key is intentionally not stored in this page. Open the Cloudflare setup guide or use the official source below.':(data.error||'Mandi data is temporarily unavailable.');status.textContent=detail;$('#market-price-results').innerHTML='<div class="market-price-placeholder">Live feed unavailable. Use the official AGMARKNET / OGD source link below or enable the server secret in Cloudflare.</div>';return;}
+    status.textContent='Source: '+(data.source||'Official daily mandi dataset')+' · '+(data.total??data.count??data.records?.length??0)+' matching records in the source response. Not every mandi reports every commodity every day.';
+    renderMandiPrices(data.records||[],data);
+  }catch(error){status.textContent='Could not connect to the mandi data service. Try again later.';}
+  finally{if(button)button.disabled=false;}
+}
+function initMarketPrices(){
+  syncMarketLocation();
+  $('#market-price-form')?.addEventListener('submit',loadMandiPrices);
+  $('#market-state')?.addEventListener('change',()=>setOptions($('#market-district'),districtsFor($('#market-state').value)));
+}
+
+function scopeRank(r){return r.scope==='district'?0:r.scope==='state'?1:r.scope==='national'?2:3;}
+function showDetails(id){
+  const r=records.find(x=>x.id===id);if(!r)return;
+  $('#dialog-kicker').textContent=`${typeLabel(r.type)} · ${r.category}`;
+  $('#dialog-title').textContent=r.name;
+  const steps=r.process.map(x=>`<li>${escapeHtml(x)}</li>`).join('');
+  const docs=(r.documents||[]).map(x=>`<li>${escapeHtml(x)}</li>`).join('');
+  const verification=r.verification?.note||'Confirm the latest official order, scheme window and district notification before applying.';
+  const extraSources=(r.sources||[]).map(s=>`<a href="${escapeHtml(s.url)}" target="_blank" rel="noopener">${escapeHtml(s.label)} ↗</a>`).join(' ');
+  const validity=r.programmeStatusLabel?`<div class="detail-section"><h4>Application status</h4><p><b>${escapeHtml(r.programmeStatusLabel)}</b></p></div>`:'';
+  $('#dialog-body').innerHTML=`
+    <div class="detail-section"><h4>Financial value</h4><p><b>${escapeHtml(r.amount)}</b><br>${escapeHtml(r.amountNote)}</p></div>
+    <div class="detail-section"><h4>What it provides</h4><p>${escapeHtml(r.summary)}</p></div>
+    <div class="detail-section"><h4>Eligibility</h4><p>${escapeHtml(r.eligibility)}</p></div>
+    <div class="detail-section"><h4>How to apply</h4><ol>${steps}</ol></div>
+    <div class="detail-section"><h4>Typical document checklist</h4><ul>${docs}</ul></div>
+    ${validity}
+    <div class="detail-section"><h4>Source / verification status</h4><p>${escapeHtml(verification)}</p>${extraSources?`<p>${extraSources}</p>`:''}</div>
+    ${r.rate?`<div class="detail-section"><h4>Interest / financial terms</h4><p>${escapeHtml(r.rate)}</p></div>`:''}
+    <div class="detail-caution"><b>Important:</b> ${escapeHtml(r.caution)}</div>
+    <div class="dialog-links"><a href="${escapeHtml(r.application)}" target="_blank" rel="noopener">${escapeHtml(r.applicationLabel||'Application / official route')} ↗</a><a href="${escapeHtml(r.source)}" target="_blank" rel="noopener">Source: ${escapeHtml(r.sourceLabel)} ↗</a></div>
+    <p style="font-size:8px;color:#929b94;margin-top:12px">Source review: ${escapeHtml(r.sourceDate)} · Final eligibility, loan amount, interest and approval remain with the implementing authority/lender.</p>`;
+  $('#detail-dialog').showModal();
+  window.refreshAgriTranslation?.();
+}
+
+function renderStateWorkstreams(stateName){
+  const node=$('#state-workstream-register');if(!node)return;
+  if(!stateProgrammeData){node.innerHTML='<p>State programme research register is loading or unavailable.</p>';return;}
+  const row=stateProgrammeData.states.find(x=>normalizedName(x.stateUT)===normalizedName(stateName));
+  if(!row){node.innerHTML='<p>No State research record is available in the register.</p>';return;}
+  $('#state-workstream-title').textContent=row.stateUT+' · nine workstreams';
+  const linked=(row.workstreams||[]).filter(x=>x.status==='partial_source_linked').length;
+  $('#state-workstream-count').textContent=linked+' / '+(row.workstreams||[]).length+' workstreams source-linked';
+  node.innerHTML='<div class="state-workstream-summary"><b>'+row.namedSchemeRecordCount+' named State-specific records</b><span>'+escapeHtml(row.notes)+'</span></div><div class="state-workstream-grid">'+(row.workstreams||[]).map(w=>{
+    const isLinked=w.status==='partial_source_linked';
+    const ids=(w.recordIds||[]).map(id=>{const rec=records.find(r=>r.id===id);return rec?'<a href="#" data-workstream-record="'+escapeHtml(id)+'">'+escapeHtml(rec.name)+'</a>':'';}).filter(Boolean).join(', ');
+    const evidence=w.evidenceUrl?'<a class="workstream-source" href="'+escapeHtml(w.evidenceUrl)+'" target="_blank" rel="noopener">Official source ↗</a>':'';
+    return '<article class="state-workstream-card"><div class="state-workstream-card-head"><b>'+escapeHtml(w.label)+'</b><span class="state-workstream-status '+(isLinked?'linked':'pending')+'">'+(isLinked?'PARTIAL · SOURCED':'RESEARCH PENDING')+'</span></div>'+(ids?'<div class="state-workstream-records">'+ids+'</div>':'<p>No named State-specific programme record in this release.</p>')+'<small>'+escapeHtml(w.nextAction)+'</small>'+evidence+'</article>';
+  }).join('')+'</div>';
+  node.querySelectorAll('[data-workstream-record]').forEach(link=>link.addEventListener('click',e=>{e.preventDefault();showDetails(link.dataset.workstreamRecord);}));
+  window.refreshAgriTranslation?.();
+}
+function renderCoverageDetails(stateName){
+  if(!coverageData)return;
+  const row=coverageData.states.find(x=>normalizedName(x.stateUT)===normalizedName(stateName));
+  if(!row)return;
+  $('#coverage-selected-state').textContent=row.stateUT;
+  $('#coverage-district-count').textContent=row.communityDistrictSnapshotCount+' district snapshot entries';
+  $('#coverage-selected-detail').innerHTML='<div class="coverage-selected-grid">'+
+    '<div><small>STATE AGRICULTURE PORTAL</small><b>'+(row.agricultureDepartmentUrl?'<a href="'+escapeHtml(row.agricultureDepartmentUrl)+'" target="_blank" rel="noopener">Open State/UT portal ↗</a>':'Not mapped')+'</b></div>'+
+    '<div><small>STATE-SPECIFIC SCHEME RECORDS</small><b>'+row.stateSchemeRecordCount+' · '+escapeHtml(row.stateSchemeInventoryStatus.replaceAll('_',' '))+'</b></div>'+
+    '<div><small>DIRECT DISTRICT WEBSITE LINKS</small><b>'+row.directDistrictWebsitesMapped+' / '+row.communityDistrictSnapshotCount+'</b></div>'+
+    '<div><small>REGIONAL RURAL BANK</small><b>'+(row.rrb?escapeHtml(row.rrb.name):'No separate RRB listed in current DFS list')+'</b></div>'+
+    '<div><small>LENDER CATALOGUE ENTRIES</small><b>'+row.lenderCatalogueEnquiryEntries+' · branch presence not verified</b></div>'+
+    '<div><small>BLOCK / PANCHAYAT INVENTORY</small><b>Official LGD mapping pending or incomplete</b></div></div>'+
+    '<p class="coverage-detail-note">'+escapeHtml(row.recordsStatusNote)+' The district list below uses the current geography source label: '+escapeHtml(geographySourceLabel)+'.</p>';
+  $('#coverage-district-list').innerHTML=(row.districts||[]).map(d=>{
+    const hasDirect=Boolean(d.directDistrictWebsite),hasScheme=(d.districtProgrammeRecordIds||[]).length>0;
+    return '<div class="coverage-district-row"><div><b>'+escapeHtml(d.name)+'</b><small>'+(hasScheme?'District programme: '+escapeHtml(d.districtProgrammeRecordIds.join(', ')):'No district-specific programme record catalogued')+'</small></div><span class="coverage-district-status '+(hasScheme?'mapped':'pending')+'">'+(hasScheme?'PROGRAMME RECORD':'RESEARCH PENDING')+'</span><a href="'+escapeHtml(d.districtWebsiteDiscoveryUrl)+'" target="_blank" rel="noopener">'+(hasDirect?'District site ↗':'Official directory ↗')+'</a><button type="button" class="coverage-inspect-district" data-coverage-district="'+escapeHtml(d.name)+'">Use location</button></div>';
+  }).join('');
+  $('#coverage-district-list').querySelectorAll('[data-coverage-district]').forEach(btn=>btn.addEventListener('click',()=>{
+    stateSelect.value=row.stateUT;populateDistricts(btn.dataset.coverageDistrict);switchView('finance');
+  }));
+  renderStateWorkstreams(row.stateUT);
+  window.refreshAgriTranslation?.();
+}
+function updateCoverageList(){
+  if(!coverageData)return;
+  const rows=coverageData.states||[],query=normalizedName($('#coverage-search')?.value||''),found=rows.filter(x=>normalizedName(x.stateUT).includes(query));
+  $('#state-count').textContent=rows.length+' States & UTs';
+  $('#coverage-scheme-count').textContent=coverageData.nationalCatalogue.schemeRecordCount;
+  $('#coverage-lender-count').textContent=coverageData.nationalCatalogue.lenderProductRecordCount;
+  $('#coverage-state-record-count').textContent=coverageData.stateInventory.statesWithAtLeastOneStateSpecificScheme;
+  $('#coverage-v25-stats').innerHTML='<article><small>STATES & UNION TERRITORIES</small><strong>'+coverageData.geography.stateAndUTCount+'</strong><span>State/UT portal register</span></article><article><small>DISTRICT ENTRIES</small><strong>'+coverageData.geography.districtEntryCount+'</strong><span>'+escapeHtml(geographySourceLabel)+'</span></article><article><small>SCHEME / BENEFIT RECORDS</small><strong>'+coverageData.nationalCatalogue.schemeRecordCount+'</strong><span>Central + State-specific records</span></article><article><small>LENDER / FINANCE ENTRIES</small><strong>'+coverageData.nationalCatalogue.lenderProductRecordCount+'</strong><span>Product catalogue · branch checks pending</span></article>';
+  $('#state-coverage-list').innerHTML=found.map(x=>{
+    const stateStatus=x.stateSchemeRecordCount?'PARTIAL · SOURCED':'PORTAL LINKED · RESEARCH PENDING';
+    const cls=x.stateSchemeRecordCount?'wb':'pending';
+    return '<div class="state-row-v25"><div><b>'+escapeHtml(x.stateUT)+'</b><small>'+x.communityDistrictSnapshotCount+' district entries · '+x.directDistrictWebsitesMapped+' direct district sites</small></div><span class="state-coverage-status '+cls+'">'+stateStatus+'</span><span class="state-rrb">'+(x.rrb?escapeHtml(x.rrb.name):'No separate RRB listed')+'</span><button type="button" class="secondary-action" data-coverage-state="'+escapeHtml(x.stateUT)+'">Inspect</button></div>';
+  }).join('');
+  $('#state-coverage-list').querySelectorAll('[data-coverage-state]').forEach(btn=>btn.addEventListener('click',()=>renderCoverageDetails(btn.dataset.coverageState)));
+  const selected=rows.find(x=>normalizedName(x.stateUT)===normalizedName(stateSelect.value))||rows[0];
+  if(selected)renderCoverageDetails(selected.stateUT);
+  window.refreshAgriTranslation?.();
+}
+const pageRouteSlugs={home:'home',finance:'finance',assistant:'support',directory:'schemes',ngo:'ngo',market:'market',coverage:'insights'};
+const pageRouteTitles={home:'AGRI FINANCE HOME',finance:'FARM FINANCE FINDER',assistant:'MY SUPPORT',directory:'SCHEMES & LENDERS',ngo:'NGO HELPING HAND',market:'MARKET ACCESS',coverage:'DATA & INSIGHTS'};
+const pageRouteLookup=Object.fromEntries(Object.entries(pageRouteSlugs).map(([view,slug])=>[slug,view]));
+function currentPageFromUrl(){
+  const requested=new URLSearchParams(window.location.search).get('page');
+  return pageRouteLookup[requested] || (Object.prototype.hasOwnProperty.call(pageRouteSlugs,requested)?requested:'home');
+}
+function farmerFigureSvg(kind){
+  const palettes={
+    farmer:{shirt:'#3e8555',cloth:'#e4b956',scarf:'#d86e4d',skin:'#b96f4d',head:'#e8c66f',prop:'leaf'},
+    woman:{shirt:'#2d805d',cloth:'#d88b44',scarf:'#e2a34e',skin:'#a96549',head:'#263c2d',prop:'basket'},
+    banker:{shirt:'#4b7892',cloth:'#e8c36a',scarf:'#d77b5b',skin:'#b87655',head:'#e3c47c',prop:'file'},
+    ngo:{shirt:'#5a8c64',cloth:'#e8c36a',scarf:'#d77b5b',skin:'#b87655',head:'#2d4638',prop:'clipboard'},
+    market:{shirt:'#40845a',cloth:'#e6bd58',scarf:'#df8a4f',skin:'#a9684d',head:'#dcb45d',prop:'basket'},
+    data:{shirt:'#517b92',cloth:'#e1b952',scarf:'#d77b5b',skin:'#b87655',head:'#e7c477',prop:'clipboard'}
+  };
+  const p=palettes[kind]||palettes.farmer;
+  const headgear=kind==='woman'?'<path d="M49 38 Q58 8 93 18 Q111 28 105 52 Q92 34 72 34 Q59 47 49 38Z" fill="'+p.head+'"/><path d="M97 43 Q119 64 104 105" fill="none" stroke="'+p.head+'" stroke-width="7" stroke-linecap="round"/>':'<path d="M43 38 Q48 12 88 13 Q117 15 122 34 Q99 25 79 29 Q59 41 43 38Z" fill="'+p.head+'"/><path d="M44 36 Q79 24 121 36" fill="none" stroke="'+p.cloth+'" stroke-width="7" stroke-linecap="round"/>';
+  const prop=p.prop==='leaf'
+    ?'<path d="M126 119 Q143 87 147 59" stroke="#5b9856" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M141 82 Q120 58 108 72 Q117 87 141 82Z" fill="#77b85e"/><path d="M145 69 Q163 47 168 61 Q162 76 145 69Z" fill="#9acb6c"/>'
+    :p.prop==='basket'
+    ?'<path d="M121 102 Q142 90 158 103 L153 134 Q135 141 117 132Z" fill="#c88942" stroke="#9f6935" stroke-width="3"/><path d="M121 103 Q138 77 155 102" stroke="#a06c39" stroke-width="5" fill="none"/><path d="M124 101 Q119 78 134 82 Q146 89 138 101Z M138 99 Q139 72 154 82 Q158 94 145 101Z" fill="#6da65c"/>'
+    :'<rect x="120" y="76" width="31" height="43" rx="5" fill="#f7f2e6" stroke="#6c9775" stroke-width="3"/><path d="M127 87 H143 M127 96 H143 M127 105 H139" stroke="#6c9775" stroke-width="3" stroke-linecap="round"/>';
+  const clothing=kind==='woman'
+    ?'<path d="M54 81 Q78 65 100 82 L124 143 H28Z" fill="'+p.shirt+'"/><path d="M82 78 Q112 84 129 126 L116 137 Q95 113 78 104Z" fill="'+p.scarf+'"/><path d="M48 91 Q26 106 26 141 H59Z" fill="'+p.cloth+'"/>'
+    :'<path d="M57 78 Q81 68 105 80 L124 145 H27Z" fill="'+p.shirt+'"/><path d="M54 81 L78 105 L93 81 L103 87 L86 116 L71 116 L47 90Z" fill="'+p.scarf+'"/><path d="M31 139 Q57 127 80 139 L80 146 H28Z" fill="'+p.cloth+'"/>';
+  return '<svg class="farmer-figure-svg" viewBox="0 0 180 155" aria-hidden="true" focusable="false"><ellipse cx="90" cy="146" rx="67" ry="7" fill="#193e2b" opacity=".11"/><path d="M27 145 Q33 117 51 101 Q71 88 96 95 Q120 100 132 145Z" fill="'+p.shirt+'" opacity=".12"/>'+prop+clothing+'<path d="M56 83 Q42 95 40 113" stroke="'+p.skin+'" stroke-width="12" stroke-linecap="round" fill="none"/><path d="M100 84 Q117 95 124 109" stroke="'+p.skin+'" stroke-width="12" stroke-linecap="round" fill="none"/><circle cx="79" cy="50" r="25" fill="'+p.skin+'"/>'+headgear+'<path d="M58 53 Q65 67 82 67 Q97 66 103 53" fill="none" stroke="#7c4a38" stroke-width="2.5" stroke-linecap="round"/><circle cx="70" cy="49" r="2.1" fill="#27372c"/><circle cx="89" cy="49" r="2.1" fill="#27372c"/><path d="M73 60 Q81 66 90 59" stroke="#713d31" stroke-width="2.3" fill="none" stroke-linecap="round"/><path d="M61 41 Q75 31 94 39" stroke="#48352d" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M65 80 Q82 92 100 80" stroke="'+p.cloth+'" stroke-width="7" fill="none" stroke-linecap="round"/><path d="M38 117 Q58 111 70 126" stroke="'+p.skin+'" stroke-width="10" fill="none" stroke-linecap="round"/><circle cx="70" cy="126" r="6" fill="'+p.skin+'"/></svg>';
+}
+const pageCharacterContent={
+  finance:{position:'0%',eyebrow:'FARMER-FIRST DISCOVERY',title:'Your next step starts with your farm',copy:'Choose your district and farmer profile to explore support routes that may fit.'},
+  assistant:{position:'33.333%',eyebrow:'PERSONALISED SUPPORT',title:'A clearer path through the options',copy:'Tell us about the farm, then review potential matches and what to verify.'},
+  directory:{position:'66.667%',eyebrow:'SCHEMES & FINANCE PARTNERS',title:'Compare support with confidence',copy:'Explore benefits, lenders, application steps, documents and official sources.'},
+  ngo:{position:'100%',eyebrow:'NGO HELPING HAND · FIELD PARTNERS',title:'Connect farmers to the support they need',copy:'Onboard trusted organisations, build consent-based farmer profiles and coordinate scheme applications.'},
+  market:{position:'33.333%',eyebrow:'SELL SMARTER',title:'Bring market information closer to the farm',copy:'Review published mandi prices and official trading and procurement channels.'},
+  coverage:{position:'66.667%',eyebrow:'TRANSPARENCY & COVERAGE',title:'Know what is mapped — and what needs checking',copy:'Explore source coverage, State research and local information gaps.'}
+};
+function addPageCharacter(view){
+  const node=document.querySelector('#view-'+view+' .section-heading');
+  if(!node)return;
+  const item=pageCharacterContent[view];if(!item)return;
+  if(!node.parentElement.querySelector(':scope > .page-character-card')){
+    const banner=document.createElement('aside');
+    banner.className='page-character-card page-character-'+view;
+    banner.innerHTML='<div class="page-character-text"><span>'+item.eyebrow+'</span><b>'+item.title+'</b><small>'+item.copy+'</small></div><div class="page-character-art page-character-vector">'+farmerFigureSvg(view==='assistant'?'woman':view==='ngo'?'ngo':view==='market'?'market':view==='coverage'?'data':view==='directory'?'banker':'farmer')+'<i aria-hidden="true">✦</i></div>';
+    node.insertAdjacentElement('afterend',banner);
+  }
+  addPageActionDock(view,node.parentElement,node);
+  window.refreshAgriTranslation?.();
+}
+const pageActionItems={
+  assistant:[['📍','Choose farm location','#assistant-location'],['🧑🏽‍🌾','Farmer profile','#eligibility-form'],['✅','Review matches','#eligibility-output']],
+  directory:[['🌱','Browse schemes','#directory-schemes'],['🏦','Compare lenders','#lender-grid'],['🔎','Search catalogue','#directory-search']],
+  ngo:[['🛡️','Privacy & consent','#view-ngo .ngo-safety'],['🤝','Join / sign in','#ngo-public-entry'],['🌾','Farmer scheme matches','#ngo-farmer-workspace'],['📋','Application tracker','#ngo-scheme-applications'],['📈','Programme outcomes','#ngo-outcomes']],
+  market:[['💹','Mandi price search','#market-price-form'],['🛒','Market price results','#market-price-results'],['🤝','Selling channels','#market-links-heading']],
+  coverage:[['🗺️','State directory','#state-coverage-list'],['📚','Research workstreams','#state-workstream-register'],['📍','Selected district','#coverage-selected-detail']]
+};
+function addPageActionDock(view,parent,anchor){
+  if(!parent||parent.querySelector(':scope > .page-action-dock'))return;
+  const items=pageActionItems[view];
+  if(!items||!anchor)return;
+  const dock=document.createElement('div');
+  dock.className='page-action-dock page-action-'+view;
+  dock.innerHTML=items.map(([icon,label,target])=>'<button type="button" class="page-action-card" data-page-target="'+target+'"><span>'+icon+'</span><b>'+label+'</b><i>↘</i></button>').join('');
+  const banner=parent.querySelector(':scope > .page-character-card');
+  const insertionPoint=banner||anchor;
+  insertionPoint.insertAdjacentElement('afterend',dock);
+  dock.querySelectorAll('[data-page-target]').forEach(button=>button.addEventListener('click',()=>{
+    const target=button.dataset.pageTarget;
+    const el=target.startsWith('#')?document.querySelector(target):null;
+    if(el){el.scrollIntoView({behavior:'smooth',block:'start'});el.classList.add('page-target-highlight');setTimeout(()=>el.classList.remove('page-target-highlight'),1200);}
+  }));
+}
+function renderHomeIllustrations(){
+  const hero=$('#hero-farmer-illustration');
+  if(hero&&!hero.dataset.ready){
+    hero.innerHTML='<div class="hero-character hero-character-man">'+farmerFigureSvg('farmer')+'</div><div class="hero-character hero-character-woman">'+farmerFigureSvg('woman')+'</div>';
+    hero.dataset.ready='1';
+  }
+  const shortcut=$('#quick-path-farmer');
+  if(shortcut&&!shortcut.dataset.ready){shortcut.innerHTML=farmerFigureSvg('woman');shortcut.dataset.ready='1';}
+  const side=$('#sidebar-farmer-illustration');
+  if(side&&!side.dataset.ready){side.innerHTML='<div class="sidebar-farmer-one">'+farmerFigureSvg('farmer')+'</div><div class="sidebar-farmer-two">'+farmerFigureSvg('woman')+'</div>';side.dataset.ready='1';}
+  const people=$('#home-finder-people');
+  if(people&&!people.dataset.ready){people.innerHTML=farmerFigureSvg('farmer')+farmerFigureSvg('woman');people.dataset.ready='1';}
+}
+function switchView(view,options={}){
+  if(!pageRouteSlugs[view]||!$('#view-'+view))view='home';
+  selectedView=view;
+  document.querySelectorAll('.view').forEach(v=>{
+    const isActive=v.id==='view-'+view;
+    v.classList.toggle('active',isActive);
+    v.hidden=!isActive;
+    v.setAttribute('aria-hidden',String(!isActive));
+  });
+  document.querySelectorAll('.nav-item').forEach(b=>{
+    const active=b.dataset.view===view;
+    b.classList.toggle('active',active);
+    if(active)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');
+  });
+  document.body.dataset.page=view;
+  renderHomeIllustrations();
+  const breadcrumb=$('#breadcrumb-page');
+  if(breadcrumb)breadcrumb.textContent=pageRouteTitles[view];
+  document.title=pageRouteTitles[view].replace(/\b\w/g,c=>c.toUpperCase())+' | AgriBridge';
+  if(options.push!==false){
+    const url=new URL(window.location.href);
+    url.searchParams.set('page',pageRouteSlugs[view]);
+    window.history.pushState({page:view},'',url);
+  }
+  // A decorative banner must never be able to block a real page navigation.
+  try{addPageCharacter(view);}catch(error){console.error('AgriBridge page decoration failed:',error);}
+  if(options.scroll!==false)window.scrollTo({top:0,behavior:'smooth'});
+}
+
+
+Promise.all([recordsPromise,lendersPromise,portalsPromise,loadGeography()]).then(([data,lenderData,portalData])=>{
+  records=data;
+  lenders=lenderData;
+  portals=portalData;
+  initNGOWorkspace();
+  render();
+  initHomeFinder();
+  initLoanComparator();
+  initMarketPrices();
+  coveragePromise.then(data=>{coverageData=data;updateCoverageList();}).catch(error=>console.warn('Coverage register could not be loaded',error));
+  stateProgrammePromise.then(data=>{stateProgrammeData=data;renderStateWorkstreams(stateSelect.value);}).catch(error=>console.warn('State programme research register could not be loaded',error));
+}).catch(err=>{
+  console.error(err);
+  $('#results').innerHTML='<div class="empty-state"><h3>Directory data could not be loaded</h3><p>Check that the project is being served from its root folder and that schemes.json is available.</p></div>';
+});
+stateSelect.addEventListener('change',()=>{populateDistricts();resetEligibility();});
+districtSelect.addEventListener('change',()=>{resetEligibility();render();});
+profileSelect.addEventListener('change',render);
+typeSelect.addEventListener('change',render);
+providerSelect.addEventListener('change',render);
+sortSelect.addEventListener('change',render);
+['directory-search','directory-type','directory-provider'].forEach(id=>$('#'+id)?.addEventListener('input',renderDirectory));
+$('#directory-type')?.addEventListener('change',renderDirectory);
+$('#directory-provider')?.addEventListener('change',renderDirectory);
+$('#reset-filters').addEventListener('click',()=>{stateSelect.value='West Bengal';profileSelect.value='all';typeSelect.value='all';providerSelect.value='all';sortSelect.value='relevance';populateDistricts('Paschim Medinipur');});
+const sideNavigation=document.querySelector('.side-nav');
+sideNavigation?.addEventListener('click',event=>{
+  const btn=event.target.closest('.nav-item[data-view]');
+  if(!btn||!sideNavigation.contains(btn))return;
+  event.preventDefault();
+  const destination=btn.dataset.view;
+  switchView(destination);
+  if(destination==='directory')renderDirectory();
+  if(destination==='assistant'||destination==='ngo')updateAssistantLocation();
+});
+$('#dialog-close').addEventListener('click',()=>$('#detail-dialog').close());
+$('#detail-dialog').addEventListener('click',e=>{if(e.target===$('#detail-dialog'))$('#detail-dialog').close();});
+
+$('#eligibility-form')?.addEventListener('submit',runEligibility);
+$('#elig-reset')?.addEventListener('click',resetEligibility);
+$('#coverage-search')?.addEventListener('input',updateCoverageList);
+
+
+/* Language-panel resilience: if an older cached HTML shell is served,
+   render the language selector from the current application bundle. */
+(function ensureAgriBridgeLanguagePanel(){
+  if(document.getElementById('language-select')) return;
+  const hero=document.querySelector('.main .hero') || document.querySelector('.hero');
+  if(!hero || !hero.parentNode) return;
+
+  const panel=document.createElement('section');
+  panel.className='language-toolbar';
+  panel.setAttribute('aria-label','Website language settings');
+  panel.innerHTML=[
+    '<div class="language-toolbar-copy">',
+    '<strong><span aria-hidden="true">🌐</span> Translate this page</strong>',
+    '<span>Choose a language or let AgriBridge detect your region automatically.</span>',
+    '</div>',
+    '<div class="language-picker">',
+    '<label for="language-select">LANGUAGE</label>',
+    '<select id="language-select" aria-label="Choose website language" title="Automatic mode uses approximate IP-region detection. No GPS location is requested.">',
+    '<option value="auto">Auto · My region</option>',
+    '<option value="en">English</option>',
+    '<option value="hi">हिन्दी · Hindi</option>',
+    '<option value="bn">বাংলা · Bengali</option>',
+    '<option value="gu">ગુજરાતી · Gujarati</option>',
+    '<option value="mr">मराठी · Marathi</option>',
+    '<option value="ta">தமிழ் · Tamil</option>',
+    '<option value="te">తెలుగు · Telugu</option>',
+    '<option value="kn">ಕನ್ನಡ · Kannada</option>',
+    '<option value="ml">മലയാളം · Malayalam</option>',
+    '<option value="pa">ਪੰਜਾਬੀ · Punjabi</option>',
+    '<option value="ur">اردو · Urdu</option>',
+    '<option value="ne">नेपाली · Nepali</option>',
+    '<option value="sd">سنڌي · Sindhi</option>',
+    '</select>',
+    '<small id="language-status" aria-live="polite">Detecting language…</small>',
+    '</div>'
+  ].join('');
+  hero.parentNode.insertBefore(panel,hero);
+
+  if(!document.getElementById('gtranslate_engine')){
+    const engine=document.createElement('div');
+    engine.id='gtranslate_engine';
+    engine.className='gtranslate_wrapper translate-engine';
+    engine.setAttribute('aria-hidden','true');
+    document.body.appendChild(engine);
+  }
+
+  if(!document.querySelector('script[src*="language.js"]')){
+    const script=document.createElement('script');
+    script.src='language.js?v=20261102-language-panel-fallback';
+    script.defer=true;
+    document.body.appendChild(script);
+  }
+
+  if(!document.getElementById('agribridge-language-fallback-style')){
+    const style=document.createElement('style');
+    style.id='agribridge-language-fallback-style';
+    style.textContent=[
+      '.language-toolbar{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:14px 0 4px;padding:12px 16px;background:#fff;border:1px solid #dfe7dc;border-radius:12px;box-shadow:0 5px 18px rgba(22,52,38,.035)}',
+      '.language-toolbar-copy{display:flex;flex-direction:column;gap:4px;min-width:0}',
+      '.language-toolbar-copy strong{font-size:12px;color:#234b36;display:flex;align-items:center;gap:7px}',
+      '.language-toolbar-copy>span{font-size:9px;color:#7a867f;line-height:1.4}',
+      '.language-toolbar .language-picker{display:flex;flex-direction:column;align-items:flex-start;gap:3px;min-width:200px;flex-shrink:0}',
+      '.language-toolbar .language-picker label{font-size:8px;letter-spacing:1.1px;font-weight:800;color:#68796d}',
+      '.language-toolbar .language-picker select{height:36px;width:100%;max-width:240px;border:1px solid #cfdccc;border-radius:7px;background:#fff;color:#294536;padding:0 25px 0 9px;font:700 11px "DM Sans",sans-serif}',
+      '.language-toolbar .language-picker small{font-size:8px;color:#8a958d;max-width:260px;text-align:left}',
+      '.translate-engine{position:fixed!important;left:-10000px!important;top:-10000px!important;width:1px!important;height:1px!important;overflow:hidden!important;opacity:0!important;pointer-events:none!important}',
+      '@media(max-width:620px){.language-toolbar{align-items:flex-start;flex-direction:column;gap:10px;padding:12px}.language-toolbar .language-picker{width:100%;min-width:0}.language-toolbar .language-picker select{max-width:none}.language-toolbar .language-picker small{max-width:none}}'
+    ].join('');
+    document.head.appendChild(style);
+  }
+})();
+
+document.querySelectorAll('[data-quick-action]').forEach(button=>button.addEventListener('click',()=>{
+  const action=button.dataset.quickAction;
+  if(action==='schemes'){
+    switchView('directory');
+    if($('#directory-type'))$('#directory-type').value='all';
+    renderDirectory();
+    $('#directory-schemes')?.scrollIntoView({behavior:'smooth',block:'start'});
+  }else if(action==='loans'){
+    switchView('directory');
+    renderDirectory();
+    $('#lender-grid')?.scrollIntoView({behavior:'smooth',block:'start'});
+  }else if(action==='calculator'){
+    switchView('finance');
+    $('#loan-comparator')?.scrollIntoView({behavior:'smooth',block:'start'});
+  }else if(action==='local'){
+    switchView('finance');
+    $('#route-panel')?.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+}));
+
+/* Each sidebar destination has its own addressable page route. */
+window.addEventListener('popstate',()=>switchView(currentPageFromUrl(),{push:false,scroll:false}));
+const firstPage=currentPageFromUrl();
+switchView(firstPage,{push:false,scroll:false});
+if(!new URLSearchParams(window.location.search).has('page')){
+  const canonicalUrl=new URL(window.location.href);
+  canonicalUrl.searchParams.set('page',pageRouteSlugs[firstPage]);
+  window.history.replaceState({page:firstPage},'',canonicalUrl);
+}
+
+
+function initHomeFinder(){
+  const form=$('#home-finder-form');
+  const hs=$('#home-state-select'), hd=$('#home-district-select');
+  const hp=$('#home-profile-select'), ht=$('#home-type-select');
+  if(!form||!hs||!hd)return;
+  function fill(select,values,preferred){
+    const list=Array.from(new Set(values||[])).filter(Boolean);
+    select.replaceChildren(...list.map(value=>new Option(value,value)));
+    if(preferred&&list.includes(preferred))select.value=preferred;
+  }
+  fill(hs,stateNames(),stateSelect.value||'West Bengal');
+  function fillDistricts(preferred){
+    const list=districtsFor(hs.value);
+    fill(hd,list,preferred||districtSelect.value);
+  }
+  fillDistricts(districtSelect.value);
+  hs.addEventListener('change',()=>fillDistricts(''));
+  form.addEventListener('submit',event=>{
+    event.preventDefault();
+    stateSelect.value=hs.value;
+    profileSelect.value=hp.value;
+    typeSelect.value=ht.value;
+    providerSelect.value='all';
+    if(sortSelect)sortSelect.value='relevance';
+    populateDistricts(hd.value);
+    resetEligibility();
+    switchView('finance');
+    document.querySelector('#finder-panel')?.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+}
