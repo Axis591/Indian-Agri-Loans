@@ -544,8 +544,10 @@ async function submitNGOJoin(event){
     $('#ngo-status-token').value='';
     result.scrollIntoView({behavior:'smooth',block:'center'});
   }catch(error){
-    if(status)status.textContent=error.message;
-    button.disabled=!window.ngoJoinCaptchaToken;
+    if(status)status.textContent=error.message+' Please complete the verification again before retrying.';
+    window.ngoJoinCaptchaToken='';
+    if(window.turnstile&&window.ngoJoinCaptchaWidget!==undefined)window.turnstile.reset(window.ngoJoinCaptchaWidget);
+    button.disabled=true;
   }
 }
 async function checkNGOJoinStatus(event){
