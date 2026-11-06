@@ -334,6 +334,7 @@ function resetEligibility(){
 const ngoMetricKeys=['farmersReached','counsellingSessions','applicationsSubmitted','applicationsApproved','benefitsReceived','campsHeld','villagesReached'];
 const ngoEmptyMetrics={farmersReached:0,counsellingSessions:0,applicationsSubmitted:0,applicationsApproved:0,benefitsReceived:0,campsHeld:0,villagesReached:0};
 let ngoData={organisation:'',role:'',metrics:{...ngoEmptyMetrics},followups:[],farmers:[],applications:[]};
+let ngoFarmerEditingId=null;
 let ngoBackendReady=false;
 function showNGOStatus(title,message,code=''){
   const node=$('#ngo-workspace-status');if(!node)return;
@@ -604,17 +605,50 @@ async function addNGOFarmer(event){
     landAreaUnit:$('#ngo-farmer-area-unit').value,season:$('#ngo-farmer-season').value,
     irrigation:$('#ngo-farmer-irrigation').value,consent:$('#ngo-farmer-consent').checked
   };
-  button.disabled=true;status.textContent='Saving the consent-based profile…';
+  const editingId=ngoFarmerEditingId;
+  const endpoint=editingId?'/api/ngo/farmers/'+encodeURIComponent(editingId):'/api/ngo/farmers';
+  button.disabled=true;status.textContent=editingId?'Updating the consented farmer profile…':'Saving the consent-based profile…';
   try{
-    const response=await fetch('/api/ngo/farmers',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    const response=await fetch(endpoint,{method:editingId?'PATCH':'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
     const data=await response.json().catch(()=>({}));
     if(!response.ok)throw new Error(data.error||'Could not save the farmer profile.');
-    status.textContent='Profile saved. Checking potential scheme matches…';
+    status.textContent=editingId?'Profile updated. Rechecking potential scheme matches…':'Profile saved. Checking potential scheme matches…';
+    ngoFarmerEditingId=null;
     $('#ngo-farmer-form').reset();
+    $('#ngo-farmer-submit').textContent='Save farmer profile & find schemes →';
+    $('#ngo-farmer-cancel-edit').hidden=true;
     await loadNGOCaseData();
-    showFarmerRecommendations(data.id);
+    showFarmerRecommendations(data.id||editingId);
   }catch(error){status.textContent=error.message;}
   finally{button.disabled=false;}
+}
+function editNGOFarmer(farmerId){
+  const f=(ngoData.farmers||[]).find(x=>x.id===farmerId);if(!f||ngoData.role==='viewer')return;
+  ngoFarmerEditingId=farmerId;
+  $('#ngo-farmer-ref').value=f.farmer_ref||'';
+  $('#ngo-farmer-state').value=f.state_name||'';
+  setOptions($('#ngo-farmer-district'),districtsFor(f.state_name),f.district_name);
+  $('#ngo-farmer-profile').value=f.profile_type;
+  $('#ngo-farmer-land').value=f.land_status;
+  $('#ngo-farmer-activity').value=f.activity;
+  $('#ngo-farmer-need').value=f.support_need;
+  $('#ngo-farmer-crop').value=f.crop_name||'';
+  $('#ngo-farmer-area').value=f.land_area??'';
+  $('#ngo-farmer-area-unit').value=f.land_area_unit||'acre';
+  $('#ngo-farmer-season').value=f.season||'unknown';
+  $('#ngo-farmer-irrigation').value=f.irrigation||'unknown';
+  $('#ngo-farmer-consent').checked=false;
+  $('#ngo-farmer-submit').textContent='Update profile & recalculate matches →';
+  $('#ngo-farmer-cancel-edit').hidden=false;
+  $('#ngo-farmer-status').textContent='Review the profile fields against the supporting evidence. Confirm the farmer still agrees before saving changes.';
+  $('#ngo-farmer-form').scrollIntoView({behavior:'smooth',block:'center'});
+}
+function cancelNGOFarmerEdit(){
+  ngoFarmerEditingId=null;
+  $('#ngo-farmer-form').reset();
+  $('#ngo-farmer-submit').textContent='Save farmer profile & find schemes →';
+  $('#ngo-farmer-cancel-edit').hidden=true;
+  $('#ngo-farmer-status').textContent='Profile editing cancelled.';
 }
 function renderNGOFarmerList(){
   const node=$('#ngo-farmer-list');if(!node)return;
@@ -622,8 +656,9 @@ function renderNGOFarmerList(){
   $('#ngo-farmer-count').textContent=farmers.length+' profiles';
   if(!farmers.length){node.innerHTML='<div class="no-directory-results">No farmer profiles have been created yet. Add a consented pseudonymous profile above.</div>';return;}
   const canEdit=ngoData.role!=='viewer';
-  node.innerHTML=farmers.map(f=>'<article class="ngo-farmer-case"><strong>'+escapeHtml(f.farmer_ref)+'</strong><p>'+escapeHtml(f.district_name)+', '+escapeHtml(f.state_name)+' · '+escapeHtml(f.profile_type)+' · '+escapeHtml(f.land_status)+'<br>Activity: '+escapeHtml(f.activity)+' · Need: '+escapeHtml(f.support_need)+'<br>Crop: '+escapeHtml(f.crop_name||'Not specified')+' · Area: '+(f.land_area?escapeHtml(f.land_area)+' '+escapeHtml(f.land_area_unit):'Not stated')+' · Supporting files: '+escapeHtml(f.document_count||0)+'</p><div class="ngo-farmer-case-actions"><button type="button" class="primary-action" data-farmer-recommend="'+escapeHtml(f.id)+'">Find potential schemes</button>'+(canEdit?'<button type="button" class="secondary-action" data-farmer-upload="'+escapeHtml(f.id)+'">Documents / upload</button>':'')+(ngoData.role==='admin'?'<button type="button" class="secondary-action" data-farmer-delete="'+escapeHtml(f.id)+'">Delete profile</button>':'')+'</div></article>').join('');
+  node.innerHTML=farmers.map(f=>'<article class="ngo-farmer-case"><strong>'+escapeHtml(f.farmer_ref)+'</strong><p>'+escapeHtml(f.district_name)+', '+escapeHtml(f.state_name)+' · '+escapeHtml(f.profile_type)+' · '+escapeHtml(f.land_status)+'<br>Activity: '+escapeHtml(f.activity)+' · Need: '+escapeHtml(f.support_need)+'<br>Crop: '+escapeHtml(f.crop_name||'Not specified')+' · Area: '+(f.land_area?escapeHtml(f.land_area)+' '+escapeHtml(f.land_area_unit):'Not stated')+' · Season: '+escapeHtml(f.season||'unknown')+' · Irrigation: '+escapeHtml(f.irrigation||'unknown')+' · Supporting files: '+escapeHtml(f.document_count||0)+'</p><div class="ngo-farmer-case-actions"><button type="button" class="primary-action" data-farmer-recommend="'+escapeHtml(f.id)+'">Find potential schemes</button>'+(canEdit?'<button type="button" class="secondary-action" data-farmer-edit="'+escapeHtml(f.id)+'">Edit profile</button><button type="button" class="secondary-action" data-farmer-upload="'+escapeHtml(f.id)+'">Documents / upload</button>':'')+(ngoData.role==='admin'?'<button type="button" class="secondary-action" data-farmer-delete="'+escapeHtml(f.id)+'">Delete profile</button>':'')+'</div></article>').join('');
   node.querySelectorAll('[data-farmer-recommend]').forEach(b=>b.addEventListener('click',()=>showFarmerRecommendations(b.dataset.farmerRecommend)));
+  node.querySelectorAll('[data-farmer-edit]').forEach(b=>b.addEventListener('click',()=>editNGOFarmer(b.dataset.farmerEdit)));
   node.querySelectorAll('[data-farmer-upload]').forEach(b=>b.addEventListener('click',()=>openFarmerDocuments(b.dataset.farmerUpload)));
   node.querySelectorAll('[data-farmer-delete]').forEach(b=>b.addEventListener('click',()=>deleteNGOFarmer(b.dataset.farmerDelete)));
 }
@@ -750,6 +785,7 @@ function initNGOWorkspace(){
   $('#ngo-export')?.addEventListener('click',exportNGOCSV);
   $('#ngo-refresh')?.addEventListener('click',loadNGOWorkspace);
   $('#ngo-farmer-form')?.addEventListener('submit',addNGOFarmer);
+  $('#ngo-farmer-cancel-edit')?.addEventListener('click',cancelNGOFarmerEdit);
   $('#ngo-doc-form')?.addEventListener('submit',uploadNGOFarmerDocument);
   $('#ngo-doc-close')?.addEventListener('click',()=>{$('#ngo-doc-upload-panel').hidden=true;});
   $('#ngo-applications-refresh')?.addEventListener('click',loadNGOCaseData);
