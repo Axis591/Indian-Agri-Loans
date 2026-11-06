@@ -74,23 +74,30 @@ Review [NGO_PRIVACY_NOTICE.md](NGO_PRIVACY_NOTICE.md) before accepting organisat
 
 ## 5. Test the secured endpoints
 
-- `GET /api/ngo/workspace` — returns 503 until D1 / Access settings are present; returns 401/403 if an unauthorised user calls it; returns the organisation workspace to an authorised user.
-- `PUT /api/ngo/metrics` — accepts only seven aggregate whole-number project metrics.
-- `POST /api/ngo/followups` — accepts an internal code, State, District, support category and status only.
-- `DELETE /api/ngo/followups/<uuid>` — admin-only.
-- `GET /api/market-prices?state=...&district=...&commodity=...` — requires `DATA_GOV_IN_API_KEY`.
-- `GET /api/geography` — requires a configured `LGD_DISTRICT_RESOURCE_ID` and OGD API key; otherwise the app automatically falls back.
+For the current NGO membership, farmer-profile, private-file and manual scheme-application tests, follow the test checklist in [NGO_HELPING_HAND_SETUP.md](NGO_HELPING_HAND_SETUP.md). The relevant NGO endpoints now include:
 
-Do not test with real farmer identity data. Use dummy aggregate counts and random references (for example `CAMP-TEST-001`).
+- `GET/POST /api/ngo-join` — membership form configuration and Turnstile-protected organisation application.
+- `POST /api/ngo-join-status` — private application status check using its code and one-time tracking token.
+- `GET /api/ngo/admin/applications` and `PATCH /api/ngo/admin/applications/:id` — platform-admin review and membership approval.
+- `GET/POST /api/ngo/farmers` — organisation-scoped pseudonymous farmer records.
+- `GET/POST /api/ngo/farmers/:id/documents` and `GET/PATCH/DELETE /api/ngo/documents/:id` — private supporting-file operations.
+- `GET/POST /api/ngo/scheme-applications` and `PATCH /api/ngo/scheme-applications/:id` — manual scheme-application tracking.
+- Existing `GET /api/ngo/workspace`, `PUT /api/ngo/metrics`, `POST /api/ngo/followups` and admin-only follow-up deletion remain in place.
+- `GET /api/market-prices?state=...&district=...&commodity=...` and `GET /api/geography` remain independent market/geography services.
+
+Use dummy membership details, a test organisation, a pseudonymous farmer case and redacted sample files only. Verify that a user in one organisation cannot read another organisation's cases, files or tracker entries, and that an editor/viewer cannot perform admin-only actions.
 
 ## 6. Privacy and operating controls
 
-- The NGO workspace schema deliberately stores aggregate measures and internal reference codes, not farmer identity records or uploaded documents.
-- Cloudflare Access restricts the API; `ngo_users` provides organisation-scoped roles; all writes create an audit event.
-- D1 queries filter by the authenticated member's `org_id`, preventing one organisation from reading or deleting another organisation's follow-ups.
-- The public Find My Support assistant remains browser-side and does not send a farmer profile to the server.
-- Before any future collection of personal data, obtain legal/privacy review, document purpose and lawful basis, consent/notice where required, security controls, data retention/deletion and grievance processes. Do not add personal-data fields to this schema without a separate design/security review.
-- The DPDP Act commencement notification was published on 13 November 2025 and phases in core obligations 18 months after publication (13 May 2027). This is not a grace period to ignore privacy safeguards; implementation should be reviewed against the current law, rules and legal advice.
+The NGO Helping Hand feature now processes a limited set of organisation application contact details and consent-based pseudonymous farmer characteristics. Optional redacted PDF, PNG and JPEG files are stored in a private R2 bucket. Do not treat the old aggregate-only statement as describing the expanded feature.
+
+- Read and complete [NGO_PRIVACY_NOTICE.md](NGO_PRIVACY_NOTICE.md) before collecting live organisation or farmer records.
+- The structured profile fields drive scheme recommendations. Uploaded documents are stored for authorised human review only; no OCR, automatic eligibility verification or malware-scanning service is included.
+- Do not enter farmer names, phone numbers, Aadhaar, PAN, bank details, OTPs, exact home addresses or identity numbers in profile fields, references or notes.
+- Use informed consent, explain the purpose in a language the farmer understands, minimise the uploaded evidence and redact unrelated personal information.
+- Keep the R2 bucket private and do not expose its objects through a public domain. D1 queries and storage object keys are scoped to the authenticated organisation.
+- Publish a privacy/grievance contact, legal controller/data-fiduciary allocation, retention period and correction/withdrawal/deletion process before using live records. Automatic retention expiry is not included in this release.
+- Review the current Digital Personal Data Protection Act/Rules notifications and obtain qualified privacy counsel review. A phased commencement schedule does not remove the need to minimise data and protect it now.
 
 ## 7. Troubleshooting
 
