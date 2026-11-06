@@ -906,7 +906,7 @@ function updateCoverageList(){
   window.refreshAgriTranslation?.();
 }
 const pageRouteSlugs={home:'home',finance:'finance',assistant:'support',directory:'schemes',ngo:'ngo',market:'market',coverage:'insights'};
-const pageRouteTitles={home:'AGRI FINANCE HOME',finance:'FARM FINANCE FINDER',assistant:'MY SUPPORT',directory:'SCHEMES & LENDERS',ngo:'NGO CONNECT',market:'MARKET ACCESS',coverage:'DATA & INSIGHTS'};
+const pageRouteTitles={home:'AGRI FINANCE HOME',finance:'FARM FINANCE FINDER',assistant:'MY SUPPORT',directory:'SCHEMES & LENDERS',ngo:'NGO HELPING HAND',market:'MARKET ACCESS',coverage:'DATA & INSIGHTS'};
 const pageRouteLookup=Object.fromEntries(Object.entries(pageRouteSlugs).map(([view,slug])=>[slug,view]));
 function currentPageFromUrl(){
   const requested=new URLSearchParams(window.location.search).get('page');
