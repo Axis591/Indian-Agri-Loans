@@ -937,7 +937,7 @@ const pageCharacterContent={
   finance:{position:'0%',eyebrow:'FARMER-FIRST DISCOVERY',title:'Your next step starts with your farm',copy:'Choose your district and farmer profile to explore support routes that may fit.'},
   assistant:{position:'33.333%',eyebrow:'PERSONALISED SUPPORT',title:'A clearer path through the options',copy:'Tell us about the farm, then review potential matches and what to verify.'},
   directory:{position:'66.667%',eyebrow:'SCHEMES & FINANCE PARTNERS',title:'Compare support with confidence',copy:'Explore benefits, lenders, application steps, documents and official sources.'},
-  ngo:{position:'100%',eyebrow:'FIELD TEAMS & COMMUNITY PARTNERS',title:'Stronger support, village by village',copy:'Track aggregate programme progress and coordinate practical follow-up routes.'},
+  ngo:{position:'100%',eyebrow:'NGO HELPING HAND · FIELD PARTNERS',title:'Connect farmers to the support they need',copy:'Onboard trusted organisations, build consent-based farmer profiles and coordinate scheme applications.'},
   market:{position:'33.333%',eyebrow:'SELL SMARTER',title:'Bring market information closer to the farm',copy:'Review published mandi prices and official trading and procurement channels.'},
   coverage:{position:'66.667%',eyebrow:'TRANSPARENCY & COVERAGE',title:'Know what is mapped — and what needs checking',copy:'Explore source coverage, State research and local information gaps.'}
 };
