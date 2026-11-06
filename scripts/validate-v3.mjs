@@ -25,7 +25,7 @@ const allowedScopes=new Set(['national','state','district','local']);
 const allowedProviders=new Set(['central-government','state-government','public-bank','private-bank','small-finance-bank','rrb','cooperative','regulated-nbfc','local-body','informal']);
 const allowedAmountStatus=new Set(['published','assessment','not_published','rate_support','unknown','variable']);
 
-check(schemes.length===37,`Expected 37 scheme/benefit records; found ${schemes.length}.`);
+check(schemes.length===38,`Expected 38 scheme/benefit records; found ${schemes.length}.`);
 check(lenders.length===46,`Expected 46 lender/provider entries; found ${lenders.length}.`);
 check(geography.length===36&&unique(stateNames),`Expected 36 unique State/UT names; found ${geography.length}.`);
 check(districtTotal===779,`Expected 779 provisional fallback district entries; found ${districtTotal}.`);
