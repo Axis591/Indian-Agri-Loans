@@ -1,0 +1,2 @@
+farmerRef,state,district,profileType,landStatus,activity,supportNeed,cropName,landArea,landAreaUnit,season,irrigation
+CASE-DEMO-001,Punjab,Ludhiana,owner,owner,crop,subsidy,paddy,2.5,acre,kharif,irrigated
