@@ -150,7 +150,7 @@ export function auditSafeRef(value) {
   if (typeof value !== "string") return false;
   const ref = value.trim();
   if (!/^[A-Za-z0-9][A-Za-z0-9_-]{2,39}$/.test(ref)) return false;
-  if (/^\d{10,}$/.test(ref)) return false;
+  if (/(?:\d[\s-]?){10,}/.test(ref)) return false;
   if (/(aadhaar|uid|pan|phone|mobile|bank|account|ifsc|passport|voter)/i.test(ref)) return false;
   return true;
 }
