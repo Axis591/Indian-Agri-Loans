@@ -40,3 +40,20 @@ export async function onRequestDelete(context) {
   await auditNgo(context.env,auth.user,"farmer.document_deleted","ngo_farmer_document",id);
   return jsonResponse({ deleted: true });
 }
+
+export async function onRequestPatch(context) {
+  const auth = await requireNgoUser(context, ["admin"]);
+  if (!auth.ok) return auth.response;
+  if (!requireSameOrigin(context.request)) return jsonResponse({ error: "Cross-origin request rejected." }, 403);
+  const id = String(context.params.id || "");
+  if (!/^[0-9a-f-]{36}$/i.test(id)) return jsonResponse({ error: "Invalid document identifier." }, 400);
+  const body = await context.request.json().catch(() => null);
+  const status = String(body?.reviewStatus || "");
+  if (!["reviewed","rejected"].includes(status)) return jsonResponse({ error: "Choose reviewed or rejected." }, 400);
+  const result = await context.env.NGO_DB.prepare(
+    "UPDATE ngo_farmer_documents SET review_status = ? WHERE id = ? AND org_id = ?"
+  ).bind(status,id,auth.user.org_id).run();
+  if (!result.meta?.changes) return jsonResponse({ error: "Document not found." }, 404);
+  await auditNgo(context.env,auth.user,"farmer.document_reviewed","ngo_farmer_document",id);
+  return jsonResponse({ saved: true, reviewStatus: status });
+}
