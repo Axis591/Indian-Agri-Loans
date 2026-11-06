@@ -41,7 +41,7 @@ export async function onRequestPost(context) {
       !seasons.has(season) || !irrigationTypes.has(irrigation) || v.consent !== true) {
     return jsonResponse({ error: "Complete the required characteristics and confirm the farmer consent statement. Use an anonymous reference code only." }, 400);
   }
-  if (/(aadhaar|uid|pan|phone|mobile|bank|account|ifsc|passport|voter|@)/i.test(cropName) || /\d{10,}/.test(cropName)) return jsonResponse({ error: "Enter a crop or commodity name only; do not put personal identifiers in this field." }, 400);
+  if (/(aadhaar|uid|pan|phone|mobile|bank|account|ifsc|passport|voter|@)/i.test(cropName) || /(?:\d[\s-]?){10,}/.test(cropName)) return jsonResponse({ error: "Enter a crop or commodity name only; do not put personal identifiers in this field." }, 400);
   const id = crypto.randomUUID();
   const consentAt = new Date().toISOString();
   try {
