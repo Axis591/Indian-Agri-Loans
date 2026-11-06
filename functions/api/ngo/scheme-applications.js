@@ -26,7 +26,7 @@ export async function onRequestPost(context) {
   const notes = clean(v.notes,500);
   if (!/^[0-9a-f-]{36}$/i.test(farmerId) || !/^[a-z0-9][a-z0-9-]{1,99}$/.test(schemeId) || !statuses.has(status) ||
       (internalReference && !auditSafeRef(internalReference)) ||
-      /\d{10,}|[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i.test(notes)) {
+      /(aadhaar|uid|pan|phone|mobile|bank|account|ifsc|passport|voter|address|\d(?:[\s-]?\d){9,}|[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,})/i.test(notes)) {
     return jsonResponse({ error: "Check the farmer, scheme and status fields. Notes and references must not contain personal identifiers." },400);
   }
   const farmer = await context.env.NGO_DB.prepare("SELECT id FROM ngo_farmers WHERE id = ? AND org_id = ? LIMIT 1").bind(farmerId,auth.user.org_id).first();
