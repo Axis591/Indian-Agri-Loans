@@ -471,6 +471,8 @@ function populateNGOJoinAndFarmerSelectors(){
 }
 let ngoJoinConfigLoaded=false;
 function initNGOJoin(){
+  const registrationYear=$('#ngo-join-reg-year');
+  if(registrationYear)registrationYear.max=String(new Date().getFullYear());
   $('#ngo-open-join-form')?.addEventListener('click',()=>{
     const form=$('#ngo-join-form');form.hidden=!form.hidden;
     if(!form.hidden){
