@@ -77,28 +77,15 @@ The upload API only accepts PDF, PNG and JPEG files up to 5 MB. It checks the fi
 
 Cloudflare Pages binding instructions: https://developers.cloudflare.com/pages/functions/bindings/
 
-## 4. Configure Cloudflare Access
+## 4. Configure Cloudflare Access — no custom domain required
 
-Create a Self-hosted Access application for `indian-agri-loans.pages.dev` with the path:
+**Important architecture update (7 November 2026):** the public AgriBridge Pages project must remain publicly accessible. Cloudflare Pages' Access policy on a `pages.dev` hostname protects that Pages hostname, so do not enable Access on `indian-agri-loans.pages.dev`.
 
-```
-/api/ngo/*
-```
+The repository now contains a second Pages project in `ngo-portal/`. Deploy it as `agribridge-ngo-portal` and protect that separate `pages.dev` hostname with Cloudflare Access. The public AgriBridge site links approved members to this secure portal. Both Pages projects use the same D1/R2 resources, but each needs its own bindings and environment variables.
 
-Use a verified identity method such as email one-time PIN. The login route is `/api/ngo/login`; successful authentication returns the person to the NGO page.
+Follow the complete step-by-step guide in [NGO_PORTAL_NO_DOMAIN_SETUP.md](NGO_PORTAL_NO_DOMAIN_SETUP.md). It covers the second Pages project, One-time PIN, the Access policy, the portal-specific AUD, and the public application's Turnstile configuration.
 
-**Recommended policy:** allow verified email identities to complete the Access sign-in, then rely on the API's D1 membership check for authorisation. Every private NGO API except the sign-in return route calls `requireNgoUser` or `requirePlatformAdmin`. An email that is not in `ngo_users` receives 403 and cannot read another organisation's records. A platform administrator must also appear in `NGO_PLATFORM_ADMIN_EMAILS`.
-
-If you instead use a restrictive Access email allowlist, you must add every newly approved NGO contact email to that Access policy as well as approving it in the AgriBridge review queue. Otherwise the person cannot reach the D1 membership check to sign in.
-
-Copy the Access Application Audience (AUD) tag and the Zero Trust team domain, then add the following Pages Production variables:
-
-| Variable | Type | Value |
-|---|---|---|
-| `ACCESS_TEAM_DOMAIN` | Variable | Exact team domain, e.g. `https://<team-name>.cloudflareaccess.com` |
-| `ACCESS_AUD` | Variable | Application AUD tag |
-
-Do not use a browser-supplied email or an unverified identity header. The server validates the Access JWT signature, issuer, audience and expiry.
+The portal's Access Allow policy should allow verified email sign-in (Everyone + One-time PIN). This is only the authentication layer: the D1 `ngo_users` membership check controls NGO access, and `NGO_PLATFORM_ADMIN_EMAILS` controls platform administrator review. Do not restrict the Access Allow policy only to the platform administrator email, or other approved NGOs will be blocked.
 
 ## 5. Configure public NGO application protection
 
