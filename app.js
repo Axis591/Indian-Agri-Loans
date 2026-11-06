@@ -431,6 +431,299 @@ function exportNGOCSV(){
   const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'}),url=URL.createObjectURL(blob);
   const link=document.createElement('a');link.href=url;link.download='agribridge-organisation-followups.csv';link.click();URL.revokeObjectURL(url);
 }
+
+async function loadNGOCaseData(){
+  if(!ngoBackendReady)return;
+  try{
+    const [farmerResponse,applicationResponse]=await Promise.all([
+      fetch('/api/ngo/farmers',{credentials:'same-origin',cache:'no-store'}),
+      fetch('/api/ngo/scheme-applications',{credentials:'same-origin',cache:'no-store'})
+    ]);
+    const farmerData=await farmerResponse.json().catch(()=>({}));
+    const applicationData=await applicationResponse.json().catch(()=>({}));
+    if(!farmerResponse.ok)throw new Error(farmerData.error||'Could not load farmer profiles.');
+    if(!applicationResponse.ok)throw new Error(applicationData.error||'Could not load the scheme application tracker.');
+    ngoData.farmers=Array.isArray(farmerData.farmers)?farmerData.farmers:[];
+    ngoData.applications=Array.isArray(applicationData.applications)?applicationData.applications:[];
+    renderNGOFarmerList();
+    renderNGOSchemeApplications();
+  }catch(error){
+    const node=$('#ngo-farmer-status');if(node)node.textContent=error.message;
+  }
+}
+function populateNGOJoinAndFarmerSelectors(){
+  const states=stateNames();
+  const joinState=$('#ngo-join-state'),joinDistrict=$('#ngo-join-district');
+  const farmerState=$('#ngo-farmer-state'),farmerDistrict=$('#ngo-farmer-district');
+  if(joinState&&joinDistrict){
+    setOptions(joinState,states,stateSelect.value);
+    setOptions(joinDistrict,districtsFor(joinState.value),districtSelect.value);
+    joinState.addEventListener('change',()=>setOptions(joinDistrict,districtsFor(joinState.value)));
+  }
+  if(farmerState&&farmerDistrict){
+    setOptions(farmerState,states,stateSelect.value);
+    setOptions(farmerDistrict,districtsFor(farmerState.value),districtSelect.value);
+    farmerState.addEventListener('change',()=>setOptions(farmerDistrict,districtsFor(farmerState.value)));
+  }
+}
+function initNGOJoin(){
+  $('#ngo-open-join-form')?.addEventListener('click',()=>{
+    const form=$('#ngo-join-form');form.hidden=!form.hidden;
+    if(!form.hidden)form.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+  $('#ngo-join-form')?.addEventListener('submit',submitNGOJoin);
+  $('#ngo-join-status-form')?.addEventListener('submit',checkNGOJoinStatus);
+  loadNGOJoinConfig();
+}
+async function loadNGOJoinConfig(){
+  const status=$('#ngo-join-status'),submit=$('#ngo-join-submit');
+  try{
+    const response=await fetch('/api/ngo-join',{cache:'no-store'});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok||!data.enabled||!data.siteKey){
+      if(status)status.textContent=data.message||'Membership applications are not yet enabled by the administrator.';
+      if(submit)submit.disabled=true;
+      return;
+    }
+    const renderCaptcha=()=>{
+      if(!window.turnstile||window.ngoJoinCaptchaWidget!==undefined)return;
+      window.ngoJoinCaptchaWidget=window.turnstile.render('#ngo-join-captcha',{
+        sitekey:data.siteKey,action:'ngo_join',
+        callback:token=>{window.ngoJoinCaptchaToken=token;if(submit)submit.disabled=false;if(status)status.textContent='Verification complete. You can submit the application.';},
+        'expired-callback':()=>{window.ngoJoinCaptchaToken='';if(submit)submit.disabled=true;if(status)status.textContent='Verification expired. Please verify again.';},
+        'error-callback':()=>{window.ngoJoinCaptchaToken='';if(submit)submit.disabled=true;if(status)status.textContent='Verification failed. Reload the page and try again.';}
+      });
+    };
+    if(window.turnstile){renderCaptcha();return;}
+    if(!document.getElementById('ngo-turnstile-script')){
+      const script=document.createElement('script');script.id='ngo-turnstile-script';script.src='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';script.async=true;script.defer=true;
+      script.onload=renderCaptcha;script.onerror=()=>{if(status)status.textContent='Anti-spam verification did not load. Please refresh the page.';};
+      document.head.appendChild(script);
+    }else{
+      const existing=document.getElementById('ngo-turnstile-script');
+      existing.addEventListener('load',renderCaptcha,{once:true});
+    }
+    if(status)status.textContent='Loading secure anti-spam verification…';
+  }catch(error){
+    if(status)status.textContent='The membership application service is not reachable. Please retry later.';
+    if(submit)submit.disabled=true;
+  }
+}
+async function submitNGOJoin(event){
+  event.preventDefault();
+  const button=$('#ngo-join-submit'),status=$('#ngo-join-status');
+  if(!window.ngoJoinCaptchaToken){if(status)status.textContent='Complete the anti-spam verification first.';return;}
+  const payload={
+    orgName:$('#ngo-join-org-name').value,orgType:$('#ngo-join-org-type').value,
+    registrationNumber:$('#ngo-join-reg-number').value,registrationYear:$('#ngo-join-reg-year').value,
+    state:$('#ngo-join-state').value,district:$('#ngo-join-district').value,
+    districtsServed:$('#ngo-join-districts').value,website:$('#ngo-join-website').value,
+    contactName:$('#ngo-join-contact-name').value,contactRole:$('#ngo-join-contact-role').value,
+    contactEmail:$('#ngo-join-email').value,contactPhone:$('#ngo-join-phone').value,
+    workSummary:$('#ngo-join-work').value,privacyAccepted:$('#ngo-join-privacy').checked,
+    accuracyAccepted:$('#ngo-join-accuracy').checked,captchaToken:window.ngoJoinCaptchaToken,
+    websiteField:$('#ngo-join-website-field').value
+  };
+  button.disabled=true;if(status)status.textContent='Submitting securely…';
+  try{
+    const response=await fetch('/api/ngo-join',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(data.error||'The application could not be submitted.');
+    const result=$('#ngo-join-result');
+    result.hidden=false;
+    result.innerHTML='<b>Application received for manual review.</b><p>'+escapeHtml(data.message||'Save these credentials now.')+'</p><div>Application code</div><span class="ngo-token-value">'+escapeHtml(data.applicationCode)+'</span><div>Private tracking token — shown once</div><span class="ngo-token-value">'+escapeHtml(data.trackingToken)+'</span><button type="button" class="secondary-action" id="ngo-copy-tracking">Copy tracking credentials</button>';
+    $('#ngo-copy-tracking')?.addEventListener('click',()=>{
+      const text=data.applicationCode+'\n'+data.trackingToken;
+      if(navigator.clipboard?.writeText)navigator.clipboard.writeText(text).then(()=>{status.textContent='Tracking credentials copied.';}).catch(()=>{status.textContent='Select and copy the credentials above.';});
+      else status.textContent='Select and copy the credentials above.';
+    });
+    status.textContent='Application submitted. Keep your tracking code and private token safe.';
+    window.ngoJoinCaptchaToken='';
+    if(window.turnstile&&window.ngoJoinCaptchaWidget!==undefined)window.turnstile.reset(window.ngoJoinCaptchaWidget);
+    $('#ngo-status-code').value=data.applicationCode;
+    $('#ngo-status-token').value='';
+    result.scrollIntoView({behavior:'smooth',block:'center'});
+  }catch(error){
+    if(status)status.textContent=error.message;
+    button.disabled=!window.ngoJoinCaptchaToken;
+  }
+}
+async function checkNGOJoinStatus(event){
+  event.preventDefault();
+  const node=$('#ngo-join-status-result');node.textContent='Checking application status…';
+  try{
+    const response=await fetch('/api/ngo-join-status',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({applicationCode:$('#ngo-status-code').value,trackingToken:$('#ngo-status-token').value})});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(data.error||'Could not check this application.');
+    const labels={pending:'Pending manual review',needs_info:'More information requested',approved:'Approved — sign in with the submitted contact email',rejected:'Not approved'};
+    node.textContent='Organisation: '+data.organisation+' · Status: '+(labels[data.status]||data.status)+(data.reviewNote?' · Review note: '+data.reviewNote:'');
+  }catch(error){node.textContent=error.message;}
+}
+async function loadNGOAdminApplications(){
+  const status=$('#ngo-admin-status'),node=$('#ngo-admin-applications');
+  status.textContent='Loading platform review queue…';
+  try{
+    const response=await fetch('/api/ngo/admin/applications',{credentials:'same-origin',cache:'no-store'});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(data.error||'Administrator access could not be verified.');
+    const rows=data.applications||[];
+    status.textContent=rows.length+' applications awaiting review.';
+    if(!rows.length){node.innerHTML='<div class="no-directory-results">No pending applications.</div>';return;}
+    node.innerHTML=rows.map(a=>'<article class="ngo-admin-application" data-ngo-application="'+escapeHtml(a.id)+'"><h4>'+escapeHtml(a.org_name)+' · '+escapeHtml(a.org_type)+'</h4><p><b>Registration:</b> '+escapeHtml(a.registration_number)+(a.registration_year?' ('+escapeHtml(a.registration_year)+')':'')+'<br><b>Location:</b> '+escapeHtml(a.district_name)+', '+escapeHtml(a.state_name)+'<br><b>Areas served:</b> '+escapeHtml(a.districts_served)+'<br><b>Contact:</b> '+escapeHtml(a.contact_name)+' · '+escapeHtml(a.contact_role)+' · '+escapeHtml(a.contact_email)+' · '+escapeHtml(a.contact_phone)+'<br><b>Website:</b> '+(a.website?'<a href="'+escapeHtml(a.website)+'" target="_blank" rel="noopener">Open ↗</a>':'Not supplied')+'<br><b>Work summary:</b> '+escapeHtml(a.work_summary)+'<br><b>Submitted:</b> '+escapeHtml(a.created_at)+'</p><label>Review note<textarea data-review-note rows="2" maxlength="1000" placeholder="Internal review note or information request"></textarea></label><div class="ngo-admin-actions"><button class="primary-action" type="button" data-admin-decision="approved">Approve &amp; provision admin</button><button class="secondary-action" type="button" data-admin-decision="needs_info">Request information</button><button class="secondary-action" type="button" data-admin-decision="rejected">Reject</button></div></article>').join('');
+    node.querySelectorAll('[data-admin-decision]').forEach(button=>button.addEventListener('click',()=>reviewNGOApplication(button.closest('[data-ngo-application]').dataset.ngoApplication,button.dataset.adminDecision)));
+  }catch(error){status.textContent=error.message;node.innerHTML='<div class="no-directory-results">Only configured platform administrators can open the review queue. '+escapeHtml(error.message)+'</div>';}
+}
+async function reviewNGOApplication(id,statusValue){
+  const card=document.querySelector('[data-ngo-application="'+CSS.escape(id)+'"]');
+  const note=card?.querySelector('[data-review-note]')?.value||'';
+  if(statusValue==='approved'&&!confirm('Approve this organisation and create its first admin membership?'))return;
+  try{
+    const response=await fetch('/api/ngo/admin/applications/'+encodeURIComponent(id),{method:'PATCH',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify({status:statusValue,reviewNote:note})});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(data.error||'Could not update the application.');
+    $('#ngo-admin-status').textContent=statusValue==='approved'?'Approved. First organisation administrator provisioned: '+(data.memberEmail||'approved contact email')+'.':('Application status updated: '+statusValue+'.');
+    await loadNGOAdminApplications();
+  }catch(error){$('#ngo-admin-status').textContent=error.message;}
+}
+async function addNGOFarmer(event){
+  event.preventDefault();if(!ngoBackendReady||ngoData.role==='viewer')return;
+  const status=$('#ngo-farmer-status'),button=$('#ngo-farmer-submit');
+  const rawArea=$('#ngo-farmer-area').value;
+  const payload={
+    farmerRef:$('#ngo-farmer-ref').value,state:$('#ngo-farmer-state').value,district:$('#ngo-farmer-district').value,
+    profileType:$('#ngo-farmer-profile').value,landStatus:$('#ngo-farmer-land').value,
+    activity:$('#ngo-farmer-activity').value,supportNeed:$('#ngo-farmer-need').value,
+    cropName:$('#ngo-farmer-crop').value,landArea:rawArea===''?null:Number(rawArea),
+    landAreaUnit:$('#ngo-farmer-area-unit').value,season:$('#ngo-farmer-season').value,
+    irrigation:$('#ngo-farmer-irrigation').value,consent:$('#ngo-farmer-consent').checked
+  };
+  button.disabled=true;status.textContent='Saving the consent-based profile…';
+  try{
+    const response=await fetch('/api/ngo/farmers',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(data.error||'Could not save the farmer profile.');
+    status.textContent='Profile saved. Checking potential scheme matches…';
+    $('#ngo-farmer-form').reset();
+    await loadNGOCaseData();
+    showFarmerRecommendations(data.id);
+  }catch(error){status.textContent=error.message;}
+  finally{button.disabled=false;}
+}
+function renderNGOFarmerList(){
+  const node=$('#ngo-farmer-list');if(!node)return;
+  const farmers=ngoData.farmers||[];
+  $('#ngo-farmer-count').textContent=farmers.length+' profiles';
+  if(!farmers.length){node.innerHTML='<div class="no-directory-results">No farmer profiles have been created yet. Add a consented pseudonymous profile above.</div>';return;}
+  const canEdit=ngoData.role!=='viewer';
+  node.innerHTML=farmers.map(f=>'<article class="ngo-farmer-case"><strong>'+escapeHtml(f.farmer_ref)+'</strong><p>'+escapeHtml(f.district_name)+', '+escapeHtml(f.state_name)+' · '+escapeHtml(f.profile_type)+' · '+escapeHtml(f.land_status)+'<br>Activity: '+escapeHtml(f.activity)+' · Need: '+escapeHtml(f.support_need)+'<br>Crop: '+escapeHtml(f.crop_name||'Not specified')+' · Area: '+(f.land_area?escapeHtml(f.land_area)+' '+escapeHtml(f.land_area_unit):'Not stated')+' · Supporting files: '+escapeHtml(f.document_count||0)+'</p><div class="ngo-farmer-case-actions"><button type="button" class="primary-action" data-farmer-recommend="'+escapeHtml(f.id)+'">Find potential schemes</button>'+(canEdit?'<button type="button" class="secondary-action" data-farmer-upload="'+escapeHtml(f.id)+'">Documents / upload</button>':'')+(ngoData.role==='admin'?'<button type="button" class="secondary-action" data-farmer-delete="'+escapeHtml(f.id)+'">Delete profile</button>':'')+'</div></article>').join('');
+  node.querySelectorAll('[data-farmer-recommend]').forEach(b=>b.addEventListener('click',()=>showFarmerRecommendations(b.dataset.farmerRecommend)));
+  node.querySelectorAll('[data-farmer-upload]').forEach(b=>b.addEventListener('click',()=>openFarmerDocuments(b.dataset.farmerUpload)));
+  node.querySelectorAll('[data-farmer-delete]').forEach(b=>b.addEventListener('click',()=>deleteNGOFarmer(b.dataset.farmerDelete)));
+}
+function showFarmerRecommendations(farmerId){
+  const farmer=(ngoData.farmers||[]).find(x=>x.id===farmerId);if(!farmer)return;
+  const node=$('#ngo-farmer-recommendations');
+  const matches=potentialMatches(farmer.profile_type,farmer.land_status,farmer.activity,farmer.support_need,{state:farmer.state_name,district:farmer.district_name});
+  node.innerHTML='<div class="eligibility-results-head"><div><div class="section-kicker">POTENTIAL MATCHES · '+escapeHtml(farmer.state_name.toUpperCase())+'</div><h3>Scheme shortlist for '+escapeHtml(farmer.farmer_ref)+'</h3><p>Based on entered profile characteristics and the selected district. Verify each scheme with its implementing authority.</p></div><span class="ngo-local-tag">'+matches.length+' potential matches</span></div>'+(matches.length?'<div class="eligibility-results-grid">'+matches.map(r=>'<article class="eligibility-card"><div class="eligibility-card-top"><span class="pill '+typeClass(r.type)+'">'+typeLabel(r.type)+'</span><span class="match-status">'+escapeHtml(r.scope==='national'?'National programme':'Location-scoped record')+'</span></div><h3>'+escapeHtml(r.name)+'</h3><p>'+escapeHtml(r.summary)+'</p><div class="eligibility-amount"><small>FINANCIAL SUPPORT / FACILITY</small><b>'+escapeHtml(r.amount)+'</b><span>'+escapeHtml(r.amountNote||'Confirm the current scheme order and local target.')+'</span></div><div class="eligibility-two-col"><div><h4>Why it appears</h4><p>'+escapeHtml(r.matchRules?.status||'The profile fields match the catalogue tags for this scheme.')+'</p></div><div><h4>Verify before proceeding</h4><ul>'+(r.matchRules?.mustVerify||[]).slice(0,4).map(x=>'<li>'+escapeHtml(x)+'</li>').join('')+'</ul></div></div><div class="eligibility-card-foot"><small>Source review: '+escapeHtml(r.verification?.lastChecked||r.sourceDate||'Check source')+'</small><div><button type="button" class="details-btn" data-farmer-scheme-details="'+escapeHtml(r.id)+'">Full process</button><button type="button" class="secondary-action" data-start-manual="'+escapeHtml(r.id)+'" data-start-farmer="'+escapeHtml(farmer.id)+'">Add to tracker &amp; open application</button><a class="apply-btn" href="'+escapeHtml(r.application)+'" target="_blank" rel="noopener noreferrer">Official application ↗</a></div></div></article>').join('')+'</div>':'<div class="eligibility-empty"><b>No catalogue matches were found for this profile.</b><span>Try reviewing the farmer characteristics or browse the complete scheme directory. An empty match list does not mean no support exists.</span></div>')+'<div class="ngo-help">Matching uses structured profile fields and the current scheme catalogue. Uploaded files are not automatically read; use them for authorised human review and update the structured fields after checking them.</div>';
+  node.querySelectorAll('[data-farmer-scheme-details]').forEach(b=>b.addEventListener('click',()=>showDetails(b.dataset.farmerSchemeDetails)));
+  node.querySelectorAll('[data-start-manual]').forEach(b=>b.addEventListener('click',()=>startManualSchemeApplication(b.dataset.startFarmer,b.dataset.startManual)));
+  node.scrollIntoView({behavior:'smooth',block:'start'});
+  window.refreshAgriTranslation?.();
+}
+async function startManualSchemeApplication(farmerId,schemeId){
+  const farmer=(ngoData.farmers||[]).find(x=>x.id===farmerId);
+  const scheme=records.find(x=>x.id===schemeId);
+  if(!farmer||!scheme||ngoData.role==='viewer')return;
+  const opened=window.open(scheme.application,'_blank','noopener,noreferrer');
+  const node=$('#ngo-farmer-status');node.textContent='Creating manual application tracker record…';
+  try{
+    const response=await fetch('/api/ngo/scheme-applications',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify({farmerId,schemeId,status:'preparing'})});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(data.error||'Could not create the tracker record.');
+    node.textContent='Manual application tracker created for '+farmer.farmer_ref+'. Complete the official application with the department/portal.';
+    await loadNGOCaseData();
+  }catch(error){if(opened)opened.close();node.textContent=error.message;}
+}
+function renderNGOSchemeApplications(){
+  const node=$('#ngo-scheme-application-list');if(!node)return;
+  const applications=ngoData.applications||[];
+  if(!applications.length){node.innerHTML='<div class="no-directory-results">No scheme applications are being tracked yet. Select a scheme match and choose “Add to tracker & open application”.</div>';return;}
+  const statusOptions=[['identified','Identified'],['preparing','Preparing'],['documents_pending','Documents pending'],['ready_to_submit','Ready to submit'],['submitted','Submitted'],['approved','Approved'],['rejected','Rejected'],['benefit_received','Benefit received'],['closed','Closed']];
+  node.innerHTML=applications.map(a=>{
+    const scheme=records.find(r=>r.id===a.scheme_id),name=scheme?.name||a.scheme_id;
+    const opts=statusOptions.map(([value,label])=>'<option value="'+value+'"'+(a.status===value?' selected':'')+'>'+label+'</option>').join('');
+    return '<article class="ngo-scheme-application" data-scheme-application="'+escapeHtml(a.id)+'"><h4>'+escapeHtml(name)+'</h4><p>Case: '+escapeHtml(a.farmer_ref)+' · '+escapeHtml(a.district_name)+', '+escapeHtml(a.state_name)+'<br>Last updated: '+escapeHtml(a.updated_at)+'</p><div class="ngo-scheme-app-form"><label>Status<select data-app-status>'+opts+'</select></label><label>Official application reference<input data-app-reference maxlength="40" value="'+escapeHtml(a.internal_reference||'')+'" placeholder="Optional, non-personal reference"></label></div><label>Progress note<textarea data-app-notes rows="2" maxlength="500" placeholder="Do not include farmer names, phone numbers or identifiers">'+escapeHtml(a.notes||'')+'</textarea></label><div class="ngo-scheme-app-actions">'+(scheme?'<a class="secondary-action" href="'+escapeHtml(scheme.application)+'" target="_blank" rel="noopener noreferrer">Open official application ↗</a>':'')+'<button class="primary-action" type="button" data-save-scheme-application>Save progress</button></div></article>';
+  }).join('');
+  node.querySelectorAll('[data-save-scheme-application]').forEach(b=>b.addEventListener('click',()=>saveSchemeApplication(b.closest('[data-scheme-application]').dataset.schemeApplication)));
+}
+async function saveSchemeApplication(id){
+  const card=document.querySelector('[data-scheme-application="'+CSS.escape(id)+'"]');if(!card||ngoData.role==='viewer')return;
+  const payload={status:card.querySelector('[data-app-status]').value,internalReference:card.querySelector('[data-app-reference]').value,notes:card.querySelector('[data-app-notes]').value};
+  try{
+    const response=await fetch('/api/ngo/scheme-applications/'+encodeURIComponent(id),{method:'PATCH',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(data.error||'Could not update application progress.');
+    $('#ngo-save-status').textContent='Manual application progress updated.';
+    await loadNGOCaseData();
+  }catch(error){$('#ngo-save-status').textContent=error.message;}
+}
+async function openFarmerDocuments(farmerId){
+  const farmer=(ngoData.farmers||[]).find(x=>x.id===farmerId);if(!farmer)return;
+  $('#ngo-doc-farmer-id').value=farmerId;
+  $('#ngo-doc-upload-panel').hidden=false;
+  $('#ngo-doc-status').textContent='Loading private document register for '+farmer.farmer_ref+'…';
+  await loadFarmerDocuments(farmerId);
+  $('#ngo-doc-upload-panel').scrollIntoView({behavior:'smooth',block:'center'});
+}
+async function loadFarmerDocuments(farmerId){
+  const node=$('#ngo-doc-list');node.innerHTML='';
+  try{
+    const response=await fetch('/api/ngo/farmers/'+encodeURIComponent(farmerId)+'/documents',{credentials:'same-origin',cache:'no-store'});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(data.error||'Could not load document list.');
+    const docs=data.documents||[];
+    if(!docs.length){node.innerHTML='<div class="no-directory-results">No supporting files uploaded.</div>';return;}
+    node.innerHTML=docs.map(d=>'<div class="ngo-doc-row"><span>'+escapeHtml(d.doc_type.replaceAll('_',' '))+' · '+escapeHtml(d.file_name)+' · '+Math.ceil(d.size_bytes/1024)+' KB · '+escapeHtml(d.review_status)+'</span><span><a class="secondary-action" href="/api/ngo/documents/'+encodeURIComponent(d.id)+'">Download</a>'+(ngoData.role==='admin'?'<button type="button" class="secondary-action" data-delete-doc="'+escapeHtml(d.id)+'">Delete</button>':'')+'</span></div>').join('');
+    node.querySelectorAll('[data-delete-doc]').forEach(b=>b.addEventListener('click',()=>deleteNGOFarmerDocument(b.dataset.deleteDoc,farmerId)));
+    $('#ngo-doc-status').textContent='Files are private to this organisation and marked for manual review.';
+  }catch(error){$('#ngo-doc-status').textContent=error.message;}
+}
+async function uploadNGOFarmerDocument(event){
+  event.preventDefault();if(!ngoBackendReady||ngoData.role==='viewer')return;
+  const farmerId=$('#ngo-doc-farmer-id').value,file=$('#ngo-doc-file').files?.[0];
+  if(!farmerId||!file){$('#ngo-doc-status').textContent='Choose a file for the selected farmer case.';return;}
+  if(file.size>5*1024*1024){$('#ngo-doc-status').textContent='The file must be 5 MB or smaller.';return;}
+  const form=new FormData();form.append('file',file);form.append('docType',$('#ngo-doc-type').value);
+  const button=$('#ngo-doc-submit');button.disabled=true;$('#ngo-doc-status').textContent='Uploading to private document storage…';
+  try{
+    const response=await fetch('/api/ngo/farmers/'+encodeURIComponent(farmerId)+'/documents',{method:'POST',credentials:'same-origin',body:form});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(data.error||'The file could not be uploaded.');
+    $('#ngo-doc-form').reset();$('#ngo-doc-status').textContent='Uploaded securely. The file is pending authorised staff review.';
+    await loadFarmerDocuments(farmerId);await loadNGOCaseData();
+  }catch(error){$('#ngo-doc-status').textContent=error.message;}
+  finally{button.disabled=false;}
+}
+async function deleteNGOFarmerDocument(documentId,farmerId){
+  if(ngoData.role!=='admin'||!confirm('Permanently delete this private supporting file?'))return;
+  try{
+    const response=await fetch('/api/ngo/documents/'+encodeURIComponent(documentId),{method:'DELETE',credentials:'same-origin'});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(data.error||'Could not delete the document.');
+    await loadFarmerDocuments(farmerId);await loadNGOCaseData();
+  }catch(error){$('#ngo-doc-status').textContent=error.message;}
+}
+async function deleteNGOFarmer(farmerId){
+  if(ngoData.role!=='admin'||!confirm('Delete this pseudonymous farmer profile, its uploaded documents and its scheme tracker records?'))return;
+  try{
+    const response=await fetch('/api/ngo/farmers/'+encodeURIComponent(farmerId),{method:'DELETE',credentials:'same-origin'});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(data.error||'Could not delete farmer profile.');
+    $('#ngo-farmer-recommendations').innerHTML='';$('#ngo-doc-upload-panel').hidden=true;
+    await loadNGOCaseData();
+  }catch(error){$('#ngo-farmer-status').textContent=error.message;}
+}
+
 function initNGOWorkspace(){
   populateNGOSelectors();
   populateNGOJoinAndFarmerSelectors();
@@ -654,7 +947,7 @@ function addPageCharacter(view){
 const pageActionItems={
   assistant:[['📍','Choose farm location','#assistant-location'],['🧑🏽‍🌾','Farmer profile','#eligibility-form'],['✅','Review matches','#eligibility-output']],
   directory:[['🌱','Browse schemes','#directory-schemes'],['🏦','Compare lenders','#lender-grid'],['🔎','Search catalogue','#directory-search']],
-  ngo:[['🛡️','Privacy & workspace','#view-ngo .ngo-safety'],['📋','Programme monitoring','#ngo-workspace'],['📈','Outcome summary','#ngo-metrics']],
+  ngo:[['🛡️','Privacy & consent','#view-ngo .ngo-safety'],['🤝','Join / sign in','#ngo-public-entry'],['🌾','Farmer scheme matches','#ngo-farmer-workspace'],['📋','Application tracker','#ngo-scheme-applications'],['📈','Programme outcomes','#ngo-outcomes']],
   market:[['💹','Mandi price search','#market-price-form'],['🛒','Market price results','#market-price-results'],['🤝','Selling channels','#market-links-heading']],
   coverage:[['🗺️','State directory','#state-coverage-list'],['📚','Research workstreams','#state-workstream-register'],['📍','Selected district','#coverage-selected-detail']]
 };
