@@ -33,7 +33,7 @@ No sign-in is required to browse the public directory. Farmers can:
 4. Open **Market Access** for official mandi, e-trading, procurement and FPO resources.
 5. Verify live scheme windows and lending terms with the implementing department or lender before applying.
 
-The portal is an independent information directory, not a government website, bank, lender, broker, application authority or eligibility decision service. It does not collect applications, Aadhaar, bank account information, passwords, OTPs or personal financial data. Applications are submitted only through the linked official provider channels.
+The public scheme directory is an independent information guide, not a government website, bank, lender, broker, application authority or eligibility decision service. The public directory does not collect scheme applications, Aadhaar, bank-account information, passwords or OTPs. The separate, access-controlled NGO Helping Hand workflow does collect organisation membership contact details and, after the farmer's informed agreement, pseudonymous farm characteristics and optional redacted supporting files. It does not ask for farmer names, Aadhaar, PAN, bank details or OTPs. Actual scheme applications are still submitted by the farmer/NGO through the linked official provider channels.
 
 To report an inaccurate or outdated listing, use the repository's **Issues** tab and include the State, District, record name and official source URL. Please do not post personal documents or sensitive financial information.
 
