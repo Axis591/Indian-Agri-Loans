@@ -503,7 +503,7 @@ async function loadNGOJoinConfig(){
     if(window.turnstile){renderCaptcha();return;}
     if(!document.getElementById('ngo-turnstile-script')){
       const script=document.createElement('script');script.id='ngo-turnstile-script';script.src='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit';script.async=true;script.defer=true;
-      script.onload=renderCaptcha;script.onerror=()=>{if(status)status.textContent='Anti-spam verification did not load. Please refresh the page.';};
+      script.onload=renderCaptcha;script.onerror=()=>{ngoJoinConfigLoaded=false;if(status)status.textContent='Anti-spam verification did not load. Refresh the page and reopen the form to retry.';};
       document.head.appendChild(script);
     }else{
       const existing=document.getElementById('ngo-turnstile-script');
