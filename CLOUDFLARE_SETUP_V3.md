@@ -66,7 +66,7 @@ Redeploy. `/api/geography` returns `configured: true` only when it receives a us
 
 The original V3 section described the aggregate-only NGO workspace. It has since been expanded with mandatory organisation onboarding, administrator approval, approved NGO sign-in, consent-based pseudonymous farmer profiles, scheme recommendations, private supporting files and a manual scheme-application tracker.
 
-**Use the current, complete deployment runbook:** [NGO_HELPING_HAND_SETUP.md](NGO_HELPING_HAND_SETUP.md).
+**Use the current, complete deployment runbook:** [NGO_PORTAL_NO_DOMAIN_SETUP.md](NGO_PORTAL_NO_DOMAIN_SETUP.md).
 
 The new setup requires D1 migration `0002_ngo_helping_hand.sql` after migration 0001, a private R2 binding named `NGO_DOCS`, Turnstile site/secret keys, `NGO_JOIN_RATE_LIMIT_SALT`, `NGO_PLATFORM_ADMIN_EMAILS`, and the existing Cloudflare Access configuration. The feature remains unavailable until the site owner finishes these dashboard steps and redeploys.
 
