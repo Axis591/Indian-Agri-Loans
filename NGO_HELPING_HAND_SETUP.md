@@ -19,6 +19,8 @@ The public form does not auto-approve organisations or send approval emails. App
 
 ## 2. Apply the D1 migration
 
+The repository runs the release validator and a synthetic SQLite integration test for migrations 0001 and 0002 on every `main` push. The automated test does not connect to or modify your production D1 database.
+
 The current NGO workspace uses migration 0001. Apply migration 0002 after it:
 
 ```bash
@@ -34,6 +36,14 @@ Migration 0002 adds:
 - consent-stamped pseudonymous farmer profiles;
 - private document metadata;
 - manual scheme application records.
+
+## 2A. Deployment from GitHub
+
+The public site is designed for Cloudflare Pages. When this repository is connected to the Cloudflare Pages Git integration and `main` is selected as the production branch, Cloudflare automatically builds and deploys new commits pushed to `main`. Confirm the Git integration is connected to `Axis591/Indian-Agri-Loans` and automatic production deployments are enabled in Cloudflare Dashboard → Workers & Pages → your Pages project → Build → Branch control.
+
+The repository's `.github/workflows/pages.yml` is only an optional GitHub Pages backup. It is skipped unless the repository variable `ENABLE_GITHUB_PAGES=true` is explicitly set. It is not the Cloudflare deployment mechanism.
+
+Cloudflare's Git integration guide: https://developers.cloudflare.com/pages/configuration/git-integration/
 
 ## 3. Configure Cloudflare Pages bindings
 
