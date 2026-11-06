@@ -1,4 +1,4 @@
-import { jsonResponse, readJsonBody, sha256Hex } from "../_lib/ngo.js";
+import { jsonResponse, readJsonBody, requireSameOrigin, sha256Hex } from "../_lib/ngo.js";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const orgTypes = new Set(["Trust","Registered Society","Section 8 Company","FPO / Cooperative","SHG Federation","Community-based organisation","Other"]);
@@ -19,6 +19,7 @@ export async function onRequestGet({ env }) {
 
 export async function onRequestPost(context) {
   const { request, env } = context;
+  if (!requireSameOrigin(request)) return jsonResponse({ error: "Cross-origin request rejected." }, 403);
   if (!env.NGO_DB || !env.NGO_JOIN_TURNSTILE_SITE_KEY || !env.NGO_JOIN_TURNSTILE_SECRET || !env.NGO_JOIN_RATE_LIMIT_SALT) {
     return jsonResponse({ error: "The secure NGO application service is not configured yet.", code: "NGO_JOIN_NOT_CONFIGURED" }, 503);
   }
