@@ -466,16 +466,20 @@ function populateNGOJoinAndFarmerSelectors(){
     farmerState.addEventListener('change',()=>setOptions(farmerDistrict,districtsFor(farmerState.value)));
   }
 }
+let ngoJoinConfigLoaded=false;
 function initNGOJoin(){
   $('#ngo-open-join-form')?.addEventListener('click',()=>{
     const form=$('#ngo-join-form');form.hidden=!form.hidden;
-    if(!form.hidden)form.scrollIntoView({behavior:'smooth',block:'start'});
+    if(!form.hidden){
+      form.scrollIntoView({behavior:'smooth',block:'start'});
+      if(!ngoJoinConfigLoaded)loadNGOJoinConfig();
+    }
   });
   $('#ngo-join-form')?.addEventListener('submit',submitNGOJoin);
   $('#ngo-join-status-form')?.addEventListener('submit',checkNGOJoinStatus);
-  loadNGOJoinConfig();
 }
 async function loadNGOJoinConfig(){
+  if(ngoJoinConfigLoaded)return;
   const status=$('#ngo-join-status'),submit=$('#ngo-join-submit');
   try{
     const response=await fetch('/api/ngo-join',{cache:'no-store'});
@@ -485,6 +489,7 @@ async function loadNGOJoinConfig(){
       if(submit)submit.disabled=true;
       return;
     }
+    ngoJoinConfigLoaded=true;
     const renderCaptcha=()=>{
       if(!window.turnstile||window.ngoJoinCaptchaWidget!==undefined)return;
       window.ngoJoinCaptchaWidget=window.turnstile.render('#ngo-join-captcha',{
