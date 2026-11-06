@@ -22,6 +22,8 @@ jobs:
           node-version: '20'
       - name: Validate V3 catalogue, integrations and UI
         run: node scripts/validate-v3.mjs
+      - name: Exercise NGO D1 migrations and organisation data constraints
+        run: python3 scripts/test-ngo-migrations.py
       - name: Validate Cloudflare Function and import module syntax
         shell: bash
         run: |
