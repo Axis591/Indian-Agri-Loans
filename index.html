@@ -259,25 +259,110 @@
 </section>
 <section id="view-ngo" class="view">
   <div class="section-heading">
-    <div><div class="section-kicker">NGO &amp; FIELD ORGANISATION NETWORK · V3</div><h2>Organisation-wide programme monitoring</h2><p>Secure, role-based workspace for aggregate outcomes and internal follow-up references.</p></div>
-    <div class="scope-label">Cloudflare Access + D1</div>
+    <div><div class="section-kicker">NGO &amp; FIELD ORGANISATION NETWORK · NGO HELPING HAND</div><h2>NGO Helping Hand &amp; Farmer Scheme Assistance</h2><p>Join the field network, maintain consent-based farmer profiles, discover potential schemes and coordinate application support.</p></div>
+    <div class="scope-label">Private NGO workspace · Access + D1 + R2</div>
   </div>
-  <div class="ngo-safety"><b>Privacy-first design:</b> this workspace does not collect farmer names, Aadhaar, phone numbers, bank details, identity documents or beneficiary-level sensitive information. It is disabled until Cloudflare Access, the D1 database binding and an authorised organisation user are configured. Never enter personal data in internal reference codes.</div>
+
+  <aside class="ngo-help-hero">
+    <div class="ngo-help-hero-copy"><span>FIELD PARTNERS · FARMER SUPPORT · SCHEME DISCOVERY</span><h3>Connect farmers to the support they may qualify for.</h3><p>Verified field organisations can build pseudonymous farmer profiles, review potential scheme matches and organise assisted applications — with each organisation's data kept separate.</p></div>
+    <div class="ngo-help-hero-art" aria-hidden="true"><span>🤝</span><span>🌾</span><span>📋</span></div>
+  </aside>
+
+  <div class="ngo-safety"><b>Privacy-first workflow:</b> create a profile only after the farmer has understood and agreed to the purpose. Use a random case code; do not enter farmer names, phone numbers, Aadhaar, PAN, bank details, OTPs or unredacted identity documents. Supporting files are optional, private and limited to 5 MB. The structured characteristics drive scheme matching; uploaded files are stored for authorised staff review and are not automatically OCR-read or verified.</div>
+
+  <div class="ngo-public-entry">
+    <div class="ngo-public-entry-head"><div><div class="section-kicker">01 / JOIN THE NETWORK</div><h3>Apply to join NGO Helping Hand</h3><p>Every organisation must submit the registration form. AgriBridge administrators manually verify applications before an organisation account is enabled.</p></div><div class="ngo-join-mark">NGO<br><b>+</b></div></div>
+    <div class="ngo-join-actions"><button class="primary-action" type="button" id="ngo-open-join-form">Complete mandatory NGO registration form ↓</button><a class="secondary-action" id="ngo-access-login" href="/api/ngo/workspace" target="_blank" rel="noopener">Already approved? Sign in ↗</a><button class="secondary-action" type="button" id="ngo-admin-review-toggle">Platform administrator review</button></div>
+
+    <form id="ngo-join-form" class="ngo-join-form" hidden>
+      <div class="ngo-form-intro"><b>Organisation application</b><span>Fields marked * are mandatory. Submit once per organisation. This form is for NGO/field-organisation onboarding, not farmer scheme applications.</span></div>
+      <div class="ngo-form-grid">
+        <label>Organisation / NGO name *<input id="ngo-join-org-name" maxlength="160" autocomplete="organization" required></label>
+        <label>Organisation type *<select id="ngo-join-org-type" required><option value="">Select type</option><option>Trust</option><option>Registered Society</option><option>Section 8 Company</option><option>FPO / Cooperative</option><option>SHG Federation</option><option>Community-based organisation</option><option>Other</option></select></label>
+        <label>Registration number<input id="ngo-join-reg-number" maxlength="100" placeholder="Enter number, or write Not registered"></label>
+        <label>Registration year<input id="ngo-join-reg-year" type="number" min="1900" max="2026" placeholder="YYYY"></label>
+        <label>State / UT *<select id="ngo-join-state" required><option value="">Select State / UT</option></select></label>
+        <label>District / main operating district *<select id="ngo-join-district" required><option value="">Select district</option></select></label>
+        <label class="ngo-field-wide">Districts / blocks / villages served *<textarea id="ngo-join-districts" rows="2" maxlength="1200" placeholder="List the districts or areas where your team works" required></textarea></label>
+        <label>Organisation website (optional)<input id="ngo-join-website" type="url" maxlength="240" placeholder="https://"></label>
+        <label>Contact person's name *<input id="ngo-join-contact-name" maxlength="100" autocomplete="name" required></label>
+        <label>Role / designation *<input id="ngo-join-contact-role" maxlength="100" required></label>
+        <label>Official work email *<input id="ngo-join-email" type="email" maxlength="254" autocomplete="email" required></label>
+        <label>Contact phone *<input id="ngo-join-phone" type="tel" maxlength="24" autocomplete="tel" placeholder="+91..." required></label>
+        <label class="ngo-field-wide">Describe your organisation's farmer-support work *<textarea id="ngo-join-work" rows="4" maxlength="2000" minlength="40" placeholder="Describe the communities served, agriculture activities, field capacity and scheme/application support your organisation provides." required></textarea></label>
+      </div>
+      <label class="ngo-honeypot" aria-hidden="true">Leave this field empty<input id="ngo-join-website-field" tabindex="-1" autocomplete="off"></label>
+      <div class="ngo-join-notice"><b>How approval works</b><ol><li>Submit the organisation details and privacy declaration.</li><li>AgriBridge reviews the organisation and may request additional evidence through an independently verified contact channel.</li><li>On approval, the submitted official email is provisioned as the first organisation administrator. The person signs in using the configured Cloudflare Access identity method.</li><li>Additional staff are provisioned with organisation-specific roles by the organisation administrator/platform operator.</li></ol></div>
+      <label class="ngo-consent-check"><input id="ngo-join-privacy" type="checkbox" required><span>I have read the privacy notice and agree that AgriBridge may use the organisation contact details in this application to review and administer this membership request. *</span></label>
+      <label class="ngo-consent-check"><input id="ngo-join-accuracy" type="checkbox" required><span>I confirm that I am authorised to submit this application and that the organisation information is accurate to the best of my knowledge. *</span></label>
+      <div id="ngo-join-captcha" class="ngo-turnstile" aria-label="Anti-spam verification"></div>
+      <div class="ngo-actions"><button type="submit" class="primary-action" id="ngo-join-submit" disabled>Submit organisation application <span>→</span></button><span id="ngo-join-status" class="ngo-save-status" aria-live="polite">Secure application service is checking configuration…</span></div>
+      <div id="ngo-join-result" class="ngo-join-result" hidden aria-live="polite"></div>
+    </form>
+
+    <div class="ngo-status-check">
+      <div><b>Already applied?</b><span>Check your application using the code and private tracking token shown after submission. Keep the token confidential.</span></div>
+      <form id="ngo-join-status-form"><label>Application code<input id="ngo-status-code" placeholder="AGH-YYYYMMDD-XXXXXX" required></label><label>Private tracking token<input id="ngo-status-token" type="password" autocomplete="off" required></label><button class="secondary-action" type="submit">Check status</button></form>
+      <div id="ngo-join-status-result" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div id="ngo-admin-panel" class="ngo-card ngo-admin-panel" hidden>
+    <div class="ngo-card-head"><div><div class="section-kicker">PLATFORM CONTROL · RESTRICTED</div><h3>Review NGO membership applications</h3></div><button class="secondary-action" type="button" id="ngo-admin-refresh">Refresh queue</button></div>
+    <p class="ngo-help">Only the configured AgriBridge platform administrator can access this review queue. Approving an application provisions the applicant's verified email as the organisation administrator.</p>
+    <div id="ngo-admin-status" class="ngo-save-status" aria-live="polite">Not connected.</div>
+    <div id="ngo-admin-applications" class="ngo-admin-applications"><div class="no-directory-results">Open the administrator review panel to load pending applications.</div></div>
+  </div>
+
   <div id="ngo-workspace-status" class="ngo-workspace-status" aria-live="polite">
-    <div class="ngo-status-icon">🔐</div><div class="ngo-status-copy"><b>Checking secure NGO workspace…</b><span>The app will connect to the protected organisation database if it has been activated by the administrator.</span></div>
-    <div class="ngo-status-actions"><a class="secondary-action" id="ngo-access-login" href="/api/ngo/workspace" target="_blank" rel="noopener">Sign in / check access ↗</a><button class="primary-action" id="ngo-refresh" type="button">Check again</button></div>
+    <div class="ngo-status-icon">🔐</div><div class="ngo-status-copy"><b>Organisation sign-in</b><span>After approval, sign in using the approved official email address. Access is restricted by an organisation-specific user record and role.</span></div>
+    <div class="ngo-status-actions"><a class="primary-action" id="ngo-access-login-inline" href="/api/ngo/workspace" target="_blank" rel="noopener">Sign in / activate workspace ↗</a><button class="secondary-action" id="ngo-refresh" type="button">Check again</button></div>
   </div>
+
   <div id="ngo-workspace-ready" hidden>
     <div class="ngo-workspace-meta"><span id="ngo-org-label">Organisation workspace</span><span id="ngo-role-label">Role</span><span id="ngo-sync-label">Synced to secure database</span></div>
-    <div class="ngo-overview">
-      <article><small>FARMERS REACHED</small><strong id="ngo-reached-total">0</strong><span>Aggregate project metric</span></article>
-      <article><small>APPLICATIONS SUBMITTED</small><strong id="ngo-app-total">0</strong><span>With organisation support</span></article>
-      <article><small>APPROVAL RATE</small><strong id="ngo-approval-rate">—</strong><span>Approved ÷ submitted</span></article>
-      <article><small>BENEFITS RECEIVED</small><strong id="ngo-benefit-total">0</strong><span>Confirmed aggregate count</span></article>
+
+    <div class="ngo-card ngo-farmer-workspace" id="ngo-farmer-workspace">
+      <div class="ngo-card-head"><div><div class="section-kicker">02 / FARMER SUPPORT DESK</div><h3>Farmer profiles &amp; scheme recommendations</h3></div><span class="ngo-local-tag">Private to your organisation</span></div>
+      <p class="ngo-help">Create a pseudonymous case profile after obtaining the farmer's permission. AgriBridge compares the entered characteristics with its scheme catalogue and displays potential matches, not an official eligibility decision.</p>
+      <form id="ngo-farmer-form" class="ngo-farmer-form">
+        <div class="ngo-farmer-grid">
+          <label>Anonymous farmer / case code *<input id="ngo-farmer-ref" maxlength="40" placeholder="e.g. FARM-CASE-001" required></label>
+          <label>State / UT *<select id="ngo-farmer-state" required><option value="">Select State</option></select></label>
+          <label>District *<select id="ngo-farmer-district" required><option value="">Select district</option></select></label>
+          <label>Farmer / applicant profile *<select id="ngo-farmer-profile" required><option value="owner">Owner cultivator</option><option value="tenant">Tenant farmer</option><option value="women_farmer">Woman farmer</option><option value="women_shg">Women SHG member</option><option value="mixed_shg">Mixed SHG member</option><option value="fpo">FPO / cooperative</option><option value="entrepreneur">Agri entrepreneur</option><option value="allied">Allied farmer</option></select></label>
+          <label>Land / cultivation status *<select id="ngo-farmer-land" required><option value="owner">Own / recorded land</option><option value="tenant">Tenant farmer with proof</option><option value="sharecropper">Sharecropper</option><option value="group">SHG / FPO / group</option><option value="landless">Landless / allied enterprise</option></select></label>
+          <label>Main farm activity *<select id="ngo-farmer-activity" required><option value="crop">Crop cultivation</option><option value="dairy">Dairy / cattle</option><option value="fisheries">Fisheries</option><option value="poultry">Poultry / livestock</option><option value="horticulture">Horticulture</option><option value="machinery">Farm machinery</option><option value="irrigation">Irrigation / water</option><option value="storage">Storage / post-harvest</option><option value="processing">Food processing</option><option value="allied">Other allied agriculture</option><option value="agri-enterprise">Agri enterprise / FPO business</option><option value="group-business">Group livelihood / SHG enterprise</option></select></label>
+          <label>Support needed *<select id="ngo-farmer-need" required><option value="all">All potential support</option><option value="grant">Grant / direct benefit</option><option value="subsidy">Subsidy / interest support</option><option value="loan">Loan / credit</option><option value="insurance">Crop insurance</option><option value="institution">Local help / institution</option></select></label>
+          <label>Main crop / commodity<input id="ngo-farmer-crop" maxlength="80" placeholder="e.g. paddy, wheat, cotton"></label>
+          <label>Cultivated area<input id="ngo-farmer-area" type="number" min="0.01" max="10000" step="0.01" placeholder="Optional"></label>
+          <label>Area unit<select id="ngo-farmer-area-unit"><option value="acre">Acres</option><option value="hectare">Hectares</option></select></label>
+          <label>Season<select id="ngo-farmer-season"><option value="unknown">Not specified</option><option value="kharif">Kharif</option><option value="rabi">Rabi</option><option value="zaid">Zaid</option><option value="perennial">Perennial / year-round</option></select></label>
+          <label>Irrigation status<select id="ngo-farmer-irrigation"><option value="unknown">Not specified</option><option value="irrigated">Irrigated</option><option value="rainfed">Rainfed</option><option value="mixed">Mixed</option></select></label>
+        </div>
+        <label class="ngo-consent-check"><input type="checkbox" id="ngo-farmer-consent" required><span>I confirm that the farmer has been informed in a language they understand about this profile, scheme matching and optional document storage, and has freely agreed. I have not entered direct identifiers. *</span></label>
+        <div class="ngo-actions"><button type="submit" class="primary-action" id="ngo-farmer-submit">Save farmer profile &amp; find schemes →</button><span id="ngo-farmer-status" class="ngo-save-status" aria-live="polite">No farmer profile submitted.</span></div>
+      </form>
+      <div class="ngo-farmer-list-head"><b>Saved farmer cases</b><span id="ngo-farmer-count">0 profiles</span></div>
+      <div id="ngo-farmer-list" class="ngo-farmer-list"><div class="no-directory-results">No farmer profiles have been created.</div></div>
+      <div id="ngo-farmer-recommendations" class="ngo-farmer-recommendations"></div>
+      <div id="ngo-doc-upload-panel" class="ngo-doc-upload-panel" hidden>
+        <div class="ngo-card-head"><div><div class="section-kicker">PRIVATE SUPPORTING FILES</div><h3>Upload a redacted supporting document</h3></div><button type="button" class="secondary-action" id="ngo-doc-close">Close</button></div>
+        <p class="ngo-help">PDF, PNG or JPEG only; maximum 5 MB each. Do not upload Aadhaar, PAN, bank passbooks, phone screenshots, OTPs, unredacted names or personal identifiers. Files are private to your organisation, served as downloads and marked pending review. No OCR or automatic document verification is performed.</p>
+        <form id="ngo-doc-form" class="ngo-doc-form"><input id="ngo-doc-farmer-id" type="hidden"><label>Document category<select id="ngo-doc-type" required><option value="redacted_land_record">Redacted land record</option><option value="cultivation_proof">Redacted cultivation / tenancy proof</option><option value="crop_or_activity_photo">Crop / activity photo</option><option value="group_registration">Group / FPO registration evidence</option><option value="other_redacted_support">Other redacted supporting evidence</option></select></label><label>Select file<input id="ngo-doc-file" type="file" accept=".pdf,.png,.jpg,.jpeg,application/pdf,image/png,image/jpeg" required></label><button class="primary-action" type="submit" id="ngo-doc-submit">Upload privately</button><span id="ngo-doc-status" class="ngo-save-status" aria-live="polite"></span></form>
+        <div id="ngo-doc-list" class="ngo-doc-list"></div>
+      </div>
     </div>
-    <div class="ngo-layout">
+
+    <div class="ngo-card ngo-scheme-applications" id="ngo-scheme-applications">
+      <div class="ngo-card-head"><div><div class="section-kicker">03 / MANUAL APPLICATION SUPPORT</div><h3>Scheme application tracker</h3></div><button type="button" class="secondary-action" id="ngo-applications-refresh">Refresh tracker</button></div>
+      <p class="ngo-help">When a farmer needs a scheme, add it to the organisation's tracker and use the linked official portal or department office to submit it manually. AgriBridge does not submit or approve government applications on the farmer's behalf.</p>
+      <div id="ngo-scheme-application-list" class="ngo-scheme-application-list"><div class="no-directory-results">No scheme applications are being tracked yet.</div></div>
+    </div>
+
+    <div class="ngo-layout ngo-metrics-layout" id="ngo-metrics">
       <div class="ngo-card">
-        <div class="ngo-card-head"><div><div class="section-kicker">01 / PROJECT PERFORMANCE</div><h3>Update aggregate project metrics</h3></div><span class="ngo-local-tag">Secure organisation database</span></div>
+        <div class="ngo-card-head"><div><div class="section-kicker">04 / PROJECT PERFORMANCE</div><h3>Update aggregate programme metrics</h3></div><span class="ngo-local-tag">Secure organisation database</span></div>
         <p class="ngo-help">Only whole-number aggregate metrics are accepted. Approval count cannot exceed submitted applications.</p>
         <div class="ngo-metric-grid">
           <label>Farmers reached<input data-ngo-metric="farmersReached" type="number" min="0" max="10000000" step="1" value="0"></label>
@@ -291,7 +376,7 @@
         <div class="ngo-actions"><button id="ngo-save-metrics" class="primary-action" type="button">Save secure totals</button><span id="ngo-save-status" class="ngo-save-status" aria-live="polite">Ready when connected.</span></div>
       </div>
       <div class="ngo-card">
-        <div class="ngo-card-head"><div><div class="section-kicker">02 / PSEUDONYMOUS FOLLOW-UP</div><h3>Track an internal reference</h3></div></div>
+        <div class="ngo-card-head"><div><div class="section-kicker">05 / ORGANISATION FOLLOW-UP</div><h3>Track an internal activity reference</h3></div></div>
         <p class="ngo-help">Use a random internal code. Do not enter a farmer's name, phone, Aadhaar or bank information.</p>
         <form id="ngo-followup-form" class="ngo-followup-form">
           <label>Internal reference<input id="ngo-ref" maxlength="40" placeholder="e.g. CAMP-2026-001" required></label>
@@ -302,13 +387,14 @@
         </form>
       </div>
     </div>
-    <div class="ngo-card ngo-followups">
-      <div class="ngo-card-head"><div><div class="section-kicker">03 / FOLLOW-UP REGISTER</div><h3>Organisation follow-ups</h3></div><div class="ngo-actions"><button type="button" id="ngo-export" class="secondary-action">Export CSV</button></div></div>
+    <div class="ngo-card ngo-followups" id="ngo-outcomes">
+      <div class="ngo-card-head"><div><div class="section-kicker">06 / OUTCOME REGISTER</div><h3>Organisation follow-ups &amp; outcomes</h3></div><div class="ngo-actions"><button type="button" id="ngo-export" class="secondary-action">Export CSV</button></div></div>
       <div id="ngo-followup-list" class="ngo-followup-list"><div class="no-directory-results">No references added yet.</div></div>
     </div>
   </div>
+
   <div class="ngo-next-phase">
-    <b>Deployment requirements:</b> create a Cloudflare D1 database, run <code>migrations/0001_ngo_secure.sql</code>, bind it as <code>NGO_DB</code>, configure Cloudflare Access for <code>/api/ngo/*</code>, set the Access team domain and application audience, and provision only approved staff emails in <code>ngo_users</code>. See <a href="CLOUDFLARE_SETUP_V3.md" target="_blank">Cloudflare V3 setup guide ↗</a>.
+    <b>Administrator deployment:</b> configure Cloudflare Access, the <code>NGO_DB</code> D1 binding, private <code>NGO_DOCS</code> R2 bucket, Turnstile site/secret keys, <code>NGO_JOIN_RATE_LIMIT_SALT</code> and <code>NGO_PLATFORM_ADMIN_EMAILS</code>. Apply <code>migrations/0002_ngo_helping_hand.sql</code> after migration 0001. See <a href="CLOUDFLARE_SETUP_V3.md" target="_blank">Cloudflare NGO Helping Hand setup guide ↗</a>.
   </div>
 </section>
 <section id="view-market" class="view">
