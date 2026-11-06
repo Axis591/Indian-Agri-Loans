@@ -10,7 +10,7 @@ This notice describes the data flows implemented in the NGO Helping Hand feature
 
 ### Organisation membership application
 
-The public membership form collects organisation name and type, registration details (where available), State and district, service areas, website (optional), contact person's name and role, official work email, contact phone, and a description of farmer-support activities. It is used only to review and administer the membership request.
+The public membership form collects organisation name and type, registration details (where available), State and district, service areas, website (optional), contact person's name and role, official work email, contact phone, and a description of farmer-support activities. It is used only to review and administer the membership request. The system stores the privacy-notice version accepted and the submission time for the privacy and accuracy declarations. For anti-spam rate limiting, it stores a salted one-way hash of the connecting IP address for a daily window; it does not store the raw IP address in the rate-limit table.
 
 A private application code and tracking token are generated. The tracking token is returned once and only its hash is stored. Keep the token confidential.
 
