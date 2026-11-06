@@ -144,7 +144,7 @@ A farmer case profile stores:
 
 The profile form has a required consent confirmation. The NGO is responsible for explaining the purpose in a language the farmer understands and recording valid permission. Maintain any mapping between the internal case code and a farmer's identity outside AgriBridge.
 
-The recommendation engine uses structured characteristics and the source-linked records in `schemes.json`. It applies the catalogue's profile, activity, location and support-needs rules. It does not read document contents. If a supporting document changes a farmer characteristic, the authorised NGO staff member should review the evidence and update the structured profile fields.
+The recommendation engine uses structured characteristics and the source-linked records in `schemes.json`. It applies the catalogue's profile, land status, activity, location and support-needs rules. Crop/commodity, season, irrigation and area details can improve relevance ordering when the catalogue descriptions contain corresponding keywords or tags. It does not read document contents. If a supporting document changes a farmer characteristic, an authorised NGO admin/editor can mark the file reviewed, use **Edit profile**, confirm consent again, update the structured fields and rerun the shortlist.
 
 A match is only a starting shortlist. Staff must check current eligibility, exclusions, funding availability, district target, seasonal window, machine/asset ceilings and official application requirements with the implementing department.
 
@@ -152,7 +152,7 @@ A match is only a starting shortlist. Staff must check current eligibility, excl
 
 For a recommended scheme, staff can choose **Add to tracker & open application**. For a scheme outside the automatic shortlist, the NGO can use the manual scheme selector: choose any saved farmer case, then select any non-informal scheme record in the catalogue that is listed for that farmer's State/District. The site creates an organisation-scoped progress record and opens the scheme's official application link.
 
-The tracker supports identified, preparing, documents pending, ready to submit, submitted, approved, rejected, benefit received and closed stages. Staff can add a non-personal application reference and a short progress note.
+The manual picker is independent of the recommendation list: select any saved farmer and choose any catalogue scheme listed for that farmer's State/District (excluding informal-risk records and entries explicitly excluded from matching due to unverified continuation). The tracker supports identified, preparing, documents pending, ready to submit, submitted, approved, rejected, benefit received and closed stages. Staff can add a non-personal application reference and a short progress note.
 
 The tracker is not a government application API. It does not transmit personal data to scheme portals, submit an application, reserve a subsidy, or represent approval. The NGO/farmer must complete the process on the official website or at the authorised department/bank/CSC.
 
