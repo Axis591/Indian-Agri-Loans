@@ -271,40 +271,8 @@
   <div class="ngo-safety"><b>Privacy-first workflow:</b> create a profile only after the farmer has understood and agreed to the purpose. Use a random case code; do not enter farmer names, phone numbers, Aadhaar, PAN, bank details, OTPs or unredacted identity documents. Supporting files are optional, private and limited to 5 MB. The structured characteristics drive scheme matching; uploaded files are stored for authorised staff review and are not automatically OCR-read or verified. Read the <a href="https://indian-agri-loans.pages.dev/NGO_PRIVACY_NOTICE.md" target="_blank" rel="noopener">NGO Helping Hand privacy notice</a> before applying.</div>
 
   <div class="ngo-public-entry">
-    <div class="ngo-public-entry-head"><div><div class="section-kicker">01 / JOIN THE NETWORK</div><h3>Apply to join NGO Helping Hand</h3><p>Every organisation must submit the registration form. AgriBridge administrators manually verify applications before an organisation account is enabled.</p></div><div class="ngo-join-mark">NGO<br><b>+</b></div></div>
-    <div class="ngo-join-actions"><button class="primary-action" type="button" id="ngo-open-join-form">Open mandatory NGO administrator setup / registration form ↓</button><a class="secondary-action" id="ngo-access-login" href="https://agribridge-ngo-portal.pages.dev/?page=ngo" rel="noopener">Already approved? Sign in ↗</a><a class="secondary-action" href="https://agribridge-ngo-portal.pages.dev/?page=ngo" rel="noopener">Platform administrator login / review ↗</a></div>
-
-    <form id="ngo-join-form" class="ngo-join-form" hidden>
-      <div class="ngo-form-intro"><b>Organisation application</b><span>Fields marked * are mandatory. Submit once per organisation. This form is for NGO/field-organisation onboarding, not farmer scheme applications.</span></div>
-      <div class="ngo-form-grid">
-        <label>Organisation / NGO name *<input id="ngo-join-org-name" maxlength="160" autocomplete="organization" required></label>
-        <label>Organisation type *<select id="ngo-join-org-type" required><option value="">Select type</option><option>Trust</option><option>Registered Society</option><option>Section 8 Company</option><option>FPO / Cooperative</option><option>SHG Federation</option><option>Community-based organisation</option><option>Other</option></select></label>
-        <label>Registration number<input id="ngo-join-reg-number" maxlength="100" placeholder="Enter number, or write Not registered"></label>
-        <label>Registration year<input id="ngo-join-reg-year" type="number" min="1900" max="2026" placeholder="YYYY"></label>
-        <label>State / UT *<select id="ngo-join-state" required><option value="">Select State / UT</option></select></label>
-        <label>District / main operating district *<select id="ngo-join-district" required><option value="">Select district</option></select></label>
-        <label class="ngo-field-wide">Districts / blocks / villages served *<textarea id="ngo-join-districts" rows="2" maxlength="1200" placeholder="List the districts or areas where your team works" required></textarea></label>
-        <label>Organisation website (optional)<input id="ngo-join-website" type="url" maxlength="240" placeholder="https://"></label>
-        <label>Contact person's name *<input id="ngo-join-contact-name" maxlength="100" autocomplete="name" required></label>
-        <label>Role / designation *<input id="ngo-join-contact-role" maxlength="100" required></label>
-        <label>Official work email *<input id="ngo-join-email" type="email" maxlength="254" autocomplete="email" required></label>
-        <label>Contact phone *<input id="ngo-join-phone" type="tel" maxlength="24" autocomplete="tel" placeholder="+91..." required></label>
-        <label class="ngo-field-wide">Describe your organisation's farmer-support work *<textarea id="ngo-join-work" rows="4" maxlength="2000" minlength="40" placeholder="Describe the communities served, agriculture activities, field capacity and scheme/application support your organisation provides." required></textarea></label>
-      </div>
-      <label class="ngo-honeypot" aria-hidden="true">Leave this field empty<input id="ngo-join-website-field" tabindex="-1" autocomplete="off"></label>
-      <div class="ngo-join-notice"><b>How approval works</b><ol><li>Submit the organisation details and privacy declaration.</li><li>AgriBridge reviews the organisation and may request additional evidence through an independently verified contact channel.</li><li>On approval, the submitted official email is provisioned as the first organisation administrator. The person signs in using the configured Cloudflare Access identity method.</li><li>Additional staff are provisioned with organisation-specific roles by the organisation administrator/platform operator.</li></ol></div>
-      <label class="ngo-consent-check"><input id="ngo-join-privacy" type="checkbox" required><span>I have read the <a href="https://indian-agri-loans.pages.dev/NGO_PRIVACY_NOTICE.md" target="_blank" rel="noopener">privacy notice</a> and agree that AgriBridge may use the organisation contact details in this application to review and administer this membership request. *</span></label>
-      <label class="ngo-consent-check"><input id="ngo-join-accuracy" type="checkbox" required><span>I confirm that I am authorised to submit this application and that the organisation information is accurate to the best of my knowledge. *</span></label>
-      <div id="ngo-join-captcha" class="ngo-turnstile" aria-label="Anti-spam verification"></div>
-      <div class="ngo-actions"><button type="submit" class="primary-action" id="ngo-join-submit" disabled>Submit organisation application <span>→</span></button><span id="ngo-join-status" class="ngo-save-status" aria-live="polite">Secure application service is checking configuration…</span></div>
-      <div id="ngo-join-result" class="ngo-join-result" hidden aria-live="polite"></div>
-    </form>
-
-    <div class="ngo-status-check">
-      <div><b>Already applied?</b><span>Check your application using the code and private tracking token shown after submission. Keep the token confidential.</span></div>
-      <form id="ngo-join-status-form"><label>Application code<input id="ngo-status-code" placeholder="AGH-YYYYMMDD-XXXXXX" required></label><label>Private tracking token<input id="ngo-status-token" type="password" autocomplete="off" required></label><button class="secondary-action" type="submit">Check status</button></form>
-      <div id="ngo-join-status-result" aria-live="polite"></div>
-    </div>
+    <div class="ngo-public-entry-head"><div><div class="section-kicker">SECURE ORGANISATION WORKSPACE</div><h3>Welcome to NGO Helping Hand</h3><p>This separate portal is protected by Cloudflare Access. Your organisation's D1 records and private R2 files are visible only to members provisioned for that organisation.</p></div><div class="ngo-join-mark">NGO<br><b>✓</b></div></div>
+    <div class="ngo-join-actions"><button class="secondary-action" type="button" id="ngo-admin-review-toggle">Platform administrator review</button><a class="secondary-action" href="https://indian-agri-loans.pages.dev/" rel="noopener">Open public AgriBridge directory ↗</a></div>
   </div>
 
   <div id="ngo-admin-panel" class="ngo-card ngo-admin-panel" hidden>
