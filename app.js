@@ -366,6 +366,7 @@ function renderNGOWorkspace(){
   $('#ngo-save-metrics').disabled=readonly;
   $('#ngo-followup-form').querySelectorAll('input,select,button').forEach(el=>el.disabled=readonly);
   $('#ngo-farmer-form')?.querySelectorAll('input,select,textarea,button').forEach(el=>el.disabled=readonly);
+  $('#ngo-farmer-import-form')?.querySelectorAll('input,button').forEach(el=>el.disabled=readonly);
   $('#ngo-manual-apply-form')?.querySelectorAll('select,button').forEach(el=>el.disabled=readonly);
   const docsForm=$('#ngo-doc-form');if(docsForm)docsForm.querySelectorAll('input,select,button').forEach(el=>el.disabled=readonly);
   const list=$('#ngo-followup-list');
@@ -596,6 +597,110 @@ async function reviewNGOApplication(id,statusValue){
     $('#ngo-admin-status').textContent=statusValue==='approved'?'Approved. First organisation administrator provisioned: '+(data.memberEmail||'approved contact email')+'.':('Application status updated: '+statusValue+'.');
     await loadNGOAdminApplications();
   }catch(error){$('#ngo-admin-status').textContent=error.message;}
+}
+function parseNGOFarmerCSV(source){
+  const rows=[];let row=[],field='',quoted=false;
+  for(let i=0;i<source.length;i++){
+    const char=source[i];
+    if(quoted){
+      if(char==='"'&&source[i+1]==='"'){field+='"';i++;}
+      else if(char==='"')quoted=false;
+      else field+=char;
+    }else if(char==='"'&&field.length===0)quoted=true;
+    else if(char===','){row.push(field);field='';}
+    else if(char==='\n'||char==='\r'){
+      if(char==='\r'&&source[i+1]==='\n')i++;
+      row.push(field);field='';
+      if(row.some(cell=>String(cell).trim()!==''))rows.push(row);
+      row=[];
+    }else field+=char;
+  }
+  if(quoted)throw new Error('The CSV has an unclosed quotation mark.');
+  row.push(field);
+  if(row.some(cell=>String(cell).trim()!==''))rows.push(row);
+  return rows;
+}
+async function importNGOFarmerCSV(event){
+  event.preventDefault();
+  if(!ngoBackendReady||ngoData.role==='viewer')return;
+  const file=$('#ngo-farmer-csv').files?.[0],status=$('#ngo-farmer-import-status'),button=$('#ngo-farmer-import-submit');
+  if(!file){status.textContent='Choose a CSV file first.';return;}
+  if(file.size>1024*1024){status.textContent='The CSV must be 1 MB or smaller.';return;}
+  if(!/\.csv$/i.test(file.name)){status.textContent='Choose a .csv file using the AgriBridge template.';return;}
+  if(!$('#ngo-farmer-csv-consent').checked){status.textContent='Confirm that every farmer has agreed before importing.';return;}
+  button.disabled=true;status.textContent='Reading and validating the CSV in this browser…';
+  try{
+    const rows=parseNGOFarmerCSV((await file.text()).replace(/^\uFEFF/,''));
+    if(rows.length<2)throw new Error('The CSV must contain a header and at least one farmer row.');
+    const headers=rows[0].map(x=>String(x).trim().toLowerCase().replace(/[\s_-]/g,''));
+    const allowed=['farmerref','state','district','profiletype','landstatus','activity','supportneed','cropname','landarea','landareaunit','season','irrigation'];
+    const required=['farmerref','state','district','profiletype','landstatus','activity','supportneed'];
+    if(new Set(headers).size!==headers.length)throw new Error('The CSV contains duplicate column headings.');
+    const unknown=headers.filter(h=>!allowed.includes(h));
+    const missing=required.filter(h=>!headers.includes(h));
+    if(unknown.length)throw new Error('Unsupported columns: '+unknown.join(', ')+'. Use the sample template and do not include identity or contact columns.');
+    if(missing.length)throw new Error('Required columns are missing: '+missing.join(', ')+'.');
+    const col=name=>headers.indexOf(name);
+    const value=(row,name)=>col(name)<0?'':String(row[col(name)]??'').trim();
+    const dataRows=rows.slice(1);
+    if(dataRows.length>100)throw new Error('Import up to 100 farmer rows at a time. Split larger files into separate CSVs.');
+    const choices={
+      profiles:new Set(['owner','tenant','women_farmer','women_shg','mixed_shg','fpo','entrepreneur','allied']),
+      lands:new Set(['owner','tenant','sharecropper','group','landless']),
+      activities:new Set(['crop','dairy','fisheries','poultry','horticulture','machinery','irrigation','storage','processing','allied','agri-enterprise','group-business']),
+      needs:new Set(['all','grant','subsidy','loan','insurance','institution']),
+      seasons:new Set(['kharif','rabi','zaid','perennial','unknown']),
+      irrigation:new Set(['irrigated','rainfed','mixed','unknown'])
+    };
+    const valid=[],errors=[];
+    dataRows.forEach((row,index)=>{
+      const rowNumber=index+2;
+      if(row.length!==headers.length){errors.push('Row '+rowNumber+': number of columns does not match the header.');return;}
+      const farmerRef=value(row,'farmerref');
+      const rawState=value(row,'state'),rawDistrict=value(row,'district');
+      const state=stateNames().find(x=>normalizedName(x)===normalizedName(rawState));
+      const district=state?districtsFor(state).find(x=>normalizedName(x)===normalizedName(rawDistrict)):null;
+      const profileType=value(row,'profiletype'),landStatus=value(row,'landstatus');
+      const activity=value(row,'activity'),supportNeed=value(row,'supportneed');
+      const cropName=value(row,'cropname');
+      const rawArea=value(row,'landarea'),landArea=rawArea===''?null:Number(rawArea);
+      const landAreaUnit=value(row,'landareaunit')||'acre';
+      const season=value(row,'season')||'unknown',irrigation=value(row,'irrigation')||'unknown';
+      const pii=/aadhaar|uid|pan|phone|mobile|bank|account|ifsc|passport|voter|@/i;
+      if(!/^[A-Za-z0-9][A-Za-z0-9_-]{2,39}$/.test(farmerRef)||/(?:\d[\s-]?){10,}/.test(farmerRef)||pii.test(farmerRef)){
+        errors.push('Row '+rowNumber+': use a random anonymous case code, not a person name, phone or identity number.');return;
+      }
+      if(!state||!district){errors.push('Row '+rowNumber+': State or District is not in the current location list.');return;}
+      if(!choices.profiles.has(profileType)||!choices.lands.has(landStatus)||!choices.activities.has(activity)||!choices.needs.has(supportNeed)){
+        errors.push('Row '+rowNumber+': profile, land status, activity or support need is invalid.');return;
+      }
+      if(!choices.seasons.has(season)||!choices.irrigation.has(irrigation)||!['acre','hectare'].includes(landAreaUnit)||
+        (landArea!==null&&(!Number.isFinite(landArea)||landArea<=0||landArea>10000))){
+        errors.push('Row '+rowNumber+': check area, area unit, season or irrigation value.');return;
+      }
+      if(pii.test(cropName)||/(?:\d[\s-]?){10,}/.test(cropName)){
+        errors.push('Row '+rowNumber+': cropName must contain a crop or commodity only, not personal information.');return;
+      }
+      valid.push({rowNumber,payload:{
+        farmerRef,state,district,profileType,landStatus,activity,supportNeed,cropName,
+        landArea,landAreaUnit,season,irrigation,consent:true
+      }});
+    });
+    if(!valid.length)throw new Error('No valid rows to import. '+errors.slice(0,4).join(' '));
+    let imported=0;const importedIds=[];
+    for(const item of valid){
+      const response=await fetch('/api/ngo/farmers',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify(item.payload)});
+      const data=await response.json().catch(()=>({}));
+      if(response.ok){imported++;if(data.id)importedIds.push(data.id);}
+      else errors.push('Row '+item.rowNumber+': '+(data.error||'Could not save this profile.'));
+    }
+    await loadNGOCaseData();
+    const firstError=errors.slice(0,8).join(' ');
+    status.textContent=imported+' farmer profile(s) imported. '+errors.length+' row(s) need correction.'+(firstError?' Details: '+firstError:'');
+    $('#ngo-farmer-import-form').reset();
+    if(importedIds.length)showFarmerRecommendations(importedIds[0]);
+  }catch(error){status.textContent=error.message;}
+  finally{button.disabled=false;}
 }
 async function addNGOFarmer(event){
   event.preventDefault();if(!ngoBackendReady||ngoData.role==='viewer')return;
@@ -835,6 +940,7 @@ function initNGOWorkspace(){
   $('#ngo-export')?.addEventListener('click',exportNGOCSV);
   $('#ngo-refresh')?.addEventListener('click',loadNGOWorkspace);
   $('#ngo-farmer-form')?.addEventListener('submit',addNGOFarmer);
+  $('#ngo-farmer-import-form')?.addEventListener('submit',importNGOFarmerCSV);
   $('#ngo-farmer-cancel-edit')?.addEventListener('click',cancelNGOFarmerEdit);
   $('#ngo-manual-farmer')?.addEventListener('change',updateNGOManualSchemeOptions);
   $('#ngo-manual-apply-form')?.addEventListener('submit',submitManualSchemeApplication);
