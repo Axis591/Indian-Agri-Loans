@@ -17,6 +17,12 @@ CREATE TABLE IF NOT EXISTS ngo_organisations (
   joined_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))
 );
 
+-- Preserve compatibility with already-provisioned V3 NGO users.
+INSERT OR IGNORE INTO ngo_organisations (id, org_name, org_type, registration_number, state_name, district_name, application_id)
+SELECT org_id, org_id, 'Other', 'Not provided', 'Not specified', 'Not specified', 'legacy-' || org_id
+FROM ngo_users WHERE org_id IS NOT NULL AND length(trim(org_id)) > 0
+GROUP BY org_id;
+
 CREATE TABLE IF NOT EXISTS ngo_applications (
   id TEXT PRIMARY KEY,
   application_code TEXT NOT NULL UNIQUE,
@@ -70,7 +76,8 @@ CREATE TABLE IF NOT EXISTS ngo_farmers (
   created_by TEXT NOT NULL,
   updated_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
   updated_by TEXT NOT NULL,
-  UNIQUE (org_id, farmer_ref)
+  UNIQUE (org_id, farmer_ref),
+  FOREIGN KEY (org_id) REFERENCES ngo_organisations(id) ON DELETE CASCADE
 );
 CREATE INDEX IF NOT EXISTS idx_ngo_farmers_org_date ON ngo_farmers(org_id, created_at DESC);
 
@@ -86,6 +93,7 @@ CREATE TABLE IF NOT EXISTS ngo_farmer_documents (
   review_status TEXT NOT NULL DEFAULT 'pending_review' CHECK (review_status IN ('pending_review','reviewed','rejected')),
   created_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
   uploaded_by TEXT NOT NULL,
+  FOREIGN KEY (org_id) REFERENCES ngo_organisations(id) ON DELETE CASCADE,
   FOREIGN KEY (farmer_id) REFERENCES ngo_farmers(id) ON DELETE CASCADE
 );
 CREATE INDEX IF NOT EXISTS idx_ngo_farmer_documents_org_farmer ON ngo_farmer_documents(org_id, farmer_id, created_at DESC);
@@ -102,6 +110,7 @@ CREATE TABLE IF NOT EXISTS ngo_scheme_applications (
   created_by TEXT NOT NULL,
   updated_at TEXT NOT NULL DEFAULT (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
   updated_by TEXT NOT NULL,
+  FOREIGN KEY (org_id) REFERENCES ngo_organisations(id) ON DELETE CASCADE,
   FOREIGN KEY (farmer_id) REFERENCES ngo_farmers(id) ON DELETE CASCADE
 );
 CREATE INDEX IF NOT EXISTS idx_ngo_scheme_apps_org_date ON ngo_scheme_applications(org_id, updated_at DESC);
