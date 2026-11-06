@@ -357,6 +357,12 @@
     <div class="ngo-card ngo-scheme-applications" id="ngo-scheme-applications">
       <div class="ngo-card-head"><div><div class="section-kicker">03 / MANUAL APPLICATION SUPPORT</div><h3>Scheme application tracker</h3></div><button type="button" class="secondary-action" id="ngo-applications-refresh">Refresh tracker</button></div>
       <p class="ngo-help">When a farmer needs a scheme, add it to the organisation's tracker and use the linked official portal or department office to submit it manually. AgriBridge does not submit or approve government applications on the farmer's behalf.</p>
+      <form id="ngo-manual-apply-form" class="ngo-manual-apply-form">
+        <label>Farmer case *<select id="ngo-manual-farmer" required><option value="">Choose a saved farmer case</option></select></label>
+        <label>Choose any catalogue scheme for this location *<select id="ngo-manual-scheme" required><option value="">Choose a scheme</option></select></label>
+        <button type="submit" class="primary-action" id="ngo-manual-apply-submit">Add to tracker &amp; open official application →</button>
+        <span id="ngo-manual-apply-status" class="ngo-save-status" aria-live="polite">Select a farmer case and a scheme to create a manual application record.</span>
+      </form>
       <div id="ngo-scheme-application-list" class="ngo-scheme-application-list"><div class="no-directory-results">No scheme applications are being tracked yet.</div></div>
     </div>
 
