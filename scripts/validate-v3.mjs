@@ -127,10 +127,10 @@ check(ngoLib.includes('requirePlatformAdmin')&&ngoLib.includes('NGO_PLATFORM_ADM
 check(migration.includes('ngo_users')&&migration.includes('ngo_metrics')&&migration.includes('ngo_followups')&&migration.includes('ngo_audit'),'D1 migration includes user, metrics, follow-up and audit tables.');
 const helpingHand=readText('migrations/0002_ngo_helping_hand.sql');
 check(helpingHand.includes('ngo_applications')&&helpingHand.includes('ngo_organisations')&&helpingHand.includes('ngo_farmers')&&helpingHand.includes('ngo_farmer_documents')&&helpingHand.includes('ngo_scheme_applications'),'NGO Helping Hand migration includes membership, farmer, document and application tables.');
-check(helpingHand.includes('consent_at')&&helpingHand.includes('consent_version')&&!/farmer_name|aadhaar|bank_account/i.test(helpingHand),'Farmer profile schema records consent and does not add direct identity or bank fields.');
+check(helpingHand.includes('consent_at')&&helpingHand.includes('consent_version')&&helpingHand.includes('privacy_notice_version')&&helpingHand.includes('privacy_consent_at')&&!/farmer_name|aadhaar|bank_account/i.test(helpingHand),'Farmer and NGO membership declarations are timestamped; farmer schema excludes direct identity or bank fields.');
 const joinEndpoint=readText('functions/api/ngo-join.js');
 check(joinEndpoint.includes('challenges.cloudflare.com/turnstile/v0/siteverify')&&joinEndpoint.includes('NGO_JOIN_RATE_LIMIT_SALT')&&joinEndpoint.includes('NGO_DOCS')&&joinEndpoint.includes('ACCESS_AUD'),'Public NGO applications require server-verified Turnstile, D1, private R2 and Access setup.');
-check(joinEndpoint.includes('tracking_token_hash')&&joinEndpoint.includes('NGO_JOIN_TURNSTILE_SECRET'),'Membership tracking tokens are stored as hashes and Turnstile secret is server-side.');
+check(joinEndpoint.includes('tracking_token_hash')&&joinEndpoint.includes('NGO_JOIN_TURNSTILE_SECRET')&&joinEndpoint.includes('ngo-privacy-notice-v1.0'),'Membership tracking tokens are stored as hashes, Turnstile secret is server-side, and privacy notice acceptance is versioned.');
 const docsEndpoint=readText('functions/api/ngo/farmers/[id]/documents.js');
 check(docsEndpoint.includes('NGO_DOCS')&&docsEndpoint.includes('MAX_BYTES')&&docsEndpoint.includes('detectedType'),'Supporting files use private R2 binding, size cap and file signature checks.');
 check(!marketProxy.includes('api-key=')&&marketProxy.includes('DATA_GOV_IN_API_KEY'),'Mandi API key is read from an environment secret, not embedded in public source.');
