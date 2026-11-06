@@ -53,3 +53,13 @@ Follow `CLOUDFLARE_SETUP_V3.md` to activate the server secret, D1 binding, Cloud
 - Updated the catalogue/coverage record count to 38. The application window remains State- and district-notification dependent.
 
 Last updated: 07 November 2026.
+
+
+## 07 November 2026 — NGO Helping Hand expansion
+
+- Replaced the NGO Connect placeholder entry with a mandatory organisation onboarding form, private application code/token status checks and platform-admin review/approval flow.
+- Added organisation-scoped membership provisioning, Access login return route and admin/editor/viewer role checks.
+- Added consent-stamped pseudonymous farmer profiles, profile-driven potential scheme recommendations from the public catalogue, optional private R2 file upload/download/review and a manual scheme-application tracker.
+- Added D1 migration 0002, Turnstile-based public form protection, salted submission rate limits, privacy notice draft and a production setup guide.
+- Uploaded documents are redacted evidence for human review only; no OCR, automated document verification or malware scanning is provided. Scheme recommendations are catalogue matches, not approval or direct government submissions.
+- Production activation still requires the site owner's D1 migration, R2 binding, Cloudflare Access configuration, Turnstile variables, rate-limit salt and platform-admin email allowlist.
