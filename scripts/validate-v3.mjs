@@ -103,6 +103,16 @@ check(['ngo-workspace-status','ngo-workspace-ready','ngo-save-metrics','ngo-foll
 check(html.includes('value="women_farmer"'),'Women farmer applicant profile is selectable.');
 check(html.includes('NGO_HELPING_HAND_SETUP.md')&&html.includes('NGO_PRIVACY_NOTICE.md'),'Current NGO Helping Hand setup and privacy notices are linked in the public page.');
 check(html.includes('https://indian-agri-loans.pages.dev/'),'Cloudflare public canonical host is retained.');
+check(html.includes('data-ngo-portal="false"')&&html.includes('https://agribridge-ngo-portal.pages.dev/?page=ngo'),'Public AgriBridge keeps its public access and links approved members to the separate NGO portal.');
+check(app.includes("document.documentElement.dataset.ngoPortal==='true'")&&app.includes('Open secure NGO portal'),'The public app does not call private NGO APIs and directs members to the Access-protected portal.');
+const portalHtml=readText('ngo-portal/index.html'),portalApp=readText('ngo-portal/app.js');
+check(portalHtml.includes('data-ngo-portal="true"')&&portalHtml.includes('noindex,nofollow,noarchive'),'Separate NGO portal is marked as the protected, non-indexed application.');
+check(portalHtml.includes('ngo-admin-review-toggle')&&portalHtml.includes('ngo-farmer-form')&&portalHtml.includes('ngo-manual-apply-form')&&portalHtml.includes('ngo-doc-form'),'Separate portal contains admin review, farmer, document and manual scheme UI.');
+check(portalApp.includes("document.documentElement.dataset.ngoPortal==='true'")&&portalApp.includes('loadNGOWorkspace'),'Separate portal activates the same-origin secure NGO workspace APIs.');
+check(portalHtml.includes('https://indian-agri-loans.pages.dev/assets/'),'Portal reuses public-site static illustrations without exposing private R2 objects.');
+const portalRoutes=readJSON('ngo-portal/_routes.json');
+check(portalRoutes.version===1&&portalRoutes.include.includes('/api/*'),'Portal Pages Functions are routed under /api/*.');
+
 const app=readText('app.js');
 check(!app.includes('localStorage'),'Public app does not store NGO data in browser localStorage.');
 check(app.includes('submitNGOJoin')&&app.includes('loadNGOAdminApplications')&&app.includes('reviewNGOApplication'),'NGO membership application and platform review UI logic exist.');
@@ -116,10 +126,10 @@ check(app.includes('/api/ngo/farmers')&&app.includes('/api/ngo/scheme-applicatio
 check(app.includes('function renderLoanComparison')&&app.includes('function renderStateWorkstreams')&&app.includes('function loadMandiPrices'),'Loan, State research and market features have app logic.');
 
 // Cloudflare Pages Functions, API security and migration files.
-const requiredFiles=['_routes.json','functions/api/market-prices.js','functions/api/geography.js','functions/_lib/ngo.js','functions/api/ngo/workspace.js','functions/api/ngo/metrics.js','functions/api/ngo/followups.js','functions/api/ngo/followups/[id].js','functions/api/ngo/login.js','functions/api/ngo-join.js','functions/api/ngo-join-status.js','functions/api/ngo/admin/applications.js','functions/api/ngo/admin/applications/[id].js','functions/api/ngo/farmers.js','functions/api/ngo/farmers/[id].js','functions/api/ngo/farmers/[id]/documents.js','functions/api/ngo/documents/[id].js','functions/api/ngo/scheme-applications.js','functions/api/ngo/scheme-applications/[id].js','migrations/0001_ngo_secure.sql','migrations/0002_ngo_helping_hand.sql','NGO_HELPING_HAND_SETUP.md','NGO_PRIVACY_NOTICE.md','assets/ngo-farmer-import-template.csv','scripts/import-lgd-export.mjs','scripts/test-ngo-migrations.py','CLOUDFLARE_SETUP_V3.md','V3_RELEASE_NOTES.md','COVERAGE_REPORT_V3.md'];
+const requiredFiles=['_routes.json','functions/api/market-prices.js','functions/api/geography.js','functions/_lib/ngo.js','functions/api/ngo/workspace.js','functions/api/ngo/metrics.js','functions/api/ngo/followups.js','functions/api/ngo/followups/[id].js','functions/api/ngo/login.js','functions/api/ngo-join.js','functions/api/ngo-join-status.js','functions/api/ngo/admin/applications.js','functions/api/ngo/admin/applications/[id].js','functions/api/ngo/farmers.js','functions/api/ngo/farmers/[id].js','functions/api/ngo/farmers/[id]/documents.js','functions/api/ngo/documents/[id].js','functions/api/ngo/scheme-applications.js','functions/api/ngo/scheme-applications/[id].js','migrations/0001_ngo_secure.sql','migrations/0002_ngo_helping_hand.sql','NGO_HELPING_HAND_SETUP.md','NGO_PRIVACY_NOTICE.md','assets/ngo-farmer-import-template.csv','scripts/import-lgd-export.mjs','scripts/test-ngo-migrations.py','CLOUDFLARE_SETUP_V3.md','V3_RELEASE_NOTES.md','COVERAGE_REPORT_V3.md','NGO_PORTAL_NO_DOMAIN_SETUP.md','ngo-portal/index.html','ngo-portal/app.js','ngo-portal/styles.css','ngo-portal/language.js','ngo-portal/schemes.json','ngo-portal/lenders.json','ngo-portal/portals.json','ngo-portal/coverage-v25.json','ngo-portal/geography-fallback.json','ngo-portal/state-programme-register.json','ngo-portal/_headers','ngo-portal/_routes.json','ngo-portal/robots.txt','ngo-portal/README.md','ngo-portal/functions/_lib/ngo.js','ngo-portal/functions/api/geography.js','ngo-portal/functions/api/market-prices.js','ngo-portal/functions/api/ngo/workspace.js','ngo-portal/functions/api/ngo/metrics.js','ngo-portal/functions/api/ngo/followups.js','ngo-portal/functions/api/ngo/followups/[id].js','ngo-portal/functions/api/ngo/login.js','ngo-portal/functions/api/ngo/admin/applications.js','ngo-portal/functions/api/ngo/admin/applications/[id].js','ngo-portal/functions/api/ngo/farmers.js','ngo-portal/functions/api/ngo/farmers/[id].js','ngo-portal/functions/api/ngo/farmers/[id]/documents.js','ngo-portal/functions/api/ngo/documents/[id].js','ngo-portal/functions/api/ngo/scheme-applications.js','ngo-portal/functions/api/ngo/scheme-applications/[id].js'];
 const missingFiles=requiredFiles.filter(name=>!exists(name));
 check(missingFiles.length===0,missingFiles.join(', ')||'Cloudflare Functions, D1 migration, LGD importer and V3 documents exist.');
-const functionFiles=requiredFiles.filter(name=>name.startsWith('functions/')&&name.endsWith('.js'));
+const functionFiles=requiredFiles.filter(name=>(name.startsWith('functions/')||name.startsWith('ngo-portal/functions/'))&&name.endsWith('.js'));
 const unresolvedImports=[];
 for(const name of functionFiles){
   const source=readText(name);
@@ -137,6 +147,10 @@ check(routes.version===1&&routes.include.includes('/api/*'),'Pages Functions are
 const ngoLib=readText('functions/_lib/ngo.js'),migration=readText('migrations/0001_ngo_secure.sql'),marketProxy=readText('functions/api/market-prices.js');
 check(ngoLib.includes('Cf-Access-Jwt-Assertion')&&ngoLib.includes('ACCESS_AUD')&&ngoLib.includes('org_id'),'NGO APIs validate Cloudflare Access and organisation scope.');
 check(ngoLib.includes('requirePlatformAdmin')&&ngoLib.includes('NGO_PLATFORM_ADMIN_EMAILS'),'Platform application review is restricted to the configured administrator email allowlist.');
+const portalNgoLib=readText('ngo-portal/functions/_lib/ngo.js');
+check(portalNgoLib.includes('Cf-Access-Jwt-Assertion')&&portalNgoLib.includes('ACCESS_AUD')&&portalNgoLib.includes('requirePlatformAdmin'),'The separate portal validates its own Cloudflare Access JWT and administrator allowlist.');
+check(readText('ngo-portal/functions/api/ngo/farmers.js').includes('ngo_farmers')&&readText('ngo-portal/functions/api/ngo/documents/[id].js').includes('NGO_DOCS'),'The secure portal connects to the existing D1 farmer records and private R2 document bucket.');
+
 check(migration.includes('ngo_users')&&migration.includes('ngo_metrics')&&migration.includes('ngo_followups')&&migration.includes('ngo_audit'),'D1 migration includes user, metrics, follow-up and audit tables.');
 const helpingHand=readText('migrations/0002_ngo_helping_hand.sql');
 check(helpingHand.includes('ngo_applications')&&helpingHand.includes('ngo_organisations')&&helpingHand.includes('ngo_farmers')&&helpingHand.includes('ngo_farmer_documents')&&helpingHand.includes('ngo_scheme_applications'),'NGO Helping Hand migration includes membership, farmer, document and application tables.');
