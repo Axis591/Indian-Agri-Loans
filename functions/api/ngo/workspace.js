@@ -35,8 +35,10 @@ export async function onRequestGet(context) {
     updatedAt: metricRow.updated_at
   } : emptyMetrics;
 
+  const organisation = await env.NGO_DB.prepare("SELECT org_name FROM ngo_organisations WHERE id = ? LIMIT 1").bind(user.org_id).first();
+
   return jsonResponse({
-    organisation: user.org_id,
+    organisation: organisation?.org_name || user.org_id,
     role: user.role,
     metrics,
     followups: (rows.results || []).map((row) => ({
