@@ -660,12 +660,12 @@ async function importNGOFarmerCSV(event){
       const rawState=value(row,'state'),rawDistrict=value(row,'district');
       const state=stateNames().find(x=>normalizedName(x)===normalizedName(rawState));
       const district=state?districtsFor(state).find(x=>normalizedName(x)===normalizedName(rawDistrict)):null;
-      const profileType=value(row,'profiletype'),landStatus=value(row,'landstatus');
-      const activity=value(row,'activity'),supportNeed=value(row,'supportneed');
+      const profileType=value(row,'profiletype').toLowerCase(),landStatus=value(row,'landstatus').toLowerCase();
+      const activity=value(row,'activity').toLowerCase(),supportNeed=value(row,'supportneed').toLowerCase();
       const cropName=value(row,'cropname');
       const rawArea=value(row,'landarea'),landArea=rawArea===''?null:Number(rawArea);
-      const landAreaUnit=value(row,'landareaunit')||'acre';
-      const season=value(row,'season')||'unknown',irrigation=value(row,'irrigation')||'unknown';
+      const landAreaUnit=(value(row,'landareaunit')||'acre').toLowerCase();
+      const season=(value(row,'season')||'unknown').toLowerCase(),irrigation=(value(row,'irrigation')||'unknown').toLowerCase();
       const pii=/aadhaar|uid|pan|phone|mobile|bank|account|ifsc|passport|voter|@/i;
       if(!/^[A-Za-z0-9][A-Za-z0-9_-]{2,39}$/.test(farmerRef)||/(?:\d[\s-]?){10,}/.test(farmerRef)||pii.test(farmerRef)){
         errors.push('Row '+rowNumber+': use a random anonymous case code, not a person name, phone or identity number.');return;
