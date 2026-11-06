@@ -56,7 +56,7 @@ export async function onRequestPost(context) {
 
   const ip = request.headers.get("CF-Connecting-IP") || "unknown";
   const day = new Date().toISOString().slice(0, 10);
-  const ipHash = await sha256Hex(String(env.NGO_JOIN_RATE_LIMIT_SALT) + ":" + ip + ":" + day);
+  const ipHash = await sha256Hex(String(env.NGO_JOIN_RATE_LIMIT_SALT) + ":" + ip);
   const rate = await env.NGO_DB.prepare(
     "INSERT INTO ngo_join_rate_limits (ip_hash, window_start, attempts) VALUES (?, ?, 1) ON CONFLICT(ip_hash) DO UPDATE SET attempts = CASE WHEN ngo_join_rate_limits.window_start < excluded.window_start THEN 1 ELSE ngo_join_rate_limits.attempts + 1 END, window_start = excluded.window_start RETURNING attempts"
   ).bind(ipHash, day).first();
