@@ -64,3 +64,13 @@ Last updated: 07 November 2026.
 - Added D1 migration 0002, Turnstile-based public form protection, salted submission rate limits, privacy notice draft and a production setup guide.
 - Uploaded documents are redacted evidence for human review only; no OCR, automated document verification or malware scanning is provided. Scheme recommendations are catalogue matches, not approval or direct government submissions.
 - Production activation still requires the site owner's D1 migration, R2 binding, Cloudflare Access configuration, Turnstile variables, rate-limit salt and platform-admin email allowlist.
+
+
+## 07 November 2026 — Separate domain-free NGO portal
+
+- Split the public NGO membership application from the secure organisation workspace so the public AgriBridge Pages hostname can remain publicly accessible without a custom domain.
+- Added a second Pages app under `ngo-portal/`, with its own same-origin Pages Functions, scheme catalogue data, noindex metadata and Access-protected dashboard.
+- The new portal reuses the existing production D1 database (`NGO_DB`) and private R2 bucket (`NGO_DOCS`); it does not introduce another farmer database or object store.
+- Updated the public NGO section to link approved members and platform administrators to `https://agribridge-ngo-portal.pages.dev`.
+- Added `NGO_PORTAL_NO_DOMAIN_SETUP.md` and portal-specific validation for the second Pages project's files, routes and relative Function imports.
+- The portal must be created as a second Cloudflare Pages project with root directory `ngo-portal`, and its own Access application AUD and Production bindings/variables. Do not enable Access on the public `indian-agri-loans.pages.dev` project.
