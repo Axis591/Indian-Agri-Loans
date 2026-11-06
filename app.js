@@ -952,7 +952,18 @@ function initNGOWorkspace(){
     if(!panel.hidden)loadNGOAdminApplications();
   });
   $('#ngo-admin-refresh')?.addEventListener('click',loadNGOAdminApplications);
-  loadNGOWorkspace();
+  if(document.documentElement.dataset.ngoPortal==='true'){
+    loadNGOWorkspace();
+  }else{
+    const securePanel=$('#ngo-workspace-ready');
+    if(securePanel)securePanel.hidden=true;
+    const status=$('#ngo-workspace-status');
+    if(status){
+      status.hidden=false;
+      status.innerHTML='<div class="ngo-status-icon">🔐</div><div class="ngo-status-copy"><b>Approved NGO members: use the secure Helping Hand portal</b><span>Organisation sign-in, farmer records, scheme recommendations, document review and application tracking are hosted on a separate Cloudflare Access-protected portal. The public AgriBridge directory remains open to everyone.</span></div><div class="ngo-status-actions"><a class="primary-action" href="https://agribridge-ngo-portal.pages.dev/?page=ngo" rel="noopener">Open secure NGO portal ↗</a></div>';
+    }
+    const adminPanel=$('#ngo-admin-panel');if(adminPanel)adminPanel.hidden=true;
+  }
 }
 
 const inrMoney=value=>new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:0}).format(Number(value)||0);
