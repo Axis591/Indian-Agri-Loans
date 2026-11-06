@@ -700,7 +700,8 @@ async function startManualSchemeApplication(farmerId,schemeId){
     if(!response.ok)throw new Error(data.error||'Could not create the tracker record.');
     node.textContent='Manual application tracker created for '+farmer.farmer_ref+'. Complete the official application with the department/portal.';
     await loadNGOCaseData();
-  }catch(error){if(opened)opened.close();node.textContent=error.message;}
+    return true;
+  }catch(error){if(opened)opened.close();node.textContent=error.message;return false;}
 }
 function populateNGOManualApplySelectors(){
   const farmerSelect=$('#ngo-manual-farmer'),schemeSelect=$('#ngo-manual-scheme');
@@ -729,8 +730,8 @@ async function submitManualSchemeApplication(event){
   $('#ngo-manual-apply-submit').disabled=true;
   $('#ngo-manual-apply-status').textContent='Creating tracker record and opening the official route…';
   try{
-    await startManualSchemeApplication(farmerId,schemeId);
-    $('#ngo-manual-apply-status').textContent='The manual application has been added to the tracker. Complete the official process with the department or portal.';
+    const saved=await startManualSchemeApplication(farmerId,schemeId);
+    $('#ngo-manual-apply-status').textContent=saved?'The manual application has been added to the tracker. Complete the official process with the department or portal.':($('#ngo-farmer-status').textContent||'The manual application could not be added.');
   }finally{$('#ngo-manual-apply-submit').disabled=false;}
 }
 function renderNGOSchemeApplications(){
