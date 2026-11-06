@@ -58,6 +58,9 @@ export async function onRequestPost(context) {
       v.privacyAccepted !== true || v.accuracyAccepted !== true) {
     return jsonResponse({ error: "Complete all required fields and confirm the privacy and accuracy declarations." }, 400);
   }
+  if (/(?:\\d[\\s-]?){10,}|[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}/i.test(workSummary)) {
+    return jsonResponse({ error: "Describe the organisation's work only. Do not include farmer names, phone numbers, email addresses or identity numbers." }, 400);
+  }
   if (website) {
     try { const u = new URL(website); if (!["https:","http:"].includes(u.protocol)) throw new Error(); }
     catch { return jsonResponse({ error: "Enter a valid organisation website URL or leave it blank." }, 400); }
