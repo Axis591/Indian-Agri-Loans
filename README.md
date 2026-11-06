@@ -13,7 +13,7 @@ A Cloudflare Pages application for discovering government farmer support, crop i
 
 This is a source-linked national starter catalogue with explicit geographic and verification gaps. It is not an exhaustive verified inventory of every State, district, block, Panchayat, PACS, bank branch, lending product or local grant in India.
 
-- **Scheme and public-service catalogue:** 37 records, including national programmes and State records for Odisha, Andhra Pradesh, Telangana, Rajasthan, Maharashtra, Assam and West Bengal.
+- **Scheme and public-service catalogue:** 38 records, including national programmes and State records for Odisha, Andhra Pradesh, Telangana, Rajasthan, Maharashtra, Assam and West Bengal.
 - **West Bengal records:** Krishak Bandhu, death benefit, rainfed diversification (including Paschim Medinipur), women SHG interest support (including Paschim Medinipur), cooperative credit, farm mechanisation and Amar Fasal Amar Gola.
 - **Lender catalogue:** 46 initial product entries (including 28 individually listed Regional Rural Banks, cooperative-credit routes and an NBFC-MFI microcredit product): 8 public-sector-bank product families, 3 private banks, 2 Small Finance Banks, 28 Regional Rural Banks, 2 cooperative-credit routes and 3 NBFC products. These include SBI, Bank of Baroda, Canara Bank, PNB, Bank of India, Bank of Maharashtra, Indian Bank, UCO Bank, HDFC Bank, ICICI Bank, Axis Bank, Ujjivan SFB, ESAF SFB, Mahindra Finance and Samunnati Finance. Each entry links to product terms, application route, typical documents, process and source material.
 - **Panchayat / block:** a last-mile navigation entry explains how to find local notices and implementing offices; it is not represented as a uniform Panchayat loan or grant.
