@@ -366,6 +366,7 @@ function renderNGOWorkspace(){
   $('#ngo-save-metrics').disabled=readonly;
   $('#ngo-followup-form').querySelectorAll('input,select,button').forEach(el=>el.disabled=readonly);
   $('#ngo-farmer-form')?.querySelectorAll('input,select,textarea,button').forEach(el=>el.disabled=readonly);
+  $('#ngo-manual-apply-form')?.querySelectorAll('select,button').forEach(el=>el.disabled=readonly);
   const docsForm=$('#ngo-doc-form');if(docsForm)docsForm.querySelectorAll('input,select,button').forEach(el=>el.disabled=readonly);
   const list=$('#ngo-followup-list');
   if(!ngoData.followups.length){
@@ -447,6 +448,7 @@ async function loadNGOCaseData(){
     ngoData.farmers=Array.isArray(farmerData.farmers)?farmerData.farmers:[];
     ngoData.applications=Array.isArray(applicationData.applications)?applicationData.applications:[];
     renderNGOFarmerList();
+    populateNGOManualApplySelectors();
     renderNGOSchemeApplications();
   }catch(error){
     const node=$('#ngo-farmer-status');if(node)node.textContent=error.message;
@@ -700,6 +702,37 @@ async function startManualSchemeApplication(farmerId,schemeId){
     await loadNGOCaseData();
   }catch(error){if(opened)opened.close();node.textContent=error.message;}
 }
+function populateNGOManualApplySelectors(){
+  const farmerSelect=$('#ngo-manual-farmer'),schemeSelect=$('#ngo-manual-scheme');
+  if(!farmerSelect||!schemeSelect)return;
+  const previous=farmerSelect.value;
+  farmerSelect.replaceChildren(new Option('Choose a saved farmer case',''));
+  (ngoData.farmers||[]).forEach(f=>farmerSelect.append(new Option(f.farmer_ref+' · '+f.district_name+', '+f.state_name,f.id)));
+  if(previous&&(ngoData.farmers||[]).some(f=>f.id===previous))farmerSelect.value=previous;
+  updateNGOManualSchemeOptions();
+}
+function updateNGOManualSchemeOptions(){
+  const farmerId=$('#ngo-manual-farmer')?.value;
+  const select=$('#ngo-manual-scheme');if(!select)return;
+  const farmer=(ngoData.farmers||[]).find(f=>f.id===farmerId);
+  select.replaceChildren(new Option(farmer?'Choose a catalogue scheme':'Select a farmer case first',''));
+  if(!farmer)return;
+  const choices=records.filter(r=>r.type!=='informal'&&applicable(r,farmer.state_name,farmer.district_name)).sort((a,b)=>a.name.localeCompare(b.name));
+  choices.forEach(r=>select.append(new Option(r.name+' · '+r.category,r.id)));
+  if(!choices.length)select.append(new Option('No location-scoped catalogue entries are listed',''));
+}
+async function submitManualSchemeApplication(event){
+  event.preventDefault();
+  if(!ngoBackendReady||ngoData.role==='viewer')return;
+  const farmerId=$('#ngo-manual-farmer').value,schemeId=$('#ngo-manual-scheme').value;
+  if(!farmerId||!schemeId){$('#ngo-manual-apply-status').textContent='Choose both a farmer case and a scheme.';return;}
+  $('#ngo-manual-apply-submit').disabled=true;
+  $('#ngo-manual-apply-status').textContent='Creating tracker record and opening the official route…';
+  try{
+    await startManualSchemeApplication(farmerId,schemeId);
+    $('#ngo-manual-apply-status').textContent='The manual application has been added to the tracker. Complete the official process with the department or portal.';
+  }finally{$('#ngo-manual-apply-submit').disabled=false;}
+}
 function renderNGOSchemeApplications(){
   const node=$('#ngo-scheme-application-list');if(!node)return;
   const applications=ngoData.applications||[];
@@ -800,6 +833,8 @@ function initNGOWorkspace(){
   $('#ngo-refresh')?.addEventListener('click',loadNGOWorkspace);
   $('#ngo-farmer-form')?.addEventListener('submit',addNGOFarmer);
   $('#ngo-farmer-cancel-edit')?.addEventListener('click',cancelNGOFarmerEdit);
+  $('#ngo-manual-farmer')?.addEventListener('change',updateNGOManualSchemeOptions);
+  $('#ngo-manual-apply-form')?.addEventListener('submit',submitManualSchemeApplication);
   $('#ngo-doc-form')?.addEventListener('submit',uploadNGOFarmerDocument);
   $('#ngo-doc-close')?.addEventListener('click',()=>{$('#ngo-doc-upload-panel').hidden=true;});
   $('#ngo-applications-refresh')?.addEventListener('click',loadNGOCaseData);
