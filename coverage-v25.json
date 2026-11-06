@@ -14,7 +14,7 @@
     "caution": "The 36 State/UT and 779 district entries are a community-maintained fallback snapshot, not an official LGD-certified current list. District boundaries and counts change. Refresh/reconcile codes and names against the official Local Government Directory before claiming administrative completeness. Block and Gram Panchayat identifiers are not included."
   },
   "nationalCatalogue": {
-    "schemeRecordCount": 37,
+    "schemeRecordCount": 38,
     "lenderProductRecordCount": 46,
     "schemeRecordIds": [
       "pm-kisan",
@@ -53,7 +53,8 @@
       "telangana-rythu-bharosa",
       "rajasthan-cm-kisan-samman",
       "maharashtra-women-farmer-certificate",
-      "assam-krishi-sa-sajuli"
+      "assam-krishi-sa-sajuli",
+      "crop-residue-management"
     ],
     "lenderProductIds": [
       "sbi-kcc",
@@ -106,7 +107,7 @@
     "schemeTypes": {
       "grant": 8,
       "loan": 7,
-      "subsidy": 14,
+      "subsidy": 15,
       "insurance": 1,
       "informal": 1,
       "institution": 5,
@@ -123,7 +124,7 @@
       "district_block_target_required": 1,
       "shg_bank_linkage_required": 1,
       "local_pacs_membership_required": 1,
-      "state_window_required": 5,
+      "state_window_required": 6,
       "lender_product_confirmation": 3,
       "risk_information_only": 1,
       "local_notification_required": 1,
