@@ -73,8 +73,8 @@ export async function onRequestPost(context) {
   } catch {
     return jsonResponse({ error: "Anti-spam verification is temporarily unavailable. Please retry." }, 503);
   }
-  if (!captcha?.success || (captcha.action && captcha.action !== "ngo_join") ||
-      (captcha.hostname && captcha.hostname !== new URL(request.url).hostname)) {
+  if (!captcha?.success || captcha.action !== "ngo_join" ||
+      captcha.hostname !== new URL(request.url).hostname) {
     return jsonResponse({ error: "Anti-spam verification failed. Please verify again." }, 400);
   }
 
