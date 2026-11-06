@@ -74,7 +74,7 @@ Review [NGO_PRIVACY_NOTICE.md](NGO_PRIVACY_NOTICE.md) before accepting organisat
 
 ## 5. Test the secured endpoints
 
-For the current NGO membership, farmer-profile, private-file and manual scheme-application tests, follow the test checklist in [NGO_HELPING_HAND_SETUP.md](NGO_HELPING_HAND_SETUP.md). The relevant NGO endpoints now include:
+For the current NGO membership, farmer-profile, private-file and manual scheme-application tests, follow the test checklist in [NGO_PORTAL_NO_DOMAIN_SETUP.md](NGO_PORTAL_NO_DOMAIN_SETUP.md). The relevant NGO endpoints now include:
 
 - `GET/POST /api/ngo-join` — membership form configuration and Turnstile-protected organisation application.
 - `POST /api/ngo-join-status` — private application status check using its code and one-time tracking token.
