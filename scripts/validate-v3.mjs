@@ -106,8 +106,10 @@ check(html.includes('https://indian-agri-loans.pages.dev/'),'Cloudflare public c
 const app=readText('app.js');
 check(!app.includes('localStorage'),'Public app does not store NGO data in browser localStorage.');
 check(app.includes('submitNGOJoin')&&app.includes('loadNGOAdminApplications')&&app.includes('reviewNGOApplication'),'NGO membership application and platform review UI logic exist.');
-check(app.includes('addNGOFarmer')&&app.includes('showFarmerRecommendations')&&app.includes('startManualSchemeApplication'),'Consent-based farmer profiles, catalogue recommendations and manual application UI logic exist.');
-check(app.includes('uploadNGOFarmerDocument')&&app.includes('loadFarmerDocuments'),'Private supporting-document workflow exists.');
+check(app.includes('addNGOFarmer')&&app.includes('editNGOFarmer')&&app.includes('showFarmerRecommendations')&&app.includes('startManualSchemeApplication'),'Consent-based farmer profiles, document-informed profile edits, catalogue recommendations and manual application UI logic exist.');
+check(app.includes('uploadNGOFarmerDocument')&&app.includes('loadFarmerDocuments')&&app.includes('reviewNGOFarmerDocument'),'Private supporting-document upload and review workflow exists.');
+check(readText('functions/api/ngo/farmers/[id].js').includes('onRequestPatch'),'Farmer characteristics can be updated after authorised evidence review.');
+check(readText('functions/api/ngo/documents/[id].js').includes('onRequestPatch'),'Organisation admins can mark private supporting files reviewed or rejected.');
 check(app.includes('ngoJoinConfigLoaded')&&app.includes('loadNGOJoinConfig'),'Turnstile is initialized after the public membership form is opened.');
 check(app.includes('/api/market-prices?')&&app.includes('/api/ngo/workspace')&&app.includes('/api/geography'),'App calls same-origin server-side data/NGO/geography routes.');
 check(app.includes('/api/ngo/farmers')&&app.includes('/api/ngo/scheme-applications')&&app.includes('/api/ngo-join'),'NGO browser app connects to farmer, scheme tracker and public membership endpoints.');
