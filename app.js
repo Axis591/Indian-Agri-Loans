@@ -338,7 +338,7 @@ let ngoBackendReady=false;
 function showNGOStatus(title,message,code=''){
   const node=$('#ngo-workspace-status');if(!node)return;
   node.hidden=false;
-  const signIn=['ACCESS_SIGN_IN_REQUIRED','NGO_USER_NOT_PROVISIONED','ACCESS_ASSERTION_INVALID'].includes(code)?'<a class="secondary-action" href="/api/ngo/workspace" target="_blank" rel="noopener">Open secure sign-in ↗</a>':'';
+  const signIn=['ACCESS_SIGN_IN_REQUIRED','NGO_USER_NOT_PROVISIONED','ACCESS_ASSERTION_INVALID'].includes(code)?'<a class="secondary-action" href="/api/ngo/login" rel="noopener">Open secure sign-in ↗</a>':'';
   const setup=code==='NGO_BACKEND_NOT_CONFIGURED'?'<a class="secondary-action" href="CLOUDFLARE_SETUP_V3.md" target="_blank">Open administrator setup guide ↗</a>':'';
   node.innerHTML='<div class="ngo-status-icon">🔐</div><div class="ngo-status-copy"><b>'+escapeHtml(title)+'</b><span>'+escapeHtml(message)+'</span></div><div class="ngo-status-actions">'+signIn+setup+'<button class="primary-action" type="button" id="ngo-status-refresh">Check again</button></div>';
   $('#ngo-status-refresh')?.addEventListener('click',loadNGOWorkspace);
@@ -683,8 +683,9 @@ async function loadFarmerDocuments(farmerId){
     if(!response.ok)throw new Error(data.error||'Could not load document list.');
     const docs=data.documents||[];
     if(!docs.length){node.innerHTML='<div class="no-directory-results">No supporting files uploaded.</div>';return;}
-    node.innerHTML=docs.map(d=>'<div class="ngo-doc-row"><span>'+escapeHtml(d.doc_type.replaceAll('_',' '))+' · '+escapeHtml(d.file_name)+' · '+Math.ceil(d.size_bytes/1024)+' KB · '+escapeHtml(d.review_status)+'</span><span><a class="secondary-action" href="/api/ngo/documents/'+encodeURIComponent(d.id)+'">Download</a>'+(ngoData.role==='admin'?'<button type="button" class="secondary-action" data-delete-doc="'+escapeHtml(d.id)+'">Delete</button>':'')+'</span></div>').join('');
+    node.innerHTML=docs.map(d=>'<div class="ngo-doc-row"><span>'+escapeHtml(d.doc_type.replaceAll('_',' '))+' · '+escapeHtml(d.file_name)+' · '+Math.ceil(d.size_bytes/1024)+' KB · '+escapeHtml(d.review_status)+'</span><span><a class="secondary-action" href="/api/ngo/documents/'+encodeURIComponent(d.id)+'">Download</a>'+(ngoData.role==='admin'?'<button type="button" class="secondary-action" data-review-doc="'+escapeHtml(d.id)+'" data-review-status="'+(d.review_status==='reviewed'?'rejected':'reviewed')+'">'+(d.review_status==='reviewed'?'Mark rejected':'Mark staff-reviewed')+'</button><button type="button" class="secondary-action" data-delete-doc="'+escapeHtml(d.id)+'">Delete</button>':'')+'</span></div>').join('');
     node.querySelectorAll('[data-delete-doc]').forEach(b=>b.addEventListener('click',()=>deleteNGOFarmerDocument(b.dataset.deleteDoc,farmerId)));
+    node.querySelectorAll('[data-review-doc]').forEach(b=>b.addEventListener('click',()=>reviewNGOFarmerDocument(b.dataset.reviewDoc,b.dataset.reviewStatus,farmerId)));
     $('#ngo-doc-status').textContent='Files are private to this organisation and marked for manual review.';
   }catch(error){$('#ngo-doc-status').textContent=error.message;}
 }
@@ -703,6 +704,15 @@ async function uploadNGOFarmerDocument(event){
     await loadFarmerDocuments(farmerId);await loadNGOCaseData();
   }catch(error){$('#ngo-doc-status').textContent=error.message;}
   finally{button.disabled=false;}
+}
+async function reviewNGOFarmerDocument(documentId,reviewStatus,farmerId){
+  if(ngoData.role!=='admin')return;
+  try{
+    const response=await fetch('/api/ngo/documents/'+encodeURIComponent(documentId),{method:'PATCH',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify({reviewStatus})});
+    const data=await response.json().catch(()=>({}));
+    if(!response.ok)throw new Error(data.error||'Could not update document review status.');
+    await loadFarmerDocuments(farmerId);await loadNGOCaseData();
+  }catch(error){$('#ngo-doc-status').textContent=error.message;}
 }
 async function deleteNGOFarmerDocument(documentId,farmerId){
   if(ngoData.role!=='admin'||!confirm('Permanently delete this private supporting file?'))return;
