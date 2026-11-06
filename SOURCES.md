@@ -211,3 +211,14 @@ Microfinance pricing can be materially higher than KCC. The product is therefore
 | Cloudflare Access JWT validation | https://developers.cloudflare.com/cloudflare-one/access-controls/applications/http-apps/authorization-cookie/validating-json/ | API verifies `Cf-Access-Jwt-Assertion`, signature, issuer and Access Application AUD tag. |
 | Cloudflare D1 migrations | https://developers.cloudflare.com/d1/reference/migrations/ and https://developers.cloudflare.com/d1/wrangler-commands/ | Run checked-in `migrations/0001_ngo_secure.sql` against the remote D1 database before enabling NGO users. |
 | DPDP Act commencement Gazette | https://www.meity.gov.in/static/uploads/2025/11/c56ceae6c383460ca69577428d36828b.pdf | Gazette notification dated 13 Nov 2025 specifies phased commencement; key provisions are scheduled 18 months after publication. The public NGO V3 schema intentionally avoids personal farmer identity fields. |
+
+
+## Crop Residue Management (CRM) Scheme — checked 07 November 2026
+
+| Source | Official link | What it supports / important limit |
+|---|---|---|
+| Ministry of Agriculture & Farmers Welfare — Rajya Sabha reply, Starred Question 153 (13 Feb 2026) | https://sansad.in/getFile/annex/270/AS153_oc0G6B.pdf?source=pqars | Identifies Punjab, Haryana, Uttar Pradesh, Madhya Pradesh and NCT of Delhi as the CRM implementation States; describes 50% assistance for eligible farmers' machinery, 80% for eligible Custom Hiring Centres and 65% for eligible paddy-straw supply-chain machinery/projects. State targets, machine ceilings and applicant eligibility still apply. |
+| Press Information Bureau — inter-ministerial review of stubble management (13 Oct 2026) | https://www.pib.gov.in/PressReleasePage.aspx?PRID=2322991&lang=1&reg=3 | Reports FY 2026–27 CRM allocation of ₹592.57 crore, of which ₹430.87 crore had been released at the time of the review. This is a national programme allocation, not a per-farmer benefit. |
+| Farm Machinery Direct Benefit Transfer portal | https://agrimachinery.nic.in/ | Official portal for farmer, entrepreneur and society/SHG/FPO registration, machinery application and application tracking. The CRM option and live target must be confirmed with the implementing State. |
+| FMDBT Farmer User Manual | https://agrimachinery.nic.in/Files/Product/DBT-FarmerManual----PDF.pdf | Describes farmer registration, checking implement/location availability, individual machinery and Custom Hiring Centre workflows. Manual version is older; follow the current portal and State notification where they differ. |
+
