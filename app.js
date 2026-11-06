@@ -261,9 +261,11 @@ function updateAssistantLocation(){
   if(nd&&geography.length)setOptions(nd,districtsFor(stateSelect.value),districtSelect.value);
   if(typeof syncMarketLocation==='function')syncMarketLocation();
 }
-function potentialMatches(profile,land,activity,need){
+function potentialMatches(profile,land,activity,need,location=null){
+  const targetState=location?.state||stateSelect.value;
+  const targetDistrict=location?.district||districtSelect.value;
   return records.filter(r=>{
-    if(!applicable(r,stateSelect.value,districtSelect.value) || r.type==='informal' || r.matchRules?.excludeFromAssistant) return false;
+    if(!applicable(r,targetState,targetDistrict) || r.type==='informal' || r.matchRules?.excludeFromAssistant) return false;
     const rules=r.matchRules||{};
     const allowed=rules.profiles||r.profiles||[];
     const womenLandMatch=profile==='women_farmer'&&((land==='owner'&&allowed.includes('owner'))||((land==='tenant'||land==='sharecropper')&&allowed.includes('tenant'))||(land==='landless'&&allowed.includes('allied')));
@@ -331,7 +333,7 @@ function resetEligibility(){
 }
 const ngoMetricKeys=['farmersReached','counsellingSessions','applicationsSubmitted','applicationsApproved','benefitsReceived','campsHeld','villagesReached'];
 const ngoEmptyMetrics={farmersReached:0,counsellingSessions:0,applicationsSubmitted:0,applicationsApproved:0,benefitsReceived:0,campsHeld:0,villagesReached:0};
-let ngoData={organisation:'',role:'',metrics:{...ngoEmptyMetrics},followups:[]};
+let ngoData={organisation:'',role:'',metrics:{...ngoEmptyMetrics},followups:[],farmers:[],applications:[]};
 let ngoBackendReady=false;
 function showNGOStatus(title,message,code=''){
   const node=$('#ngo-workspace-status');if(!node)return;
@@ -355,20 +357,28 @@ function renderNGOWorkspace(){
   $('#ngo-app-total').textContent=Number(m.applicationsSubmitted)||0;
   $('#ngo-approval-rate').textContent=m.applicationsSubmitted?Math.round((m.applicationsApproved/m.applicationsSubmitted)*100)+'%':'—';
   $('#ngo-benefit-total').textContent=Number(m.benefitsReceived)||0;
-  $('#ngo-org-label').textContent='Organisation: '+ngoData.organisation;$('#ngo-role-label').textContent='Role: '+ngoData.role;
+  $('#ngo-org-label').textContent='Organisation: '+ngoData.organisation;
+  $('#ngo-role-label').textContent='Role: '+ngoData.role;
   $('#ngo-sync-label').textContent=m.updatedAt?'Last saved '+new Date(m.updatedAt).toLocaleString('en-IN'):'Connected to secure database';
   const readonly=ngoData.role==='viewer';
   document.querySelectorAll('[data-ngo-metric]').forEach(el=>el.disabled=readonly);
   $('#ngo-save-metrics').disabled=readonly;
   $('#ngo-followup-form').querySelectorAll('input,select,button').forEach(el=>el.disabled=readonly);
+  $('#ngo-farmer-form')?.querySelectorAll('input,select,textarea,button').forEach(el=>el.disabled=readonly);
+  const docsForm=$('#ngo-doc-form');if(docsForm)docsForm.querySelectorAll('input,select,button').forEach(el=>el.disabled=readonly);
   const list=$('#ngo-followup-list');
-  if(!ngoData.followups.length){list.innerHTML='<div class="no-directory-results">No references added yet. Use an internal code only. Do not include any person-specific details.</div>';window.refreshAgriTranslation?.();return;}
-  list.innerHTML='<div class="ngo-table-wrap"><table class="ngo-table"><thead><tr><th>Internal reference</th><th>Location</th><th>Support route</th><th>Status</th><th>Date</th><th></th></tr></thead><tbody>'+ngoData.followups.map(x=>'<tr><td><b>'+escapeHtml(x.ref)+'</b></td><td>'+escapeHtml(x.district)+', '+escapeHtml(x.state)+'</td><td>'+escapeHtml(x.support)+'</td><td><span class="ngo-stage">'+escapeHtml(x.status)+'</span></td><td>'+escapeHtml(x.date)+'</td><td>'+(ngoData.role==='admin'?'<button class="ngo-remove" type="button" data-delete-ngo-ref="'+escapeHtml(x.id)+'" aria-label="Delete internal reference">×</button>':'')+'</td></tr>').join('')+'</tbody></table></div>';
-  list.querySelectorAll('[data-delete-ngo-ref]').forEach(btn=>btn.addEventListener('click',()=>deleteNGOFollowup(btn.dataset.deleteNgoRef)));
+  if(!ngoData.followups.length){
+    list.innerHTML='<div class="no-directory-results">No references added yet. Use an internal code only. Do not include any person-specific details.</div>';
+  }else{
+    list.innerHTML='<div class="ngo-table-wrap"><table class="ngo-table"><thead><tr><th>Internal reference</th><th>Location</th><th>Support route</th><th>Status</th><th>Date</th><th></th></tr></thead><tbody>'+ngoData.followups.map(x=>'<tr><td><b>'+escapeHtml(x.ref)+'</b></td><td>'+escapeHtml(x.district)+', '+escapeHtml(x.state)+'</td><td>'+escapeHtml(x.support)+'</td><td><span class="ngo-stage">'+escapeHtml(x.status)+'</span></td><td>'+escapeHtml(x.date)+'</td><td>'+(ngoData.role==='admin'?'<button class="ngo-remove" type="button" data-delete-ngo-ref="'+escapeHtml(x.id)+'" aria-label="Delete internal reference">×</button>':'')+'</td></tr>').join('')+'</tbody></table></div>';
+    list.querySelectorAll('[data-delete-ngo-ref]').forEach(btn=>btn.addEventListener('click',()=>deleteNGOFollowup(btn.dataset.deleteNgoRef)));
+  }
+  renderNGOFarmerList();
+  renderNGOSchemeApplications();
   window.refreshAgriTranslation?.();
 }
 async function loadNGOWorkspace(){
-  showNGOStatus('Checking secure NGO workspace…','Connecting to the protected Cloudflare Access and D1 service.');
+  showNGOStatus('Checking secure NGO workspace…','Connecting to the protected organisation database.');
   try{
     const response=await fetch('/api/ngo/workspace',{credentials:'same-origin',cache:'no-store'});
     const contentType=response.headers.get('content-type')||'';
@@ -376,13 +386,18 @@ async function loadNGOWorkspace(){
     if(!response.ok||!contentType.includes('application/json')){
       ngoBackendReady=false;$('#ngo-workspace-ready').hidden=true;
       const code=data.code||(response.status===401?'ACCESS_SIGN_IN_REQUIRED':'NGO_API_UNAVAILABLE');
-      const title=code==='NGO_BACKEND_NOT_CONFIGURED'?'Secure workspace needs administrator setup':response.status===401?'Sign in with your organisation account':response.status===403?'Access is restricted to authorised NGO members':'Secure workspace unavailable';
-      const detail=code==='NGO_BACKEND_NOT_CONFIGURED'?'D1, Access and environment variables are not yet configured. No NGO data is being saved. Required: '+(data.required||[]).join(' · '):(data.error||'The request could not be authorised.');
+      const title=code==='NGO_BACKEND_NOT_CONFIGURED'?'Secure workspace needs administrator setup':response.status===401?'Sign in with your approved organisation email':response.status===403?'Access is restricted to approved NGO members':'Secure workspace unavailable';
+      const detail=code==='NGO_BACKEND_NOT_CONFIGURED'?'The database and Access settings are not configured. Required: '+(data.required||[]).join(' · '):(data.error||'The request could not be authorised.');
       showNGOStatus(title,detail,code);return;
     }
-    ngoData={organisation:data.organisation,role:data.role,metrics:{...ngoEmptyMetrics,...(data.metrics||{})},followups:Array.isArray(data.followups)?data.followups:[]};
-    ngoBackendReady=true;$('#ngo-workspace-status').hidden=true;renderNGOWorkspace();
-  }catch(error){ngoBackendReady=false;$('#ngo-workspace-ready').hidden=true;showNGOStatus('Could not connect to secure workspace','Check the network and try again. This page does not save NGO data in local browser storage.');}
+    ngoData={organisation:data.organisation,role:data.role,metrics:{...ngoEmptyMetrics,...(data.metrics||{})},followups:Array.isArray(data.followups)?data.followups:[],farmers:[],applications:[]};
+    ngoBackendReady=true;$('#ngo-workspace-status').hidden=true;
+    await loadNGOCaseData();
+    renderNGOWorkspace();
+  }catch(error){
+    ngoBackendReady=false;$('#ngo-workspace-ready').hidden=true;
+    showNGOStatus('Could not connect to secure workspace','Check the connection and try again. Private NGO records are not stored in browser local storage.');
+  }
 }
 async function saveNGOMetrics(){
   if(!ngoBackendReady||ngoData.role==='viewer')return;
@@ -418,10 +433,21 @@ function exportNGOCSV(){
 }
 function initNGOWorkspace(){
   populateNGOSelectors();
+  populateNGOJoinAndFarmerSelectors();
+  initNGOJoin();
   $('#ngo-save-metrics')?.addEventListener('click',saveNGOMetrics);
   $('#ngo-followup-form')?.addEventListener('submit',addNGOFollowup);
   $('#ngo-export')?.addEventListener('click',exportNGOCSV);
   $('#ngo-refresh')?.addEventListener('click',loadNGOWorkspace);
+  $('#ngo-farmer-form')?.addEventListener('submit',addNGOFarmer);
+  $('#ngo-doc-form')?.addEventListener('submit',uploadNGOFarmerDocument);
+  $('#ngo-doc-close')?.addEventListener('click',()=>{$('#ngo-doc-upload-panel').hidden=true;});
+  $('#ngo-applications-refresh')?.addEventListener('click',loadNGOCaseData);
+  $('#ngo-admin-review-toggle')?.addEventListener('click',()=>{
+    const panel=$('#ngo-admin-panel');panel.hidden=!panel.hidden;
+    if(!panel.hidden)loadNGOAdminApplications();
+  });
+  $('#ngo-admin-refresh')?.addEventListener('click',loadNGOAdminApplications);
   loadNGOWorkspace();
 }
 
