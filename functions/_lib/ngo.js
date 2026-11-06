@@ -150,7 +150,7 @@ export function auditSafeRef(value) {
   if (typeof value !== "string") return false;
   const ref = value.trim();
   if (!/^[A-Za-z0-9][A-Za-z0-9_-]{2,39}$/.test(ref)) return false;
-  if (/^\\d{10,}$/.test(ref)) return false;
+  if (/^\d{10,}$/.test(ref)) return false;
   if (/(aadhaar|uid|pan|phone|mobile|bank|account|ifsc|passport|voter)/i.test(ref)) return false;
   return true;
 }
@@ -162,6 +162,7 @@ export async function requirePlatformAdmin(context) {
     return { ok: false, response: jsonResponse({ error: "Platform administrator access is not configured.", code: "NGO_PLATFORM_ADMIN_NOT_CONFIGURED" }, 503) };
   }
   const teamDomain = String(env.ACCESS_TEAM_DOMAIN).replace(/\/+$/, "");
+  if (!/^https:\/\/[a-z0-9.-]+$/i.test(teamDomain)) return { ok: false, response: jsonResponse({ error: "Cloudflare Access team domain is invalid." }, 503) };
   const assertion = request.headers.get("Cf-Access-Jwt-Assertion");
   if (!assertion) return { ok: false, response: jsonResponse({ error: "Cloudflare Access sign-in is required.", code: "ACCESS_SIGN_IN_REQUIRED" }, 401) };
   let payload;
