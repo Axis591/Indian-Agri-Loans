@@ -143,20 +143,18 @@ Confirm the original public project still has these Production bindings:
 | `NGO_DB` | `agribridge-ngo` |
 | `NGO_DOCS` | `agribridge-ngo-private-doc` |
 
-The public membership form also needs these Production variables/secrets:
+The public membership form needs these Production variables/secrets:
 
 | Name | Type |
 |---|---|
-| `ACCESS_TEAM_DOMAIN` | Variable — same Zero Trust team domain |
-| `ACCESS_AUD` | Variable — the portal AUD value (the public join readiness check only requires this setting to be present; its public submit route does not rely on a browser-provided assertion) |
 | `NGO_PLATFORM_ADMIN_EMAILS` | Secret recommended |
 | `NGO_JOIN_TURNSTILE_SITE_KEY` | Variable |
 | `NGO_JOIN_TURNSTILE_SECRET` | Secret |
 | `NGO_JOIN_RATE_LIMIT_SALT` | Secret |
 
-The Turnstile sitekey/secret must be for the public hostname `indian-agri-loans.pages.dev` (or another hostname on which the public form is actually used). Keep the secret private. Generate the rate-limit salt locally with `openssl rand -hex 32`.
+The public join form does **not** need Cloudflare Access variables. Its public config endpoint checks that the D1 migration, private R2 binding, platform administrator allowlist, Turnstile keys and rate-limit salt are present before enabling organisation applications. The separate portal alone uses `ACCESS_TEAM_DOMAIN` and its own `ACCESS_AUD`.
 
-The public join endpoint checks that the D1 migration and R2 binding are ready and that these settings exist before it enables the membership form.
+The Turnstile sitekey/secret must be for the public hostname `indian-agri-loans.pages.dev`. Keep the secret private. Generate the rate-limit salt locally with `openssl rand -hex 32`.
 
 ## Step 8 — Deploy and test both projects
 
