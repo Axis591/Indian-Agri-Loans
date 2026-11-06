@@ -3822,5 +3822,133 @@
     "providerKinds": [
       "state-government"
     ]
+  },
+  {
+    "id": "crop-residue-management",
+    "name": "Crop Residue Management (CRM) Scheme",
+    "type": "subsidy",
+    "category": "Stubble management machinery / Custom Hiring Centres / paddy-straw supply chain",
+    "scope": "national",
+    "states": [
+      "Punjab",
+      "Haryana",
+      "Uttar Pradesh",
+      "Madhya Pradesh",
+      "Delhi"
+    ],
+    "districts": "all",
+    "profiles": [
+      "owner",
+      "tenant",
+      "women_shg",
+      "mixed_shg",
+      "fpo",
+      "entrepreneur",
+      "women_farmer"
+    ],
+    "amount": "50% for individual farmers · 80% for eligible CHCs · 65% for eligible paddy-straw supply-chain projects",
+    "amountStatus": "published",
+    "amountNote": "Central assistance is track-specific: 50% of eligible machinery cost for individual farmers; 80% of eligible project/machinery cost for approved Custom Hiring Centres (CHCs); and 65% support for eligible paddy-straw supply-chain project machinery, up to the published maximum support of ₹1.50 crore. Machine-wise ceilings, approved cost norms, beneficiary share, annual State targets and project appraisal apply. The ₹592.57 crore reported for FY 2026–27 is a central programme allocation, not an individual farmer entitlement.",
+    "summary": "A Central Sector programme to reduce paddy-stubble burning by supporting in-situ crop-residue management (mulching and incorporation into soil) and ex-situ collection and utilisation. It supports eligible farmers buying approved machinery, eligible organisations establishing Custom Hiring Centres, and approved paddy-straw supply-chain projects.",
+    "eligibility": "Individual farmers in the currently identified implementation States may receive assistance for eligible crop-residue machinery. Rural entrepreneurs (including farmer entrepreneurs), cooperative societies, registered farmer societies, DAY-NRLM Cluster Level Federations, Self Help Groups, Farmer Producer Organisations and Panchayats may be considered for Custom Hiring Centres. Eligible farmer/entrepreneur/cooperative/FPO/Panchayat aggregators and participating industry projects may be considered for paddy-straw supply-chain support. Applicant categories, land or entity proof, district targets and project conditions are subject to the current State Annual Action Plan and notification.",
+    "process": [
+      "Before spending money, contact the State Agriculture Department or District Agriculture Officer and confirm that the CRM component is active for your State and district for the current financial year. Ask for the State nodal officer, application dates, district target, approved machine list and current subsidy ceilings.",
+      "Open the official Farm Machinery Direct Benefit Transfer (FMDBT) portal at agrimachinery.nic.in. Register or verify the farmer or eligible organisation profile using the identity, State and contact details requested by the portal. Use a State-designated portal instead where the State notification directs applicants there.",
+      "For an individual machine application, choose the implement and location, check availability of the relevant scheme and target, review the displayed subsidy/dealer details, and submit the application through the active State workflow. Do not purchase the machine before the State's required application approval or permit.",
+      "For a Custom Hiring Centre, use the CHC application route where available. Submit the proposed centre location, entity details, eligible machinery package, itemised quotations, project report and bank-finance documents required by the State.",
+      "For a paddy-straw supply-chain project, ask the State nodal department for the current project proposal format, eligible machinery, beneficiary/industry contribution, bank linkage and approval procedure. Obtain written project approval before procurement.",
+      "After approval, follow the State/portal instructions for procurement, dealer invoice and machine identification details. Complete manufacturer/dealer and departmental verification, including any physical inspection, and retain the application reference number.",
+      "Track the individual-machine or CHC application on the official FMDBT portal. Contact the State or district nodal officer if the CRM option, target or application window is not visible; a general portal login does not mean that a CRM window is open."
+    ],
+    "application": "https://agrimachinery.nic.in/",
+    "applicationLabel": "Official FMDBT portal / State application route",
+    "source": "https://sansad.in/getFile/annex/270/AS153_oc0G6B.pdf?source=pqars",
+    "sourceLabel": "Ministry of Agriculture & Farmers Welfare — Rajya Sabha reply on CRM, 13 February 2026",
+    "sources": [
+      {
+        "label": "Rajya Sabha — Availability of machinery and equipment under CRM Scheme (13 Feb 2026)",
+        "url": "https://sansad.in/getFile/annex/270/AS153_oc0G6B.pdf?source=pqars"
+      },
+      {
+        "label": "PIB — Inter-ministerial review of stubble management and FY 2026–27 allocation (13 Oct 2026)",
+        "url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2322991&lang=1&reg=3"
+      },
+      {
+        "label": "Official Farm Machinery Direct Benefit Transfer portal",
+        "url": "https://agrimachinery.nic.in/"
+      },
+      {
+        "label": "FMDBT Farmer User Manual — registration, individual machinery and CHC workflows",
+        "url": "https://agrimachinery.nic.in/Files/Product/DBT-FarmerManual----PDF.pdf"
+      }
+    ],
+    "sourceDate": "Checked 07 Nov 2026",
+    "providerKinds": [
+      "central-government",
+      "state-government"
+    ],
+    "documents": [
+      "Identity and farmer/applicant registration details requested by the portal; Aadhaar may be required by the applicable State workflow.",
+      "Mobile number and bank account/passbook details for validation and any eligible DBT payment.",
+      "Land record / Record of Rights or accepted cultivation proof and machine-use location details, as required by the State.",
+      "Caste/category certificate, where a State notification or beneficiary category requires it.",
+      "Quotation for the eligible machine from a State-approved/empanelled dealer; obtain approval before purchase where required.",
+      "For CHCs: registration documents of the SHG, FPO, cooperative, society, Panchayat or eligible enterprise; centre address/site evidence; project report; machinery quotations; and bank sanction/finance details as required.",
+      "For paddy-straw supply-chain projects: applicant/entity registration, detailed project report, machinery quotations, bank/beneficiary contribution details and proposed industry or end-user linkage, as required by the State."
+    ],
+    "activityTags": [
+      "crop",
+      "machinery",
+      "agri-enterprise",
+      "group-business"
+    ],
+    "matchRules": {
+      "profiles": [
+        "owner",
+        "tenant",
+        "women_shg",
+        "mixed_shg",
+        "fpo",
+        "entrepreneur",
+        "women_farmer"
+      ],
+      "landStatus": [
+        "owner",
+        "tenant",
+        "sharecropper",
+        "group",
+        "landless"
+      ],
+      "activities": [
+        "crop",
+        "machinery",
+        "agri-enterprise",
+        "group-business"
+      ],
+      "supportNeeds": [
+        "subsidy"
+      ],
+      "mustVerify": [
+        "CRM implementation State and district coverage under the current Annual Action Plan",
+        "Open application window, available target and approved implement/machine list",
+        "Machine-wise maximum permissible subsidy, approved cost norm and beneficiary contribution",
+        "Whether prior approval/permit, approved dealer, bank linkage or physical verification is required",
+        "Entity/project eligibility and current DPR requirements for CHC or paddy-straw supply-chain applications"
+      ],
+      "status": "Potential programme match only for the listed implementation States. Verify the current State target, district allocation, live application window and applicant category with the implementing department before procurement."
+    },
+    "verification": {
+      "status": "official_source_checked",
+      "lastChecked": "2026-11-07",
+      "note": "Implementation States and the 50% individual-farmer, 80% CHC and 65% paddy-straw supply-chain assistance tracks were checked against the official Rajya Sabha reply dated 13 February 2026. The 2026–27 national allocation was checked against PIB's 13 October 2026 release. State/district application windows and applicant-level eligibility are not confirmed by these national sources."
+    },
+    "programmeStatus": "state_window_required",
+    "programmeStatusLabel": "2026–27 allocation reported · State/district target and application window must be checked",
+    "programmeStatusNote": "PIB reported a ₹592.57 crore CRM allocation for FY 2026–27, with ₹430.87 crore released as of its 13 October 2026 review. This is a programme-level allocation, not an individual entitlement. State/district targets and live application windows must be confirmed.",
+    "recordVersion": "3.0",
+    "recordClass": "scheme_or_support",
+    "amountDisclosureStatus": "published",
+    "sourceVerificationStatus": "official_source_checked",
+    "lastReviewed": "2026-11-07"
   }
 ]
