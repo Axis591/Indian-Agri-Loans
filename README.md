@@ -209,3 +209,8 @@ See the official Gazette: https://www.meity.gov.in/static/uploads/2025/11/c56cea
 ## NGO Helping Hand deployment
 
 The secure membership and farmer-support workflow is documented in [NGO_HELPING_HAND_SETUP.md](NGO_HELPING_HAND_SETUP.md). Review [NGO_PRIVACY_NOTICE.md](NGO_PRIVACY_NOTICE.md), apply D1 migration 0002 after 0001, bind a private R2 bucket, and configure Cloudflare Access, Turnstile, the NGO join rate-limit salt and platform administrator email list before accepting live applications or farmer profiles. These services are not enabled merely by the GitHub code deployment.
+
+
+## Deployment and release checks
+
+The public production host is Cloudflare Pages. When the Cloudflare Pages Git integration is connected to this repository with `main` as its production branch, pushes to `main` trigger automatic Cloudflare deployments. The optional GitHub Pages backup workflow is skipped unless the repository variable `ENABLE_GITHUB_PAGES=true` is configured. The release-validation workflow runs the V3 catalogue/UI checks, Cloudflare Function module syntax checks and synthetic SQLite tests for NGO D1 migrations 0001 and 0002. These local SQLite tests do not apply migrations to the production D1 database.
