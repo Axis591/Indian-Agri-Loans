@@ -96,10 +96,11 @@ export async function onRequestPost(context) {
   const applicationCode = "AGH-" + day.replace(/-/g, "") + "-" + suffix;
   const trackingToken = randomHex(32);
   const tokenHash = await sha256Hex(trackingToken);
+  const declarationTime = new Date().toISOString();
   try {
     await env.NGO_DB.prepare(
-      "INSERT INTO ngo_applications (id, application_code, tracking_token_hash, org_name, org_type, registration_number, registration_year, state_name, district_name, districts_served, website, contact_name, contact_role, contact_email, contact_phone, work_summary) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
-    ).bind(id, applicationCode, tokenHash, orgName, orgType, registrationNumber, registrationYear, state, district, districtsServed, website, contactName, contactRole, contactEmail, contactPhone, workSummary).run();
+      "INSERT INTO ngo_applications (id, application_code, tracking_token_hash, org_name, org_type, registration_number, registration_year, state_name, district_name, districts_served, website, contact_name, contact_role, contact_email, contact_phone, work_summary, privacy_notice_version, privacy_consent_at, accuracy_confirmed_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+    ).bind(id, applicationCode, tokenHash, orgName, orgType, registrationNumber, registrationYear, state, district, districtsServed, website, contactName, contactRole, contactEmail, contactPhone, workSummary, "ngo-privacy-notice-v1.0", declarationTime, declarationTime).run();
   } catch {
     return jsonResponse({ error: "The application could not be saved. Please retry later." }, 500);
   }
