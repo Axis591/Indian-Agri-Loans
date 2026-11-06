@@ -154,3 +154,37 @@ export function auditSafeRef(value) {
   if (/(aadhaar|uid|pan|phone|mobile|bank|account|ifsc|passport|voter)/i.test(ref)) return false;
   return true;
 }
+
+
+export async function requirePlatformAdmin(context) {
+  const { request, env } = context;
+  if (!env.NGO_DB || !env.ACCESS_TEAM_DOMAIN || !env.ACCESS_AUD || !env.NGO_PLATFORM_ADMIN_EMAILS) {
+    return { ok: false, response: jsonResponse({ error: "Platform administrator access is not configured.", code: "NGO_PLATFORM_ADMIN_NOT_CONFIGURED" }, 503) };
+  }
+  const teamDomain = String(env.ACCESS_TEAM_DOMAIN).replace(/\/+$/, "");
+  const assertion = request.headers.get("Cf-Access-Jwt-Assertion");
+  if (!assertion) return { ok: false, response: jsonResponse({ error: "Cloudflare Access sign-in is required.", code: "ACCESS_SIGN_IN_REQUIRED" }, 401) };
+  let payload;
+  try { payload = await verifyAccessJwt(assertion, teamDomain, env.ACCESS_AUD); }
+  catch { return { ok: false, response: jsonResponse({ error: "Access authentication failed.", code: "ACCESS_ASSERTION_INVALID" }, 403) }; }
+  const email = String(payload.email || "").trim().toLowerCase();
+  const admins = String(env.NGO_PLATFORM_ADMIN_EMAILS).split(/[;,\s]+/).map(x => x.trim().toLowerCase()).filter(Boolean);
+  if (!email || !admins.includes(email)) return { ok: false, response: jsonResponse({ error: "Platform administrator access is restricted.", code: "PLATFORM_ADMIN_REQUIRED" }, 403) };
+  return { ok: true, user: { email, role: "platform_admin" } };
+}
+
+export function requireSameOrigin(request) {
+  const origin = request.headers.get("Origin");
+  if (!origin) return true;
+  try { return new URL(origin).origin === new URL(request.url).origin; }
+  catch { return false; }
+}
+
+export async function sha256Hex(value) {
+  const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(String(value)));
+  return [...new Uint8Array(digest)].map(byte => byte.toString(16).padStart(2, "0")).join("");
+}
+
+export function safeFilename(value) {
+  return String(value || "document").replace(/[\\/\r\n"\x00-\x1f]/g, "_").slice(0, 120) || "document";
+}
