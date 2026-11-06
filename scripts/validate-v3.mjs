@@ -119,6 +119,19 @@ check(app.includes('function renderLoanComparison')&&app.includes('function rend
 const requiredFiles=['_routes.json','functions/api/market-prices.js','functions/api/geography.js','functions/_lib/ngo.js','functions/api/ngo/workspace.js','functions/api/ngo/metrics.js','functions/api/ngo/followups.js','functions/api/ngo/followups/[id].js','functions/api/ngo/login.js','functions/api/ngo-join.js','functions/api/ngo-join-status.js','functions/api/ngo/admin/applications.js','functions/api/ngo/admin/applications/[id].js','functions/api/ngo/farmers.js','functions/api/ngo/farmers/[id].js','functions/api/ngo/farmers/[id]/documents.js','functions/api/ngo/documents/[id].js','functions/api/ngo/scheme-applications.js','functions/api/ngo/scheme-applications/[id].js','migrations/0001_ngo_secure.sql','migrations/0002_ngo_helping_hand.sql','NGO_HELPING_HAND_SETUP.md','NGO_PRIVACY_NOTICE.md','assets/ngo-farmer-import-template.csv','scripts/import-lgd-export.mjs','scripts/test-ngo-migrations.py','CLOUDFLARE_SETUP_V3.md','V3_RELEASE_NOTES.md','COVERAGE_REPORT_V3.md'];
 const missingFiles=requiredFiles.filter(name=>!exists(name));
 check(missingFiles.length===0,missingFiles.join(', ')||'Cloudflare Functions, D1 migration, LGD importer and V3 documents exist.');
+const functionFiles=requiredFiles.filter(name=>name.startsWith('functions/')&&name.endsWith('.js'));
+const unresolvedImports=[];
+for(const name of functionFiles){
+  const source=readText(name);
+  for(const match of source.matchAll(/\\bfrom\\s+['"]([^'"]+)['"]/g)){
+    const specifier=match[1];
+    if(!specifier.startsWith('.'))continue;
+    const resolved=path.posix.normalize(path.posix.join(path.posix.dirname(name),specifier));
+    const candidates=[resolved,resolved+'.js',path.posix.join(resolved,'index.js')];
+    if(!candidates.some(candidate=>exists(candidate)))unresolvedImports.push(name+' -> '+specifier+' (resolved '+resolved+')');
+  }
+}
+check(unresolvedImports.length===0,unresolvedImports.slice(0,15).join('; ')||'Every relative Cloudflare Function import resolves to a repository file.');
 const routes=readJSON('_routes.json');
 check(routes.version===1&&routes.include.includes('/api/*'),'Pages Functions are restricted to /api/* routes.');
 const ngoLib=readText('functions/_lib/ngo.js'),migration=readText('migrations/0001_ngo_secure.sql'),marketProxy=readText('functions/api/market-prices.js');
