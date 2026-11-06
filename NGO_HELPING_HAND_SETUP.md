@@ -150,7 +150,7 @@ A match is only a starting shortlist. Staff must check current eligibility, excl
 
 ## 8. Manual scheme application tracker
 
-For each potential scheme, staff can choose **Add to tracker & open application**. The site creates an organisation-scoped progress record and opens the scheme's official application link.
+For a recommended scheme, staff can choose **Add to tracker & open application**. For a scheme outside the automatic shortlist, the NGO can use the manual scheme selector: choose any saved farmer case, then select any non-informal scheme record in the catalogue that is listed for that farmer's State/District. The site creates an organisation-scoped progress record and opens the scheme's official application link.
 
 The tracker supports identified, preparing, documents pending, ready to submit, submitted, approved, rejected, benefit received and closed stages. Staff can add a non-personal application reference and a short progress note.
 
