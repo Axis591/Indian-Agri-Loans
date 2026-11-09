@@ -21,7 +21,7 @@ export async function onRequestGet({ env }) {
   return jsonResponse({
     enabled: ready,
     siteKey: ready ? String(env.NGO_JOIN_TURNSTILE_SITE_KEY) : "",
-    message: ready ? "Applications are open." : "The NGO application form is awaiting secure setup. The D1 migration, private R2 bucket, Cloudflare Access and Turnstile settings must all be in place."
+    message: ready ? "Applications are open." : "The NGO application form is awaiting setup. Check the production D1 and R2 bindings, administrator email allowlist, Turnstile sitekey and secret, rate-limit salt, and all required NGO tables."
   });
 }
 
